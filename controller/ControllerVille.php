@@ -36,8 +36,8 @@ class ControllerVille{
     }
 
     public static function created(){
-      $ModelVoiture=new ModelVille($_POST['nom'],$_POST['codePostal'],$_POST['departement']);
-      $ModelVoiture->save();
+      $ModelStage=new ModelVille($_POST['nom'],$_POST['codePostal'],$_POST['departement']);
+      $ModelStage->save();
       $controller='ville';
       $view='created';
       $pagetitle='Ville créée';
