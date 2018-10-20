@@ -11,8 +11,8 @@ class ControllerUtilisateur {
             session_start();
             $_SESSION['id'] = $connexion['id'];
             $_SESSION['login'] = $connexion['login'];
-            $_SESSION['email'] = $connexion['email'];
         }
     }
 }
+
 

@@ -6,13 +6,11 @@ class ModelUtilisateur {
     private $id;
     private $login;
     private $mdp;
-    private $email;
     
-    public function __construct($login = NULL, $mdp = NULL, $email = NULL){
-        if(!is_null($login) && !is_null($mdp) && !is_null($email)){
+    public function __construct($login = NULL, $mdp = NULL){
+        if(!is_null($login) && !is_null($mdp)){
             $this->login = $login;
-            $this->mdp = $mdp;
-            $this->email = $email;  
+            $this->mdp = $mdp; 
         }
     }
     
@@ -28,9 +26,6 @@ class ModelUtilisateur {
         return $this->mdp;
     }
     
-    public static function getEmail(){
-        return $this->email;
-    }
     
     public static function setLogin($login){
         $this->login = $login;
@@ -39,14 +34,7 @@ class ModelUtilisateur {
     public static function setMdp($mdp){
         $this->login = $mdp;
     }
-    
-    public static function setemail($email){
-        $this->login = $email;
-    }
-    
-    
-    
-    
+      
     
     public static function connexion($login, $mdp){
         $data = array(':login'=>$login, ':mdp'=>$mdp);
@@ -77,16 +65,15 @@ class ModelUtilisateur {
     public static function afficherTousUtilisateurs(){
         $req = Model::$pdo->query ("SELECT * FROM utilisateurs");
         $req->setFetchMode(PDO::FETCH_CLASS, 'ModelUtilisateur');
-        $tab_voit = $req->fetchAll();
-        return $tab_voit; 
+        $row = $req->fetchAll();
+        return $row; 
     }
     
     public static function ajoutUtilisateur(){
         $erreur = "utilisateur déjà présent dans la base de données";
         $login = htmlspecialchars($this->login);
         $mdp = sha1($this->mdp);
-        $email = htmlspecialchars($this->email);
-        $data = array($login, $mdp, $email);
+        $data = array($login, $mdp);
         $reqVerif = Model::$pdo->prepare("SELECT id FROM utilisateurs WHERE login = :login");
         $reqVerif->execute(array(':login'=>$login));
         $resVerif = $reqVerif->rowcount();
