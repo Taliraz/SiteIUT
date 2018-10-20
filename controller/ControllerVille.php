@@ -12,7 +12,7 @@ class ControllerVille{
     }
 
     public static function read(){
-    	$v=ModelVille::getVilleByImmat($_GET ['id']);
+    	$v=ModelVille::getVilleById($_GET ['id']);
     	if ($v==false){
             $controller='ville';
             $view='erreur';
