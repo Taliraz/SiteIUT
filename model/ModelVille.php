@@ -135,7 +135,7 @@ class ModelVoiture{
   }
 
   public function delete(){
-    $req_prep=Model::$pdo->prepare("DELETE FROM voiture WHERE P_Villes.id=:id");
+    $req_prep=Model::$pdo->prepare("DELETE FROM P_Villes WHERE P_Villes.id=:id");
 
     $values=array(
       "id" => $this->id,
