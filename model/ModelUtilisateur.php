@@ -1,9 +1,9 @@
 <?php 
-require "Model.php";
+require(File::build_path(array("model","Model.php")));
 
 class ModelUtilisateur {
     
-    private $id;
+    private $idUtilisateur;
     private $login;
     private $mdp;
     
@@ -14,8 +14,8 @@ class ModelUtilisateur {
         }
     }
     
-    public static function getId() {
-        return $this->id;
+    public static function getIdUtilisateur() {
+        return $this->idUtilisateur;
     }
     
     public static function getLogin() {
@@ -25,7 +25,6 @@ class ModelUtilisateur {
     public static function getMdp() {
         return $this->mdp;
     }
-    
     
     public static function setLogin($login){
         $this->login = $login;
@@ -38,10 +37,10 @@ class ModelUtilisateur {
     
     public static function connexion($login, $mdp){
         $data = array(':login'=>$login, ':mdp'=>$mdp);
-        $req = Model::$pdo->prepare("SELECT * FROM utilisateurs WHERE login = :login AND mdp = :mdp ");
+        $req = Model::$pdo->prepare("SELECT * FROM P_Utilisateurs WHERE login = :login AND mdp = :mdp ");
         $req->execute($data);
         if ($check = $req->rowcount() != 1) {
-            return "Erreur - Nombre d'utilisateur diférent de 1";
+            return "Erreur - Nombre d'utilisateur différent de 1";
         }
         else {
             $req->setFetchMode(PDO::FETCH_CLASS, 'ModelVoiture');
@@ -50,9 +49,9 @@ class ModelUtilisateur {
         }
     }
     
-    public static function getUtilisateurAvecId($id){
-        $req = Model::$pdo->prepare('SELECT * FROM utilisateurs WHERE id = :id');
-        $req->execute(array(':id'=>$id));
+    public static function getUtilisateurAvecId($idUtilisateur){
+        $req = Model::$pdo->prepare('SELECT * FROM P_Utilisateurs WHERE idUtilisateur = :idUtilisateur');
+        $req->execute(array(':idUtilisateur'=>$idUtilisateur));
         $check = $req->rowcount();
         if($check == 1){
             $req->setFetchMode(PDO::FETCH_CLASS, 'ModelUtilisateur');
@@ -63,29 +62,35 @@ class ModelUtilisateur {
     }
     
     public static function afficherTousUtilisateurs(){
-        $req = Model::$pdo->query ("SELECT * FROM utilisateurs");
+        $req = Model::$pdo->query ("SELECT * FROM P_Utilisateurs");
         $req->setFetchMode(PDO::FETCH_CLASS, 'ModelUtilisateur');
         $row = $req->fetchAll();
         return $row; 
     }
     
-    public static function ajoutUtilisateur(){
+    public function saveUser(){
         $erreur = "utilisateur déjà présent dans la base de données";
         $login = htmlspecialchars($this->login);
         $mdp = sha1($this->mdp);
-        $data = array($login, $mdp);
-        $reqVerif = Model::$pdo->prepare("SELECT id FROM utilisateurs WHERE login = :login");
+        $data = array(':login'=>$login, ':mdp'=>$mdp);
+        $reqVerif = Model::$pdo->prepare("SELECT idUtilisateur FROM P_Utilisateurs WHERE login = :login");
         $reqVerif->execute(array(':login'=>$login));
         $resVerif = $reqVerif->rowcount();
         if($resVerif > 0){
             return $erreur;
         }
         else {
-            $insert = Model::$pdo->prepare("INSERT INTO utilisateurs(login, mdp, email) VALUES(?,?,?)");
-            $insert->execute($data); 
+            $insert = Model::$pdo->prepare("INSERT INTO P_Utilisateurs(login, mdp) VALUES(:login,:mdp)");
+            $insert->execute($data);
+            $getId = Model::$pdo->prepare("SELECT idUtilisateur FROM P_Utilisateurs WHERE login = :login");
+            $getId->execute(array(':login'=>$login));
+            $arrayRetour = $getId->fetch();
+            $idRetour = $arrayRetour[0];
+            return $idRetour;
         }
-    }   
+    }
 }
+
 
 
 

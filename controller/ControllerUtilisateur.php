@@ -1,5 +1,5 @@
 <?php 
-require "ModelUtilisateur.php";
+require(File::build_path(array("model","ModelUtilisateur.php")));
 
 class ControllerUtilisateur {
     public static function connexion($login, $mdp){
