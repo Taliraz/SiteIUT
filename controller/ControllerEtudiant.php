@@ -31,16 +31,23 @@ class ControllerEtudiant {
     
     public static function afficherTousEtudiants(){
         $row = ModelEtudiant::getAll("P_Etudiants", "idEtudiant", "ModelEtudiant");
-        var_dump($row);
-        foreach ($row as $colonne) {
-            echo $colonne->getLogin();
+        if (!empty($row)){
+            foreach ($row as $colonne) {
+                echo $colonne->getLogin();
+            }
         }
+        else { echo "Aucun étudiant"; }
     }
     
     public static function afficherDetails($id){
         $row = ModelEtudiant::getOne("P_Etudiants", $id, "idEtudiant", "ModelEtudiant");
-        foreach ($row as $colonne) {
-            echo $colonne->afficher();
+        if (!empty($row)){
+            foreach ($row as $colonne) {
+                echo $colonne->afficher();
+            }
         }
+        else { echo "Erreur, aucun étudiant portant cet ID"; }
     }
-  
+    
+    
+}

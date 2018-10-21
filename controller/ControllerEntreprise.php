@@ -16,7 +16,7 @@ class ControllerEntreprise {
         ModelEntreprise::modif($idEntreprise, "idUtilisateur" ,"P_Utilisateurs", array("mdp"=>$mdp));
     }
     
-    public static function modifierMdp(){
+    /*public static function modifierMdp(){
         $retour = "";
         $checkUtilisateur = Model::$pdo->prepare("SELECT * FROM P_Entreprise WHERE idEntreprise = :idEntreprise");
         $checkutilisateur->execute(array(':idEntreprise'->$_SESSION['idEntreprise']));
@@ -27,5 +27,25 @@ class ControllerEntreprise {
                 return $retour."Mot de passe modifié avec succès\n";
             }
         }
+    }*/
+    
+    public static function afficherTousEntreprises(){
+        $row = ModelEntreprise::getAll("P_Entreprises", "idEntreprise", "ModelEntreprise");
+        if (!empty($row)){
+            foreach ($row as $colonne) {
+                echo $colonne->getLogin();
+            }
+        }
+        else { echo "Aucune Entreprise"; }
+    }
+    
+    public static function afficherDetails($id){
+        $row = ModelEntreprise::getOne("P_Entreprises", $id, "idEntreprise", "ModelEntreprise");
+        if (!empty($row)){
+            foreach ($row as $colonne) {
+                echo $colonne->afficher();
+            }
+        }
+        else { echo "Erreur, aucune Entreprise portant cet ID"; }
     }
 }
