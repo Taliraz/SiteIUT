@@ -96,7 +96,7 @@ class ModelStage{
 	    );  
 	    $req_prep->execute($values);
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelStage');
-	    $tab_ville = $req_prep->fetchAll();
+	    $tab_stage = $req_prep->fetchAll();
 	    if (empty($tab_stage)){
 	        return false;
 	    }
@@ -112,7 +112,7 @@ class ModelStage{
 	    );  
 	    $req_prep->execute($values);
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelStage');
-	    $tab_ville = $req_prep->fetchAll();
+	    $tab_stage = $req_prep->fetchAll();
 	    if (empty($tab_stage)){
 	        return false;
 	    }
@@ -128,7 +128,7 @@ class ModelStage{
 	    );  
 	    $req_prep->execute($values);
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelStage');
-	    $tab_ville = $req_prep->fetchAll();
+	    $tab_stage = $req_prep->fetchAll();
 	    if (empty($tab_stage)){
 	        return false;
 	    }
@@ -144,7 +144,7 @@ class ModelStage{
 	    );  
 	    $req_prep->execute($values);
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelStage');
-	    $tab_ville = $req_prep->fetchAll();
+	    $tab_stage = $req_prep->fetchAll();
 	    if (empty($tab_stage)){
 	        return false;
 	    }
@@ -160,7 +160,7 @@ class ModelStage{
 	    );  
 	    $req_prep->execute($values);
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelStage');
-	    $tab_ville = $req_prep->fetchAll();
+	    $tab_stage = $req_prep->fetchAll();
 	    if (empty($tab_stage)){
 	        return false;
 	    }
@@ -169,7 +169,7 @@ class ModelStage{
 
 	public function save(){
     try{
-      $req_prep=Model::$pdo->prepare("INSERT INTO P_Villes(idStage,intituleStage,idEntreprise,dateDebStage,dateFinStage,remunere)VALUES(:id,:intitule,:idEntreprise,dateDeb,dateFin,remunere)");
+      $req_prep=Model::$pdo->prepare("INSERT INTO P_Villes(idStage,intituleStage,idEntreprise,dateDebStage,dateFinStage,remunere)VALUES(:id,:intitule,:idEntreprise,:dateDeb,:dateFin,:remunere)");
 
       $values=array(
         "id" => $this->id,
