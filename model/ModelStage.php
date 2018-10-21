@@ -80,7 +80,7 @@ class ModelStage{
 	    );  
 	    $req_prep->execute($values);
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelStage');
-	    $tab_ville = $req_prep->fetchAll();
+	    $tab_stage = $req_prep->fetchAll();
 	    if (empty($tab_stage)){
 	        return false;
 	    }
