@@ -28,6 +28,5 @@ class Model{
 	}
 }
 Model::Init();
-var_dump(Model);
 
 ?>
