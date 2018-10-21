@@ -189,7 +189,7 @@ class ModelStage{
     }
 
     public function delete(){
-    $req_prep=Model::$pdo->prepare("DELETE FROM P_Stages WHERE P_Stages.id=:id");
+    $req_prep=Model::$pdo->prepare("DELETE FROM P_Stages WHERE P_Stages.idStage=:id");
 
     $values=array(
       "id" => $this->id,
