@@ -2,7 +2,7 @@
 class Conf {
    
   static private $databases = array(
-    'hostname' => 'webinfo',
+    'hostname' => 'webinfo.iutmontp.univ-montp2.fr',
     'database' => 'miniermancinit',
     'login' => 'miniermancinit',
     'password' => 'fukakaikotoba'
