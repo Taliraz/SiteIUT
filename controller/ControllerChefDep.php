@@ -11,9 +11,9 @@ class ControllerEtudiant {
         }
     }
     
-    public static function modifierMdpAux($idEtudiant, $nouveauMdp){
+    public static function modifierMdpAux($idChefDep, $nouveauMdp){
         $mdp = sha1($nouveauMdp);
-        ModelEtudiant::modif($idEtudiant, "idUtilisateur" ,"P_Utilisateurs", array("mdp"=>$mdp));
+        ModelChefDep::modif($idChefDep, "idUtilisateur" ,"P_Utilisateurs", array("mdp"=>$mdp));
     }
     
     public static function modifierMdp(){
