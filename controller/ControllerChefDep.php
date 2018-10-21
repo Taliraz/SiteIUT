@@ -1,7 +1,7 @@
 <?php 
 require(File::build_path(array("model","ModelChefDep.php")));
 
-class ControllerEtudiant {
+class ControllerChefDep {
     
     public static function ajoutChefDep($login, $mdp, $idIUT, $nom, $prenom, $email){
         $nouveauChefDep = new ModelChefDep($login, $mdp, $idIUT, $nom, $prenom, $email);
@@ -16,7 +16,7 @@ class ControllerEtudiant {
         ModelChefDep::modif($idChefDep, "idUtilisateur" ,"P_Utilisateurs", array("mdp"=>$mdp));
     }
     
-    public static function modifierMdp(){
+    /*public static function modifierMdp(){
         $retour = "";
         $checkUtilisateur = Model::$pdo->prepare("SELECT * FROM P_ChefDep WHERE idChefDep = :idChefDep");
         $checkutilisateur->execute(array(':idChefDep'->$_SESSION['idChefDep']));
@@ -27,5 +27,25 @@ class ControllerEtudiant {
                 return $retour."Mot de passe modifié avec succès\n";
             }
         }
+    }*/
+    
+    public static function afficherTousChefDep(){
+        $row = ModelChefDep::getAll("P_ChefDep", "idChefDep", "ModelChefDep");
+        if (!empty($row)){
+            foreach ($row as $colonne) {
+                echo $colonne->getLogin();
+            }
+        }
+        else { "Aucun chef de département"; }
+    }
+    
+    public static function afficherDetails($id){
+        $row = ModelChefDep::getOne("P_ChefDep", $id, "idChefDep", "ModelChefDep");
+        if (!empty($row)){
+            foreach ($row as $colonne) {
+                echo $colonne->afficher();
+            }
+        }
+        else { echo "Erreur, aucun chef de département portant cet ID"; }
     }
 }

@@ -69,7 +69,7 @@ class ModelUtilisateur {
     }
     
     public static function getOne($table, $id, $typeId, $class){
-        $req = Model::$pdo->query ("SELECT * FROM $table JOIN P_Utilisateurs ON idUtilisateur = $typeId WHERE idEtudiant = $id");
+        $req = Model::$pdo->query ("SELECT * FROM $table JOIN P_Utilisateurs ON idUtilisateur = $typeId WHERE $typeId = $id");
         $req->setFetchMode(PDO::FETCH_CLASS, $class);
         $row = $req->fetchAll();
         return $row; 
@@ -93,6 +93,7 @@ class ModelUtilisateur {
             $getId->execute(array(':login'=>$login));
             $arrayRetour = $getId->fetch();
             $idRetour = $arrayRetour[0];
+            
             return $idRetour;
         }
     }

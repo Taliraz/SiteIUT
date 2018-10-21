@@ -2,79 +2,79 @@
 require(File::build_path(array("model","ModelUtilisateur.php")));
 
 class ModelContactEntreprise extends ModelUtilisateur {
-    private $nom;
-    private $prenom;
-    private $fonction;
-    private $telephone;
-    private $email;
+    private $nomContact;
+    private $prenomContact;
+    private $fonctionContact;
+    private $telephoneContact;
+    private $emailContact;
     private $idEntreprise;
     
     public function __construct($login = null, $mdp = null, $nom = null, $prenom = null, $fonction = null, $telephone = null, $email = null, $idEntreprise = null){
-        if (!is_null($login) && !is_null($mdp) && !is_null($nom) && !is_null($prenom) && !is_null($fonction) && !is_null($telephone) && !is_null($email) && !is_null($idEntreprise))) {
+        if (!is_null($login) && !is_null($mdp) && !is_null($nom) && !is_null($prenom) && !is_null($fonction) && !is_null($telephone) && !is_null($email) && !is_null($idEntreprise)) {
             parent::__construct($login, $mdp);
-            $this->nom = $nom;
-            $this->prenom = $prenom;
-            $this->fonction = $fonction;
-            $this->telephone = $telephone;
-            $this->email = $email;
+            $this->nomContact = $nom;
+            $this->prenomContact = $prenom;
+            $this->fonctionContact = $fonction;
+            $this->telephoneContact = $telephone;
+            $this->emailContact = $email;
             $this->idEntreprise = $idEntreprise;
         }
     }
     
-    public static function getNom() {
-        return $this->nom;
+    public function getNomContact() {
+        return $this->nomContact;
     }
     
-    public static function getprenom() {
-        return $this->prenom;
+    public function getprenomContact() {
+        return $this->prenomContact;
     }
     
-    public static function getFonction() {
-        return $this->fonction;
+    public function getFonctionContact() {
+        return $this->fonctionContact;
     }
     
-    public static function getTelephone() {
-        return $this->telephone;
+    public function getTelephoneContact() {
+        return $this->telephoneContact;
     }
     
-    public static function getEmail() {
-        return $this->email;
+    public function getEmailContact() {
+        return $this->emailContact;
     }
     
-    public static function getIdEntreprise() {
+    public function getIdEntreprise() {
         return $this->idEntreprise;
     }
 
-    public static function setNom($nom) {
-        $this->nom = $nom;
+    public function setNomContact($nom) {
+        $this->nomContact = $nom;
     }
     
-    public static function setPrenom($prenom) {
-        $this->prenom = $prenom;
+    public function setPrenomContact($prenom) {
+        $this->prenomContact = $prenom;
     }
     
-    public static function setFonction($fonction) {
-        $this->fonction = $fonction;
+    public function setFonctionContact($fonction) {
+        $this->fonctionContact = $fonction;
     }
     
-    public static function setTelephone($telephone) {
-        $this->telephone = $telephone;
+    public function setTelephoneContact($telephone) {
+        $this->telephoneContact = $telephone;
     }
     
-    public static function setEmail($email) {
-        $this->email = $email;
+    public function setEmailContact($email) {
+        $this->emailContact = $email;
     }
 
-    public static function setIdEntreprise($idEntreprise) {
+    public function setIdEntreprise($idEntreprise) {
         $this->idEntreprise = $idEntreprise;
     }
     
     public function save(){
-        $prenom = htmlspecialchars($this->prenom);
-        $nom = htmlspecialchars($this->nom);
-        $fonction = htmlspecialchars($this->fonction);
-        $email = htmlspecialchars($this->email);
-        $telephone = htmlspecialchars($this->telephone);
+        $prenom = htmlspecialchars($this->prenomContact);
+        $nom = htmlspecialchars($this->nomContact);
+        $fonction = htmlspecialchars($this->fonctionContact);
+        $email = htmlspecialchars($this->emailContact);
+        $telephone = htmlspecialchars($this->telephoneContact);
         $checkEntreprise = Model::$pdo->prepare("SELECT * FROM P_Entreprises WHERE idEntreprise = :idEntreprise");
         $checkEntreprise->execute(array(':idEntreprise'=>$this->idEntreprise));
         $checkEntrepriseCount = $checkEntreprise->rowcount();
@@ -95,5 +95,9 @@ class ModelContactEntreprise extends ModelUtilisateur {
         $reqModif = Model::$pdo->prepare("UPDATE $table SET $colonne = '$value' WHERE $nomId = $id ");
         $reqModif->execute(array($colonne));
         }
+    }
+    
+    public function afficher(){
+        echo 'Etudiant <br> NOM : '.$this->nomContact.' <br> PRENOM : '.$this->prenomContact.'<br> LOGIN : '.$this->login.'<br> MDP : '.$this->mdp.'<br> FONCTION :'.$this->fonctionContact;
     }
 }

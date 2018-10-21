@@ -4,94 +4,95 @@ require(File::build_path(array("model","ModelUtilisateur.php")));
 class ModelEntreprise extends ModelUtilisateur {
     private $numSiret;
     private $idVille;
-    private $nom;
-    private $site;
-    private $adresse;
-    private $telephone;
+    private $nomEntreprise;
+    private $siteEntreprise;
+    private $adresseEntreprise;
+    private $telephoneEntreprise;
     private $estAccepte;
     
     public function __construct($login = null, $mdp = null, $numSiret = null, $idVille = null, $nom = null, $site = null, $adresse = null, $telephone = null){
-        if (!is_null($login) && !is_null($mdp) && !is_null($numSiret) && !is_null($idVille) && !is_null($nom) && !is_null($site) && !is_null($adresse) && !is_null($telephone))) {
+        if (!is_null($login) && !is_null($mdp) && !is_null($numSiret) && !is_null($idVille) && !is_null($nom) && !is_null($site) && !is_null($adresse) && !is_null($telephone)) {
             parent::__construct($login, $mdp);
             $this->numSiret = $numSiret;
             $this->idVille = $idVille;
-            $this->nom = $nom;
-            $this->site = $site;
-            $this->adresse = $adresse;
-            $this->telephone = $telephone;
-            $this->estAccepte = false;
+            $this->nomEntreprise = $nom;
+            $this->siteEntreprise = $site;
+            $this->adresseEntreprise = $adresse;
+            $this->telephoneEntreprise = $telephone;
+            $this->estAccepte = 0;
         }
     }
     
-    public static function getNumSiret() {
+    public function getNumSiret() {
         return $this->numSiret;
     }
     
-    public static function getIdVille() {
+    public function getIdVille() {
         return $this->idVille;
     }
     
-    public static function getNom() {
+    public function getNom() {
         return $this->nom;
     }
     
-    public static function getSite() {
+    public function getSite() {
         return $this->site;
     }
     
-    public static function getAdresse() {
+    public function getAdresse() {
         return $this->adresse;
     }
     
-    public static function getTelephone() {
+    public function getTelephone() {
         return $this->telephone;
     }
     
-    public static function getEstAccepte() {
+    public function getEstAccepte() {
         return $this->estAccepte;
     }
 
-    public static function setNumSiret($numSiret) {
+    public function setNumSiret($numSiret) {
         $this->numSiret = $numSiret;
     }
     
-    public static function setIdVille($idVille) {
+    public function setIdVille($idVille) {
         $this->idVille = $idVille;
     }
     
-    public static function setNom($nom) {
+    public function setNom($nom) {
         $this->nom = $nom;
     }
     
-    public static function setSite($site) {
+    public function setSite($site) {
         $this->site = $site;
     }
     
-    public static function setAdresse($adresse) {
+    public function setAdresse($adresse) {
         $this->adresse = $adresse;
     }
 
-    public static function setTelephone($telephone) {
+    public function setTelephone($telephone) {
         $this->telephone = $telephone;
     }
     
-    public static function setEstAccepte($estAccepte) {
+    public function setEstAccepte($estAccepte) {
         $this->estAccepte = $estAccepte;
     }
     
     public function save(){
         $numSiret = htmlspecialchars($this->numSiret);
-        $nom = htmlspecialchars($this->nom);
-        $site = htmlspecialchars($this->site);
-        $adresse = htmlspecialchars($this->adresse);
-        $telephone = htmlspecialchars($this->telephone);
+        $nom = htmlspecialchars($this->nomEntreprise);
+        $site = htmlspecialchars($this->siteEntreprise);
+        $adresse = htmlspecialchars($this->adresseEntreprise);
+        $telephone = htmlspecialchars($this->telephoneEntreprise);
         $checkVille = Model::$pdo->prepare("SELECT * FROM P_Villes WHERE idVille = :idVille");
         $checkVille->execute(array(':idVille'=>$this->idVille));
         $checkVilleCount = $checkVille->rowcount();
         if($checkVilleCount == 1){
             $getIdUtilisateur = $this::saveUser();
             $valId = (int)$getIdUtilisateur;
-            $data = array(':idEntreprise'=>$valId, ':numSiret'=>$numSiret, ':idVille'=>$this->idVille, ':nom'=>$nom, ':site'=>$site, ':adresse'=>$adresse, ':telephone'=>$telephone, ':esAccepte'=>$this->estAccepte);
+            $data = array(':idEntreprise'=>$valId, ':numSiret'=>$numSiret, ':idVille'=>$this->idVille, ':nom'=>$nom, ':site'=>$site, ':adresse'=>$adresse, ':telephone'=>$telephone, ':estAccepte'=>$this->estAccepte);
+            var_dump($data);
             $insert = Model::$pdo->prepare("INSERT INTO P_Entreprises(idEntreprise, numSiret, idVille, nomEntreprise, siteEntreprise,  adresseEntreprise, numTelEntreprise, estAccepte) VALUES(:idEntreprise, :numSiret, :idVille, :nom, :site, :adresse, :telephone, :estAccepte)");
             $insert->execute($data);
         }
@@ -105,5 +106,9 @@ class ModelEntreprise extends ModelUtilisateur {
         $reqModif = Model::$pdo->prepare("UPDATE $table SET $colonne = '$value' WHERE $nomId = $id ");
         $reqModif->execute(array($colonne));
         }
+    }
+    
+    public function afficher(){
+        echo 'Entreprise <br> NOM : '.$this->nomEntreprise.' <br> SITE : '.$this->siteEntreprise.'<br> LOGIN : '.$this->login.'<br> MDP : '.$this->mdp.'<br> TELEPHONE :'.$this->telephoneEntreprise;
     }
 }
