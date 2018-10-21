@@ -3,67 +3,67 @@ require(File::build_path(array("model","ModelUtilisateur.php")));
 
 class ModelEtudiant extends ModelUtilisateur {
     private $idIUT;
-    private $nom;
-    private $prenom;
+    private $nomEtudiant;
+    private $prenomEtudiant;
     private $anneeInscription;
-    private $email;
+    private $mailEtudiant;
     
-    public function __construct($login = null, $mdp = null, $idIUT = null, $nom = null, $prenom = null, $anneeInscription = null, $email = null){
-        if (!is_null($login) && !is_null($mdp) && !is_null($nom) && !is_null($prenom) && !is_null($email) && !is_null($anneeInscription)) {
+    public function __construct($login = null, $mdp = null, $idIUT = null, $nomEtudiant = null, $prenomEtudiant = null, $anneeInscription = null, $mailEtudiant = null){
+        if (!is_null($login) && !is_null($mdp) && !is_null($nomEtudiant) && !is_null($prenomEtudiant) && !is_null($mailEtudiant) && !is_null($anneeInscription)) {
             parent::__construct($login, $mdp);
-            $this->nom = $nom;
-            $this->prenom = $prenom;
-            $this->email = $email;
+            $this->nomEtudiant = $nomEtudiant;
+            $this->prenomEtudiant = $prenomEtudiant;
+            $this->mailEtudiant = $mailEtudiant;
             $this->anneeInscription = $anneeInscription;
             $this->idIUT = $idIUT;
         }
     }
-
-    public static function getNom() {
-        return $this->nom;
+    
+    public function getNom() {
+        return $this->nomEtudiant;
     }
     
-    public static function getPrenom() {
-        return $this->prenom;
+    public function getPrenom() {
+        return $this->prenomEtudiant;
     }
     
-    public static function getEmail() {
-        return $this->email;
+    public function getEmail() {
+        return $this->mailEtudiant;
     }
     
-    public static function getAnneeInscription() {
+    public function getAnneeInscription() {
         return $this->anneeInscription;
     }
     
-    public static function getIdIUT() {
+    public function getIdIUT() {
         return $this->idIUT;
     }
     
-    public static function setNom($nom) {
-        $this->nom = $nom;
+    public function setNom($nom) {
+        $this->nomEtudiant = $nom;
     }
     
-    public static function setPrenom($prenom) {
-        $this->prenom = $prenom;
+    public function setPrenom($prenom) {
+        $this->prenomEtudiant = $prenom;
     }
     
-    public static function setEmail($email) {
-        $this->email = $email;
+    public function setEmail($email) {
+        $this->mailEtudiant = $email;
     }
     
-    public static function setAnneeInscription($anneeInscription) {
+    public function setAnneeInscription($anneeInscription) {
         $this->anneeInscription = $anneeInscription;
     }
     
-    public static function setIdIUT($idIUT) {
+    public function setIdIUT($idIUT) {
         $this->idIUT = $idIUT;
     }
     
     public function save(){
-        $nom = htmlspecialchars($this->nom);
-        $prenom = htmlspecialchars($this->prenom);
+        $nom = htmlspecialchars($this->nomEtudiant);
+        $prenom = htmlspecialchars($this->prenomEtudiant);
         $anneeInscription = htmlspecialchars($this->anneeInscription);
-        $email = htmlspecialchars($this->email);
+        $email = htmlspecialchars($this->mailEtudiant);
         $checkIUT = Model::$pdo->prepare("SELECT * FROM P_IUTs WHERE idIUT = :idIUT");
         $checkIUT->execute(array(':idIUT'=>$this->idIUT));
         $checkIUTCount = $checkIUT->rowcount();
@@ -85,4 +85,39 @@ class ModelEtudiant extends ModelUtilisateur {
         $reqModif->execute(array($colonne));
         }
     }
+    
+    public function afficher(){
+        echo 'Etudiant <br> NOM : '.$this->nomEtudiant.' <br> PRENOM : '.$this->prenomEtudiant.'<br> LOGIN : '.$this->login.'<br> MDP : '.$this->mdp.'<br> ANNEE INSCRIPTION :'.$this->anneeInscription;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

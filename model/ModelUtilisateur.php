@@ -3,9 +3,9 @@ require(File::build_path(array("model","Model.php")));
 
 class ModelUtilisateur {
     
-    private $idUtilisateur;
-    private $login;
-    private $mdp;
+    protected $idUtilisateur;
+    protected $login;
+    protected $mdp;
     
     public function __construct($login = NULL, $mdp = NULL){
         if(!is_null($login) && !is_null($mdp)){
@@ -14,23 +14,23 @@ class ModelUtilisateur {
         }
     }
     
-    public static function getIdUtilisateur() {
+    public function getIdUtilisateur() {
         return $this->idUtilisateur;
     }
     
-    public static function getLogin() {
+    public function getLogin() {
         return $this->login;
     }
     
-    public static function getMdp() {
+    public function getMdp() {
         return $this->mdp;
     }
     
-    public static function setLogin($login){
+    public function setLogin($login){
         $this->login = $login;
     }
     
-    public static function setMdp($mdp){
+    public function setMdp($mdp){
         $this->login = $mdp;
     }
       
@@ -61,9 +61,16 @@ class ModelUtilisateur {
         else { return "Erreur - Utilisateur non trouvé"; }
     }
     
-    public static function afficherTousUtilisateurs(){
-        $req = Model::$pdo->query ("SELECT * FROM P_Utilisateurs");
-        $req->setFetchMode(PDO::FETCH_CLASS, 'ModelUtilisateur');
+    public static function getAll($table, $typeId, $class){
+        $req = Model::$pdo->query ("SELECT * FROM $table JOIN P_Utilisateurs ON idUtilisateur = $typeId");
+        $req->setFetchMode(PDO::FETCH_CLASS, $class);
+        $row = $req->fetchAll();
+        return $row;    
+    }
+    
+    public static function getOne($table, $id, $typeId, $class){
+        $req = Model::$pdo->query ("SELECT * FROM $table JOIN P_Utilisateurs ON idUtilisateur = $typeId WHERE idEtudiant = $id");
+        $req->setFetchMode(PDO::FETCH_CLASS, $class);
         $row = $req->fetchAll();
         return $row; 
     }
@@ -90,6 +97,7 @@ class ModelUtilisateur {
         }
     }
 }
+
 
 
 

@@ -16,10 +16,10 @@ class ControllerEtudiant {
         ModelEtudiant::modif($idEtudiant, "idUtilisateur" ,"P_Utilisateurs", array("mdp"=>$mdp));
     }
     
-    public static function modifierMdp(){
+    /*public static function modifierMdp(){
         $retour = "";
         $checkUtilisateur = Model::$pdo->prepare("SELECT * FROM P_Etudiants WHERE idEtudiant = :idEtudiant");
-        $checkutilisateur->execute(array(':idEtudiant'->$_SESSION['idUtilisateur']));
+        $checkutilisateur->execute(array(':idEtudiant'=>$_SESSION['idUtilisateur']));
         $existe = $checkUtilisateur->rowcount();
         if(isset $_SESSION['idUtilisateur'] && $existe == 1){
             if (isset($_POST['mdp']) && !is_null($_POST['mdp']) && $_POST['mdp'] != $_SESSION['mdp']){
@@ -27,5 +27,20 @@ class ControllerEtudiant {
                 return $retour."Mot de passe modifié avec succès\n";
             }
         }
+    }*/
+    
+    public static function afficherTousEtudiants(){
+        $row = ModelEtudiant::getAll("P_Etudiants", "idEtudiant", "ModelEtudiant");
+        var_dump($row);
+        foreach ($row as $colonne) {
+            echo $colonne->getLogin();
+        }
     }
-}
+    
+    public static function afficherDetails($id){
+        $row = ModelEtudiant::getOne("P_Etudiants", $id, "idEtudiant", "ModelEtudiant");
+        foreach ($row as $colonne) {
+            echo $colonne->afficher();
+        }
+    }
+  
