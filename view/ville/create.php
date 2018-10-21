@@ -12,7 +12,7 @@
             <input type="text" placeholder="Ex : 34000" name="codePostal" id="codePostal_id" required/>
           </p>
           <p>
-            <label for="departement_id">Marque</label> :
+            <label for="departement_id">Departement</label> :
             <input type="text" placeholder="Ex : Herault" name="departement" id="departement_id" required/>
           </p>
           <p>

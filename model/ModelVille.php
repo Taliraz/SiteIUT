@@ -79,7 +79,7 @@ class ModelVoiture{
 	    if (empty($tab_ville)){
 	        return false;
 	    }
-	    return $tab_ville[0];
+	    return $tab_ville;
 	}
 
 	public static function getVilleByCodePostal($codePostal) {
@@ -95,7 +95,7 @@ class ModelVoiture{
 	    if (empty($tab_ville)){
 	        return false;
 	    }
-	    return $tab_ville[0];
+	    return $tab_ville;
 	}
 
 	public static function getVilleByDepartement($departement) {
@@ -111,7 +111,7 @@ class ModelVoiture{
 	    if (empty($tab_ville)){
 	        return false;
 	    }
-	    return $tab_ville[0];
+	    return $tab_ville;
 	}
 
 	public function save(){
@@ -135,7 +135,7 @@ class ModelVoiture{
   }
 
   public function delete(){
-    $req_prep=Model::$pdo->prepare("DELETE FROM voiture WHERE P_Villes.id=:id");
+    $req_prep=Model::$pdo->prepare("DELETE FROM P_Villes WHERE P_Villes.id=:id");
 
     $values=array(
       "id" => $this->id,
