@@ -52,7 +52,7 @@ class ModelEntreprise extends ModelUtilisateur {
     }
 
     public static function setNumSiret($numSiret) {
-        $this->numSiret = $nnumSiret;
+        $this->numSiret = $numSiret;
     }
     
     public static function setIdVille($idVille) {
@@ -91,7 +91,7 @@ class ModelEntreprise extends ModelUtilisateur {
         if($checkVilleCount == 1){
             $getIdUtilisateur = $this::saveUser();
             $valId = (int)$getIdUtilisateur;
-            $data = array(':idEntreprise'=>$valId, ':numSiret'=>$numSiret, ':idVille'=>$this->idVille, ':nom'=>$nom, ':site'=>$site, ':adresse'=>$adresse, ':telephone'=>$telephone, ':esAccepte'=>this->estAccepte);
+            $data = array(':idEntreprise'=>$valId, ':numSiret'=>$numSiret, ':idVille'=>$this->idVille, ':nom'=>$nom, ':site'=>$site, ':adresse'=>$adresse, ':telephone'=>$telephone, ':esAccepte'=>$this->estAccepte);
             $insert = Model::$pdo->prepare("INSERT INTO P_Entreprises(idEntreprise, numSiret, idVille, nomEntreprise, siteEntreprise,  adresseEntreprise, numTelEntreprise, estAccepte) VALUES(:idEntreprise, :numSiret, :idVille, :nom, :site, :adresse, :telephone, :estAccepte)");
             $insert->execute($data);
         }
