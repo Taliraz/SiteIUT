@@ -1,6 +1,6 @@
 <?php
 require_once File::build_path(array("model","Model.php"));
-class ModelVoiture{
+class ModelVille{
 	private $id;
 	private $nom;
 	private $codePostal;
