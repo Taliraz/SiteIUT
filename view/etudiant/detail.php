@@ -1,4 +1,5 @@
 <?php 
-require(File::build_path(array("controller","ControllerEtudiant.php")));
-
-ControllerEtudiant::afficherDetails(17); 
+$row->afficher();
+?><br><?php
+$idEtudiant = $_GET['idEtudiant'];
+echo '<a href="index.php?action=update&idEtudiant='.$idEtudiant.'">Modifier</a>';
