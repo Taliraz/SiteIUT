@@ -1,6 +1,6 @@
 <?php
-require_once (File::build_path(array("model","ModelVille.php")));
-class ControllerTemoignage{
+require_once (File::builde_path(array("model","ModelVille.php")));
+class ControllerVille{
 
 
 	public static function readAll() {

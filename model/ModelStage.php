@@ -59,6 +59,10 @@ class ModelStage{
 		$this->nom=$Pnom;
 	}
 
+	public function setEntreprise($Pentreprise){
+		$this->entreprise=$Pentreprise;
+	}
+
 	public static function getAllStages(){
 		$pdo=Model::$pdo;
 		$rep=$pdo->query("SELECT * FROM P_Stages");
@@ -164,26 +168,25 @@ class ModelStage{
 	}
 
 	public function save(){
-	    try{
-	      $req_prep=Model::$pdo->prepare("INSERT INTO P_Villes(idStage,intituleStage,idEntreprise,dateDebStage,dateFinStage,remunere)VALUES(:id,:intitule,:idEntreprise,:dateDeb,:dateFin,:remunere)");
+    try{
+      $req_prep=Model::$pdo->prepare("INSERT INTO P_Villes(idStage,intituleStage,idEntreprise,dateDebStage,dateFinStage,remunere)VALUES(:id,:intitule,:idEntreprise,:dateDeb,:dateFin,:remunere)");
 
-	      $values=array(
-	        "id" => $this->id,
-	        "intitule" => $this->intitule,
-	        "idEntreprise" => $this->entreprise->getId(),
-	        "dateDeb" => $this->dateDeb,
-	        "dateFin" => $this->dateFin,
-	        "remunere" => $this->remunere
-	        );
-	      $req_prep->execute($values);
-	    }
-	    catch(PDOException $e){
-	      if ($e->getCode()==23000){
-	        echo('<b>ERREUR: Le Stage existe déjà</b>');
-	        return false;
-	      }
-	    }
-	}
+      $values=array(
+        "id" => $this->id,
+        "intitule" => $this->intitule,
+        "idEntreprise" => $this->entreprise->getId(),
+        "dateDeb" => $this->dateDeb,
+        "dateFin" => $this->dateFin,
+        "remunere" => $this->remunere
+        );
+      $req_prep->execute($values);
+    }
+    catch(PDOException $e){
+      if ($e->getCode()==23000){
+        echo('<b>ERREUR: Le Stage existe déjà</b>');
+        return false;
+      }
+    }
 
     public function delete(){
     $req_prep=Model::$pdo->prepare("DELETE FROM P_Stages WHERE P_Stages.idStage=:id");

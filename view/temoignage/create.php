@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="index.php?action=created&controller=temoignage">
+      <form method="post" action="index.php?action=created">
         <fieldset>
           <legend>Temoignages :</legend>
           <p>

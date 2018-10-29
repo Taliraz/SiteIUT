@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> f922d4017ac95b013a7e6f625b147d80980278e6
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="<?php echo File::build_path_css(array("view","CSS" ,"Detail.css")); ?>">
@@ -52,15 +48,4 @@
         </p>
         </div>
     </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
-=======
-<?php 
-$row->afficher();
-?><br><?php
-$idEtudiant = $_GET['idEtudiant'];
-echo '<a href="index.php?action=update&idEtudiant='.$idEtudiant.'">Modifier</a>';
->>>>>>> 9bb73ee09239b85dabb8d15fa5f634eeacbec724
->>>>>>> f922d4017ac95b013a7e6f625b147d80980278e6

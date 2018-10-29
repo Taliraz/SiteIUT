@@ -1,4 +1,5 @@
 <?php
+require(File::build_path(array("model","ModelUtilisateur.php")));
 
 class ModelEntreprise extends ModelUtilisateur {
     private $numSiret;
