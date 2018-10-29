@@ -5,7 +5,13 @@ if(isset($_GET['action'])) {
 }
 else { $action="readAll"; }
 
-$controller=$_GET['controller'];
+if(isset($_GET['controller'])){
+	$controller=$_GET['controller'];
+
+}
+else {
+	$controller='etudiant';
+}
 
 if ($controller=='etudiant'){
 	ControllerEtudiant::$action(); 
