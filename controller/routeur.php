@@ -7,55 +7,55 @@ else { $action="readAll"; }
 
 $controller=$_GET['controller'];
 
-if ($controller=='etudiant')
+if ($controller=='etudiant'){
 	ControllerEtudiant::$action(); 
 }
 
-if ($controller=='administrateur')
+if ($controller=='administrateur'){
 	ControllerAdministrateur::$action(); 
 }
 
-if ($controller=='article')
+if ($controller=='article'){
 	ControllerArticle::$action(); 
 }
 
-if ($controller=='categorie')
+if ($controller=='categorie'){
 	ControllerCategorie::$action(); 
 }
 
-if ($controller=='chefDep')
+if ($controller=='chefDep'){
 	ControllerChefDep::$action(); 
 }
 
-if ($controller=='contactEntreprise')
+if ($controller=='contactEntreprise'){
 	ControllerContactEntreprise::$action(); 
 }
 
-if ($controller=='entreprise')
+if ($controller=='entreprise'){
 	ControllerEntreprise::$action(); 
 }
 
-if ($controller=='IUT')
+if ($controller=='IUT'){
 	ControllerIUT::$action(); 
 }
 
-if ($controller=='page')
+if ($controller=='page'){
 	ControllerPage::$action(); 
 }
 
-if ($controller=='stage')
+if ($controller=='stage'){
 	ControllerStage::$action(); 
 }
 
-if ($controller=='temoignage')
+if ($controller=='temoignage'){
 	ControllerTemoignage::$action(); 
 }
 
-if ($controller=='utilisateur')
+if ($controller=='utilisateur'){
 	ControllerUtilisateur::$action(); 
 }
 
-if ($controller=='ville')
+if ($controller=='ville'){
 	ControllerVille::$action(); 
 }
 ?>
