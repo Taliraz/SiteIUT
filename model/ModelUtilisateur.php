@@ -71,8 +71,20 @@ class ModelUtilisateur {
     public static function getOne($table, $id, $typeId, $class){
         $req = Model::$pdo->query ("SELECT * FROM $table JOIN P_Utilisateurs ON idUtilisateur = $typeId WHERE $typeId = $id");
         $req->setFetchMode(PDO::FETCH_CLASS, $class);
-        $row = $req->fetchAll();
+        $row = $req->fetch();
         return $row; 
+    }
+    
+    public static function remove($id){
+        $req = Model::$pdo->prepare("DELETE FROM P_Utilisateurs WHERE idUtilisateur = :id");
+        $req->execute(array(":id"=>$id));
+    }
+    
+    public static function update($table, $id, $typeId, $data){
+        foreach($data as $column => $value){
+            $req = Model::$pdo->prepare("UPDATE $table JOIN P_Utilisateurs ON idUtilisateur = $typeId SET $column = '$value' WHERE idUtilisateur = $id");
+            $req->execute(array($column, $value));
+        }
     }
     
     public function saveUser(){

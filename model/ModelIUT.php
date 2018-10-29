@@ -1,5 +1,5 @@
 <?php 
-require(File::build_path(array("model","Model.php")));
+//require(File::build_path(array("model","Model.php")));
 
 class ModelIUT {
     
@@ -79,7 +79,7 @@ class ModelIUT {
     
     public static function getAll(){
         $req = Model::$pdo->query ("SELECT * FROM P_IUTs");
-        $req->setFetchMode(PDO::FETCH_CLASS, $ModelIUT);
+        $req->setFetchMode(PDO::FETCH_CLASS, "ModelIUT");
         $row = $req->fetchAll();
         return $row;    
     }
