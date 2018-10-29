@@ -1,5 +1,16 @@
 <?php
+require (File::build_path(array("controller","ControllerAdministrateur.php")));
+require (File::build_path(array("controller","ControllerArticle.php")));
+require (File::build_path(array("controller","ControllerCategorie.php")));
+require (File::build_path(array("controller","ControllerChefDep.php")));
+require (File::build_path(array("controller","ControllerContactEntreprise.php")));
+require (File::build_path(array("controller","ControllerEntreprise.php")));
 require (File::build_path(array("controller","ControllerEtudiant.php")));
+require (File::build_path(array("controller","ControllerIUT.php")));
+require (File::build_path(array("controller","ControllerPage.php")));
+require (File::build_path(array("controller","ControllerStage.php")));
+require (File::build_path(array("controller","ControllerTemoignage.php")));
+require (File::build_path(array("controller","ControllerVille.php")));
 if(isset($_GET['action'])) {
     $action = $_GET['action'];  
 }
