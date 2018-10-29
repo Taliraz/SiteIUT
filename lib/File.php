@@ -5,5 +5,10 @@ class File{
     	$ROOT_FOLDER = __DIR__ . $DS . '..';
    		return $ROOT_FOLDER. $DS . join($DS, $path_array);
 	}
+    
+    public static function build_path_css($path_array){
+        $DS = DIRECTORY_SEPARATOR;
+   		return join($DS, $path_array);
+    }
 }
 ?>
