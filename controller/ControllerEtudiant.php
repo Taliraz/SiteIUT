@@ -30,6 +30,7 @@ class ControllerEtudiant {
     }
     
     public static function details(){
+<<<<<<< HEAD
         if (isset($_POST['idEtudiant'])){
             $row = ModelEtudiant::getOne("P_Etudiants", $_POST['idEtudiant'], "idEtudiant", "ModelEtudiant");
             if (!empty($row)){
@@ -37,12 +38,15 @@ class ControllerEtudiant {
             }
             else { echo "Erreur, aucun étudiant portant cet ID"; }
         }
+=======
+>>>>>>> 9bb73ee09239b85dabb8d15fa5f634eeacbec724
         if (isset($_GET['idEtudiant'])){
             $row = ModelEtudiant::getOne("P_Etudiants", $_GET['idEtudiant'], "idEtudiant", "ModelEtudiant");
             if (!empty($row)){
                 require (File::build_path(array("view","etudiant","detail.php")));
             }
             else { echo "Erreur, aucun étudiant portant cet ID"; }
+<<<<<<< HEAD
         }
     }
     
@@ -63,6 +67,28 @@ class ControllerEtudiant {
         }
     }
     
+=======
+        }
+    }
+    
+    public static function update(){
+        $info = ModelUtilisateur::getOne("P_Etudiants", $_GET['idEtudiant'], "idEtudiant", "ModelEtudiant");
+        require (File::build_path(array("view","etudiant","modif.php")));
+    }
+    
+    public static function updated(){
+        if (isset($_POST['idEtudiant']) && !is_null($_POST['idEtudiant']) && isset($_POST['login']) && !is_null($_POST['login']) && isset($_POST['mdp']) & !is_null($_POST['mdp']) && isset($_POST['nom']) && !is_null($_POST['nom']) && isset($_POST['prenom']) && !is_null($_POST['prenom']) && isset($_POST['idIUT']) && !is_null($_POST['idIUT']) && isset($_POST['anneeInscription']) && !is_null($_POST['anneeInscription']) && isset($_POST['email']) && !is_null($_POST['email'])){
+            $data = array("login"=>$_POST['login'], "mdp"=>$_POST['mdp'], "nomEtudiant"=>$_POST['nom'], "prenomEtudiant"=>$_POST['prenom'], "idIUT"=>$_POST['idIUT'], "anneeInscription"=>$_POST['anneeInscription'], "mailEtudiant"=>$_POST['email']);
+            
+            ModelUtilisateur::update("P_Etudiants", $_POST['idEtudiant'], "idEtudiant", $data);
+            self::readAll();
+        }
+        else {
+            echo "Erreur lors de la modification";
+        }
+    }
+    
+>>>>>>> 9bb73ee09239b85dabb8d15fa5f634eeacbec724
     public static function supprimerEtudiant($id){
         ModelUtilisateur::remove($id);
     }

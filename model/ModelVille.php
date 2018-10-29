@@ -1,17 +1,17 @@
 <?php
 require_once File::build_path(array("model","Model.php"));
 class ModelVille{
-	private $id;
-	private $nom;
+	private $idVille;
+	private $nomVille;
 	private $codePostal;
 	private $departement;
 
-	public function getId(){
-		return $this->id;
+	public function getIdVille(){
+		return $this->idVille;
 	}
 
-	public function getNom(){
-		return $this->nom;
+	public function getNomVille(){
+		return $this->nomVille;
 	}
 
 	public function getCodePostal(){
@@ -22,8 +22,8 @@ class ModelVille{
 		return $this->departement;
 	}
 
-	public function setNom($Pnom){
-		$this->nom=$Pnom;
+	public function setNomVille($PnomVille){
+		$this->nomVille=$PnomVille;
 	}
 
 	public function setCodePostal($PcodePostal){
@@ -36,7 +36,7 @@ class ModelVille{
 
 	public function __construct($n=NULL,$c=NULL,$d=NULL){
 		if (!is_null($n) && !is_null($c) && !is_null($d)){
-			$this->nom=$n;
+			$this->nomVille=$n;
 			$this->codePostal=$c;
 			$this->departement=$d;
 		}
@@ -50,12 +50,12 @@ class ModelVille{
     	return $tab_ville;
 	}
 
-	public static function getVilleById($id) {
-	    $sql = "SELECT * from P_Villes WHERE idVille=:idVille";
+	public static function getVilleById($idVille) {
+	    $sql = "SELECT * FROM P_Villes WHERE idVille=:idVille";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
-	        "idVille" => $id,
+	        "idVille" => $idVille,
 	    );  
 	    $req_prep->execute($values);
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelVille');
@@ -66,12 +66,12 @@ class ModelVille{
 	    return $tab_ville[0];
 	}
 
-	public static function getVilleByNom($nom) {
+	public static function getVilleByNom($nomVille) {
 	    $sql = "SELECT * from P_Villes WHERE nomVille=:nomVille";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
-	        "nomVille" => $nom,
+	        "nomVille" => $nomVille,
 	    );  
 	    $req_prep->execute($values);
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelVille');
@@ -119,7 +119,7 @@ class ModelVille{
       $req_prep=Model::$pdo->prepare("INSERT INTO P_Villes(nomVille,codePostal,departement)VALUES(:nomVille,:codePostal,:departement)");
 
       $values=array(
-        "nomVille" => $this->nom,
+        "nomVille" => $this->nomVille,
         "codePostal" => $this->codePostal,
         "departement" => $this->departement
         );
@@ -135,10 +135,10 @@ class ModelVille{
   }
 
   public function delete(){
-    $req_prep=Model::$pdo->prepare("DELETE FROM P_Villes WHERE P_Villes.id=:id");
+    $req_prep=Model::$pdo->prepare("DELETE FROM P_Villes WHERE P_Villes.idVille=:idVille");
 
     $values=array(
-      "id" => $this->id,
+      "idVille" => $this->idVille,
       );
     $req_prep->execute($values);
   }
