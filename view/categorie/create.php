@@ -6,7 +6,7 @@
         <title> formulaireCréationCategorie </title>
     </head>
     <body>
-        <form method="post" action="Index.php?action=created&controller=categorie">
+        <form method="post" action="index.php?action=created&controller=categorie">
             <fieldset>
             </fieldset> 
       </form>

@@ -6,7 +6,7 @@
         <title> formulaireCréationChefDep </title>
     </head>
     <body>
-        <form method="post" action="Index.php?action=created&controller=chefDep">
+        <form method="post" action="index.php?action=created&controller=chefDep">
             <fieldset>
                 <legend>Nouvel chefDep :</legend>
                 <p>

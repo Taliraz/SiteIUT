@@ -6,7 +6,7 @@
         <title> formulaireCréationVille</title>
     </head>
     <body>
-        <form method="post" action="Index.php?action=created&controller=ville">
+        <form method="post" action="index.php?action=created&controller=ville">
             <fieldset>
                 <legend>Nouvelle Ville :</legend>
                 <p>

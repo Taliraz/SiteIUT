@@ -6,7 +6,7 @@
         <title> formulaireCréationEntreprise </title>
     </head>
     <body>
-        <form method="post" action="Index.php?action=created&controller=Entreprise">
+        <form method="post" action="index.php?action=created&controller=Entreprise">
             <fieldset>
                 <legend>Nouvelle Entreprise :</legend>
                 <p>
