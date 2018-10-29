@@ -6,7 +6,7 @@
         <title> formulaireCréationEtudiant </title>
     </head>
     <body>
-        <form method="post" action="Index.php?action=created">
+        <form method="post" action="Index.php?action=created&controller=etudiant">
             <fieldset>
                 <legend>Nouvel Etudiant :</legend>
                 <p>
