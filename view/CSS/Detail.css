@@ -1,0 +1,32 @@
+td {
+    text-align: center;
+    padding: 5px;
+   
+}
+
+tr {
+    background-color:  #8f87ad;
+    
+}
+
+table {
+    width: 50%;
+}
+
+#bouton, #bouton-retour {
+    text-decoration: none;
+    color: black;
+    left: 550px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color:  #9690ac;
+    transition: 0.2s;
+}
+
+#bouton:hover, #bouton-retour:hover {
+    padding: 13px;
+    background-color: #5c5770;
+    color: white;
+    font-weight: 300;
+    cursor: pointer;
+}
