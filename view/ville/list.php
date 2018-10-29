@@ -3,12 +3,15 @@
     <body>
         <?php
         foreach ($tab_v as $v){
-            echo '<p> Ville: <a title="Stage" 
-                href="index.php?action=read&id='
-                .rawurlencode($v->getId()).'">'. htmlspecialchars($v->getNom()).'</a> 
+            echo '<p> Ville : <a
+                href="index.php?action=read&controller=ville&id='
+                .rawurlencode($v->getIdVille())
+                .'">'
+                . htmlspecialchars($v->getNomVille())
+                .'</a> 
                 <a title="supprimer" 
                 href="index.php?action=delete&id='
-                .rawurlencode($v->getId()).'">supprimer</a> 
+                .rawurlencode($v->getIdVille()).'">supprimer</a> 
                 </p>';
             }  
 
