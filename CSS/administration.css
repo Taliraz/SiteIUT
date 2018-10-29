@@ -1,0 +1,12 @@
+.bouton{
+	border: 10px ridge grey;
+    background-color: black;
+    display: flex;
+    padding:2%;
+    flex-direction: column;
+    color:white;
+}
+.boutons{
+    display: flex;
+    flex-direction: row;
+}
