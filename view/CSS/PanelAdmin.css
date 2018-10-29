@@ -1,0 +1,47 @@
+#colonne {
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    background-image: linear-gradient(to right bottom, #5c5d62, #45475b, #313152, #201b47, #12003b);
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    top:0px;
+    left:0px;
+    text-align: center;
+    padding-left: 0;
+}
+
+#colonne a {
+    text-decoration: none;
+    color: black;
+    font-family: arial;
+}
+
+#titre {
+    font-size: 20px;
+    padding: 20px;
+    height: 45px;
+    background-image: url("http://www.iut-informatique.fr/images/logo.gif");
+    background-size: 250px;
+}
+
+.element-liste {
+    left: 0px;
+    width: 200px;
+    background-color: transaprent;
+    padding: 20px;
+    transition: all 0.2s;
+}
+
+
+.element-liste:hover {
+    width: 210px;
+    background-color:   #605c6f ;
+    color: white;
+}
+
+#espace-admin {
+    margin-left: 250px;
+    font-family: arial;
+}
