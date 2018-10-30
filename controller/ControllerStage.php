@@ -1,5 +1,5 @@
 <?php
-require_once (File::builde_path(array("model","ModelStage.php")));
+require_once (File::build_path(array("model","ModelStage.php")));
 class ControllerStage{
 
 	public static function readAll() {
@@ -11,7 +11,7 @@ class ControllerStage{
     }
 
     public static function read(){
-    	$v=ModelStage::getStageById($_GET ['id']);
+    	$v=ModelStage::getStageById($_GET ['idStage']);
     	if ($v==false){
             $controller='stage';
             $view='erreur';
@@ -35,7 +35,7 @@ class ControllerStage{
     }
 
     public static function created(){
-      $ModelStage=new ModelStage($_POST['intitule'],$_POST['entreprise'],$_POST['dateDeb'],$_POST['dateFin'],$_POST['remunere']);
+      $ModelStage=new ModelStage($_POST['intituleStage'],$_POST['idEntreprise'],$_POST['dateDebStage'],$_POST['dateFinStage'],$_POST['gratifie'],$_POST['descriptionStage'],$_POST['idVille'],$_POST['idContact'],$_POST['nbPlaces']);
       $ModelStage->save();
       $controller='stage';
       $view='created';
@@ -44,7 +44,7 @@ class ControllerStage{
     }
 
     public static function delete(){
-        $v=ModelStage::getStageById($_GET ['id']);
+        $v=ModelStage::getStageById($_GET ['idStage']);
         $v->delete();
         self::readAll();
     }
