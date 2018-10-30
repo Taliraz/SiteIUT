@@ -1,5 +1,4 @@
 <?php 
-require(File::build_path(array("model","ModelChefDep.php")));
 
 class ControllerChefDep {
     
