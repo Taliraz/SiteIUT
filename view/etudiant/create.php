@@ -7,7 +7,7 @@
         <title> formulaireCréationEtudiant </title>
     </head>
     <body>
-        <form style="margin-left:250px" method="post" action="Index.php?action=created">
+        <form style="margin-left:250px" method="post" action="index.php?action=created">
             <fieldset>
                 <legend>Nouvel Etudiant :</legend>
                 <p>

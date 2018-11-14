@@ -6,7 +6,7 @@
         <title> formulaireModifEtudiant </title>
     </head>
     <body>
-        <form style="margin-left:250px;" method="post" action="Index.php?action=updated&idEtudiant=<?php echo $info->getIdUtilisateur(); ?>">
+        <form style="margin-left:250px;" method="post" action="index.php?action=updated&idEtudiant=<?php echo $info->getIdUtilisateur(); ?>">
             <fieldset>
                 <legend>Modification Etudiants </legend>
                 <p>
