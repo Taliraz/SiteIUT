@@ -24,46 +24,9 @@ if ($controller=='article'){
 	ControllerArticle::$action(); 
 }
 
-
-if ($controller=='categorie'){
-	require (File::build_path(array("controller","ControllerCategorie.php")));
-	ControllerCategorie::$action(); 
-}
-
-
-if ($controller=='chefDep'){
-	require (File::build_path(array("controller","ControllerChefDep.php")));
-	ControllerChefDep::$action(); 
-}
-
-
-if ($controller=='contactEntreprise'){
-	require (File::build_path(array("controller","ControllerContactEntreprise.php")));
-	ControllerContactEntreprise::$action(); 
-}
-
-
-if ($controller=='entreprise'){
-	require (File::build_path(array("controller","ControllerEntreprise.php")));
-	ControllerEntreprise::$action(); 
-}
-
-
-if ($controller=='etudiant'){
-	require (File::build_path(array("controller","ControllerEtudiant.php")));
-	ControllerEtudiant::$action(); 
-}
-
-
 if ($controller=='IUT'){
 	require (File::build_path(array("controller","ControllerIUT.php")));
 	ControllerIUT::$action(); 
-}
-
-
-if ($controller=='page'){
-	require (File::build_path(array("controller","ControllerPage.php")));
-	ControllerPage::$action(); 
 }
 
 
