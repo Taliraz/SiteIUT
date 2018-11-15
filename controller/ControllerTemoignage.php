@@ -1,6 +1,6 @@
 <?php
 require_once (File::build_path(array("model","ModelVille.php")));
-class ControllerVille{
+class ControllerTemoignage{
 
 
 	public static function readAll() {
@@ -36,7 +36,7 @@ class ControllerVille{
     }
 
     public static function created(){
-      $ModelTemoignage=new ModelTemoignage($_POST['contenu'],$_POST['datePublication'],$_POST['theme']);
+      $ModelTemoignage=new ModelTemoignage($_POST['titreTemoignage'],$_POST['contenuTemoignage'],$_POST['datePublication'],$_POST['theme'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT']);
       $ModelTemoignage->save();
       $controller='temoignage';
       $view='created';
