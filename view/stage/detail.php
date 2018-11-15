@@ -1,8 +1,8 @@
 <?php
 require_once File::build_path(array("model","ModelStage.php"));
-echo("Intitule:" . htmlspecialchars($v->getIntitule()) .
-	"\n date de Début:" .htmlspecialchars($v->getDateDeb()) .
-	"\n Date de Fin:".htmlspecialchars($v->getDateFin()).
+echo("Intitule:" . htmlspecialchars($v->getIntituleStage()) .
+	"\n date de Début:" .htmlspecialchars($v->getDateDebStage()) .
+	"\n Date de Fin:".htmlspecialchars($v->getDateFinStage()).
 	"\n Gratifié:".htmlspecialchars($v->getGratifie())).
 	"\n Numéro de siret de l'entreprise:".htmlspecialchars($v->getNumSiret()).
 	"\n Entreprise:".htmlspecialchars($v->getNomEntreprise()).

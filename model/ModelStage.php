@@ -59,7 +59,7 @@ class ModelStage{
 		return $this->dateDebStage;
 	}
 
-	public function getDateFin(){
+	public function getDateFinStage(){
 		return $this->dateFinStage;
 	}
 
