@@ -4,11 +4,12 @@
         <?php
         foreach ($tab_v as $v){
             echo '<p> Temoignage: <a title="Temoignage" 
-                href="index.php?action=read&id='
-                .rawurlencode($v->getId()).'">'. htmlspecialchars($v->getContenu()).'</a> 
+                href="index.php?controller=temoignage&action=read&id='
+                .rawurlencode($v->getIdTemoignage()).'">'. htmlspecialchars($v->getTitreTemoignage()).'</a> 
+                
                 <a title="supprimer" 
-                href="index.php?action=delete&id='
-                .rawurlencode($v->getId()).'">supprimer</a> 
+                href="index.php?controller=temoignage&action=delete&id='
+                .rawurlencode($v->getIdTemoignage()).'">supprimer</a> 
                 </p>';
             }  
 
