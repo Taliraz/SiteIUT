@@ -1,27 +1,37 @@
 <?php
 require_once File::build_path(array("model","Model.php"));
-class ModelStage{
-	private $id;
-	private $contenu;
+class ModelTemoignage{
+	private $idTemoignage;
+	private $titreTemoignage;
+	private $contenuTemoignage;
 	private $datePublication;
 	private $theme;
-	private $etudiant;
+	private $nomEtudiant;
+	private $prenomEtudiant;
+	private $idIUT;
 
 	public function __construct($c=NULL,$d=NULL,$t=NULL,$e=NULL){
-		if (!is_null($c) && !is_null($d) && !is_null($t) && !is_null($e)){
-			$this->contenu=$c;
+		if (!is_null($t) && !is_null($c) && !is_null($d) && !is_null($t) && !is_null($n) && !is_null($p) && !is_null($i)){
+			$this->titreTemoignage=$t;
+			$this->contenuTemoignage=$c;
 			$this->datePublication=$d;
 			$this->theme=$t;
-			$this->etudiant=$e;
+			$this->nomEtudiant=$n;
+			$this->prenomEtudiant=$p;
+			$this->idIUT=$i;
 		}
 	}
 
-	public function getId(){
-		return $this->id;
+	public function getIdTemoignage(){
+		return $this->idTemoignage;
 	}
 
-	public function getContenu(){
-		return $this->contenu;
+	public function getTitreTemoignage(){
+		return $this->titreTemoignage;
+	}
+
+	public function getContenuTemoignage(){
+		return $this->contenuTemoignage;
 	}
 
 	public function getDatePublication(){
@@ -32,12 +42,25 @@ class ModelStage{
 		return $this->theme;
 	}
 
-	public function getEtudiant(){
-		return $this->etudiant;
+	public function getNomEtudiant(){
+		return $this->nomEtudiant;
 	}
 
-	public function setContenu($Pcontenu){
-		$this->contenu=$Pcontenu;
+	public function getPrenomEtudiant(){
+		return $this->PrenomEtudiant;
+	}
+
+	public function getIdIUT(){
+		return $this->idIUT;
+	}
+
+
+	public function setTitreTemoignage($PtitreTemoignage){
+		$this->titreTemoignage=$PtitreTemoignage;
+	}
+
+	public function setContenuTemoignage($PcontenuTemoignage){
+		$this->contenuTemoignage=$PcontenuTemoignage;
 	}
 
 	public function setDatePublication($PdatePublication){
@@ -48,20 +71,28 @@ class ModelStage{
 		$this->theme=$Ptheme;
 	}
 
-	public function setEtudiant($Petudiant){
-		$this->etudiant=$Petudiant;
+	public function setNomEtudiant($PnomEtudiant){
+		$this->nomEtudiant=$PnomEtudiant;
+	}
+
+	public function setPrenomEtudiant($PprenomEtudiant){
+		$this->prenomEtudiant=$PprenomEtudiant;
+	}
+
+	public function setIdIUT($PidIUT){
+		$this->idIUT=$PidIUT;
 	}
 
 	public static function getAllTemoignages(){
 		$pdo=Model::$pdo;
-		$rep=$pdo->query("SELECT * FROM P_Temoignages");
+		$rep=$pdo->query("SELECT * FROM mon-Temoignages");
     	$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelTemoignage');
     	$tab_temoignage = $rep->fetchAll();
     	return $tab_temoignage;
 	}
 
 	public static function getTemoignageById($id) {
-	    $sql = "SELECT * from P_Temoignages WHERE idTemoignage=:idTemoignage";
+	    $sql = "SELECT * from mon-Temoignages WHERE idTemoignage=:idTemoignage";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -76,8 +107,24 @@ class ModelStage{
 	    return $tab_temoignage[0];
 	}
 
+	public static function getTemoignageByTitre($titre) {
+	    $sql = "SELECT * from mon-Temoignages WHERE titreTemoignage=:titreTemoignage";
+	    $req_prep = Model::$pdo->prepare($sql);
+
+	    $values = array(
+	        "titreTemoignage" => $titre,
+	    );  
+	    $req_prep->execute($values);
+	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelTemoignage');
+	    $tab_temoignage = $req_prep->fetchAll();
+	    if (empty($tab_stage)){
+	        return false;
+	    }
+	    return $tab_temoignage;
+	}
+
 	public static function getTemoignageByDatePublication($datePublication) {
-	    $sql = "SELECT * from P_Temoignages WHERE datePublication=:datePublication";
+	    $sql = "SELECT * from mon-Temoignages WHERE datePublication=:datePublication";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -93,7 +140,7 @@ class ModelStage{
 	}
 
 	public static function getTemoignageByTheme($theme) {
-	    $sql = "SELECT * from P_Temoignages WHERE theme=:theme";
+	    $sql = "SELECT * from mon-Temoignages WHERE theme=:theme";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -108,32 +155,20 @@ class ModelStage{
 	    return $tab_temoignage;
 	}
 
-	public static function getTemoignageByEtudiant($etudiant) {
-	    $sql = "SELECT * from P_Temoignages WHERE idEtudiant=:idEtudiant";
-	    $req_prep = Model::$pdo->prepare($sql);
-
-	    $values = array(
-	        "idEtudiant" => $etudiant->getId(),
-	    );  
-	    $req_prep->execute($values);
-	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelTemoignage');
-	    $tab_temoignage = $req_prep->fetchAll();
-	    if (empty($tab_stage)){
-	        return false;
-	    }
-	    return $tab_temoignage;
-	}
 
 	public function save(){
     try{
-      $req_prep=Model::$pdo->prepare("INSERT INTO P_Villes(idTemoignage, contenuTemoignage, datePublication, theme, idEtudiant)VALUES(:idTemoignage, :contenuTemoignage, :datePublication, :theme, :idEtudiant)");
+      $req_prep=Model::$pdo->prepare("INSERT INTO mon-Villes(idTemoignage,titreTemoignage,contenuTemoignage, datePublication, theme, nomEtudiant,prenomEtudiant,idIUT)VALUES(:idTemoignage,:titreTemoignage,:contenuTemoignage, :datePublication, :theme, :nomEtudiant,:prenomEtudiant,:idIUT)");
 
       $values=array(
-        "idTemoignage" => $this->id,
+        "idTemoignage" => $this->idTemoignage,
+        "titreTemoignage" => $this->titreTemoignage,
         "contenuTemoignage" => $this->contenu,
         "datePublication" => $this->datePublication,
         "theme" => $this->theme,
-        "idEtudiant" => $this->etudiant->getId()
+        "nomEtudiant" => $this->nomEtudiant,
+        "prenomEtudiant" => $this->prenomEtudiant,
+        "idIUT" => $this->idIUT
         );
       $req_prep->execute($values);
     }
@@ -145,10 +180,10 @@ class ModelStage{
     }
 
 	public function delete(){
-    $req_prep=Model::$pdo->prepare("DELETE FROM P_Temoignages WHERE P_Temoignages.idTemoignage=:id");
+    $req_prep=Model::$pdo->prepare("DELETE FROM mon-Temoignages WHERE mon-Temoignages.idTemoignage=:id");
 
     $values=array(
-      "id" => $this->id,
+      "id" => $this->idTemoignage,
       );
     $req_prep->execute($values);
   }
