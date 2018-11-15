@@ -31,17 +31,7 @@
              <textarea name="descriptionStage" id="descriptionStage_id"></textarea>
           </p>
 
-         <p>
-            <label for="Ville_id">Ville</label> 
-            <select name="idVille" size="1" id="Ville_id">
-              <?php 
-                $liste = ModelVille::getAllVilles();
-                foreach ($liste as $valeur){
-                  echo '<option value="'.$valeur->getNomVille().'</option>';
-                } 
-              ?>
-          </select>
-        </p>
+         
 
         <p>
             <label for="nbPlaces_id">Nombre de Places</label> :

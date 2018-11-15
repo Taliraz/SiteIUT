@@ -200,14 +200,14 @@ class ModelStage{
 
 	public static function getAllStages(){
 		$pdo=Model::$pdo;
-		$rep=$pdo->query("SELECT * FROM mon-Stages");
+		$rep=$pdo->query("SELECT * FROM `mon-Stages`");
     	$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelStage');
     	$tab_stage = $rep->fetchAll();
     	return $tab_stage;
 	}
 
 	public static function getStageById($idStage) {
-	    $sql = "SELECT * from mon-Stages WHERE idStage=:idStage";
+	    $sql = "SELECT * from `mon-Stages` WHERE idStage=:idStage";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -223,7 +223,7 @@ class ModelStage{
 	}
 
 	public static function getStageByIntitule($intituleStage) {
-	    $sql = "SELECT * from mon-Stages WHERE intituleStage=:intituleStage";
+	    $sql = "SELECT * from `mon-Stages` WHERE intituleStage=:intituleStage";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -239,7 +239,7 @@ class ModelStage{
 	}
 
 	public static function getStageByEntreprise($nomEntreprise) {
-	    $sql = "SELECT * from mon-Stages WHERE nomEntreprise=:nomEntreprise";
+	    $sql = "SELECT * from `mon-Stages` WHERE nomEntreprise=:nomEntreprise";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -255,7 +255,7 @@ class ModelStage{
 	}
 
 	public static function getStageByDateDeb($dateDebStage) {
-	    $sql = "SELECT * from mon-Stages WHERE dateDebStage=:dateDebStage";
+	    $sql = "SELECT * from `mon-Stages` WHERE dateDebStage=:dateDebStage";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -271,7 +271,7 @@ class ModelStage{
 	}
 
 	public static function getStageByDateFin($dateFinStage) {
-	    $sql = "SELECT * from mon-Stages WHERE dateFinStage=:dateFinStage";
+	    $sql = "SELECT * from `mon-Stages` WHERE dateFinStage=:dateFinStage";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -287,7 +287,7 @@ class ModelStage{
 	}
 
 	public static function getStageByGratifie($gratifie) {
-	    $sql = "SELECT * from mon-Stages WHERE gratifie=:gratifie";
+	    $sql = "SELECT * from `mon-Stages` WHERE gratifie=:gratifie";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -305,7 +305,7 @@ class ModelStage{
 	public function save(){
 	    try{
 	      $req_prep=Model::$pdo->prepare(
-	      	"INSERT INTO mon-Stages(idStage,intituleStage,dateDebStage,dateFinStage,gratifie,descriptionStage,idVille,nbPlaces,numSiret,nomEntreprise,siteEntreprise,adresseEntreprise,telephoneEntreprise,estAccepte,nomContact,prenomContact,fonctionContact,telephoneContact,emailContact)
+	      	"INSERT INTO `mon-Stages`(idStage,intituleStage,dateDebStage,dateFinStage,gratifie,descriptionStage,idVille,nbPlaces,numSiret,nomEntreprise,siteEntreprise,adresseEntreprise,telephoneEntreprise,estAccepte,nomContact,prenomContact,fonctionContact,telephoneContact,emailContact)
 	      	VALUES(:idStage,:intituleStage,:dateDebStage,:dateFinStage,:gratifie,:descriptionStage,:idVille,:nbPlaces,:numSiret,:nomEntreprise,:siteEntreprise,:adresseEntreprise,:telephoneEntreprise,:estAccepte,:nomContact,:prenomContact,:fonctionContact,:telephoneContact,:emailContact))");
 
 	      $values=array(
@@ -340,7 +340,7 @@ class ModelStage{
 	}
 
     public function delete(){
-	    $req_prep=Model::$pdo->prepare("DELETE FROM mon-Stages WHERE mon-Stages.idStage=:idStage");
+	    $req_prep=Model::$pdo->prepare("DELETE FROM `mon-Stages` WHERE `mon-Stages`.idStage=:idStage");
 
 	    $values=array(
 	      "idStage" => $this->idStage,
