@@ -3,29 +3,49 @@ require_once File::build_path(array("model","Model.php"));
 class ModelStage{
 	private $idStage;
 	private $intituleStage;
-	private $idEntreprise;
 	private $dateDebStage;
 	private $dateFinStage;
 	private $gratifie;
 	private $descriptionStage;
 	private $idVille;
-	private $idContact;
 	private $nbPlaces;
+	private $numSiret;
+	private $nomEntreprise;
+	private $siteEntreprise;
+	private $adresseEntreprise;
+	private $telephoneEntreprise;
+	private $estAccepte;
+	private $nomContact;
+	private $prenomContact;
+	private $fonctionContact;
+	private $telephoneContact;
+	private $emailContact;
 
 
-	public function __construct($i=NULL,$e=NULL,$dd=NULL,$df=NULL,$g=NULL,$ds=NULL,$iv=NULL,$ic=NULL,$nP=NULL){
-		if (!is_null($i) && !is_null($e) && !is_null($dd) && !is_null($df) && !is_null($r)){
+	public function __construct($i=NULL,$dd=NULL,$df=NULL,$g=NULL,$ds=NULL,$iv=NULL,$np=NULL,$ns=NULL,$ne=NULL,$se=NULL,$ae=NULL,$te=NULL,$ea=NULL,$nc=NULL,$pc=NULL,$fc=NULL,$tc=NULL,$mc=NULL){
+		if (!is_null($i) && !is_null($dd) && !is_null($df) && !is_null($g) && !is_null($ds) && !is_null($iv) && !is_null($np)  && !is_null($ns) && !is_null($ne) && !is_null($se) && !is_null($ae) && !is_null($te) && !is_null($ea) && !is_null($nc) && !is_null($pc) && !is_null($fc) && !is_null($tc) && !is_null($ec)){
 			$this->intituleStage=$i;
-			$this->idEntreprise=$e;
 			$this->dateDebStage=$dd;
 			$this->dateFinStage=$df;
 			$this->gratifie=$g;
 			$this->descriptionStage=$ds;
 			$this->idVille=$iv;
-			$this->idContact=$ic;
-			$this->nbPlaces=$nP;
+			$this->nbPlaces=$np;
+			$this->numSiret=$ns;
+			$this->$nomEntreprise=$ne;
+			$this->$siteEntreprise=$se;
+			$this->$adresseEntreprise=$ae;
+			$this->$telephoneEntreprise=$te;
+			$this->$estAccepte=false;
+			$this->$nomContact=$nc;
+			$this->$prenomContact=$pc;
+			$this->$fonctionContact=$fc;
+			$this->$telephoneContact=$tc;
+			$this->$emailContact=$ec;
 		}
 	}
+
+	//-------Getters-------------------------
 
 	public function getIdStage(){
 		return $this->idStage;
@@ -33,10 +53,6 @@ class ModelStage{
 
 	public function getIntituleStage(){
 		return $this->intituleStage;
-	}
-
-	public function getIdEntreprise(){
-		return $this->idEntreprise;
 	}
 
 	public function getDateDebStage(){
@@ -59,21 +75,60 @@ class ModelStage{
 		return $this->idVille;
 	}
 
-	public function getIdContact(){
-		return $this->idContact;
-	}
-
 	public function getNbPlaces(){
 		return $this->nbPlaces;
 	}
+
+	public function getNumSiret(){
+		return $this->numSiret;
+	}
+
+	public function getNomEntreprise(){
+		return $this->nomEntreprise;
+	}
+
+	public function getSiteEntreprise(){
+		return $this->siteEntreprise;
+	}
+
+	public function getAdresseEntreprise(){
+		return $this->adresseEntreprise;
+	}
+
+	public function getTelephoneEntreprise(){
+		return $this->telephoneEntreprise;
+	}
+
+	public function getEstAccepte(){
+		return $this->estAccepte;
+	}
+
+	public function getNomContact(){
+		return $this->nomContact;
+	}
+
+	public function getPrenomContact(){
+		return $this->prenomContact;
+	}
+
+	public function getFonctionContact(){
+		return $this->fonctionContact;
+	}
+
+	public function getTelephoneContact(){
+		return $this->telephoneContact;
+	}
+
+	public function getEmailContact(){
+		return $this->emailContact;
+	}
+
+	//------------------Setters-----------------------------------
 
 	public function setIntituleStage($PintituleStage){
 		$this->intituleStage=$PintituleStage;
 	}
 
-	public function setIdEntreprise($PidEntreprise){
-		$this->idEntreprise=$PidEntreprise;
-	}
 
 	public function setDateDebStage($PdateDebStage){
 		$this->dateDebStage=$PdateDebStage;
@@ -95,24 +150,64 @@ class ModelStage{
 		$this->idVille=$PidVille;
 	}
 
-	public function setIdContact($PidContact){
-		$this->idContact=$PidContact;
-	}
-
 	public function setNbPlaces($PnbPlaces){
 		$this->nbPlaces=$PnbPlaces;
 	}
 
+	public function setNumSiret($PnumSiret){
+		$this->numSiret=$PnumSiret;
+	}
+
+	public function setNomEntreprise($PnomEntreprise){
+		$this->nomEntreprise=$PnomEntreprise;
+	}
+
+	public function setSiteEntreprise($PsiteEntreprise){
+		$this->siteEntreprise=$PsiteEntreprise;
+	}
+
+	public function setAdresseEntreprise($PadresseEntreprise){
+		$this->adresseEntreprise=$PadresseEntreprise;
+	}
+
+	public function setTelephoneEntreprise($PtelephoneEntreprise){
+		$this->telephoneEntreprise=$PtelephoneEntreprise;
+	}
+
+	public function setEstAccepte($PestAccepte){
+		$this->estAccepte=$PestAccepte;
+	}
+
+	public function setNomContact($PnomContact){
+		$this->nomContact=$PnomContact;
+	}
+
+	public function setPrenomContact($PprenomContact){
+		$this->prenomContact=$PprenomContact;
+	}
+	
+	public function setFonctionContact($PfonctionContact){
+		$this->fonctionContact=$PfonctionContact;
+	}
+	
+	public function setTelephoneContact($PtelephoneContact){
+		$this->telephoneContact=$PtelephoneContact;
+	}
+	
+	public function setEmailContact($PemailContact){
+		$this->emailContact=$PemailContact;
+	}
+
 	public static function getAllStages(){
 		$pdo=Model::$pdo;
-		$rep=$pdo->query("SELECT * FROM P_Stages");
+		$rep=$pdo->query("SELECT * FROM mon-Stages");
     	$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelStage');
     	$tab_stage = $rep->fetchAll();
     	return $tab_stage;
 	}
 
 	public static function getStageById($idStage) {
-	    $sql = "SELECT * from P_Stages WHERE idStage=:idStage";
+	    $sql = "SELECT * from mon-Stages WHERE idStage=:idStage";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -128,7 +223,7 @@ class ModelStage{
 	}
 
 	public static function getStageByIntitule($intituleStage) {
-	    $sql = "SELECT * from P_Stages WHERE intituleStage=:intituleStage";
+	    $sql = "SELECT * from mon-Stages WHERE intituleStage=:intituleStage";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -143,12 +238,12 @@ class ModelStage{
 	    return $tab_stage;
 	}
 
-	public static function getStageByEntreprise($idEntreprise) {
-	    $sql = "SELECT * from P_Stages WHERE idEntreprise=:idEntreprise";
+	public static function getStageByEntreprise($nomEntreprise) {
+	    $sql = "SELECT * from mon-Stages WHERE nomEntreprise=:nomEntreprise";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
-	        "idEntreprise" => $idEntreprise,
+	        "nomEntreprise" => $nomEntreprise,
 	    );  
 	    $req_prep->execute($values);
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelStage');
@@ -160,7 +255,7 @@ class ModelStage{
 	}
 
 	public static function getStageByDateDeb($dateDebStage) {
-	    $sql = "SELECT * from P_Stages WHERE dateDebStage=:dateDebStage";
+	    $sql = "SELECT * from mon-Stages WHERE dateDebStage=:dateDebStage";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -176,7 +271,7 @@ class ModelStage{
 	}
 
 	public static function getStageByDateFin($dateFinStage) {
-	    $sql = "SELECT * from P_Stages WHERE dateFinStage=:dateFinStage";
+	    $sql = "SELECT * from mon-Stages WHERE dateFinStage=:dateFinStage";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -192,7 +287,7 @@ class ModelStage{
 	}
 
 	public static function getStageByGratifie($gratifie) {
-	    $sql = "SELECT * from P_Stages WHERE gratifie=:gratifie";
+	    $sql = "SELECT * from mon-Stages WHERE gratifie=:gratifie";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -210,20 +305,29 @@ class ModelStage{
 	public function save(){
 	    try{
 	      $req_prep=Model::$pdo->prepare(
-	      	"INSERT INTO P_Villes(idStage,intituleStage,idEntreprise,dateDebStage,dateFinStage,gratifie,descriptionStage,idVille,idContact,nbPlaces)
-	      	VALUES(:idStage,:intituleStage,:idEntreprise,:dateDebStage,:dateFinStage,:gratifie,:descriptionStage,:idVille,:idContact,:nbPlaces)");
+	      	"INSERT INTO mon-Stages(idStage,intituleStage,dateDebStage,dateFinStage,gratifie,descriptionStage,idVille,nbPlaces,numSiret,nomEntreprise,siteEntreprise,adresseEntreprise,telephoneEntreprise,estAccepte,nomContact,prenomContact,fonctionContact,telephoneContact,emailContact)
+	      	VALUES(:idStage,:intituleStage,:dateDebStage,:dateFinStage,:gratifie,:descriptionStage,:idVille,:nbPlaces,:numSiret,:nomEntreprise,:siteEntreprise,:adresseEntreprise,:telephoneEntreprise,:estAccepte,:nomContact,:prenomContact,:fonctionContact,:telephoneContact,:emailContact))");
 
 	      $values=array(
 	        "idStage" => $this->idStage,
 	        "intituleStage" => $this->intituleStage,
-	        "idEntreprise" => $this->idEntreprise,
 	        "dateDebStage" => $this->dateDebStage,
 	        "dateFinStage" => $this->dateFinStage,
 	        "gratifie" => $this->gratifie,
 	        "descriptionStage" => $this->descriptionStage,
 	        "idVille" => $this->idVille,
-	        "idContact" => $this->idContact,
 	        "nbPlaces" => $this->nbPlaces,
+	        "numSiret" => $this->numSiret,
+	       	"nomEntreprise" => $this->nomEntreprise,
+	       	"siteEntreprise" => $this->siteEntreprise,
+	       	"adresseEntreprise" => $this->adresseEntreprise,
+	       	"telephoneEntreprise" => $this->telephoneEntreprise,
+	       	"estAccepte" => $this->estAccepte,
+	       	 "nomContact" => $this->nomContact,
+	       	 "prenomContact" => $this->prenomContact,
+	       	 "fonctionContact" => $this->fonctionContact,
+	       	 "telephoneContact" => $this->telephoneContact,
+	       	 "emailContact" => $this->emailContact,
 	        );
 	      $req_prep->execute($values);
 	    }
@@ -236,7 +340,7 @@ class ModelStage{
 	}
 
     public function delete(){
-	    $req_prep=Model::$pdo->prepare("DELETE FROM P_Stages WHERE P_Stages.idStage=:idStage");
+	    $req_prep=Model::$pdo->prepare("DELETE FROM mon-Stages WHERE mon-Stages.idStage=:idStage");
 
 	    $values=array(
 	      "idStage" => $this->idStage,

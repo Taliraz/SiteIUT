@@ -29,18 +29,73 @@
           <p>
              <label for="descriptionStage_id">Description du Stage</label><br />
              <textarea name="descriptionStage" id="descriptionStage_id"></textarea>
-         </p>
+          </p>
 
          <p>
-            <label for="IUT_id">IUT</label> 
-            <select name="idIUT" size="1" id="IUT_id">
+            <label for="Ville_id">Ville</label> 
+            <select name="idVille" size="1" id="Ville_id">
               <?php 
-                $liste = ModelStage::getAllStages();
+                $liste = ModelVille::getAllVilles();
                 foreach ($liste as $valeur){
-                  echo '<option value="'.$valeur->getIdStage().'">'.$valeur->getIntituleStage().'</option>';
+                  echo '<option value="'.$valeur->getNomVille().'</option>';
                 } 
               ?>
           </select>
+        </p>
+
+        <p>
+            <label for="nbPlaces_id">Nombre de Places</label> :
+            <input type="text" name="nbPlaces" id="nbPlaces_id" required/>
+        </p>
+
+        <p>
+            <label for="numSiret_id">Numéro de Siret</label> :
+            <input type="text" name="numSiret" id="numSiret_id" required/>
+        </p>
+
+        <p>
+            <label for="nomEntreprise_id">Nom de l'entreprise</label> :
+            <input type="text" name="nomEntreprise" id="nomEntreprise_id" required/>
+        </p>
+
+        <p>
+            <label for="siteEntreprise_id">Site de l'entreprise</label> :
+            <input type="text" name="siteEntreprise" id="siteEntreprise_id" required/>
+        </p>
+
+        <p>
+            <label for="adresseEntreprise_id">Adresse de l'entreprise</label> :
+            <input type="text" name="adresseEntreprise" id="adresseEntreprise_id" required/>
+        </p>
+
+        <p>
+            <label for="telephoneEntreprise_id">Numéro de téléphone de l'entreprise</label> :
+            <input type="text" name="telephoneEntreprise" id="telephoneEntreprise_id" required/>
+        </p>
+
+        <p>
+            <label for="nomContact_id">Nom du contact</label> :
+            <input type="text" name="nomContact" id="nomContact_id" required/>
+        </p>
+
+        <p>
+            <label for="prenomContact_id">Prenom du Contact</label> :
+            <input type="text" name="prenomContact" id="prenomContact_id" required/>
+        </p>
+
+        <p>
+            <label for="fonctionContact_id">Fonction du contact</label> :
+            <input type="text" placeholder="Ex : Developpeur logiciel" name="fonctionContact" id="fonctionContact_id" required/>
+        </p>
+
+        <p>
+            <label for="telephoneContact_id">Numéro de téléphone du contact</label> :
+            <input type="text" name="telephoneContact" id="telephoneContact_id" required/>
+        </p>
+
+        <p>
+            <label for="emailContact_id">Email du contact</label> :
+            <input type="text" name="emailContact" id="emailContact_id" required/>
         </p>
 
 
