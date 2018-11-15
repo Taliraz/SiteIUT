@@ -47,7 +47,7 @@ class ModelTemoignage{
 	}
 
 	public function getPrenomEtudiant(){
-		return $this->PrenomEtudiant;
+		return $this->prenomEtudiant;
 	}
 
 	public function getIdIUT(){
@@ -85,30 +85,30 @@ class ModelTemoignage{
 
 	public static function getAllTemoignages(){
 		$pdo=Model::$pdo;
-		$rep=$pdo->query("SELECT * FROM mon-Temoignages");
+		$rep=$pdo->query("SELECT * FROM `mon-Temoignages`");
     	$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelTemoignage');
     	$tab_temoignage = $rep->fetchAll();
     	return $tab_temoignage;
 	}
 
-	public static function getTemoignageById($id) {
-	    $sql = "SELECT * from mon-Temoignages WHERE idTemoignage=:idTemoignage";
+	public static function getTemoignageById($idTemoignage) {
+	    $sql = "SELECT * from `mon-Temoignages` WHERE idTemoignage=:idTemoignage";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
-	        "idTemoignage" => $id,
+	        "idTemoignage" => $idTemoignage
 	    );  
 	    $req_prep->execute($values);
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelTemoignage');
 	    $tab_temoignage = $req_prep->fetchAll();
-	    if (empty($tab_stage)){
+	    if (empty($tab_temoignage)){
 	        return false;
 	    }
 	    return $tab_temoignage[0];
 	}
 
 	public static function getTemoignageByTitre($titre) {
-	    $sql = "SELECT * from mon-Temoignages WHERE titreTemoignage=:titreTemoignage";
+	    $sql = "SELECT * from `mon-Temoignages` WHERE titreTemoignage=:titreTemoignage";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -124,7 +124,7 @@ class ModelTemoignage{
 	}
 
 	public static function getTemoignageByDatePublication($datePublication) {
-	    $sql = "SELECT * from mon-Temoignages WHERE datePublication=:datePublication";
+	    $sql = "SELECT * from `mon-Temoignages` WHERE datePublication=:datePublication";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -140,7 +140,7 @@ class ModelTemoignage{
 	}
 
 	public static function getTemoignageByTheme($theme) {
-	    $sql = "SELECT * from mon-Temoignages WHERE theme=:theme";
+	    $sql = "SELECT * from `mon-Temoignages` WHERE theme=:theme";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -172,15 +172,16 @@ class ModelTemoignage{
         );
       $req_prep->execute($values);
     }
-    catch(PDOException $e){
-      if ($e->getCode()==23000){
-        echo('<b>ERREUR: Le Temoignage existe déjà</b>');
-        return false;
-      }
-    }
+	    catch(PDOException $e){
+	      if ($e->getCode()==23000){
+	        echo('<b>ERREUR: Le Temoignage existe déjà</b>');
+	        return false;
+	      }
+	    }
+	}
 
 	public function delete(){
-    $req_prep=Model::$pdo->prepare("DELETE FROM mon-Temoignages WHERE mon-Temoignages.idTemoignage=:id");
+    $req_prep=Model::$pdo->prepare("DELETE FROM `mon-Temoignages` WHERE `mon-Temoignages`.idTemoignage=:id");
 
     $values=array(
       "id" => $this->idTemoignage,

@@ -1,5 +1,5 @@
 <?php
-require_once (File::build_path(array("model","ModelVille.php")));
+require_once (File::build_path(array("model","ModelTemoignage.php")));
 class ControllerTemoignage{
 
 
