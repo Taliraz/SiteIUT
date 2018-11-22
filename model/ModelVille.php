@@ -44,14 +44,14 @@ class ModelVille{
 
 	public static function getAllVilles(){
 		$pdo=Model::$pdo;
-		$rep=$pdo->query("SELECT * FROM P_Villes");
+		$rep=$pdo->query("SELECT * FROM `mon-Villes`");
     	$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelVille');
     	$tab_ville = $rep->fetchAll();
     	return $tab_ville;
 	}
 
 	public static function getVilleById($id) {
-	    $sql = "SELECT * from P_Villes WHERE idVille=:idVille";
+	    $sql = "SELECT * from `mon-Villes` WHERE idVille=:idVille";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -67,7 +67,7 @@ class ModelVille{
 	}
 
 	public static function getVilleByNom($nom) {
-	    $sql = "SELECT * from P_Villes WHERE nomVille=:nomVille";
+	    $sql = "SELECT * from `mon-Villes` WHERE nomVille=:nomVille";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -83,7 +83,7 @@ class ModelVille{
 	}
 
 	public static function getVilleByCodePostal($codePostal) {
-	    $sql = "SELECT * from P_Villes WHERE codePostal=:codePostal";
+	    $sql = "SELECT * from `mon-Villes` WHERE codePostal=:codePostal";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -99,7 +99,7 @@ class ModelVille{
 	}
 
 	public static function getVilleByDepartement($departement) {
-	    $sql = "SELECT * from P_Villes WHERE departement=:departement";
+	    $sql = "SELECT * from `mon-Villes` WHERE departement=:departement";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
@@ -116,7 +116,7 @@ class ModelVille{
 
 	public function save(){
     try{
-      $req_prep=Model::$pdo->prepare("INSERT INTO P_Villes(nomVille,codePostal,departement)VALUES(:nomVille,:codePostal,:departement)");
+      $req_prep=Model::$pdo->prepare("INSERT INTO `mon-Villes`(nomVille,codePostal,departement)VALUES(:nomVille,:codePostal,:departement)");
 
       $values=array(
         "nomVille" => $this->nom,
@@ -135,7 +135,7 @@ class ModelVille{
   }
 
   public function delete(){
-    $req_prep=Model::$pdo->prepare("DELETE FROM P_Villes WHERE P_Villes.id=:id");
+    $req_prep=Model::$pdo->prepare("DELETE FROM `mon-Villes` WHERE `mon-Villes`.id=:id");
 
     $values=array(
       "id" => $this->id,
