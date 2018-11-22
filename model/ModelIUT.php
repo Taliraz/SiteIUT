@@ -1,5 +1,5 @@
 <?php 
-//require(File::build_path(array("model","Model.php")));
+require(File::build_path(array("model","Model.php")));
 
 class ModelIUT {
     
@@ -65,8 +65,8 @@ class ModelIUT {
     }
       
     
-    public static function getIUTAvecId($idIUT){
-        $req = Model::$pdo->prepare('SELECT * FROM mon-IUTs WHERE idIUT = :idIUT');
+    public static function getIUTById($idIUT){
+        $req = Model::$pdo->prepare('SELECT * FROM `mon-IUTs` WHERE idIUT = :idIUT');
         $req->execute(array(':idIUT'=>$idIUT));
         $check = $req->rowcount();
         if($check == 1){
@@ -77,15 +77,15 @@ class ModelIUT {
         else { return "Erreur - IUT non trouvé"; }
     }
     
-    public static function getAll(){
-        $req = Model::$pdo->query ("SELECT * FROM mon-IUTs");
+    public static function getAllIUTs(){
+        $req = Model::$pdo->query ("SELECT * FROM `mon-IUTs`");
         $req->setFetchMode(PDO::FETCH_CLASS, "ModelIUT");
         $row = $req->fetchAll();
         return $row;    
     }
     
     
-    public function saveIUT(){
+    public function save(){
         $erreur = "IUT déjà présent dans la base de données";
         $idIUT = htmlspecialchars($this->idIUT);
         $nomIUT = htmlspecialchars($this->nomIUT);
@@ -94,16 +94,16 @@ class ModelIUT {
         $siteIUT = htmlspecialchars($this->siteIUT);
         $telephoneIUT = htmlspecialchars($this->telephoneIUT);
         $data = array(':nomIUT'=>$nomIUT, ':idVille'=>$idVille, ':adresseIUT'=>$adresseIUT, ':siteIUT'=>$siteIUT, ':telephoneIUT'=>$telephoneIUT);
-        $reqVerif = Model::$pdo->prepare("SELECT idIUT FROM mon-IUTs WHERE idIUT = :idIUT");
+        $reqVerif = Model::$pdo->prepare("SELECT idIUT FROM `mon-IUTs` WHERE idIUT = :idIUT");
         $reqVerif->execute(array(':idIUT'=>$idIUT));
         $resVerif = $reqVerif->rowcount();
         if($resVerif > 0){
             return $erreur;
         }
         else {
-            $insert = Model::$pdo->prepare("INSERT INTO mon-IUTs(nomIUT, idVille,adresseIUT,siteIUT,telephoneIUT) VALUES(:nomIUT,:idVille,:adresseIUT,:siteIUT,:telephoneIUT)");
+            $insert = Model::$pdo->prepare("INSERT INTO `mon-IUTs`(nomIUT, idVille,adresseIUT,siteIUT,telephoneIUT) VALUES(:nomIUT,:idVille,:adresseIUT,:siteIUT,:telephoneIUT)");
             $insert->execute($data);
-            $getId = Model::$pdo->prepare("SELECT idIUT FROM mon-IUTs WHERE idIUT = :idIUT");
+            $getId = Model::$pdo->prepare("SELECT idIUT FROM `mon-IUTs` WHERE idIUT = :idIUT");
             $getId->execute(array(':idIUT'=>$idIUT));
             $arrayRetour = $getId->fetch();
             $idRetour = $arrayRetour[0];
