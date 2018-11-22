@@ -9,14 +9,16 @@ class ModelIUT {
     protected $adresseIUT;
     protected $siteIUT;
     protected $telephoneIUT;
+    protected $mailSecretariatIUT;
     
-    public function __construct($nomIUT = NULL,$idVille = NULL, $adresseIUT = NULL, $siteIUT = NULL, $telephoneIUT = NULL){
-        if(!is_null($nomIUT) &&!is_null($idVille) && !is_null($adresseIUT) && !is_null($siteIUT) &&!is_null($telephoneIUT)){
+    public function __construct($nomIUT = NULL,$idVille = NULL, $adresseIUT = NULL, $siteIUT = NULL, $telephoneIUT = NULL,$mailSecretariatIUT = NULL){
+        if(!is_null($nomIUT) &&!is_null($idVille) && !is_null($adresseIUT) && !is_null($siteIUT) &&!is_null($telephoneIUT) && !is_null($mailSecretariatIUT)){
              $this->nomIUT = $nomIUT;
             $this->idVille = $idVille;
             $this->adresseIUT = $adresseIUT;
             $this->siteIUT = $siteIUT;
-            $this->telephoneIUT = $telephoneIUT; 
+            $this->telephoneIUT = $telephoneIUT;
+            $this->mailSecretariatIUT=$mailSecretariatIUT; 
         }
     }
     
@@ -36,12 +38,16 @@ class ModelIUT {
         return $this->adresseIUT;
     }
 
-    public function getsiteIUT() {
+    public function getSiteIUT() {
         return $this->siteIUT;
     }
 
-    public function gettelephoneIUT() {
+    public function getTelephoneIUT() {
         return $this->telephoneIUT;
+    }
+
+    public function getMailSecretariatIUT() {
+        return $this->mailSecretariatIUT;
     }
 
     public function setNomIUT($nomIUT){
@@ -62,6 +68,10 @@ class ModelIUT {
 
     public function setTelephoneIUT($telephoneIUT){
         $this->telephoneIUT = $telephoneIUT;
+    }
+
+    public function setSecretariatIUT($mailSecretariatIUT){
+        $this->mailSecretariatIUT = $mailSecretariatIUT;
     }
       
     
@@ -93,7 +103,8 @@ class ModelIUT {
         $adresseIUT = htmlspecialchars($this->adresseIUT);
         $siteIUT = htmlspecialchars($this->siteIUT);
         $telephoneIUT = htmlspecialchars($this->telephoneIUT);
-        $data = array(':nomIUT'=>$nomIUT, ':idVille'=>$idVille, ':adresseIUT'=>$adresseIUT, ':siteIUT'=>$siteIUT, ':telephoneIUT'=>$telephoneIUT);
+        $mailSecretariatIUT = htmlspecialchars($this->mailSecretariatIUT);
+        $data = array(':nomIUT'=>$nomIUT, ':idVille'=>$idVille, ':adresseIUT'=>$adresseIUT, ':siteIUT'=>$siteIUT, ':telephoneIUT'=>$telephoneIUT, ':mailSecretariatIUT'=>$mailSecretariatIUT);
         $reqVerif = Model::$pdo->prepare("SELECT idIUT FROM `mon-IUTs` WHERE idIUT = :idIUT");
         $reqVerif->execute(array(':idIUT'=>$idIUT));
         $resVerif = $reqVerif->rowcount();
@@ -101,7 +112,7 @@ class ModelIUT {
             return $erreur;
         }
         else {
-            $insert = Model::$pdo->prepare("INSERT INTO `mon-IUTs`(nomIUT, idVille,adresseIUT,siteIUT,telephoneIUT) VALUES(:nomIUT,:idVille,:adresseIUT,:siteIUT,:telephoneIUT)");
+            $insert = Model::$pdo->prepare("INSERT INTO `mon-IUTs`(nomIUT, idVille,adresseIUT,siteIUT,telephoneIUT,mailSecretariatIUT) VALUES(:nomIUT,:idVille,:adresseIUT,:siteIUT,:telephoneIUT,:mailSecretariatIUT)");
             $insert->execute($data);
             $getId = Model::$pdo->prepare("SELECT idIUT FROM `mon-IUTs` WHERE idIUT = :idIUT");
             $getId->execute(array(':idIUT'=>$idIUT));

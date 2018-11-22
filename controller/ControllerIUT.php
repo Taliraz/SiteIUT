@@ -11,7 +11,7 @@ class ControllerIUT{
     }
 
     public static function read(){
-    	$v=ModelIUT::getIUTById($_GET ['idIUT']);
+    	$v=ModelIUT::getIUTById($_GET ['id']);
     	if ($v==false){
             $controller='IUT';
             $view='erreur';
