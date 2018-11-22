@@ -32,16 +32,16 @@ class ModelStage{
 			$this->idVille=$iv;
 			$this->nbPlaces=$np;
 			$this->numSiret=$ns;
-			$this->$nomEntreprise=$ne;
-			$this->$siteEntreprise=$se;
-			$this->$adresseEntreprise=$ae;
-			$this->$telephoneEntreprise=$te;
-			$this->$estAccepte=false;
-			$this->$nomContact=$nc;
-			$this->$prenomContact=$pc;
-			$this->$fonctionContact=$fc;
-			$this->$telephoneContact=$tc;
-			$this->$emailContact=$ec;
+			$this->nomEntreprise=$ne;
+			$this->siteEntreprise=$se;
+			$this->adresseEntreprise=$ae;
+			$this->telephoneEntreprise=$te;
+			$this->estAccepte=false;
+			$this->nomContact=$nc;
+			$this->prenomContact=$pc;
+			$this->fonctionContact=$fc;
+			$this->telephoneContact=$tc;
+			$this->emailContact=$ec;
 		}
 	}
 
@@ -305,11 +305,10 @@ class ModelStage{
 	public function save(){
 	    try{
 	      $req_prep=Model::$pdo->prepare(
-	      	"INSERT INTO `mon-Stages`(idStage,intituleStage,dateDebStage,dateFinStage,gratifie,descriptionStage,idVille,nbPlaces,numSiret,nomEntreprise,siteEntreprise,adresseEntreprise,telephoneEntreprise,estAccepte,nomContact,prenomContact,fonctionContact,telephoneContact,emailContact)
-	      	VALUES(:idStage,:intituleStage,:dateDebStage,:dateFinStage,:gratifie,:descriptionStage,:idVille,:nbPlaces,:numSiret,:nomEntreprise,:siteEntreprise,:adresseEntreprise,:telephoneEntreprise,:estAccepte,:nomContact,:prenomContact,:fonctionContact,:telephoneContact,:emailContact))");
+	      	"INSERT INTO `mon-Stages`(intituleStage,dateDebStage,dateFinStage,gratifie,descriptionStage,idVille,nbPlaces,numSiret,nomEntreprise,siteEntreprise,adresseEntreprise,telephoneEntreprise,estAccepte,nomContact,prenomContact,fonctionContact,telephoneContact,emailContact)
+	      	VALUES(:intituleStage,:dateDebStage,:dateFinStage,:gratifie,:descriptionStage,:idVille,:nbPlaces,:numSiret,:nomEntreprise,:siteEntreprise,:adresseEntreprise,:telephoneEntreprise,:estAccepte,:nomContact,:prenomContact,:fonctionContact,:telephoneContact,:emailContact)");
 
 	      $values=array(
-	        "idStage" => $this->idStage,
 	        "intituleStage" => $this->intituleStage,
 	        "dateDebStage" => $this->dateDebStage,
 	        "dateFinStage" => $this->dateFinStage,
