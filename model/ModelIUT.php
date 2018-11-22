@@ -1,5 +1,5 @@
 <?php 
-require(File::build_path(array("model","Model.php")));
+require_once(File::build_path(array("model","Model.php")));
 
 class ModelIUT {
     
