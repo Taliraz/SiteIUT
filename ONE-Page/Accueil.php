@@ -8,22 +8,23 @@
     </head>
     <body>
         
-        <video id="video" width="100%" muted autoplay loop>
+        <video id="video" class="media" muted autoplay loop>
               <source src="videos/Naruto.mp4" type="video/mp4">
         </video> 
 
         <div>
             <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)">Bonjour!</h1>
-            <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" style="font-size:30px;">Puissiez-vous Scroller !</p>
+            <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte">et Bienvenue !</p>
+            <p><image src="images/fleche.png" alt="fleche" id="fleche"></image></p>
         </div>
         
         <div id="slide1Intro" class="slides">
-            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)">Scroll !</h1>
+            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)"></h1>
         </div>
+        
         <div id="slide1Middle" class="slides">
-            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)">Trouver un IUT</h1>
-            <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" style="font-size:20px;">
-                <span></span>
+            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titreSlide1">Trouver un IUT</h1>
+            <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte" id="texte">
             Si sa fortune était petite,
             Elle était sûre tout au moins.
 A la fin, les trésors déchargés sur la plage
@@ -60,32 +61,26 @@ Sagesse et prudence dans la gestion de nos biens,
 c'est le conseil de La Fontaine ... 
             </p>
             <p data-scroll="toggle(.fromTopIn, .fromTopOut)">
-                <img src="images/anime1.png" alt="bob" id="image">
+                <img src="images/anime1.png" alt="bob" id="imageSolo" class="media">
                 <span></span>
             </p>
         </div>
         <div id="slide1End" class="slides">
-            <h1 data-scroll="toggle(.fromRightIn, .fromRightOut)" style="text-shadow:4px 4px black;">Ce que nous cachons !</h1>
+            <h1 data-scroll="toggle(.fromRightIn, .fromRightOut)" style="text-shadow:4px 4px black;">Une Image !</h1>
         </div>
         <div id="slide2" class="slides">
-            <div>
-                <video width="100%" muted autoplay loop>
-                    <source src="videos/DarkSoul.mp4" type="video/mp4">
-                </video>
-            </div>
+                <image src="images/anime7.jpg" alt="image" class="media"></image>
         </div>
         <div id="slide3Begin" class="slides">
-            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" style="text-shadow:4px 4px black;margin-top:100px;">Mais aussi...</h1>
+            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" style="text-shadow:4px 4px black;margin-top:100px;">Encore plus !</h1>
         </div>
         <div id="slide3Back" class="slides">
+            <image src='images/gif3.gif' alt="image" class="media"></image>
         </div>
         <div id="slide3End" class="slides">
         </div>
         <div id="slide3Sup" class="slides">
-            <p>Ceci n'est pas utilisable !</p>
-            <p data-depth="0.3">
-                <img src="images/anime4.jpg" alt="bob" id="image5">
-            </p>
+            <p></p> <!-- NE PAS SUPPRIMER -->
             <p data-depth="0.4">
                 <img src="images/anime3.jpg" alt="bob" id="image1">
             </p>
@@ -98,9 +93,12 @@ c'est le conseil de La Fontaine ...
             <p data-depth="0.4">
                 <img src="images/anime5.png" alt="bob" id="image4">
             </p>
+            <p data-depth="0.3">
+                <img src="images/anime4.jpg" alt="bob" id="image5">
+            </p>
        </div>
         <div id="slide4" class="slides">
-            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)">Entre autres !</h1>
+            <image src="images/anime8.jpg" alt="image" class="media"></image>
         </div>
         
         
