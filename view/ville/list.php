@@ -4,7 +4,7 @@
         <?php
         foreach ($tab_v as $v){
             echo '<p> Ville: <a title="Stage" 
-                href="index.php?action=read&id='
+                href="index.php?controller=ville&action=read&id='
                 .rawurlencode($v->getId()).'">'. htmlspecialchars($v->getNom()).'</a> 
                 <a title="supprimer" 
                 href="index.php?action=delete&id='
