@@ -22,7 +22,7 @@ class ModelStage{
 	private $emailContact;
 
 
-	public function __construct($i=NULL,$dd=NULL,$df=NULL,$g=NULL,$ds=NULL,$iv=NULL,$np=NULL,$ns=NULL,$ne=NULL,$se=NULL,$ae=NULL,$te=NULL,$ea=NULL,$nc=NULL,$pc=NULL,$fc=NULL,$tc=NULL,$mc=NULL){
+	public function __construct($i=NULL,$dd=NULL,$df=NULL,$g=NULL,$ds=NULL,$iv=NULL,$np=NULL,$ns=NULL,$ne=NULL,$se=NULL,$ae=NULL,$te=NULL,$ea=NULL,$nc=NULL,$pc=NULL,$fc=NULL,$tc=NULL,$ec=NULL){
 		if (!is_null($i) && !is_null($dd) && !is_null($df) && !is_null($g) && !is_null($ds) && !is_null($iv) && !is_null($np)  && !is_null($ns) && !is_null($ne) && !is_null($se) && !is_null($ae) && !is_null($te) && !is_null($ea) && !is_null($nc) && !is_null($pc) && !is_null($fc) && !is_null($tc) && !is_null($ec)){
 			$this->intituleStage=$i;
 			$this->dateDebStage=$dd;

@@ -44,7 +44,7 @@ class ModelVille{
 
 	public static function getAllVilles(){
 		$pdo=Model::$pdo;
-		$rep=$pdo->query("SELECT * FROM `mon-Villes`");
+		$rep=$pdo->query("SELECT * FROM `mon-Villes` ORDER BY nomVille");
     	$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelVille');
     	$tab_ville = $rep->fetchAll();
     	return $tab_ville;

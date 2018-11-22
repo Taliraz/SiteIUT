@@ -20,7 +20,7 @@
 
           <p>
             <label for="gratifie_id">Stage Gratifie</label> :
-            <select name="remunere" id="remunere_id" required>
+            <select name="gratifie" id="gratifie_id" required>
               <option value="true">Oui </option>
               <option value="false">Non </option>
             </select>
@@ -31,7 +31,18 @@
              <textarea name="descriptionStage" id="descriptionStage_id"></textarea>
           </p>
 
-         
+         <p>
+              <label for="idVille_id">Ville</label> 
+              <select name="idVille" size="1" id="idVille_id">
+                <?php
+                require_once File::build_path(array("model","ModelVille.php"));
+                $liste=ModelVille::getAllVilles();
+                foreach($liste as $valeur){
+                  echo '<option value="'.$valeur->getId().'">'.$valeur->getNom().'</option>';
+                }
+                ?>
+              </select>
+          </p>
 
         <p>
             <label for="nbPlaces_id">Nombre de Places</label> :
