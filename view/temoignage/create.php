@@ -40,7 +40,8 @@
               <label for="IUT_id">IUT</label> 
               <select name="idIUT" size="1" id="IUT_id">
                 <?php
-                /*$liste=ModelIUT::getAll();
+                /*$liste=ModelIUT::getAllIUTs();
+                var_dump($liste);
                 foreach($liste as $valeur){
                   echo '<option value="'.$valeur->getIdIUT().'">'.$valeur->getNomIUT().'</option>';
                 }*/
