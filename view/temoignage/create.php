@@ -36,12 +36,18 @@
             <input type="text" id="prenomEtudiant_id" name="prenomEtudiant">
           </p>
 
+          <?php 
+          require_once File::build_path(array("model","ModelStage.php"));
+                $liste=ModelStage::getAllStages();
+                var_dump($liste);
+              ?>
+
           <p>
               <label for="IUT_id">IUT</label> 
               <select name="idIUT" size="1" id="IUT_id">
                 <?php
-                /*$liste=ModelIUT::getAllIUTs();
-                var_dump($liste);
+                /*require_once File::build_path(array("model","ModelIUT.php"));
+                $liste=ModelIUT::getAllIUTs();
                 foreach($liste as $valeur){
                   echo '<option value="'.$valeur->getIdIUT().'">'.$valeur->getNomIUT().'</option>';
                 }*/
