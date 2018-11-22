@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="index.php?action=created">
+      <form method="post" action="index.php?controller=IUT&action=created">
         <fieldset>
           <legend>IUT :</legend>
           <p>
@@ -23,22 +23,23 @@
             <label for="telephoneIUT_id"> Telephone </label>
             <input type="text" id="telephoneIUT_id" name="telephoneIUT">
           </p>
-          <?php
-                $liste=ModelVille::getAllVilles();
-                var_dump($liste);
-                ?>
-
           <p>
               <label for="idVille_id">Ville</label> 
               <select name="idVille" size="1" id="idVille_id">
                 <?php
+                require_once File::build_path(array("model","ModelVille.php"));
                 $liste=ModelVille::getAllVilles();
-                var_dump($liste);
                 foreach($liste as $valeur){
-                  echo '<option value="'.$valeur->getIdVille().'">'.$valeur->getNomVille().'</option>';
+                  echo '<option value="'.$valeur->getId().'">'.$valeur->getNom().'</option>';
                 }
                 ?>
               </select>
+          </p>
+
+          <p>
+            <label for="mailSecretariatIUT_id">email secrétariat </label> :
+            <br>
+            <textarea name="mailSecretariatIUT" id="mailSecretariatIUT_id" required></textarea>
           </p>
 
           <p>
