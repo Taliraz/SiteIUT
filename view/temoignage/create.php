@@ -37,8 +37,8 @@
           </p>
 
           <?php 
-          require_once File::build_path(array("model","ModelStage.php"));
-                $liste=ModelStage::getAllStages();
+          require_once File::build_path(array("model","ModelIUT.php"));
+                $liste=ModelIUT::getAllIUTs();
                 var_dump($liste);
               ?>
 
