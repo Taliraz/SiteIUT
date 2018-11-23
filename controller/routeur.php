@@ -16,7 +16,7 @@ if(isset($_GET['controller'])) {
     $controller = $_GET['controller'];  
 }
 else { 
-	$controller="temoignage"; 
+	require_once(File::build_path(array("ONE-Page","Accueil.php")));
 }
 
 $controller_class="Controller".ucfirst($controller);
