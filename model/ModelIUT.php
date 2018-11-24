@@ -122,5 +122,25 @@ class ModelIUT {
             return $idRetour;
         }
     }
+
+    public function update($data){
+    $req_prep=Model::$pdo->prepare(
+        "UPDATE `mon-IUTs` 
+        SET idIUT=:idIUT,nomIUT=:nomIUT,idVille=:idVille,adresseIUT=:adresseIUT ,siteIUT=:siteIUT,telephoneIUT=:telephoneIUT,mailSecretariatIUT=:mailSecretariatIUT
+        WHERE idIUT=:idIUT"
+    );
+
+    $values=array(
+      "idIUT" => $this->idIUT,
+      "nomIUT" => $this->nomIUT,
+      "idVille" => $this->idVille,
+      "adresseIUT" => $this->adresseIUT,
+      "siteIUT" => $this->siteIUT,
+      "telephoneIUT" => $this->telephoneIUT,
+      "mailSecretariatIUT" => $this->mailSecretariatIUT
+      );
+    $req_prep->execute($values);
+
+  }
 }
 ?>
