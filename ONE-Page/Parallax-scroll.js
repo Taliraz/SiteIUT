@@ -11,7 +11,6 @@ var slide1Middle = document.getElementById('slide1Middle')
 var slide1End = document.getElementById('slide1End')
 var slide2 = document.getElementById('slide2')
 var slide3Begin = document.getElementById('slide3Begin')
-var slide3End = document.getElementById('slide3End')
 var slide3Sup = document.getElementById('slide3Sup')
 var slide3Back = document.getElementById('slide3Back')
 var slide4 = document.getElementById('slide4')
@@ -22,21 +21,42 @@ var texte = document.getElementById("texte")
 var imageSolo = document.getElementById("imageSolo")
 var titreSlide1 = document.getElementById("titreSlide1")
 
+var classScene = slide3Sup.getElementsByClassName("scene")
+var nb_actu = classScene.length;
+var hauteur_scene = Math.ceil(nb_actu/2);
 
-window.onload = function() {
-    document.body.style.height = 2*video.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight - 50 + slide4.clientHeight + "px"
+
+
+function viewportToPixels(value) {
+  var parts = value.match(/([0-9\.]+)(vh|vw)/)
+  var q = Number(parts[1])
+  var side = window[['innerHeight', 'innerWidth'][['vh', 'vw'].indexOf(parts[2])]]
+  return side * (q/100)
+}
+
+
+window.onload = function() {  
+    if(window.innerWidth>600){
+        slide3Sup.style.height = hauteur_scene*(lastpic.clientHeight+viewportToPixels('10vh')) + "px";
+    }
+    else {
+        slide3Sup.style.height = nb_actu*(lastpic.clientHeight+viewportToPixels('5vh')) + "px";
+    }
+    slide3Back.style.height = slide3Sup.clientHeight;    
     
-    slide3End.style.height = lastpic.link.offsetTop - (2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight) + "px"
-    
-    slide1Middle.style.height = texte.clientHeight + imageSolo.clientHeight + titreSlide1.clientHeight + "px"
+    document.body.style.height = video.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight - 100 + slide4.clientHeight + slide2.clientHeight + "px";
 }
 
 window.onresize = function() {
-    document.body.style.height = 2*video.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight - 50 + slide4.clientHeight + "px"
+    if(window.innerWidth>600){
+        slide3Sup.style.height = hauteur_scene*(lastpic.clientHeight+viewportToPixels('10vh')) + "px";
+    }
+    else {
+        slide3Sup.style.height = nb_actu*(lastpic.clientHeight+viewportToPixels('5vh')) + "px";
+    }
+    slide3Back.style.height = slide3Sup.clientHeight; 
     
-    slide3End.style.height = lastpic.link.offsetTop - (2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight) + "px"
-    
-    slide1Middle.style.height = texte.clientHeight + imageSolo.clientHeight + titreSlide1.clientHeight + "px"
+    document.body.style.height = video.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight - 100 + slide4.clientHeight + slide2.clientHeight + "px";
 }
 
 
@@ -152,58 +172,36 @@ window.addEventListener('scroll', function(){
 //Troisième Slide - Première Partie
 
 window.addEventListener('load', function(){ 
-    var h3 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight - 50
+    var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight - 100
 	requestAnimationFrame(parallaxScroll(slide3Begin, 1, h3)) 
 }, false)
 
 window.addEventListener('resize', function(){
-    var h3 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight - 50
+    var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight - 100
 	requestAnimationFrame(parallaxScroll(slide3Begin, 1, h3)) 
 }, false)
 
 window.addEventListener('scroll', function(){ 
-    var h3 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight - 50
+    var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight - 100
 	requestAnimationFrame(parallaxScroll(slide3Begin, 1, h3))  
 }, false)
-
-
-
-
-
-//Troisème Slide - Deuxième Partie - Première Couche
-
-window.addEventListener('load', function(){ 
-    var h4 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight - 50
-	requestAnimationFrame(parallaxScroll(slide3End, 1, h4)) 
-}, false)
-
-window.addEventListener('resize', function(){ 
-    var h4 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight - 50
-	requestAnimationFrame(parallaxScroll(slide3End, 1, h4))
-}, false)
-
-window.addEventListener('scroll', function(){ 
-    var h4 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight - 50
-	requestAnimationFrame(parallaxScroll(slide3End, 1, h4)) 
-}, false)
-
 
 
 
 //Troisème Slide - Deuxième Partie - Deuxième Couche
 
 window.addEventListener('load', function(){ 
-    var h4 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight - 50
+    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
 	requestAnimationFrame(parallaxScroll(slide3Sup, 1, h4)) 
 }, false)
 
 window.addEventListener('resize', function(){ 
-    var h4 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight - 50
+    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
 	requestAnimationFrame(parallaxScroll(slide3Sup, 1, h4)) 
 }, false)
 
 window.addEventListener('scroll', function(){ 
-    var h4 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight - 50
+    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
 	requestAnimationFrame(parallaxScroll(slide3Sup, 1, h4)) 
 }, false)
 
@@ -212,17 +210,17 @@ window.addEventListener('scroll', function(){
 //Troisème Slide - Deuxième Partie - Troisième Couche
 
 window.addEventListener('load', function(){
-    var h4 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight - 50
+    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
 	requestAnimationFrame(parallaxScroll(slide3Back, 1, h4)) 
 }, false)
 
 window.addEventListener('resize', function(){
-    var h4 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight - 50
+    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
 	requestAnimationFrame(parallaxScroll(slide3Back, 1, h4))  
 }, false)
 
 window.addEventListener('scroll', function(){ 
-    var h4 = 2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight - 50
+    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
 	requestAnimationFrame(parallaxScroll(slide3Back, 1, h4))  
 }, false)
 
@@ -233,17 +231,17 @@ window.addEventListener('scroll', function(){
 var v2 = 0.2
 
 window.addEventListener('load', function(){ 
-    var h5 = (2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight - 50)*v2
+    var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
 	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
 }, false)
 
 window.addEventListener('resize', function(){ 
-    var h5 = (2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight - 50)*v2
+    var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
 	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
 }, false)
 
 window.addEventListener('scroll', function(){ 
-    var h5 = (2*slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight - 50)*v2
+    var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
 	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
 }, false)
 

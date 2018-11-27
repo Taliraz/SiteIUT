@@ -16,6 +16,7 @@ h1
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	line-height: normal;
+    color: black;
 }
 
 
@@ -53,6 +54,8 @@ h1
 
 .texte {
     font-size: 3vh;
+    margin: 20px;
+    color: black;   
 }
 
 .media {
@@ -72,7 +75,7 @@ h1
     width: 60px;
     margin-top: calc(100vh - 300px);
     animation: bounce 1s ease infinite;
-    filter: invert(1);
+    filter: invert(0);
     z-index: 5;
 }
 
@@ -85,26 +88,25 @@ h1
 
 #slide1Intro {
     z-index: 2;
-     background-image: linear-gradient(to bottom, #ffffff, #b9b9b9, #777777, #3b3b3b, #000000);
+    background-color: white;
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
 }
 
 #slide1Middle {
     z-index: 1;
-    background-color: black;
+    background-image: linear-gradient(to bottom, #ffffff, #cbfbff, #30ffff, #00ffb9, #a8eb12);
 }
 
 #slide1End {
     height: 200px;
     z-index: 2;
-    background: linear-gradient(to bottom left, black 0%, black 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom left, #A8EB12 0%, #A8EB12  50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
 #slide2 {
     z-index: 0;
-    height: 110vh;
-    background-color: red;
+     background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 
 #slide3Begin {
@@ -114,27 +116,21 @@ h1
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
 }
 
-#slide3End {
-    z-index: 2;
-    background-color: black;
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
-}
-
 #slide3Sup {
-    height: 1500px;
     z-index: 3;
     background-color: rgba(0,0,0,0);
 }
 
 #slide3Back {
-    height: 200vh;
     z-index: 1;
 }
 
 
 #slide4 {
     z-index: -1;
-    height: 101vh;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
 }
 
 
@@ -144,42 +140,57 @@ h1
 }
 
 
-#image1 {
+.scene-pic {
     position:fixed;
+    object-fit: cover;
+    width: 44vw;
+    height: 60vh;
+}
+
+#image1 {
     right: -95vw;
-    top: 15vh;
-    width: 40vw;  
+    top: 15vh;  
 }
 
 #image2 {
-    position:fixed;
     left: 5vw;
-    top:10vh;
-    width: 50vw; 
+    top: 15vh;
 }
 
 #image3 {
     z-index:5;
-    position:fixed;
-    left: 25vw;
-    top:65vh;
-    width: 55vw; 
+    left: 5vw;
+    top: 80vh;
 }
 
 #image4 {
     z-index:3;
-    position:fixed;
-    left: 5vw;
-    top:100vh;
-    width: 50vw; 
+    right: -95vw;
+    top: 80vh;
 }
 
 #image5 {
     z-index:2;
-    position:fixed;
     right: -95vw;
-    top:130vh;
-    width: 50vw; 
+    top:145vh;
+}
+
+#image6 {
+    z-index:2;
+    left: 5vw;
+    top: 145vh;
+}
+
+#image7 {
+    z-index:2;
+    left: 5vw;
+    top: 210vh;
+}
+
+#image8 {
+    z-index:2;
+    right: -95vw;
+    top: 210vh;
 }
 
 
@@ -203,33 +214,55 @@ h1
         margin: 10px;
     }
     
+    .scene-pic {
+         height: 60vw;
+    }
+    
     #image1 {
         left: 10vw;
-        top: 20px;
+        top: 5vw;
         width: 80vw;
     }
     
     #image2 {
         left: 10vw;
-        top: 220px;
+        top: 70vw;
         width: 80vw;
     }
     
     #image3 {
         left: 10vw;
-        top: 470px;
+        top: 135vw;
         width: 80vw;
     }
     
     #image4{
         left: 10vw;
-        top: 670px;
+        top: 200vw;
         width: 80vw;
     }
     
     #image5 {
         left: 10vw;
-        top: 900px;
+        top: 265vw;
+        width: 80vw;
+    }
+    
+    #image6 {
+        left: 10vw;
+        top: 330vw;
+        width: 80vw;
+    }
+    
+    #image7 {
+        left: 10vw;
+        top: 395vw;
+        width: 80vw;
+    }
+    
+    #image8 {
+        left: 10vw;
+        top: 460vw;
         width: 80vw;
     }
 }
