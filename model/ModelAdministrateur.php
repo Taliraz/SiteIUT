@@ -29,9 +29,8 @@ class ModelAdministrateur extends Model{
   }
       
   // un constructeur
-  public function __construct($i=NULL, $l=NULL, $m=NULL)  {
-    if (!is_null($i) && !is_null($l) && !is_null($m)) {
-        $this->idAdmin=$i;
+  public function __construct($l=NULL, $m=NULL)  {
+    if (!is_null($l) && !is_null($m)) {
         $this->login = $l;
         $this->mdp = $m;
     }
@@ -39,10 +38,9 @@ class ModelAdministrateur extends Model{
 
    public function save(){
     try{
-      $req_prep=Model::$pdo->prepare("INSERT INTO `mon-administrateurs`(idAdmin,login,mdp)VALUES(:idAdmin,:login,:mdp)");
+      $req_prep=Model::$pdo->prepare("INSERT INTO `mon-Administrateurs`(idAdmin,login,mdp)VALUES(NULL,:login,:mdp)");
 
       $values=array(
-        "idAdmin" => $this->idAdmin,
         "login" => $this->login,
         "mdp" => $this->mdp
         );
@@ -58,14 +56,14 @@ class ModelAdministrateur extends Model{
   }
 
   public static function getAllAdministrateurs(){
-        $req = Model::$pdo->query ("SELECT * FROM `mon-administrateurs`");
+        $req = Model::$pdo->query ("SELECT * FROM `mon-Administrateurs`");
         $req->setFetchMode(PDO::FETCH_CLASS, "Modeladministrateur");
         $row = $req->fetchAll();
         return $row;    
     }
 
   public function deleteOne(){
-    $req_prep=Model::$pdo->prepare("DELETE FROM `mon-administrateurs` WHERE administrateur.login=:login");
+    $req_prep=Model::$pdo->prepare("DELETE FROM `mon-Administrateurs` WHERE administrateur.login=:login");
 
     $values=array(
       "login" => $this->login,
@@ -76,7 +74,7 @@ class ModelAdministrateur extends Model{
   
 
   public function update($data){
-    $req_prep=Model::$pdo->prepare("UPDATE `mon-administrateurs` SET idAdmin=:idAdmin, login=:login, mdp=:mdp,admin=:admin WHERE idAdmin=:idAdmin");
+    $req_prep=Model::$pdo->prepare("UPDATE `mon-Administrateurs` SET idAdmin=:idAdmin, login=:login, mdp=:mdp,admin=:admin WHERE idAdmin=:idAdmin");
 
     $values=array(
       "idAdmin"=>$this->idAdmin,
@@ -88,7 +86,7 @@ class ModelAdministrateur extends Model{
   }
 
    public static function getAdministrateurById($idAdmin){
-        $req = Model::$pdo->prepare('SELECT * FROM `mon-administrateurs` WHERE idAdmin = :idAdmin');
+        $req = Model::$pdo->prepare('SELECT * FROM `mon-Administrateurs` WHERE idAdmin = :idAdmin');
         $req->execute(array(':idAdmin'=>$idAdmin));
         $check = $req->rowcount();
         if($check == 1){
@@ -100,7 +98,7 @@ class ModelAdministrateur extends Model{
     }
 
     public static function getAdministrateurByLogin($login){
-        $req = Model::$pdo->prepare('SELECT * FROM `mon-administrateurs` WHERE login = :login');
+        $req = Model::$pdo->prepare('SELECT * FROM `mon-Administrateurs` WHERE login = :login');
         $req->execute(array(':login'=>$login));
         $check = $req->rowcount();
         if($check == 1){
@@ -112,7 +110,7 @@ class ModelAdministrateur extends Model{
     }
 
   public static function checkPassword($login,$mot_de_passe_chiffre){
-      $sql = "SELECT * from `mon-administrateurs` WHERE login=:login AND mdp=:mdp";
+      $sql = "SELECT * from `mon-Administrateurs` WHERE login=:login AND mdp=:mdp";
       $req_prep = Model::$pdo->prepare($sql);
 
       $values = array(

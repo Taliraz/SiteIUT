@@ -68,7 +68,7 @@ class ControllerAdministrateur {
 
 
     public static function created(){
-      $ModelAdministrateur=new ModelAdministrateur($_POST['login'],$_POST['nom'],$_POST['prenom'],Security::chiffrer($_POST['mdp']),false);
+      $ModelAdministrateur=new ModelAdministrateur($_POST['login'],Security::chiffrer($_POST['mdp']));
       $ModelAdministrateur->save();
       $controller='administrateur';
       $view='created';
@@ -111,7 +111,6 @@ class ControllerAdministrateur {
         if ($compte!=false){
             $_SESSION['login']=$_POST['login'];
             $v=ModelAdministrateur::getadministrateurbylogin($_POST['login']);
-            $_SESSION['admin']=$v->getAdmin();
             $controller='administrateur';
             $view='detail';
             $pagetitle='Connecté';
