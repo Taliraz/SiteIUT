@@ -1,18 +1,8 @@
-p.menu{
-      background: #808080;
-      border: 0px;
-      padding: 15px;
-      margin:0px;
-
-}
-
 a.buttons {
       text-decoration: none;
       padding: 15px;
-      margin:0px;
       cursor: pointer;
       font-weight: bold;
-      font-size: 100%;
       color: #fff;
       background: #808080;
       border: 0px;
@@ -29,7 +19,6 @@ a.buttons:hover {
 a.connection {
       text-decoration: none;
       padding: 15px;
-      margin:0px;
       cursor: pointer;
       font-weight: bold;
       font-size: 100%;
@@ -37,9 +26,9 @@ a.connection {
       background: #808080;
       border: 0px;
       transition:0.5s;
-      position:fixed;
-      right:0;
-      top:8px;
+      position: fixed;
+      right: 0;
+      top: 0;
       
 }
 a.connection:hover {

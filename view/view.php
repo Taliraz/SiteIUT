@@ -7,13 +7,14 @@
     </head>
 
      <header>
-        <p>
+        <p class='menu'>
             <a class='buttons' href="index.php?action=readAll&controller=administrateur"> Administrateur </a>
             <a class='buttons' href="index.php?action=readAll&controller=article"> Articles </a>
             <a class='buttons' href="index.php?action=readAll&controller=IUT">IUT </a>
             <a class='buttons' href="index.php?action=readAll&controller=stage">Stage </a>
             <a class='buttons' href="index.php?action=readAll&controller=temoignage">Temoignage </a>
             <a class='buttons' href="index.php?action=readAll&controller=ville">Ville </a>
+<<<<<<< HEAD
             <?php
             if(isset($_SESSION['login'])){
                 echo '<a class=\'buttons\' href="index.php?action=disconnect&controller=administrateur">'.$_SESSION['login'].' deconnexion </a>';
@@ -23,6 +24,9 @@
             }
             
             ?>
+=======
+            <a class='connection' href="index.php?action=connect&controller=administrateur">Connexion </a>
+>>>>>>> 529f7ddc49b065daca2acb56504664f52d9c5ce7
         </p>
         <br>
     </header>
