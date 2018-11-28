@@ -73,7 +73,7 @@ h1
 
 #fleche {
     width: 60px;
-    margin-top: calc(100vh - 300px);
+    margin-top: calc(100vh - 250px);
     animation: bounce 1s ease infinite;
     filter: invert(0);
     z-index: 5;
@@ -98,7 +98,7 @@ h1
 }
 
 #slide1End {
-    height: 200px;
+    height: 10vw;
     z-index: 2;
     background: linear-gradient(to bottom left, #A8EB12 0%, #A8EB12  50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
@@ -110,7 +110,7 @@ h1
 }
 
 #slide3Begin {
-    height: 200px;
+    height: 10vw;
     z-index: 2;
     background: linear-gradient(to top right, black 0%, black 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
