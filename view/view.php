@@ -13,6 +13,7 @@
             <a href="index.php?action=readAll&controller=stage">Stage </a>
             <a href="index.php?action=readAll&controller=temoignage">Temoignage </a>
             <a href="index.php?action=readAll&controller=ville">Ville </a>
+            <a href="index.php?action=connect&controller=administrateur">Connexion </a>
         </p>
     </header>
 
