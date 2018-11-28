@@ -7,14 +7,14 @@
     </head>
 
      <header>
-        <p>
+        <p class='menu'>
             <a class='buttons' href="index.php?action=readAll&controller=administrateur"> Administrateur </a>
             <a class='buttons' href="index.php?action=readAll&controller=article"> Articles </a>
             <a class='buttons' href="index.php?action=readAll&controller=IUT">IUT </a>
             <a class='buttons' href="index.php?action=readAll&controller=stage">Stage </a>
             <a class='buttons' href="index.php?action=readAll&controller=temoignage">Temoignage </a>
             <a class='buttons' href="index.php?action=readAll&controller=ville">Ville </a>
-            <a class='buttons' href="index.php?action=connect&controller=administrateur">Connexion </a>
+            <a class='connection' href="index.php?action=connect&controller=administrateur">Connexion </a>
         </p>
         <br>
     </header>
