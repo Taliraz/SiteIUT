@@ -5,7 +5,7 @@ class ControllerAdministrateur {
 
 
     public static function readAll() {
-        $tab_v = ModelAdministrateur::getallAdministrateur();     //appel au modèle pour gerer la BD
+        $tab_v = ModelAdministrateur::getallAdministrateurs();     //appel au modèle pour gerer la BD
         $controller='administrateur';
         $view='list';
         $pagetitle='liste des Administrateurs';
@@ -32,8 +32,9 @@ class ControllerAdministrateur {
     public static function delete(){
         $login=$_GET['login'];
         if (isset($_SESSION['login'])){
-            ModelAdministrateur::delete($login);
-            $tab_v=ModelAdministrateur::getallAdministrateur();
+            $admin=ModelAdministrateur::getAdministrateurByLogin($login);
+            $admin->delete();
+            $tab_v=ModelAdministrateur::getallAdministrateurs();
             $controller='administrateur';
             $view='deleted';
             $pagetitle='administrateur supprimé';

@@ -14,7 +14,15 @@
             <a class='buttons' href="index.php?action=readAll&controller=stage">Stage </a>
             <a class='buttons' href="index.php?action=readAll&controller=temoignage">Temoignage </a>
             <a class='buttons' href="index.php?action=readAll&controller=ville">Ville </a>
-            <a class='buttons' href="index.php?action=connect&controller=administrateur">Connexion </a>
+            <?php
+            if(isset($_SESSION['login'])){
+                echo '<a class=\'buttons\' href="index.php?action=disconnect&controller=administrateur">'.$_SESSION['login'].' deconnexion </a>';
+            }
+            else{
+                echo '<a class=\'buttons\' href="index.php?action=connect&controller=administrateur">Connexion </a>';
+            }
+            
+            ?>
         </p>
         <br>
     </header>

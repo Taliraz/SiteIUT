@@ -62,7 +62,7 @@ class ModelAdministrateur extends Model{
         return $row;    
     }
 
-  public function deleteOne(){
+  public function delete(){
     $req_prep=Model::$pdo->prepare("DELETE FROM `mon-Administrateurs` WHERE administrateur.login=:login");
 
     $values=array(
