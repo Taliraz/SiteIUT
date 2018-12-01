@@ -1,6 +1,4 @@
 <?php 
-require(File::build_path(array("model","Model.php")));
-
 class ModelArticle {
     
     protected $idArticle;
@@ -46,15 +44,15 @@ class ModelArticle {
         else { return "Erreur - Article non trouvé"; }
     }
     
-    public static function getAll(){
+    public static function getAllArticles(){
         $req = Model::$pdo->query ("SELECT * FROM `mon-Articles`");
-        $req->setFetchMode(PDO::FETCH_CLASS, $ModelArticle);
+        $req->setFetchMode(PDO::FETCH_CLASS, "ModelArticle");
         $row = $req->fetchAll();
         return $row;    
     }
     
     
-    public function saveArticle(){
+    public function save(){
         $erreur = "Article déjà présent dans la base de données";
         $idArticle = htmlspecialchars($this->idArticle);
         $nomArticle = htmlspecialchars($this->nomArticle);
@@ -82,7 +80,7 @@ class ModelArticle {
     $req_prep=Model::$pdo->prepare("DELETE FROM `mon-Articles` WHERE `mon-Articles`.idArticle=:idArticle");
 
     $values=array(
-      "id" => $this->idArticle,
+      "idArticle" => $this->idArticle,
       );
     $req_prep->execute($values);
   }

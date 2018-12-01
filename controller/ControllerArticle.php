@@ -12,7 +12,7 @@ class ControllerArticle{
     }
 
     public static function read(){
-    	$v=ModelArticle::getArticleById($_GET ['id']);
+    	$v=ModelArticle::getArticleById($_GET ['idArticle']);
     	if ($v==false){
             $controller='article';
             $view='erreur';
@@ -45,7 +45,7 @@ class ControllerArticle{
     }
 
     public static function delete(){
-        $v=ModelArticle::getArticleById($_GET ['id']);
+        $v=ModelArticle::getArticleById($_GET ['idArticle']);
         $v->delete();
         self::readAll();
     }
