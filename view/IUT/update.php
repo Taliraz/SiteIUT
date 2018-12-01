@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="index.php?controller=IUT&action=created">
+      <form method="post" action="admin.php?controller=IUT&action=created">
         <fieldset>
           <legend>IUT :</legend>
           <p>

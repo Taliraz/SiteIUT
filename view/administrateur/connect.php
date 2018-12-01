@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="index.php?controller=administrateur&action=connected">
+      <form method="post" action="admin.php?controller=administrateur&action=connected">
         <fieldset>
           <legend>Connexion :</legend>
           <p>

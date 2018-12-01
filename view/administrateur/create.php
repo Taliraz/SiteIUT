@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="index.php?controller=administrateur&action=created">
+      <form method="post" action="admin.php?controller=administrateur&action=created">
         <fieldset>
           <legend>Mon formulaire :</legend>
           <p>
