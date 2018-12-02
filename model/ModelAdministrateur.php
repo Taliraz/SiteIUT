@@ -74,7 +74,7 @@ class ModelAdministrateur extends Model{
   
 
   public function update($data){
-    $req_prep=Model::$pdo->prepare("UPDATE `mon-Administrateurs` SET idAdmin=:idAdmin, login=:login, mdp=:mdp,admin=:admin WHERE idAdmin=:idAdmin");
+    $req_prep=Model::$pdo->prepare("UPDATE `mon-Administrateurs` SET login=:login, mdp=:mdp WHERE idAdmin=:idAdmin");
 
     $values=array(
       "idAdmin"=>$this->idAdmin,

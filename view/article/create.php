@@ -2,7 +2,7 @@
     <body>
       <form method="post" action="admin.php?controller=article&action=created">
         <fieldset>
-          <legend>Ville :</legend>
+          <legend>Article :</legend>
           <p>
             <label for="nom_id">Nom</label> :
             <input type="text" placeholder="Ex : Description" name="nom" id="nom_id" required/>

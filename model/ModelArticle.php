@@ -5,8 +5,9 @@ class ModelArticle {
     protected $nomArticle;
     protected $contenuArticle;
     
-    public function __construct($nomArticle = NULL, $contenuArticle = NULL){
-        if(!is_null($nomArticle) && !is_null($contenuArticle)){
+    public function __construct($idArticle = NULL, $nomArticle = NULL, $contenuArticle = NULL){
+        if(!is_null($idArticle) && !is_null($nomArticle) && !is_null($contenuArticle)){
+            $this->idArticle = $idArticle;
             $this->nomArticle = $nomArticle;
             $this->contenuArticle = $contenuArticle; 
         }
@@ -84,5 +85,17 @@ class ModelArticle {
       );
     $req_prep->execute($values);
   }
+
+    public function update($data){
+        $req_prep=Model::$pdo->prepare("UPDATE `mon-Articles` SET nomArticle=:nomArticle,contenuArticle=:contenuArticle WHERE idArticle=:idArticle");
+
+        $values=array(
+          "idArticle"=>$this->idArticle,
+          "nomArticle" => $this->nomArticle,
+          "contenuArticle" => $this->contenuArticle
+          );
+        $req_prep->execute($values);
+
+      }
 }
 ?>

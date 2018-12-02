@@ -49,5 +49,36 @@ class ControllerArticle{
         $v->delete();
         self::readAll();
     }
+
+        public static function update(){
+    $idArticle=$_GET ['idArticle'];
+        if (isset($_SESSION['login'])){
+            $v=ModelArticle::getArticleById($idArticle);
+            $controller='article';
+            $view='update';
+            $pagetitle='modification de article';
+            require(File::build_path(array("view","view.php")));
+        }
+        else{
+            self::readAll();
+        }
+    }
+
+    public static function updated(){
+        $idArticle=$_GET['idArticle'];
+        if (isset($_SESSION['login'])){
+            $ModelArticle=new ModelArticle($_GET['idArticle'],$_POST['nom'],$_POST['contenu']);
+            $ModelArticle->update(ModelArticle::getArticleById($idArticle));
+            $controller='article';
+            $view='updated';
+            $pagetitle='Article modifié';
+            require(File::build_path(array("view","view.php")));
+        }
+        else{
+            self::readAll();
+        }
+
+    }
+
 }
 ?>
