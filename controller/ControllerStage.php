@@ -35,13 +35,12 @@ class ControllerStage{
     }
 
     public static function created(){
-        var_dump($_POST);
-      $ModelStage=new ModelStage($_POST['intituleStage'],$_POST['dateDebStage'],$_POST['dateFinStage'],$_POST['gratifie'],$_POST['descriptionStage'],$_POST['idVille'],$_POST['nbPlaces'],$_POST['numSiret'],$_POST['nomEntreprise'],$_POST['siteEntreprise'],$_POST['adresseEntreprise'],$_POST['telephoneEntreprise'],false,$_POST['nomContact'],$_POST['prenomContact'],$_POST['fonctionContact'],$_POST['telephoneContact'],$_POST['emailContact']);
-      $ModelStage->save();
-      $controller='stage';
-      $view='created';
-      $pagetitle='Stage créé';
-      require(File::build_path(array("view","view.php")));
+        $v=new ModelStage($_POST['intituleStage'],$_POST['dateDebStage'],$_POST['dateFinStage'],$_POST['gratifie'],$_POST['descriptionStage'],$_POST['idVille'],$_POST['nbPlaces'],$_POST['numSiret'],$_POST['nomEntreprise'],$_POST['siteEntreprise'],$_POST['adresseEntreprise'],$_POST['telephoneEntreprise'],false,$_POST['nomContact'],$_POST['prenomContact'],$_POST['fonctionContact'],$_POST['telephoneContact'],$_POST['emailContact']);
+        $v->save();
+        $controller='stage';
+        $view='created';
+        $pagetitle='Stage créé';
+        require(File::build_path(array("view","view.php")));
     }
 
     public static function delete(){

@@ -11,9 +11,10 @@ class ModelIUT {
     protected $telephoneIUT;
     protected $mailSecretariatIUT;
     
-    public function __construct($nomIUT = NULL,$idVille = NULL, $adresseIUT = NULL, $siteIUT = NULL, $telephoneIUT = NULL,$mailSecretariatIUT = NULL){
+    public function __construct($idIUT = NULL,$nomIUT = NULL,$idVille = NULL, $adresseIUT = NULL, $siteIUT = NULL, $telephoneIUT = NULL,$mailSecretariatIUT = NULL){
         if(!is_null($nomIUT) &&!is_null($idVille) && !is_null($adresseIUT) && !is_null($siteIUT) &&!is_null($telephoneIUT) && !is_null($mailSecretariatIUT)){
-             $this->nomIUT = $nomIUT;
+            $this->idIUT=$idIUT;
+            $this->nomIUT = $nomIUT;
             $this->idVille = $idVille;
             $this->adresseIUT = $adresseIUT;
             $this->siteIUT = $siteIUT;
@@ -122,5 +123,25 @@ class ModelIUT {
             return $idRetour;
         }
     }
+
+    public function update(){
+    $req_prep=Model::$pdo->prepare(
+        "UPDATE `mon-IUTs` 
+        SET nomIUT=:nomIUT,idVille=:idVille,adresseIUT=:adresseIUT ,siteIUT=:siteIUT,telephoneIUT=:telephoneIUT,mailSecretariatIUT=:mailSecretariatIUT
+        WHERE idIUT=:idIUT"
+    );
+
+    $values=array(
+      "idIUT" => $this->idIUT,
+      "nomIUT" => $this->nomIUT,
+      "idVille" => $this->idVille,
+      "adresseIUT" => $this->adresseIUT,
+      "siteIUT" => $this->siteIUT,
+      "telephoneIUT" => $this->telephoneIUT,
+      "mailSecretariatIUT" => $this->mailSecretariatIUT
+      );
+    $req_prep->execute($values);
+
+  }
 }
 ?>

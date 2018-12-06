@@ -16,3 +16,11 @@ echo'<p> Intitule : ' . htmlspecialchars($v->getIntituleStage()) .
 	'</p><p> Téléphone du contact : '.htmlspecialchars($v->getTelephoneContact()).
 	'</p><p> Email du contact : '.htmlspecialchars($v->getEmailContact());
 ?>
+<br>
+<br>
+<?php
+if(isset($_SESSION['login'])){
+	echo '<a class="modif" title="update" href="admin.php?controller='.$controller.'&action=update&idStage='.$v->getIdStage().'"> Modifier </a>';
+	echo '<a class="modif" title="delete" href="admin.php?controller='.$controller.'&action=delete&idStage='.$v->getIdStage().'"> Supprimer </a>';
+}
+?>

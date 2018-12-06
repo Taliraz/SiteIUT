@@ -8,7 +8,7 @@
     <body>
         <ul id="colonne">
             <a href="#"><li id="titre"></li></a>
-            <a href="http://localhost/Index/SiteIUT/Index.php"><li class="element-liste">Etudiants</li></a>
+            <a href="http://localhost/Admin/SiteIUT/Admin.php"><li class="element-liste">Etudiants</li></a>
             <a href="#"><li class="element-liste">LIGNE 2</li></a>
             <a href="#"><li class="element-liste">LIGNE 3</li></a>
             <a href="#"><li class="element-liste">LIGNE 4</li></a>

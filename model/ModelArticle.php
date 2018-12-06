@@ -1,15 +1,14 @@
 <?php 
-require(File::build_path(array("model","Model.php")));
-
 class ModelArticle {
     
     protected $idArticle;
-    protected $idPage;
+    protected $nomArticle;
     protected $contenuArticle;
     
-    public function __construct($idPage = NULL, $contenuArticle = NULL){
-        if(!is_null($idPage) && !is_null($contenuArticle)){
-            $this->idPage = $idPage;
+    public function __construct($idArticle = NULL, $nomArticle = NULL, $contenuArticle = NULL){
+        if(!is_null($nomArticle) && !is_null($contenuArticle)){
+            $this->idArticle = $idArticle;
+            $this->nomArticle = $nomArticle;
             $this->contenuArticle = $contenuArticle; 
         }
     }
@@ -18,24 +17,24 @@ class ModelArticle {
         return $this->idArticle;
     }
 
-    public function getIdPage() {
-        return $this->idPage;
+    public function getNomArticle() {
+        return $this->nomArticle;
     }
     
     public function getContenuArticle() {
         return $this->contenuArticle;
     }
     
-    public function setIdPage($idPage){
-        $this->idPage = $idPage;
+    public function setNomArticle($nomArticle){
+        $this->nomArticle = $nomArticle;
     }
     
     public function setContenuArticle($contenuArticle){
         $this->contenuArticle = $contenuArticle;
     }
       
-    public static function getArticleAvecId($idArticle){
-        $req = Model::$pdo->prepare('SELECT * FROM P_Articles WHERE idArticle = :idArticle');
+    public static function getArticleById($idArticle){
+        $req = Model::$pdo->prepare('SELECT * FROM `mon-Articles` WHERE idArticle = :idArticle');
         $req->execute(array(':idArticle'=>$idArticle));
         $check = $req->rowcount();
         if($check == 1){
@@ -46,36 +45,52 @@ class ModelArticle {
         else { return "Erreur - Article non trouvé"; }
     }
     
-    public static function getAll(){
-        $req = Model::$pdo->query ("SELECT * FROM P_Articles");
-        $req->setFetchMode(PDO::FETCH_CLASS, $ModelArticle);
+    public static function getAllArticles(){
+        $req = Model::$pdo->query ("SELECT * FROM `mon-Articles`");
+        $req->setFetchMode(PDO::FETCH_CLASS, "ModelArticle");
         $row = $req->fetchAll();
         return $row;    
     }
     
-    
-    public function saveArticle(){
-        $erreur = "Article déjà présent dans la base de données";
-        $idArticle = htmlspecialchars($this->idArticle);
-        $idPage = htmlspecialchars($this->idPage);
-        $contenuArticle = htmlspecialchars($this->contenuArticle);
-        $data = array(':idPage'=>$idPage, ':contenuArticle'=>$contenuArticle);
-        $reqVerif = Model::$pdo->prepare("SELECT idArticle FROM P_Articles WHERE idArticle = :idArticle");
-        $reqVerif->execute(array(':idArticle'=>$idArticle));
-        $resVerif = $reqVerif->rowcount();
-        if($resVerif > 0){
-            return $erreur;
-        }
-        else {
-            $insert = Model::$pdo->prepare("INSERT INTO P_Articles(idPage,contenuArticle) VALUES(:idPage,:contenuArticle)");
-            $insert->execute($data);
-            $getId = Model::$pdo->prepare("SELECT idArticle FROM P_Articles WHERE idArticle = :idArticle");
-            $getId->execute(array(':idArticle'=>$idArticle));
-            $arrayRetour = $getId->fetch();
-            $idRetour = $arrayRetour[0];
+    public function save(){
+        try{
+          $req_prep = Model::$pdo->prepare("INSERT INTO `mon-Articles`(nomArticle,contenuArticle) VALUES(:nomArticle,:contenuArticle)");
+
+          $values=array(
+            "nomArticle" => $this->nomArticle,
+            "contenuArticle" => $this->contenuArticle,
             
-            return $idRetour;
+            );
+          $req_prep->execute($values);
+        }
+        catch(PDOException $e){
+          if ($e->getCode()==23000){
+            echo('<b>ERREUR: L\'Article existe déjà</b>');
+            return false;
+          }
         }
     }
+   
+
+    public function delete(){
+        $req_prep=Model::$pdo->prepare("DELETE FROM `mon-Articles` WHERE `mon-Articles`.idArticle=:idArticle");
+
+        $values=array(
+          "idArticle" => $this->idArticle,
+          );
+        $req_prep->execute($values);
+    }
+
+    public function update(){
+        $req_prep=Model::$pdo->prepare("UPDATE `mon-Articles` SET nomArticle=:nomArticle,contenuArticle=:contenuArticle WHERE idArticle=:idArticle");
+
+        $values=array(
+          "idArticle"=>$this->idArticle,
+          "nomArticle" => $this->nomArticle,
+          "contenuArticle" => $this->contenuArticle
+          );
+        $req_prep->execute($values);
+
+      }
 }
 ?>

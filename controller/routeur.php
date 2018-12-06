@@ -1,4 +1,10 @@
 <?php
+	require (File::build_path(array("controller","ControllerAdministrateur.php")));
+	require (File::build_path(array("controller","ControllerArticle.php")));
+	require (File::build_path(array("controller","ControllerIUT.php")));
+	require (File::build_path(array("controller","ControllerStage.php")));
+	require (File::build_path(array("controller","ControllerTemoignage.php")));
+	require (File::build_path(array("controller","ControllerVille.php")));
 if(isset($_GET['action'])) {
     $action = $_GET['action'];  
 }
@@ -9,42 +15,19 @@ else {
 if(isset($_GET['controller'])) {
     $controller = $_GET['controller'];  
 }
+else { 
+	$controller="temoignage"; 
+}
 
+$controller_class="Controller".ucfirst($controller);
+if(!class_exists($controller_class)){
+	$controller_class="ControllerTemoignage";
+}
+
+if(in_array($action, get_class_methods($controller_class))){
+	$controller_class::$action(); 
+}
 else{
-	$controller='etudiant';
+	require_once(File::build_path(array("view",$controller,"error.php")));
 }
-
-if ($controller=='administrateur'){
-	require (File::build_path(array("controller","ControllerAdministrateur.php")));
-	ControllerAdministrateur::$action(); 
-}
-
-if ($controller=='article'){
-	require (File::build_path(array("controller","ControllerArticle.php")));
-	ControllerArticle::$action(); 
-}
-
-if ($controller=='IUT'){
-	require (File::build_path(array("controller","ControllerIUT.php")));
-	ControllerIUT::$action(); 
-}
-
-
-if ($controller=='stage'){
-	require (File::build_path(array("controller","ControllerStage.php")));
-	ControllerStage::$action(); 
-}
-
-if ($controller=='temoignage'){
-	require (File::build_path(array("controller","ControllerTemoignage.php")));
-	ControllerTemoignage::$action(); 
-}
-
-if ($controller=='ville'){
-	require (File::build_path(array("controller","ControllerVille.php")));
-	ControllerVille::$action(); 
-}
-
-
-
 ?>

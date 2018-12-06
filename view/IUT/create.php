@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="index.php?controller=IUT&action=created">
+      <form method="post" action="admin.php?controller=IUT&action=created">
         <fieldset>
           <legend>IUT :</legend>
           <p>
@@ -30,7 +30,7 @@
                 require_once File::build_path(array("model","ModelVille.php"));
                 $liste=ModelVille::getAllVilles();
                 foreach($liste as $valeur){
-                  echo '<option value="'.$valeur->getId().'">'.$valeur->getNom().'</option>';
+                  echo '<option value="'.$valeur->getId().'">'.$valeur->getNom().' ('.$valeur->getCodePostal().')</option>';
                 }
                 ?>
               </select>

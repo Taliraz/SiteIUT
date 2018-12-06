@@ -1,27 +1,32 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?controller=IUT&action=created">
+
+      <form method="post" action="admin.php?controller=IUT&action=updated&idIUT=<?php echo $v->getIdIUT(); ?>">
+
         <fieldset>
           <legend>IUT :</legend>
           <p>
-            <label for="nomIUT_id"> Nom </label>
             <input type="text" id="nomIUT_id" name="nomIUT">
+
+            <?php echo '<input type="text" value="'.$v->getNomIUT().'" id="nomIUT_id" name="nomIUT">' ?>
           </p>
           <p>
             <label for="adresseIUT_id">Adresse </label> :
             <br>
-            <textarea name="adresseIUT" id="adresseIUT_id" required></textarea>
+            <?php echo '<textarea name="adresseIUT" id="adresseIUT_id" required>'.$v->getAdresseIUT().'</textarea>'?>
           </p>
 
           <p>
             <label for="siteIUT_id">Site </label> :
             <br>
-            <textarea name="siteIUT" id="siteIUT_id" required></textarea>
+            <?php echo '<textarea name="siteIUT" id="siteIUT_id" required>'.$v->getSiteIUT().'</textarea>'?>
           </p>
 
           <p>
             <label for="telephoneIUT_id"> Telephone </label>
-            <input type="text" id="telephoneIUT_id" name="telephoneIUT">
+
+            <?php echo '<input type="text" value="'.$v->getTelephoneIUT().'" id="telephoneIUT_id" name="telephoneIUT">'?>
+
           </p>
           <p>
               <label for="idVille_id">Ville</label> 
@@ -39,7 +44,9 @@
           <p>
             <label for="mailSecretariatIUT_id">email secrétariat </label> :
             <br>
-            <textarea name="mailSecretariatIUT" id="mailSecretariatIUT_id" required></textarea>
+
+            <?php echo '<textarea name="mailSecretariatIUT" id="mailSecretariatIUT_id">'.$v->getMailSecretariatIUT().'</textarea>'?>
+
           </p>
 
           <p>

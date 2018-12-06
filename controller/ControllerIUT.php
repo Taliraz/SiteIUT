@@ -35,7 +35,7 @@ class ControllerIUT{
     }
 
     public static function created(){
-      $ModelIUT=new ModelIUT($_POST['nomIUT'],$_POST['idVille'],$_POST['adresseIUT'],$_POST['siteIUT'],$_POST['telephoneIUT']);
+      $ModelIUT=new ModelIUT($_POST['nomIUT'],$_POST['idVille'],$_POST['adresseIUT'],$_POST['siteIUT'],$_POST['telephoneIUT'],$_POST['mailSecretariatIUT']);
       $ModelIUT->save();
       $controller='IUT';
       $view='created';
@@ -47,6 +47,27 @@ class ControllerIUT{
         $v=ModelIUT::getIUTById($_GET ['idIUT']);
         $v->delete();
         self::readAll();
+    }
+
+    public static function update(){
+        $idIUT=$_GET ['idIUT'];
+        $v=ModelIUT::getIUTByid($idIUT);
+        $controller='IUT';
+        $view='update';
+        $pagetitle='modification de IUT';
+        require(File::build_path(array("view","view.php")));
+    }
+
+    public static function updated(){
+        $idIUT=$_GET['idIUT'];
+        $ModelIUT=new ModelIUT($idIUT,$_POST['nomIUT'],$_POST['idVille'],$_POST['adresseIUT'],$_POST['siteIUT'],$_POST['telephoneIUT'],$_POST['mailSecretariatIUT']);
+        var_dump($ModelIUT);
+        $ModelIUT->update();
+        $controller='IUT';
+        $view='updated';
+        $pagetitle='IUT modifié';
+        require(File::build_path(array("view","view.php")));
+
     }
 }
 ?>
