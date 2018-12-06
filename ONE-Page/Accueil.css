@@ -2,7 +2,6 @@
 body{
     background: white top center no-repeat fixed;
     background-size: cover;
-    height: 6000px;
     margin: 0;
     font-family: 'Work Sans', sans-serif;
     text-align: center;
@@ -12,11 +11,61 @@ body{
 
 h1
 {
-	font-size: 4em;
+	font-size: 7vh;
 	font-weight: 200;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	line-height: normal;
+    color: black;
+}
+
+
+
+
+
+
+
+
+@keyframes bounce{
+    from {transform: translate(0, 0);}
+    10% {transform: translate(0, 2px);}
+    20% {transform: translate(0, 4px);}
+    30% {transform: translate(0, 6px);} 
+    40% {transform: translate(0, 10px);}
+    50% {transform: translate(0, 12px);}
+    60% {transform: translate(0, 16px);}
+    70% {transform: translate(0, 22px);}
+    80% {transform: translate(0, 25px);}
+    90% {transform: translate(0, 5px);}
+    to  {transform: translate(0, 0);}
+}
+
+@keyframes bounce_l{
+    from {transform: translate(-60px, 0);}
+    10% {transform: translate(-62px, 0); }
+    20% {transform: translate(-64px, 0);}
+    30% {transform: translate(-66px, 0);} 
+    40% {transform: translate(-70px, 0);}
+    50% {transform: translate(-72px, 0);}
+    60% {transform: translate(-76px, 0);}
+    70% {transform: translate(-72px, 0);}
+    80% {transform: translate(-68px, 0);}
+    90% {transform: translate(-64px, 0);}
+    to  {transform: translate(-60px, 0);}
+}
+
+@keyframes bounce_d{
+    from {transform: translate(60px, 0);}
+    10% {transform: translate(62px, 0);}
+    20% {transform: translate(64px, 0);}
+    30% {transform: translate(66px, 0);} 
+    40% {transform: translate(70px, 0);}
+    50% {transform: translate(72px, 0);}
+    60% {transform: translate(76px, 0);}
+    70% {transform: translate(72px, 0);}
+    80% {transform: translate(68px, 0);}
+    90% {transform: translate(64px, 0);}
+    to  {transform: translate(60px, 0);}
 }
 
 
@@ -27,29 +76,31 @@ h1
 
 
 
+.texte {
+    font-size: 3vh;
+    margin: 20px;
+    color: black;   
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.media {
+    object-fit: cover;
+    width: 100%;
+    height:100%;
+}
 
 #video {
-    z-index: 300;
     position:fixed;
     top:0px;
     left:0px;
     z-index: -1;
+}
+
+#fleche {
+    width: 60px;
+    margin-top: calc(100vh - 300px);
+    animation: bounce 1s ease infinite;
+    filter: invert(0);
+    z-index: 5;
 }
 
 .slides {
@@ -57,111 +108,216 @@ h1
     width: 100%;
     position: fixed;
     background-size: 100%;
-    top: 5000px;
 }
 
 #slide1Intro {
-    height: 800px;
-    z-index: 1;
-    background-image: linear-gradient(to bottom, #ffffff, #d6d3ee, #aaa9de, #7a82ce, #3c5ebe);
+    z-index: 2;
+    background-color: white;
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
 }
 
 #slide1Middle {
-    height: 900px;
     z-index: 1;
-    background-color: #3c5ebe;
+    background-image: linear-gradient(to bottom, #ffffff, #cbfbff, #30ffff, #00ffb9, #a8eb12);
 }
 
 #slide1End {
     height: 200px;
     z-index: 2;
-    background: linear-gradient(to bottom left, #3c5ebe 0%, #3c5ebe 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom left, #A8EB12 0%, #A8EB12  50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
 #slide2 {
     z-index: 0;
-    height: 110vh;
-    background-color: white;
+     background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 
 #slide3Begin {
     height: 200px;
     z-index: 2;
-    background: linear-gradient(to top right, #ffffff 0%, #ffffff 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to top right, black 0%, black 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
 }
 
-#slide3End {
-    height: 1000px;
-    z-index: 2;
-    background-color: #ffffff;
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
-}
-
 #slide3Sup {
-    height: 1500px;
     z-index: 3;
     background-color: rgba(0,0,0,0);
 }
 
 #slide3Back {
-    height: 1500px;
     z-index: 1;
-    background-image : url("images/gif3.gif");
 }
 
 
 #slide4 {
     z-index: -1;
-    height: 101vh;
-    background-image: url(images/acfa52d0a5ad175b3d28576ccd951cb2.jpg);
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
 }
 
 
-#image {
+#imageSolo {
     height:400px;
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
 
+.scene-pic {
+    object-fit: cover;
+    width: 44vw;
+    height: 60vh;
+}
+
 #image1 {
-    position:fixed;
     right: -95vw;
-    top: 15vh;
-    width: 720px;  
+    top: 15vh;  
 }
 
 #image2 {
-    position:fixed;
     left: 5vw;
-    top:10vh;
-    width: 620px; 
+    top: 15vh;
 }
 
 #image3 {
     z-index:5;
-    position:fixed;
-    left: 25vw;
-    top:65vh;
-    width: 620px; 
+    left: 5vw;
+    top: 80vh;
 }
 
 #image4 {
     z-index:3;
-    position:fixed;
-    left: 5vw;
-    top:100vh;
-    width: 620px; 
+    right: -95vw;
+    top: 80vh;
 }
 
 #image5 {
     z-index:2;
-    position:fixed;
     right: -95vw;
-    top:110vh;
-    width: 620px; 
+    top:145vh;
+}
+
+#image6 {
+    z-index:2;
+    left: 5vw;
+    top: 145vh;
+}
+
+#image7 {
+    z-index:2;
+    left: 5vw;
+    top: 210vh;
+}
+
+#image8 {
+    z-index:2;
+    right: -95vw;
+    top: 210vh;
+}
+
+
+
+/* Carrousel */
+
+
+.carousel {
+	margin:0;
+	padding:0;
+    text-align: center;
+}
+
+.car_ele {
+	float:left;
+	width:100vw;
+	height:70vh;
+	margin:0;
+	padding:0;
+	list-style:none;
+	color:#FFF;
+	text-align:center;
+}
+
+.tem_pack {
+    margin:0;
+    padding:0;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    background-image: linear-gradient(to bottom, #ffffff, #eeeef2, #dddee5, #ccced8, #babecb);
+    box-shadow: 5px 5px 2px 2px #babecb;
+    display: flex;
+    flex-direction: row;
+    list-style: none; 
+}
+
+.tem_main {
+    margin:0;
+    padding:0;
+    width: 100%;
+    margin:0;   
+}
+
+.tem_tit {
+    color: black;
+    font-family: "constantia";
+    font-size: 4vw;
+    margin-left:0;
+}
+
+.tem_cont {
+    color: black;
+    font-family: "constantia";
+    font-size: 30px;
+    height: 30vh;
+}
+
+.tem_aut {
+    color: black; 
+    font-family: "constantia";
+    font-size: 30px;
+}
+
+#carousel_arrow {
+    list-style: none; 
+}
+
+.carousel-prev {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30%; 
+    height: 100%; 
+}
+
+.carousel-next {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30%; 
+    height: 100%; 
+}
+
+button {
+    display: none;
+}
+
+.fleche_l {
+    transform: rotate(90deg);
+    width: 60px;
+    height:60px;
+    margin-top: 30vh;
+    transform: translate(-60px, 0);
+    animation: bounce_l 1s ease infinite;
+
+}
+
+.fleche_d {
+    transform: rotate(-90deg);
+    width: 60px;
+    height:60px;
+    margin-top: 30vh;
+    transform: translate(60px, 0);
+    animation: bounce_d 1s ease infinite;
 }
 
 
@@ -178,126 +334,258 @@ h1
 
 
 
-/**
- * Animations
- */
 
-.fromTopIn
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: translate(0,0);
-	opacity: 1.0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    
+    h1 {
+        font-size: 6vh;
+    }
+    
+    h2 {
+        font-size: 3vh;
+    }
+    
+    .texte {
+        font-size: 3vh;
+        margin: 10px;
+    }
+    
+    .scene-pic {
+         height: 60vw;
+    }
+    
+    #image1 {
+        left: 10vw;
+        top: 5vw;
+        width: 80vw;
+    }
+    
+    #image2 {
+        left: 10vw;
+        top: 70vw;
+        width: 80vw;
+    }
+    
+    #image3 {
+        left: 10vw;
+        top: 135vw;
+        width: 80vw;
+    }
+    
+    #image4{
+        left: 10vw;
+        top: 200vw;
+        width: 80vw;
+    }
+    
+    #image5 {
+        left: 10vw;
+        top: 265vw;
+        width: 80vw;
+    }
+    
+    #image6 {
+        left: 10vw;
+        top: 330vw;
+        width: 80vw;
+    }
+    
+    #image7 {
+        left: 10vw;
+        top: 395vw;
+        width: 80vw;
+    }
+    
+    #image8 {
+        left: 10vw;
+        top: 460vw;
+        width: 80vw;    
+    }
+    
+    
+    .car_ele {
+        width:100vw;
+        
+    }
+    
+    .tem_pack {
+        box-shadow: none;
+    }
+    
+    
 }
 
-.fromTopOut
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: translate(0,-50px);
-	opacity: 0.0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 600px) {
+
+    /**
+     * Animations
+     */
+
+    .fromTopIn
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: translate(0,0);
+        opacity: 1.0;
+    }
+
+    .fromTopOut
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: translate(0,-50px);
+        opacity: 0.0;
+    }
+
+    .fromBottomIn
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: translate(0,0);
+        opacity: 1.0;
+    }
+
+    .fromBottomOut
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: translate(0, 300px);
+        opacity: 0.0;
+    }
+
+    .fromLeftIn
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: translate(0,0);
+        opacity: 1.0;
+    }
+
+    .fromLeftOut
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: translate(-10px,0);
+        opacity: 0.0;
+    }
+
+    .fromRightIn
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: translate(0,0);
+        opacity: 1.0;
+    }
+
+    .fromRightOut
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: translate(200px, 0);
+        opacity: 0.0;
+    }
+
+
+
+
+
+    .fromRightBisIn
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: translate(-300px,0);
+        opacity: 1.0;
+    }
+
+    .fromRightBisOut
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: translate(100px, 0);
+        opacity: 0.0;
+    }
+
+
+
+
+
+    .scaleUpIn
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: scale(1.0,1.0);
+        opacity: 1.0;
+    }
+
+    .scaleUpOut
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: scale(1.3,1.3);
+        opacity: 1.0;
+    }
+
+    .scaleDownIn
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: scale(1.0,1.0);
+        opacity: 1.0;
+    }
+
+    .scaleDownOut
+    {
+        transition: transform 1.0s ease, opacity 1.0s ease;
+
+        transform: scale(0.7,0.7);
+        opacity: 0.0;
+    }
 }
 
-.fromBottomIn
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: translate(0,0);
-	opacity: 1.0;
-}
-
-.fromBottomOut
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: translate(0, 300px);
-	opacity: 0.0;
-}
-
-.fromLeftIn
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: translate(0,0);
-	opacity: 1.0;
-}
-
-.fromLeftOut
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: translate(-10px,0);
-	opacity: 0.0;
-}
-
-.fromRightIn
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: translate(0,-50px);
-	opacity: 1.0;
-}
-
-.fromRightOut
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: translate(200px, -40px);
-	opacity: 0.0;
-}
 
 
 
 
 
-.fromRightBisIn
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: translate(-300px,0);
-	opacity: 1.0;
-}
-
-.fromRightBisOut
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: translate(100px, 0);
-	opacity: 0.0;
-}
 
 
 
 
 
-.scaleUpIn
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: scale(1.0,1.0);
-	opacity: 1.0;
-}
 
-.scaleUpOut
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: scale(1.3,1.3);
-	opacity: 1.0;
-}
 
-.scaleDownIn
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: scale(1.0,1.0);
-	opacity: 1.0;
-}
-
-.scaleDownOut
-{
-	transition: transform 1.0s ease, opacity 1.0s ease;
-	
-	transform: scale(0.7,0.7);
-	opacity: 0.0;
-}
