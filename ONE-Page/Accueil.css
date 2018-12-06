@@ -40,9 +40,33 @@ h1
     to  {transform: translate(0, 0);}
 }
 
+@keyframes bounce_l{
+    from {transform: translate(-60px, 0);}
+    10% {transform: translate(-62px, 0); }
+    20% {transform: translate(-64px, 0);}
+    30% {transform: translate(-66px, 0);} 
+    40% {transform: translate(-70px, 0);}
+    50% {transform: translate(-72px, 0);}
+    60% {transform: translate(-76px, 0);}
+    70% {transform: translate(-72px, 0);}
+    80% {transform: translate(-68px, 0);}
+    90% {transform: translate(-64px, 0);}
+    to  {transform: translate(-60px, 0);}
+}
 
-
-
+@keyframes bounce_d{
+    from {transform: translate(60px, 0);}
+    10% {transform: translate(62px, 0);}
+    20% {transform: translate(64px, 0);}
+    30% {transform: translate(66px, 0);} 
+    40% {transform: translate(70px, 0);}
+    50% {transform: translate(72px, 0);}
+    60% {transform: translate(76px, 0);}
+    70% {transform: translate(72px, 0);}
+    80% {transform: translate(68px, 0);}
+    90% {transform: translate(64px, 0);}
+    to  {transform: translate(60px, 0);}
+}
 
 
 
@@ -73,7 +97,7 @@ h1
 
 #fleche {
     width: 60px;
-    margin-top: calc(60vh);
+    margin-top: calc(100vh - 300px);
     animation: bounce 1s ease infinite;
     filter: invert(0);
     z-index: 5;
@@ -98,7 +122,7 @@ h1
 }
 
 #slide1End {
-    height: 10vw;
+    height: 200px;
     z-index: 2;
     background: linear-gradient(to bottom left, #A8EB12 0%, #A8EB12  50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
@@ -110,7 +134,7 @@ h1
 }
 
 #slide3Begin {
-    height: 10vw;
+    height: 200px;
     z-index: 2;
     background: linear-gradient(to top right, black 0%, black 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
@@ -141,7 +165,6 @@ h1
 
 
 .scene-pic {
-    position:fixed;
     object-fit: cover;
     width: 44vw;
     height: 60vh;
@@ -192,6 +215,132 @@ h1
     right: -95vw;
     top: 210vh;
 }
+
+
+
+/* Carrousel */
+
+
+.carousel {
+	margin:0;
+	padding:0;
+    text-align: center;
+}
+
+.car_ele {
+	float:left;
+	width:100vw;
+	height:70vh;
+	margin:0;
+	padding:0;
+	list-style:none;
+	color:#FFF;
+	text-align:center;
+}
+
+.tem_pack {
+    margin:0;
+    padding:0;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    background-image: linear-gradient(to bottom, #ffffff, #eeeef2, #dddee5, #ccced8, #babecb);
+    box-shadow: 5px 5px 2px 2px #babecb;
+    display: flex;
+    flex-direction: row;
+    list-style: none; 
+}
+
+.tem_main {
+    margin:0;
+    padding:0;
+    width: 100%;
+    margin:0;   
+}
+
+.tem_tit {
+    color: black;
+    font-family: "constantia";
+    font-size: 4vw;
+    margin-left:0;
+}
+
+.tem_cont {
+    color: black;
+    font-family: "constantia";
+    font-size: 30px;
+    height: 30vh;
+}
+
+.tem_aut {
+    color: black; 
+    font-family: "constantia";
+    font-size: 30px;
+}
+
+#carousel_arrow {
+    list-style: none; 
+}
+
+.carousel-prev {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30%; 
+    height: 100%; 
+}
+
+.carousel-next {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30%; 
+    height: 100%; 
+}
+
+button {
+    display: none;
+}
+
+.fleche_l {
+    transform: rotate(90deg);
+    width: 60px;
+    height:60px;
+    margin-top: 30vh;
+    transform: translate(-60px, 0);
+    animation: bounce_l 1s ease infinite;
+
+}
+
+.fleche_d {
+    transform: rotate(-90deg);
+    width: 60px;
+    height:60px;
+    margin-top: 30vh;
+    transform: translate(60px, 0);
+    animation: bounce_d 1s ease infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -263,8 +412,20 @@ h1
     #image8 {
         left: 10vw;
         top: 460vw;
-        width: 80vw;
+        width: 80vw;    
     }
+    
+    
+    .car_ele {
+        width:100vw;
+        
+    }
+    
+    .tem_pack {
+        box-shadow: none;
+    }
+    
+    
 }
 
 
