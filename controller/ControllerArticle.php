@@ -36,7 +36,7 @@ class ControllerArticle{
     }
 
     public static function created(){
-      $ModelStage=new ModelArticle($_POST['nom'],$_POST['contenu']);
+      $ModelStage=new ModelArticle(NULL,$_POST['nom'],$_POST['contenu']);
       $ModelStage->save();
       $controller='article';
       $view='created';
@@ -51,7 +51,7 @@ class ControllerArticle{
     }
 
         public static function update(){
-    $idArticle=$_GET ['idArticle'];
+        $idArticle=$_GET ['idArticle'];
         if (isset($_SESSION['login'])){
             $v=ModelArticle::getArticleById($idArticle);
             $controller='article';
@@ -67,8 +67,8 @@ class ControllerArticle{
     public static function updated(){
         $idArticle=$_GET['idArticle'];
         if (isset($_SESSION['login'])){
-            $ModelArticle=new ModelArticle($_GET['idArticle'],$_POST['nom'],$_POST['contenu']);
-            $ModelArticle->update(ModelArticle::getArticleById($idArticle));
+            $ModelArticle=new ModelArticle($idArticle,$_POST['nom'],$_POST['contenu']);
+            $ModelArticle->update();
             $controller='article';
             $view='updated';
             $pagetitle='Article modifié';

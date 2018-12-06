@@ -6,6 +6,11 @@ p.menu{
 
 }
 
+a.modif{
+      display:flex;
+      text-decoration:none;
+}
+
 a.buttons {
       text-decoration: none;
       padding: 15px;

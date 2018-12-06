@@ -11,9 +11,10 @@ class ModelIUT {
     protected $telephoneIUT;
     protected $mailSecretariatIUT;
     
-    public function __construct($nomIUT = NULL,$idVille = NULL, $adresseIUT = NULL, $siteIUT = NULL, $telephoneIUT = NULL,$mailSecretariatIUT = NULL){
+    public function __construct($idIUT = NULL,$nomIUT = NULL,$idVille = NULL, $adresseIUT = NULL, $siteIUT = NULL, $telephoneIUT = NULL,$mailSecretariatIUT = NULL){
         if(!is_null($nomIUT) &&!is_null($idVille) && !is_null($adresseIUT) && !is_null($siteIUT) &&!is_null($telephoneIUT) && !is_null($mailSecretariatIUT)){
-             $this->nomIUT = $nomIUT;
+            $this->idIUT=$idIUT;
+            $this->nomIUT = $nomIUT;
             $this->idVille = $idVille;
             $this->adresseIUT = $adresseIUT;
             $this->siteIUT = $siteIUT;
@@ -123,10 +124,10 @@ class ModelIUT {
         }
     }
 
-    public function update($data){
+    public function update(){
     $req_prep=Model::$pdo->prepare(
         "UPDATE `mon-IUTs` 
-        SET idIUT=:idIUT,nomIUT=:nomIUT,idVille=:idVille,adresseIUT=:adresseIUT ,siteIUT=:siteIUT,telephoneIUT=:telephoneIUT,mailSecretariatIUT=:mailSecretariatIUT
+        SET nomIUT=:nomIUT,idVille=:idVille,adresseIUT=:adresseIUT ,siteIUT=:siteIUT,telephoneIUT=:telephoneIUT,mailSecretariatIUT=:mailSecretariatIUT
         WHERE idIUT=:idIUT"
     );
 

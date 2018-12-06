@@ -6,7 +6,7 @@ class ModelArticle {
     protected $contenuArticle;
     
     public function __construct($idArticle = NULL, $nomArticle = NULL, $contenuArticle = NULL){
-        if(!is_null($idArticle) && !is_null($nomArticle) && !is_null($contenuArticle)){
+        if(!is_null($nomArticle) && !is_null($contenuArticle)){
             $this->idArticle = $idArticle;
             $this->nomArticle = $nomArticle;
             $this->contenuArticle = $contenuArticle; 
@@ -52,41 +52,36 @@ class ModelArticle {
         return $row;    
     }
     
-    
     public function save(){
-        $erreur = "Article déjà présent dans la base de données";
-        $idArticle = htmlspecialchars($this->idArticle);
-        $nomArticle = htmlspecialchars($this->nomArticle);
-        $contenuArticle = htmlspecialchars($this->contenuArticle);
-        $data = array(':nomArticle'=>$nomArticle, ':contenuArticle'=>$contenuArticle);
-        $reqVerif = Model::$pdo->prepare("SELECT idArticle FROM `mon-Articles` WHERE idArticle = :idArticle");
-        $reqVerif->execute(array(':idArticle'=>$idArticle));
-        $resVerif = $reqVerif->rowcount();
-        if($resVerif > 0){
-            return $erreur;
-        }
-        else {
-            $insert = Model::$pdo->prepare("INSERT INTO `mon-Articles`(idArticle,nomArticle,contenuArticle) VALUES(NULL,:nomArticle,:contenuArticle)");
-            $insert->execute($data);
-            $getId = Model::$pdo->prepare("SELECT idArticle FROM `mon-Articles` WHERE idArticle = :idArticle");
-            $getId->execute(array(':idArticle'=>$idArticle));
-            $arrayRetour = $getId->fetch();
-            $idRetour = $arrayRetour[0];
+        try{
+          $req_prep = Model::$pdo->prepare("INSERT INTO `mon-Articles`(nomArticle,contenuArticle) VALUES(:nomArticle,:contenuArticle)");
+
+          $values=array(
+            "nomArticle" => $this->nomArticle,
+            "contenuArticle" => $this->contenuArticle,
             
-            return $idRetour;
+            );
+          $req_prep->execute($values);
+        }
+        catch(PDOException $e){
+          if ($e->getCode()==23000){
+            echo('<b>ERREUR: L\'Article existe déjà</b>');
+            return false;
+          }
         }
     }
+   
 
     public function delete(){
-    $req_prep=Model::$pdo->prepare("DELETE FROM `mon-Articles` WHERE `mon-Articles`.idArticle=:idArticle");
+        $req_prep=Model::$pdo->prepare("DELETE FROM `mon-Articles` WHERE `mon-Articles`.idArticle=:idArticle");
 
-    $values=array(
-      "idArticle" => $this->idArticle,
-      );
-    $req_prep->execute($values);
-  }
+        $values=array(
+          "idArticle" => $this->idArticle,
+          );
+        $req_prep->execute($values);
+    }
 
-    public function update($data){
+    public function update(){
         $req_prep=Model::$pdo->prepare("UPDATE `mon-Articles` SET nomArticle=:nomArticle,contenuArticle=:contenuArticle WHERE idArticle=:idArticle");
 
         $values=array(

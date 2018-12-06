@@ -51,7 +51,7 @@ class ControllerIUT{
 
     public static function update(){
         $idIUT=$_GET ['idIUT'];
-        $v=ModelIUT::getIUTByidIUT($idIUT);
+        $v=ModelIUT::getIUTByid($idIUT);
         $controller='IUT';
         $view='update';
         $pagetitle='modification de IUT';
@@ -60,8 +60,9 @@ class ControllerIUT{
 
     public static function updated(){
         $idIUT=$_GET['idIUT'];
-        $ModelIUT=new ModelIUT($_POST['nomIUT'],$_POST['idVille'],$_POST['adresseIUT'],$_POST['siteIUT'],$_POST['telephoneIUT'],$_POST['mailSecretariatIUT']);
-        $ModelIUT->update(ModelIUT::getIUTByid($idIUT));
+        $ModelIUT=new ModelIUT($idIUT,$_POST['nomIUT'],$_POST['idVille'],$_POST['adresseIUT'],$_POST['siteIUT'],$_POST['telephoneIUT'],$_POST['mailSecretariatIUT']);
+        var_dump($ModelIUT);
+        $ModelIUT->update();
         $controller='IUT';
         $view='updated';
         $pagetitle='IUT modifié';
