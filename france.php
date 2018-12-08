@@ -1016,13 +1016,17 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
          $cx=($longitude - -5.3) * 1041 / (10.2 - -5.3);
          $cy=997 - ($latitude - 41) * 997 / (51.6 - 41);
          $x=$cx+10;
-         var_dump($cx);
-      echo '<circle class="point" fill="#FF8C00" r="10" cy="'.$cy.'" cx="'.$cx.'"onclick="function()"/>
+         $y=$cy+18;
+      echo '<a class="point" href="'.$IUT->getSiteIUT().'" target="_blank"><circle fill="#FF8C00" r="10" cy="'.$cy.'" cx="'.$cx.'" href="'.$IUT->getSiteIUT().'"/></a>
        
       <text class="bloc" dominant-baseline="middle"
-            font-size="20px" font-family="Arial" border="20px"
+            font-size="20px" font-family="Arial"
             y="'.$cy.'" x="'.$x.'">
       '.$ville->getNom().'
+      <tspan dominant-baseline="middle"
+            font-size="20px" font-family="Arial"
+            y="'.$y.'" x="'.$x.'">'.$IUT->getNomIUT().'
+      </tspan>
 
 
       </text>';
