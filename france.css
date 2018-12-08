@@ -1,0 +1,10 @@
+.bloc{
+	display: none;
+	
+}
+.point:hover + .bloc{
+	display: block;
+}
+
+
+

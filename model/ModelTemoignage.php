@@ -3,6 +3,7 @@ require_once File::build_path(array("model","Model.php"));
 class ModelTemoignage{
 	private $idTemoignage;
 	private $titreTemoignage;
+    private $photoTemoignage;
 	private $contenuTemoignage;
 	private $datePublication;
 	private $theme;
@@ -10,14 +11,15 @@ class ModelTemoignage{
 	private $prenomEtudiant;
 	private $idIUT;
 
-	public function __construct($c=NULL,$d=NULL,$t=NULL,$e=NULL){
-		if (!is_null($t) && !is_null($c) && !is_null($d) && !is_null($t) && !is_null($n) && !is_null($p) && !is_null($i)){
+	public function __construct($t=NULL, $p=NULL, $c=NULL, $d=NULL, $th=NULL, $ne=NULL, $pe=NULL, $i=NULL){
+		if (!is_null($t) && !is_null($p) && !is_null($c) && !is_null($d) && !is_null($th) && !is_null($ne) && !is_null($pe) && !is_null($i)){
 			$this->titreTemoignage=$t;
+            $this->photoTemoignage=$p;
 			$this->contenuTemoignage=$c;
 			$this->datePublication=$d;
-			$this->theme=$t;
-			$this->nomEtudiant=$n;
-			$this->prenomEtudiant=$p;
+			$this->theme=$th;
+			$this->nomEtudiant=$ne;
+			$this->prenomEtudiant=$pe;
 			$this->idIUT=$i;
 		}
 	}
@@ -28,6 +30,10 @@ class ModelTemoignage{
 
 	public function getTitreTemoignage(){
 		return $this->titreTemoignage;
+	}
+    
+    public function getPhotoTemoignage(){
+		return $this->photoTemoignage;
 	}
 
 	public function getContenuTemoignage(){
@@ -54,9 +60,13 @@ class ModelTemoignage{
 		return $this->idIUT;
 	}
 
-
+    
 	public function setTitreTemoignage($PtitreTemoignage){
 		$this->titreTemoignage=$PtitreTemoignage;
+	}
+    
+	public function setPhotoTemoignage($PphotoTemoignage){
+		$this->photoTemoignage=$PphotoTemoignage;
 	}
 
 	public function setContenuTemoignage($PcontenuTemoignage){
@@ -158,12 +168,13 @@ class ModelTemoignage{
 
 	public function save(){
     try{
-      $req_prep=Model::$pdo->prepare("INSERT INTO mon-Villes(idTemoignage,titreTemoignage,contenuTemoignage, datePublication, theme, nomEtudiant,prenomEtudiant,idIUT)VALUES(:idTemoignage,:titreTemoignage,:contenuTemoignage, :datePublication, :theme, :nomEtudiant,:prenomEtudiant,:idIUT)");
+      $req_prep=Model::$pdo->prepare("INSERT INTO `mon-Temoignages`(idTemoignage, titreTemoignage, photoTemoignage, contenuTemoignage, datePublication, theme, nomEtudiant, prenomEtudiant, idIUT) VALUES (:idTemoignage, :titreTemoignage, :photoTemoignage, :contenuTemoignage, :datePublication, :theme, :nomEtudiant, :prenomEtudiant, :idIUT)");
 
       $values=array(
         "idTemoignage" => $this->idTemoignage,
         "titreTemoignage" => $this->titreTemoignage,
-        "contenuTemoignage" => $this->contenu,
+        "photoTemoignage" => $this->photoTemoignage,
+        "contenuTemoignage" => $this->contenuTemoignage,
         "datePublication" => $this->datePublication,
         "theme" => $this->theme,
         "nomEtudiant" => $this->nomEtudiant,

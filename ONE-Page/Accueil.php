@@ -25,7 +25,7 @@
         <div id="slide1Middle" class="slides">
             <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titreSlide1">Ce qu'ils pensent de nous !</h1>
     
-            <?php require_once File::build_path(array("ONE-Page","Carousel.php")); ?><br><br>
+            
 
             <p data-scroll="toggle(.fromTopIn, .fromTopOut)">
                 <img src="<?php echo File::build_path_css(array("ONE-Page","images", "info.png")) ?>" alt="bob" id="imageSolo" class="media">
@@ -36,120 +36,10 @@
             <h1 data-scroll="toggle(.fromRightIn, .fromRightOut)" style="text-shadow:4px 4px black;"></h1>
         </div>
         <div id="slide2" class="slides">
-            <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte" id="texte">
-Sagesse etprudence dans la gestion de nos biens,
-c'est le conseil de La Fontaine ... 
-                Elle était sûre tout au moins.
-A la fin, les trésors déchargés sur la plage
-Le tentèrent si bien qu'il vendit son troupeau,
-Trafiqua (2) de l'argent, le mit entier(3) sur l'eau.
-            Cet argent périt par naufrage.
-Son maître fut réduit à garder les brebis,
-Non plus berger en chef comme il était jadis,
-Quand ses propres moutons paissaient sur le rivage:
-Celui qui s'était vu Coridon ou Tircis (4)
-            Fut Pierrot (4) et rien davantage.
-Au bout de quelque temps, il fit quelques profits,
-            Racheta des bêtes à laine ;
-Et comme un jour les vents retenant leur haleine
-Laissaient paisiblement aborder les vaisseaux :
-Vous voulez de l'argent, ô Mesdames les Eaux,
-Dit-il, adressez-vous, je vous prie, à quelque autre:
-            Ma foi, vous n'aurez pas le nôtre.
-
-Ceci n'est pas un conte à plaisir inventé.
-            Je me sers de la vérité
-            Pour montrer par expérience,
-            Qu'un sou quand il est assuré
-            Vaut mieux que cinq en espérance (5) ;
-Qu'il se faut contenter de sa condition ;
-Qu'aux conseils de la mer et de l'ambition
-            Nous devons fermer les oreilles.
-Pour un qui s'en louera, dix mille s'en plaindront.
-            La mer promet monts et merveilles :
-Fiez-vous y, les vents et les voleurs viendront.
-
-	 
-Sagesse et prudence dans la gestion de nos biens,
-c'est le conseil de La Fontaine ... 
-            </p>
-            <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte" id="texte">
-	
-	 
-Sagesse et prudence dans la gestion de nos biens,
-c'est le conseil de La Fontaine ... 
-                Elle était sûre tout au moins.
-A la fin, les trésors déchargés sur la plage
-Le tentèrent si bien qu'il vendit son troupeau,
-Trafiqua (2) de l'argent, le mit entier(3) sur l'eau.
-            Cet argent périt par naufrage.
-Son maître fut réduit à garder les brebis,
-Non plus berger en chef comme il était jadis,
-Quand ses propres moutons paissaient sur le rivage:
-Celui qui s'était vu Coridon ou Tircis (4)
-            Fut Pierrot (4) et rien davantage.
-Au bout de quelque temps, il fit quelques profits,
-            Racheta des bêtes à laine ;
-Et comme un jour les vents retenant leur haleine
-Laissaient paisiblement aborder les vaisseaux :
-Vous voulez de l'argent, ô Mesdames les Eaux,
-Dit-il, adressez-vous, je vous prie, à quelque autre:
-            Ma foi, vous n'aurez pas le nôtre.
-
-Ceci n'est pas un conte à plaisir inventé.
-            Je me sers de la vérité
-            Pour montrer par expérience,
-            Qu'un sou quand il est assuré
-            Vaut mieux que cinq en espérance (5) ;
-Qu'il se faut contenter de sa condition ;
-Qu'aux conseils de la mer et de l'ambition
-            Nous devons fermer les oreilles.
-Pour un qui s'en louera, dix mille s'en plaindront.
-            La mer promet monts et merveilles :
-Fiez-vous y, les vents et les voleurs viendront.
-
-	 
-Sagesse et prudence dans la gestion de nos biens,
-c'est le conseil de La Fontaine ... 
-            </p><p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte" id="texte">
-	
-	 
-Sagesse et prudence dans la gestion de nos biens,
-c'est le conseil de La Fontaine ... 
-                Elle était sûre tout au moins.
-A la fin, les trésors déchargés sur la plage
-Le tentèrent si bien qu'il vendit son troupeau,
-Trafiqua (2) de l'argent, le mit entier(3) sur l'eau.
-            Cet argent périt par naufrage.
-Son maître fut réduit à garder les brebis,
-Non plus berger en chef comme il était jadis,
-Quand ses propres moutons paissaient sur le rivage:
-Celui qui s'était vu Coridon ou Tircis (4)
-            Fut Pierrot (4) et rien davantage.
-Au bout de quelque temps, il fit quelques profits,
-            Racheta des bêtes à laine ;
-Et comme un jour les vents retenant leur haleine
-Laissaient paisiblement aborder les vaisseaux :
-Vous voulez de l'argent, ô Mesdames les Eaux,
-Dit-il, adressez-vous, je vous prie, à quelque autre:
-            Ma foi, vous n'aurez pas le nôtre.
-
-Ceci n'est pas un conte à plaisir inventé.
-            Je me sers de la vérité
-            Pour montrer par expérience,
-            Qu'un sou quand il est assuré
-            Vaut mieux que cinq en espérance (5) ;
-Qu'il se faut contenter de sa condition ;
-Qu'aux conseils de la mer et de l'ambition
-            Nous devons fermer les oreilles.
-Pour un qui s'en louera, dix mille s'en plaindront.
-            La mer promet monts et merveilles :
-Fiez-vous y, les vents et les voleurs viendront.
-
-	 
-Sagesse et prudence dans la gestion de nos biens,
-c'est le conseil de La Fontaine ... 
-            </p>
+            
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <?php require_once File::build_path(array("ONE-Page","Carousel.php")); ?>
+            
         </div>
         <div id="slide3Begin" class="slides">
             <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" style="text-shadow:4px 4px black;margin-top:100px;"></h1>
@@ -201,5 +91,6 @@ c'est le conseil de La Fontaine ...
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","JQuery.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","JCarousel.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","jcarousel.transitions.js")) ?>"></script>
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","popup.js")) ?>"></script>
     </body>
 </html>

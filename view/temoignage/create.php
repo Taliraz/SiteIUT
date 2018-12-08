@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?action=created">
+      <form method="post" action="admin.php?action=created&controller=temoignage">
         <fieldset>
           <legend>Temoignages :</legend>
           <p>
@@ -32,13 +32,16 @@
           </p>
 
           <p>
-            <label for="prenomEtudiant_id"> Titre </label>
+            <label for="prenomEtudiant_id"> Prénom </label>
             <input type="text" id="prenomEtudiant_id" name="prenomEtudiant">
           </p>
+            
+            <p>
+                <label for="photoTemoignage">Photo témoignage</label> :
+                <input type="file" id="photoTemoignage" name="photo" accept=".jpg, .jpeg, .png, .gif" required>
+            </p>
 
-  
-
-          <p>
+            <p>
               <label for="IUT_id">IUT</label> 
               <select name="idIUT" size="1" id="IUT_id">
                 <?php
@@ -52,7 +55,7 @@
           </p>
 
           <p>
-            <input type="submit" value="Envoyer" />
+            <input type="submit" value="Envoyer">
           </p>
 
           <p>

@@ -21,16 +21,8 @@ $(document).ready(function() {
 		.height( Reference.height() )
 		// Blocage des débordements
 		.css("overflow", "hidden");
-    $(".carousel-conteneur")
-		// Application de la largeur d'une seule diapositive
-		.width(  Reference.width()  )
-		// Application de la hauteur d'une seule diapositive
-		.height( Reference.height() )
-		// Blocage des débordements
-		.css("overflow", "hidden")
 		// Insertion des boutons de navigation
-    // Actions de navigation
-		// Initialisation du compteur
+
 		Cpt = 0;
 		// Clic sur le bouton "Suivant"
 

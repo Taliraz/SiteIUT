@@ -25,7 +25,6 @@ h1
 
 
 
-
 @keyframes bounce{
     from {transform: translate(0, 0);}
     10% {transform: translate(0, 2px);}
@@ -97,7 +96,7 @@ h1
 
 #fleche {
     width: 60px;
-    margin-top: calc(100vh - 500px);
+    margin-top: calc(100vh - 300px);
     animation: bounce 1s ease infinite;
     filter: invert(0);
     z-index: 5;
@@ -130,7 +129,7 @@ h1
 
 #slide2 {
     z-index: 0;
-     background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background-color: white;
 }
 
 #slide3Begin {
@@ -230,51 +229,96 @@ h1
 .car_ele {
 	float:left;
 	width:100vw;
-	height:70vh;
+	height:100vh;
 	margin:0;
 	padding:0;
 	list-style:none;
-	color:#FFF;
 	text-align:center;
+    background-color: white;
 }
 
 .tem_pack {
     margin:0;
     padding:0;
-    margin-right: 10vw;
-    margin-left: 10vw;
-    background-image: linear-gradient(to bottom, #ffffff, #eeeef2, #dddee5, #ccced8, #babecb);
-    box-shadow: 5px 5px 2px 2px #babecb;
+    height: 70vh;
+    margin-right: 15vw;
+    margin-left: 15vw;
     display: flex;
     flex-direction: row;
     list-style: none; 
+    background-image: url(images/circuit.png);
+    background-size: 100%;
 }
 
 .tem_main {
+    position: relative;
     margin:0;
     padding:0;
+    margin:0; 
     width: 100%;
-    margin:0;   
+    box-shadow: inset 0px 0px 100px 50px white;
 }
 
 .tem_tit {
     color: black;
-    font-family: "constantia";
+    font-family: "Arial";
+    text-shadow: 2px 2px 2px white;
     font-size: 4vw;
     margin-left:0;
 }
 
-.tem_cont {
-    color: black;
-    font-family: "constantia";
-    font-size: 30px;
-    height: 30vh;
-}
 
 .tem_aut {
+    position: absolute;
     color: black; 
-    font-family: "constantia";
-    font-size: 30px;
+    font-family: "Arial";
+    text-shadow: 2px 2px 2px white;
+    font-size: 2vw;
+    margin-left: 10%;
+    margin-top: 21%;
+}
+
+.tem_date {
+    position: absolute;
+    color: black; 
+    font-family: "Arial";
+    text-shadow: 2px 2px 2px white;
+    font-size: 1.5vw;
+    margin-left: 10%;
+    margin-top: 25%;
+}
+
+.tem_pic {
+    float: right;
+    width: 60%;
+    height: 60%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.tem_cont {
+    background-color: white;
+    color: black;
+    cursor:pointer;
+    display:none;
+    position:absolute;
+    text-align:center;
+    width:70vw;
+    height: 90vh;
+    z-index:50;
+    overflow-y:auto;
+    transform: translate(0, -5vw);
+}
+
+.tem_cont::-webkit-scrollbar { width: 0 !important }
+
+.tem_cont p {
+    display:inline-block;
+    vertical-align: middle;
+    margin: 5vw;
+    text-align: center;
+    font-size: 200%;
 }
 
 #carousel_arrow {
@@ -282,19 +326,33 @@ h1
 }
 
 .carousel-prev {
+    cursor:pointer;
     position: fixed;
     top: 0;
     left: 0;
-    width: 30%; 
+    width: 15%; 
     height: 100%; 
+    z-index: 10;
 }
 
 .carousel-next {
+    cursor:pointer;
     position: fixed;
     top: 0;
     right: 0;
-    width: 30%; 
+    width: 15%; 
     height: 100%; 
+    z-index: 10;
+}
+
+.popup_trigger {
+    cursor:pointer;
+    position: fixed;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 100%;
+    z-index: 10;
 }
 
 button {
@@ -302,24 +360,23 @@ button {
 }
 
 .fleche_l {
+    position: absolute;
     transform: rotate(90deg);
     width: 60px;
     height:60px;
-    margin-top: 30vh;
-    transform: translate(-60px, 0);
+    margin-top: 15%;
     animation: bounce_l 1s ease infinite;
-
 }
 
 .fleche_d {
+    position: absolute;
     transform: rotate(-90deg);
     width: 60px;
     height:60px;
-    margin-top: 30vh;
-    transform: translate(60px, 0);
+    margin-top: 15%;
+    margin-left: 68%;
     animation: bounce_d 1s ease infinite;
 }
-
 
 
 

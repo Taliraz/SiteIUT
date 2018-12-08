@@ -4,7 +4,7 @@ class ControllerTemoignage{
 
 
 	public static function readAll() {
-        $tab_v = ModelTemoignage::getAllTemoignages();    
+        $tab_t = ModelTemoignage::getAllTemoignages();    
         $controller='temoignage';
         $view='list';
         $pagetitle='liste des Temoignages';
@@ -36,12 +36,21 @@ class ControllerTemoignage{
     }
 
     public static function created(){
-      $ModelTemoignage=new ModelTemoignage($_POST['titreTemoignage'],$_POST['contenuTemoignage'],$_POST['datePublication'],$_POST['theme'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT']);
-      $ModelTemoignage->save();
-      $controller='temoignage';
-      $view='created';
-      $pagetitle='Temoignage créé';
-      require(File::build_path(array("view","view.php")));
+        if (!empty($_FILES['photo']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
+            $name = $_FILES['photo']['name'];
+            $pic_path = File::build_path(array("img","$name"));
+            if (!move_uploaded_file($_FILES['photo']['tmp_name'], $pic_path)) {
+              echo "La copie a échoué";
+            }
+        }
+        $name = $_POST['photo'];
+        $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
+        $ModelTemoignage=new ModelTemoignage($_POST['titreTemoignage'], $photoTemoignage, $_POST['contenuTemoignage'],$_POST['datePublication'],$_POST['theme'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT']);
+        $ModelTemoignage->save();
+        $controller='temoignage';
+        $view='created';
+        $pagetitle='Temoignage créé';
+        require(File::build_path(array("view","view.php")));
     }
 
     public static function delete(){
