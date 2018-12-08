@@ -5,25 +5,41 @@ class ControllerAdministrateur {
 
 
     public static function readAll() {
-        $tab_v = ModelAdministrateur::getallAdministrateurs();     //appel au modèle pour gerer la BD
-        $controller='administrateur';
-        $view='list';
-        $pagetitle='liste des Administrateurs';
-        require (File::build_path(array("view","view.php")));  //"redirige" vers la vue
-    }
-
-     public static function read(){
-        $v=ModelAdministrateur::getAdministrateurByLogin($_GET ['login']);
-        if ($v==false){
+        if (isset($_SESSION['login'])){
+            $tab_v = ModelAdministrateur::getallAdministrateurs();     //appel au modèle pour gerer la BD
             $controller='administrateur';
-            $view='erreur';
-            $pagetitle='Erreur';
-            require (File::build_path(array("view","view.php")));
+            $view='list';
+            $pagetitle='liste des Administrateurs';
+            require (File::build_path(array("view","view.php")));  //"redirige" vers la vue
         }
         else{
             $controller='administrateur';
-            $view='detail';
-            $pagetitle='Detail';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
+        }
+    }
+
+     public static function read(){
+        if(isset($_SESSION['login'])){
+            $v=ModelAdministrateur::getAdministrateurByLogin($_GET ['login']);
+            if ($v==false){
+                $controller='administrateur';
+                $view='erreur';
+                $pagetitle='Erreur';
+                require (File::build_path(array("view","view.php")));
+            }
+            else{
+                $controller='administrateur';
+                $view='detail';
+                $pagetitle='Detail';
+                require(File::build_path(array("view","view.php")));
+            }
+        }
+        else{
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
             require(File::build_path(array("view","view.php")));
         }
         
@@ -41,16 +57,27 @@ class ControllerAdministrateur {
             require(File::build_path(array("view","view.php")));
         }
         else{
-            self::readAll();
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
         }
     }
 
 
     public static function create(){
-        $controller='administrateur';
-        $view='create';
-        $pagetitle='Creation de administrateur';
-        require(File::build_path(array("view","view.php")));
+        if(isset($_SESSION['login'])){
+            $controller='administrateur';
+            $view='create';
+            $pagetitle='Creation de administrateur';
+            require(File::build_path(array("view","view.php")));
+        }
+        else{
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
+        }
     }
 
     public static function connect(){
@@ -69,12 +96,20 @@ class ControllerAdministrateur {
 
 
     public static function created(){
-      $ModelAdministrateur=new ModelAdministrateur($_POST['login'],Security::chiffrer($_POST['mdp']));
-      $ModelAdministrateur->save();
-      $controller='administrateur';
-      $view='created';
-      $pagetitle='Administrateur créé';
-      require(File::build_path(array("view","view.php")));
+        if (isset($_SESSION['login'])){
+            $ModelAdministrateur=new ModelAdministrateur($_POST['login'],Security::chiffrer($_POST['mdp']));
+            $ModelAdministrateur->save();
+            $controller='administrateur';
+            $view='created';
+            $pagetitle='Administrateur créé';
+            require(File::build_path(array("view","view.php")));
+        }
+        else{
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
+        }
     }
     
     public static function update(){
@@ -87,7 +122,10 @@ class ControllerAdministrateur {
             require(File::build_path(array("view","view.php")));
         }
         else{
-            self::readAll();
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
         }
     }
 
@@ -102,7 +140,10 @@ class ControllerAdministrateur {
             require(File::build_path(array("view","view.php")));
         }
         else{
-            self::readAll();
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
         }
 
     }

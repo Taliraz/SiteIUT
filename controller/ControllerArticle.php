@@ -29,25 +29,49 @@ class ControllerArticle{
     }
 
     public static function create(){
-        $controller='article';
-        $view='create';
-        $pagetitle='Creation de article';
-        require(File::build_path(array("view","view.php")));
+        if(isset($_SESSION['login'])){
+            $controller='article';
+            $view='create';
+            $pagetitle='Creation de article';
+            require(File::build_path(array("view","view.php")));
+        }
+        else{
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
+        }
     }
 
     public static function created(){
-      $ModelStage=new ModelArticle(NULL,$_POST['nom'],$_POST['contenu']);
-      $ModelStage->save();
-      $controller='article';
-      $view='created';
-      $pagetitle='Article créée';
-      require(File::build_path(array("view","view.php")));
+        if (isser($_SESSION['login'])){
+          $ModelStage=new ModelArticle(NULL,$_POST['nom'],$_POST['contenu']);
+          $ModelStage->save();
+          $controller='article';
+          $view='created';
+          $pagetitle='Article créée';
+          require(File::build_path(array("view","view.php")));
+      }
+      else{
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
+        }
     }
 
     public static function delete(){
-        $v=ModelArticle::getArticleById($_GET ['idArticle']);
-        $v->delete();
-        self::readAll();
+        if(isset($_SESSION['login'])){
+            $v=ModelArticle::getArticleById($_GET ['idArticle']);
+            $v->delete();
+            self::readAll();
+        }
+        else{
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
+        }
     }
 
         public static function update(){
@@ -60,7 +84,10 @@ class ControllerArticle{
             require(File::build_path(array("view","view.php")));
         }
         else{
-            self::readAll();
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
         }
     }
 
@@ -75,7 +102,10 @@ class ControllerArticle{
             require(File::build_path(array("view","view.php")));
         }
         else{
-            self::readAll();
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
         }
 
     }
