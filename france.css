@@ -1,0 +1,12 @@
+.bloc{
+	display: none;
+	
+}
+.point:hover + .bloc{
+	display: block;
+}
+text{
+	margin:20px;
+	border-style: solid;
+  	border-width: 600px;
+}

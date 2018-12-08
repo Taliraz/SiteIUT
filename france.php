@@ -1,5 +1,14 @@
-<?php
-echo '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="france.css">
+        <title>carte</title>
+    </head>
+<?php require_once(__DIR__. DIRECTORY_SEPARATOR . join(DIRECTORY_SEPARATOR, array("lib","File.php")));
+require_once (File::build_path(array("model","Model.php")));
+require_once (File::build_path(array("model","ModelIUT.php")));
+require_once (File::build_path(array("model","ModelVille.php")));?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:svg="http://www.w3.org/2000/svg"
@@ -998,25 +1007,26 @@ echo '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
  
 
  
-<circle fill="#FF8C00" r="10" cy="259" cx="514"/>
- 
-<text dominant-baseline="middle"
-      font-size="20px" font-family="Arial"
-      y="259" x="574">
-Paris
-</text>';
-   $cx=(3.88333 - -5.3) * 1041 / (10.2 - -5.3);
-   $cy=997 - (43.6 - 41) * 997 / (51.6 - 41);
-   var_dump($cx);
-echo '<circle fill="#FF8C00" r="10" cy="'.$cy.'" cx="'.$cx.'"/>
- 
-<text dominant-baseline="middle"
-      font-size="20px" font-family="Arial"
-      y="'.$cy.'" x="'.$cx.'">
-Montpellier
+   <?php
+   $ModelIUT=ModelIUT::getAllIUTs();
+   foreach($ModelIUT as $IUT){
+         $ville=ModelVille::getVilleById($IUT->getIdVille());
+         $longitude=$ville->getLongitude();
+         $latitude=$ville->getLatitude();
+         $cx=($longitude - -5.3) * 1041 / (10.2 - -5.3);
+         $cy=997 - ($latitude - 41) * 997 / (51.6 - 41);
+         $x=$cx+10;
+         var_dump($cx);
+      echo '<circle class="point" fill="#FF8C00" r="10" cy="'.$cy.'" cx="'.$cx.'"onclick="function()"/>
+       
+      <text class="bloc" dominant-baseline="middle"
+            font-size="20px" font-family="Arial" border="20px"
+            y="'.$cy.'" x="'.$x.'">
+      '.$ville->getNom().'
 
 
-</text>
+      </text>';
+   }
+   ?>
  
-</svg>'
-?>
+</svg>
