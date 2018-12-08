@@ -45,7 +45,7 @@ class ControllerTemoignage{
     }
 
     public static function delete(){
-        if(isser($_SESSION['login'])){
+        if(isset($_SESSION['login'])){
             $v=ModelTemoignage::getTemoignageById($_GET ['id']);
             $v->delete();
             self::readAll();

@@ -16,7 +16,7 @@ if(isset($_GET['controller'])) {
     $controller = $_GET['controller'];  
 }
 else { 
-	$controller="temoignage"; 
+	$controller="administrateur"; 
 }
 
 $controller_class="Controller".ucfirst($controller);
