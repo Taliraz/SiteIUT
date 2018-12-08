@@ -5,6 +5,8 @@ class ModelVille{
 	private $nomVille;
 	private $codePostal;
 	private $departement;
+	private $longitude;
+	private $latitude;
 
 	public function getId(){
 		return $this->idVille;
@@ -22,6 +24,14 @@ class ModelVille{
 		return $this->departement;
 	}
 
+	public function getLongitude(){
+		return $this->longitude;
+	}
+
+	public function getLongitude(){
+		return $this->latitude;
+	}
+
 	public function setNom($Pnom){
 		$this->nomVille=$Pnom;
 	}
@@ -34,11 +44,21 @@ class ModelVille{
 		$this->departement=$Pdepartement;
 	}
 
-	public function __construct($n=NULL,$c=NULL,$d=NULL){
-		if (!is_null($n) && !is_null($c) && !is_null($d)){
+	public function setLongitude($Plongitude){
+		$this->longitude=$Plongitude;
+	}
+
+	public function setLongitude($Platitude){
+		$this->latitude=$Platitude;
+	}
+
+	public function __construct($n=NULL,$c=NULL,$d=NULL,$long=NULL,$lat=NULL){
+		if (!is_null($n) && !is_null($c) && !is_null($d) && !is_null($long) && !is_null($lat)){
 			$this->nomVille=$n;
 			$this->codePostal=$c;
 			$this->departement=$d;
+			$this->longitude=$long;
+			$this->latitude=$lat;
 		}
 	}
 
@@ -116,12 +136,14 @@ class ModelVille{
 
 	public function save(){
     try{
-      $req_prep=Model::$pdo->prepare("INSERT INTO `mon-Villes`(idVille,nomVille,codePostal,departement)VALUES(NULL,:nomVille,:codePostal,:departement)");
+      $req_prep=Model::$pdo->prepare("INSERT INTO `mon-Villes`(idVille,nomVille,codePostal,departement,longitude,latitude)VALUES(NULL,:nomVille,:codePostal,:departement,:longitude,:latitude)");
 
       $values=array(
         "nomVille" => $this->nomVille,
         "codePostal" => $this->codePostal,
         "departement" => $this->departement
+        "longitude" => $this->longitude
+        "latitude" => $this->latitude
         );
       $req_prep->execute($values);
     }
