@@ -45,9 +45,17 @@ class ControllerTemoignage{
     }
 
     public static function delete(){
-        $v=ModelTemoignage::getTemoignageById($_GET ['id']);
-        $v->delete();
-        self::readAll();
+        if(isser($_SESSION['login'])){
+            $v=ModelTemoignage::getTemoignageById($_GET ['id']);
+            $v->delete();
+            self::readAll();
+        }
+        else{
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
+        }
     }
 }
 ?>
