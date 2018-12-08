@@ -28,7 +28,7 @@ class ModelVille{
 		return $this->longitude;
 	}
 
-	public function getLongitude(){
+	public function getLatitude(){
 		return $this->latitude;
 	}
 
@@ -48,7 +48,7 @@ class ModelVille{
 		$this->longitude=$Plongitude;
 	}
 
-	public function setLongitude($Platitude){
+	public function setLatitude($Platitude){
 		$this->latitude=$Platitude;
 	}
 
@@ -141,9 +141,9 @@ class ModelVille{
       $values=array(
         "nomVille" => $this->nomVille,
         "codePostal" => $this->codePostal,
-        "departement" => $this->departement
-        "longitude" => $this->longitude
-        "latitude" => $this->latitude
+        "departement" => $this->departement,
+        "longitude" => $this->longitude,
+        "latitude" => $this->latitude,
         );
       $req_prep->execute($values);
     }
