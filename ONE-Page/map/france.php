@@ -1008,21 +1008,7 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
 		</g>
 
  
- <script>
-
-
-
-    function displayPopup(id){
-      document.getElementById(id).style.display="block";
-    }
-
-    function closePopup(id){
-      document.getElementById(id).style.display="none";
-    }
-
-
-    
-  </script> 
+ 
 
    <?php
    $ModelIUT=ModelIUT::getAllIUTs();
@@ -1034,7 +1020,7 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
          $cy=997 - ($latitude - 41) * 997 / (51.6 - 41);
          $x=$cx+10;
          $y=$cy+18;
-      echo '<circle class="point" onclick="displayPopup('.$IUT->getIdIUT().')" stroke="black" fill="red" r="10" cy="'.$cy.'" cx="'.$cx.'"/>
+      echo '<circle class="point" onclick="displayPopup('.$IUT->getIdIUT().')" stroke="#3C2D5E" fill="#C5D527" r="10" cy="'.$cy.'" cx="'.$cx.'"/>
 
       <text class="bloc" dominant-baseline="middle"
             font-size="20px" font-family="Arial"
@@ -1051,9 +1037,31 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
                 <h1>'.$IUT->getNomIUT().'</h1>
                 <p>'.$ville->getNom().'('.$ville->getDepartement().')</p>
                 <p>'.$IUT->getAdresseIUT().'</p>
+                <p><a href="'.$IUT->getSiteIUT().'"" target="_blank">'.$IUT->getSiteIUT().'</a></p>
+                <p>'.$IUT->getTelephoneIUT().'</p>
                 </div>';
         }
     ?>
 </div>  
+
+ <script>
+
+    function closeAllPopup(){
+      var tabPopup=document.getElementsByClassName('popup');
+      for (var i=0;i<tabPopup.length;i++){
+        tabPopup[i].style.display="none";
+      }
+    }
+
+    function displayPopup(id){
+      closeAllPopup();
+      document.getElementById(id).style.display="block";
+    }
+
+    function closePopup(id){
+      document.getElementById(id).style.display="none";
+    }
+    
+  </script>
 
     
