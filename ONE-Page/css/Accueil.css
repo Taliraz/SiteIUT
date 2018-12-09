@@ -98,6 +98,8 @@ h1
     position: fixed;
     top: -50px;
     left:0;
+    background-position: bottom;
+    height: 110vh;
 }
 
 .bg {
@@ -107,6 +109,20 @@ h1
     left:-5vw;
     width: 110vw;
     height:110vh;
+    object-fit: cover;
+    filter: drop-shadow(2px 2px 5px #689514);
+    
+}
+
+.bgl {
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    left:-5vw;
+    width: 110vw;
+    height:110vh;
+    object-fit: cover;
+    filter: drop-shadow(5px 5px 2px #3C2D5E);
     
 }
 
@@ -115,14 +131,14 @@ h1
 }
 
 #slogan {
-   color: white; 
+    color: white;
 }
 
 #fleche {
     width: 60px;
     margin-top: calc(100vh - 300px);
     animation: bounce 1s ease infinite;
-    filter: invert(0);
+    filter: invert(1);
     z-index: 5;
 }
 
@@ -135,8 +151,8 @@ h1
 
 #slide1Intro {
     z-index: 2;
-    background-color: white;
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
+    background-color: black;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0)));
 }
 
 #slide1Middle {
