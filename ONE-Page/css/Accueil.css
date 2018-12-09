@@ -1,4 +1,5 @@
 
+
 body{
     background: white top center no-repeat fixed;
     background-size: cover;
@@ -67,13 +68,43 @@ h1
     to  {transform: translate(60px, 0);}
 }
 
+@keyframes roll{
+    from {transform: rotate(0);}
+    10% {transform: rotate(36deg);}
+    20% {transform: rotate(72deg);}
+    30% {transform: rotate(108deg);} 
+    40% {transform: rotate(144deg);}
+    50% {transform: rotate(180deg);}
+    60% {transform: rotate(216deg);}
+    70% {transform: rotate(252deg);}
+    80% {transform: rotate(288deg);}
+    90% {transform: rotate(324deg);}
+    to  {transform: rotate(360deg);}
+}
 
 
 
 
+#load {
+    position:fixed;
+    top:-50vh;
+    left:-50vw;
+    width: 200vw;
+    height:400vh;
+    z-index:500;
+    background-color: #3C2D5E;
+    color: white;
+    font-size: 5vw;
+    text-align: center;
+    transition: all 1s;
+}
 
-
-
+#loading {
+    width: 10vw;
+    margin-top: 85vh;
+    animation: roll 0.5s infinite;
+    transition: all 1s;
+}
 
 .texte {
     font-size: 3vh;
@@ -134,6 +165,10 @@ h1
     color: white;
 }
 
+#titreSlide1 {
+    color: white;
+}
+
 #fleche {
     width: 60px;
     margin-top: calc(100vh - 300px);
@@ -151,20 +186,19 @@ h1
 
 #slide1Intro {
     z-index: 2;
-    background-color: black;
+    background-color: #3C2D5E;
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0)));
 }
 
 #slide1Middle {
-    z-index: 1;
-    background-image: linear-gradient(to bottom, #ffffff, #cbfbff, #30ffff, #00ffb9, #a8eb12);
+    z-index: 3;
+     background-image: linear-gradient(to bottom, #3c2d5e, #004e8a, #006d8f, #008564, #419514);
 }
 
 #slide1End {
-    height: 200px;
+    height: 100px;
     z-index: 2;
-    background: linear-gradient(to bottom left, #A8EB12 0%, #A8EB12  50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    background: linear-gradient(to bottom left, #419514 0%, #419514  50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
 }
 
 #slide2 {
@@ -173,31 +207,21 @@ h1
 }
 
 #slide3Begin {
-    height: 200px;
+    height: 100px;
     z-index: 2;
-    background: linear-gradient(to top right, black 0%, black 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
+    background: linear-gradient(to top right, #3C2D5E 0%, #3C2D5E 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
 }
 
-#slide3Sup {
+#slide3 {
     z-index: 3;
-    background-color: rgba(0,0,0,0);
-}
-
-#slide3Back {
-    z-index: 1;
+    background-color: #3C2D5E;
 }
 
 #slide4 {
-    z-index: -1;
-    background-color: white;
+    z-index: 1;
+    background-color: red;
     height: 100vh;
     width: 100vw;
-}
-
-#imageSolo {
-    height:400px;
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
 .scene-pic {
@@ -413,6 +437,53 @@ button {
     margin-left: 68%;
     animation: bounce_d 1s ease infinite;
 }
+
+
+
+
+
+
+/* Articles */
+
+.liste_articles {
+    list-style: none;
+    margin:none;
+    width: 80%;
+}
+
+.article {
+    padding: 2vh;
+    text-align: left;
+    border: 2px 2px 2px black;
+    transition: all 0.2s; 
+}
+
+.article .nom_article {
+    font-size: 2vw;   
+}
+
+.article .contenu_article {
+    padding: 20px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-bottom: 2vh;
+    box-shadow: 0px 0px 5px 3px #689514;
+    background-color: black;
+}
+
+.article .ligne_article {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    
+    
+}
+
+
+
+
+
+
 
 
 
