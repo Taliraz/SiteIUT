@@ -1,10 +1,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="<?php echo File::build_path_css(array("ONE-Page","map", "france.css")); ?>">
+        <link rel="stylesheet" href="france.css<?php //echo File::build_path_css(array("ONE-Page","map", "france.css")); ?>">
         <title>carte</title>
     </head>
 <?php 
+require_once(__DIR__. DIRECTORY_SEPARATOR . join(DIRECTORY_SEPARATOR, array("..","..","lib","File.php")));
 require_once (File::build_path(array("model","Model.php")));
 require_once (File::build_path(array("model","ModelIUT.php")));
 require_once (File::build_path(array("model","ModelVille.php")));?>
@@ -1007,6 +1008,22 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
 		</g>
 
  
+ <script>
+
+
+
+    function displayPopup(id){
+      document.getElementById(id).style.display="block";
+    }
+
+    function closePopup(id){
+      document.getElementById(id).style.display="none";
+    }
+
+
+    
+  </script> 
+
    <?php
    $ModelIUT=ModelIUT::getAllIUTs();
    foreach($ModelIUT as $IUT){
@@ -1017,31 +1034,26 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
          $cy=997 - ($latitude - 41) * 997 / (51.6 - 41);
          $x=$cx+10;
          $y=$cy+18;
-      echo '<a class="point" href="'.$IUT->getSiteIUT().'" target="_blank">
-      <circle class="cercle" fill="#FF8C00" r="10" cy="'.$cy.'" cx="'.$cx.'"/>
-      </a>
-       
-       
+      echo '<circle class="point" onclick="displayPopup('.$IUT->getIdIUT().')" stroke="black" fill="red" r="10" cy="'.$cy.'" cx="'.$cx.'"/>
+
       <text class="bloc" dominant-baseline="middle"
             font-size="20px" font-family="Arial"
             y="'.$cy.'" x="'.$x.'">
-      '.$ville->getNom().'
-      <tspan dominant-baseline="middle"
-            font-size="20px" font-family="Arial"
-            y="'.$y.'" x="'.$x.'">'.$IUT->getNomIUT().'
-      </tspan>
-      
-      </text> ';
+      '.$IUT->getNomIUT().'</text>';
    }
    ?>
- 
 </svg>
+<?php
+    $ModelIUT=ModelIUT::getAllIUTs();
+   foreach($ModelIUT as $IUT){
+         $ville=ModelVille::getVilleById($IUT->getIdVille());
+         echo '<div class="popup" id="'.$IUT->getIdIUT().'" onclick="closePopup('.$IUT->getIdIUT().')">
+                <h1>'.$IUT->getNomIUT().'</h1>
+                <p>'.$ville->getNom().'('.$ville->getDepartement().')</p>
+                <p>'.$IUT->getAdresseIUT().'</p>
+                </div>';
+        }
+    ?>
 </div>  
 
     
-<script>
-$('.point').on('click', function()
-{
- $('.iut_info').dialog();
-}
-</script>

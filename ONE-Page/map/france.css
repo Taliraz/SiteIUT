@@ -16,3 +16,14 @@ svg {
 #map {
 }
 
+.popup{
+	display: none;
+	border-style: solid;
+  	border-width: 2px;
+  	position: absolute;
+  	top :25%;
+  	left:50%;
+  	background-color:red;
+
+}
+
