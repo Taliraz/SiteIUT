@@ -87,64 +87,46 @@
         </div>
         
         <div id="slide1Intro" class="slides">
-            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)"></h1>
+            
         </div>
         
         <div id="slide1Middle" class="slides">
+
             <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titreSlide1" >Trouvez VOTRE IUT !</h1>
     
             <?php require_once File::build_path(array("ONE-Page","map" ,"france.php")); ?>
 
 
         </div>
+        
         <div id="slide1End" class="slides">
-            <h1 data-scroll="toggle(.fromRightIn, .fromRightOut)" style="text-shadow:4px 4px black;"></h1>
+            
         </div>
+        
         <div id="slide2" class="slides">
             
-        <br><br><br><br><br><br><br><br><br><br><br><br>
-        <h1>Ce que vous pensez de nous !</h1>
-        <?php require_once File::build_path(array("ONE-Page","carousel" ,"Carousel.php")); ?>
-        <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br>
+
+            <h1>Ce que vous pensez de nous !</h1>
+
+            <?php require_once File::build_path(array("ONE-Page","carousel" ,"Carousel.php")); ?>
+
+            <br><br><br><br><br><br><br><br>
             
         </div>
         <div id="slide3Begin" class="slides">
-            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" style="text-shadow:4px 4px black;margin-top:100px;"></h1>
+            
         </div>
-        <div id="slide3Back" class="slides">
-            <image src='<?php echo File::build_path_css(array("ONE-Page","images", "gif.gif")) ?>' alt="image" class="media"></image>
+        
+        
+        <div id="slide3" class="slides">
+            
+            <?php require_once File::build_path(array("ONE-Page","articles" ,"articles.php")); ?>
+           
         </div>
-        <div id="slide3End" class="slides">
-        </div>
-        <div id="slide3Sup" class="slides">
-            <p></p> <!-- NE PAS SUPPRIMER -->
-            <p data-depth="0.3" class="scene">
-                <img src="<?php echo File::build_path_css(array("ONE-Page","images", "info.png")) ?>" alt="bob" id="image1" class="scene-pic" class="scene-pic">
-            </p>
-            <p data-depth="0.3" class="scene">
-                <img src="<?php echo File::build_path_css(array("ONE-Page","images", "info.png")) ?>" alt="bob" id="image2" class="scene-pic" class="scene-pic">
-            </p>
-            <p data-depth="0.3" class="scene">
-                <img src="<?php echo File::build_path_css(array("ONE-Page","images", "info.png")) ?>" alt="bob" id="image3" class="scene-pic" class="scene-pic">
-            </p>
-            <p data-depth="0.3" class="scene">
-                <img src="<?php echo File::build_path_css(array("ONE-Page","images", "info.png")) ?>" alt="bob" id="image4" class="scene-pic" class="scene-pic">
-            </p>
-            <p data-depth="0.3" class="scene">
-                <img src="<?php echo File::build_path_css(array("ONE-Page","images", "info.png")) ?>" alt="bob" id="image5" class="scene-pic" class="scene-pic">
-            </p>
-            <p data-depth="0.3" class="scene">
-                <img src="<?php echo File::build_path_css(array("ONE-Page","images", "info.png")) ?>" alt="bob" id="image6" class="scene-pic" class="scene-pic">
-            </p>
-            <p data-depth="0.3" class="scene">
-                <img src="<?php echo File::build_path_css(array("ONE-Page","images", "info.png")) ?>" alt="bob" id="image7" class="scene-pic" class="scene-pic">
-            </p>
-            <p data-depth="0.3" class="scene">
-                <img src="<?php echo File::build_path_css(array("ONE-Page","images", "info.png")) ?>" alt="bob" id="image8" class="scene-pic" class="scene-pic">
-            </p>
-       </div>
+        
         <div id="slide4" class="slides">
-            <image src="<?php echo File::build_path_css(array("ONE-Page","images", "carte.png")) ?>" alt="image" class="media"></image>
+            
         </div>
        
         

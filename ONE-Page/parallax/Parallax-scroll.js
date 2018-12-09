@@ -11,19 +11,14 @@ var slide1Middle = document.getElementById('slide1Middle')
 var slide1End = document.getElementById('slide1End')
 var slide2 = document.getElementById('slide2')
 var slide3Begin = document.getElementById('slide3Begin')
-var slide3Sup = document.getElementById('slide3Sup')
-var slide3Back = document.getElementById('slide3Back')
+var slide3 = document.getElementById('slide3')
 var slide4 = document.getElementById('slide4')
 
-var lastpic = document.getElementById("image5")
 
-var texte = document.getElementById("texte")
-var imageSolo = document.getElementById("imageSolo")
-var titreSlide1 = document.getElementById("titreSlide1")
 
-var classScene = slide3Sup.getElementsByClassName("scene")
-var nb_actu = classScene.length;
-var hauteur_scene = Math.ceil(nb_actu/2);
+var classArticles = slide3.getElementsByClassName("liste_articles")
+var nb_articles = classArticles.length;
+var hauteur_articles = Math.ceil(nb_articles/2);
 
 
 
@@ -37,26 +32,24 @@ function viewportToPixels(value) {
 
 window.onload = function() {  
     if(window.innerWidth>600){
-        slide3Sup.style.height = hauteur_scene*(lastpic.clientHeight+viewportToPixels('10vh')) + "px";
+        slide3.style.height = hauteur_articles*(classArticles[0].clientHeight+viewportToPixels('10vh')) + "px";
     }
     else {
-        slide3Sup.style.height = nb_actu*(lastpic.clientHeight+viewportToPixels('5vh')) + "px";
-    }
-    slide3Back.style.height = slide3Sup.clientHeight;    
+        slide3.style.height = nb_articles*(classArticles[0].clientHeight+viewportToPixels('5vh')) + "px";
+    }    
     
-    document.body.style.height = video.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight - 100 + slide4.clientHeight + slide2.clientHeight + "px";
+    document.body.style.height = video.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3.clientHeight - 100 + slide4.clientHeight + slide2.clientHeight + "px";
 }
 
 window.onresize = function() {
     if(window.innerWidth>600){
-        slide3Sup.style.height = hauteur_scene*(lastpic.clientHeight+viewportToPixels('10vh')) + "px";
+        slide3.style.height = hauteur_articles*(classArticles[0].clientHeight+viewportToPixels('10vh')) + "px";
     }
     else {
-        slide3Sup.style.height = nb_actu*(lastpic.clientHeight+viewportToPixels('5vh')) + "px";
+        slide3.style.height = nb_articles*(classArticles[0].clientHeight+viewportToPixels('5vh')) + "px";
     }
-    slide3Back.style.height = slide3Sup.clientHeight; 
     
-    document.body.style.height = video.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight - 100 + slide4.clientHeight + slide2.clientHeight + "px";
+    document.body.style.height = video.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3.clientHeight - 100 + slide4.clientHeight + slide2.clientHeight + "px";
 }
 
 
@@ -212,7 +205,7 @@ window.addEventListener('load', function(){
     else {
         var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
     }
-	requestAnimationFrame(parallaxScroll(slide3Sup, 1, h4)) 
+	requestAnimationFrame(parallaxScroll(slide3, 1, h4)) 
 }, false)
 
 window.addEventListener('resize', function(){ 
@@ -222,7 +215,7 @@ window.addEventListener('resize', function(){
     else {
         var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
     }
-	requestAnimationFrame(parallaxScroll(slide3Sup, 1, h4)) 
+	requestAnimationFrame(parallaxScroll(slide3, 1, h4)) 
 }, false)
 
 window.addEventListener('scroll', function(){ 
@@ -232,75 +225,41 @@ window.addEventListener('scroll', function(){
     else {
         var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
     }
-	requestAnimationFrame(parallaxScroll(slide3Sup, 1, h4)) 
-}, false)
-
-
-
-//Troisème Slide - Deuxième Partie - Troisième Couche
-
-window.addEventListener('load', function(){
-    if(window.innerWidth>600){
-        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight - 100
-    }
-    else {
-        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
-    }
-	requestAnimationFrame(parallaxScroll(slide3Back, 1, h4)) 
-}, false)
-
-window.addEventListener('resize', function(){
-    if(window.innerWidth>600){
-        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight - 100
-    }
-    else {
-        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
-    }
-	requestAnimationFrame(parallaxScroll(slide3Back, 1, h4))  
-}, false)
-
-window.addEventListener('scroll', function(){ 
-    if(window.innerWidth>600){
-        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight - 100
-    }
-    else {
-        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
-    }
-	requestAnimationFrame(parallaxScroll(slide3Back, 1, h4))  
+	requestAnimationFrame(parallaxScroll(slide3, 1, h4)) 
 }, false)
 
 
 
 //Quatrième Slide
 
-var v2 = 0.2
+var v2 = 0.7
 
 window.addEventListener('load', function(){ 
     if(window.innerWidth>600){
-        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3.clientHeight + slide2.clientHeight - 100)*v2
     }
     else {
-        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight + 200)*v2
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3.clientHeight + slide2.clientHeight + 200)*v2
     }
 	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
 }, false)
 
 window.addEventListener('resize', function(){ 
     if(window.innerWidth>600){
-        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3.clientHeight + slide2.clientHeight - 100)*v2
     }
     else {
-        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight + 200)*v2
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3.clientHeight + slide2.clientHeight + 200)*v2
     }
 	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
 }, false)
 
 window.addEventListener('scroll', function(){ 
     if(window.innerWidth>600){
-        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3.clientHeight + slide2.clientHeight - 100)*v2
     }
     else {
-        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight + 200)*v2
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3.clientHeight + slide2.clientHeight + 200)*v2
     }
 	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
 }, false)
