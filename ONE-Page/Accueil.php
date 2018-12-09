@@ -9,66 +9,75 @@
     <body>
         
         <video id="video" class="media" muted autoplay loop>
-              <source src="<?php echo File::build_path_css(array("ONE-Page","videos", "info.mp4")) ?>" type="video/mp4">
+              <source src="" type="video/mp4">
         </video> 
         
-         <div id="BG" class="media" style="background-image: url(ONE-Page/images/2560x1440.jpg)">
+         <div id="BG" class="media" style="background-image: url(ONE-Page/images/BG-VC.jpg)">
+            <p data-depth="0.33" class="sceneBG">
+                <img src="ONE-Page/images/BG-R-VC.png" alt="bg" class="bg">
+            </p>
             <p data-depth="0.21" class="sceneBG">
-                <img src="ONE-Page/images/BG-I.png" alt="bg" class="bg" class="media">
-            </p>
-            <p data-depth="0.12" class="sceneBG">
-                <img src="ONE-Page/images/BG-IL.png" alt="bg" class="bg" class="media">
-            </p>
-            <p data-depth="0.23" class="sceneBG">
-                <img src="ONE-Page/images/BG-RI.png" alt="bg" class="bg" class="media">
-            </p>
-            <p data-depth="0.12" class="sceneBG">
-                <img src="ONE-Page/images/BG-BL.png" alt="bg" class="bg" class="media">
-            </p>
-             <p data-depth="0.24" class="sceneBG">
-                <img src="ONE-Page/images/BG-RI.png" alt="bg" class="bg" class="media">
+                <img src="ONE-Page/images/BG-I-VC.png" alt="bg" class="bg">
             </p>
             <p data-depth="0.15" class="sceneBG">
-                <img src="ONE-Page/images/BG-RII.png" alt="bg" class="bg" class="media">
-            </p>
-            <p data-depth="0.22" class="sceneBG">
-                <img src="ONE-Page/images/BG-LB.png" alt="bg" class="bg" class="media">
-            </p>
-            <p data-depth="0.15" class="sceneBG">
-                <img src="ONE-Page/images/BG-RB.png" alt="bg" class="bg" class="media">
-            </p>
-            <p data-depth="0.2" class="sceneBG">
-                <img src="ONE-Page/images/BG-BR.png" alt="bg" class="bg" class="media">
-            </p>
-            <p data-depth="0.20" class="sceneBG">
-                <img src="ONE-Page/images/BG-RT.png" alt="bg" class="bg" class="media">
-            </p>
-            <p data-depth="0.19" class="sceneBG">
-                <img src="ONE-Page/images/BG-TM.png" alt="bg" class="bg" class="media">
-            </p>
-            <p data-depth="0.28" class="sceneBG">
-                <img src="ONE-Page/images/BG-MT.png" alt="bg" class="bg" class="media">
-            </p>
-            <p data-depth="0.27" class="sceneBG">
-                <img src="ONE-Page/images/BG-TR.png" alt="bg" class="bg" class="media">
-            </p>
-             <p data-depth="0.6" class="sceneBG">
-                <img src="ONE-Page/images/BG-LT.png" alt="bg" class="bg" class="media">
-            </p>
-             <p data-depth="0.15" class="sceneBG">
-                <img src="ONE-Page/images/BG-TRR.png" alt="bg" class="bg" class="media">
+                <img src="ONE-Page/images/BG-RII-VC.png" alt="bg" class="bg">
             </p>
             <p data-depth="0.24" class="sceneBG">
-                <img src="ONE-Page/images/BG-L.png" alt="bg" class="bg" class="media">
+                <img src="ONE-Page/images/BG-RI-VC.png" alt="bg" class="bg">
             </p>
-            <p data-depth="0.13" class="sceneBG">
-                <img src="ONE-Page/images/BG-R.png" alt="bg" class="bg" class="media">
+            <p data-depth="0.32" class="sceneBG">
+                <img src="ONE-Page/images/BG-IL-VC.png" alt="bg" class="bg">
+            </p>
+            <p data-depth="0.2" class="sceneBG">
+                <img src="ONE-Page/images/BG-BR-VC.png" alt="bg" class="bg">
+            </p>
+            <p data-depth="0.20" class="sceneBG">
+                <img src="ONE-Page/images/BG-RT-VC.png" alt="bg" class="bg">
+            </p>
+            <p data-depth="0.35" class="sceneBG">
+                <img src="ONE-Page/images/BG-RB-VC.png" alt="bg" class="bg">
+            </p>
+            <p data-depth="0.19" class="sceneBG">
+                <img src="ONE-Page/images/BG-TM-VC.png" alt="bg" class="bg">
+            </p>
+            <p data-depth="0.27" class="sceneBG">
+                <img src="ONE-Page/images/BG-TR-VC.png" alt="bg" class="bg">
+            </p>
+             <p data-depth="0.2" class="sceneBG">
+                <img src="ONE-Page/images/BG-LT-VC.png" alt="bg" class="bg" >
+            </p>
+             <p data-depth="0.25" class="sceneBG">
+                <img src="ONE-Page/images/BG-TRR-VC.png" alt="bg" class="bg">
+            </p>
+            <p data-depth="0.24" class="sceneBG">
+                <img src="ONE-Page/images/BG-L-VC.png" alt="bg" class="bg">
+            </p>
+            <p data-depth="0.38" class="sceneBG">
+                <img src="ONE-Page/images/BG-MT-VC.png" alt="bg" class="bg">
+            </p>
+            <p data-depth="0.22" class="sceneBG">
+                <img src="ONE-Page/images/BG-BL-VC.png" alt="bg" class="bg">
+            </p>
+            <p data-depth="0.35" class="sceneBG">
+                <img src="ONE-Page/images/BG-LB-VC.png" alt="bg" class="bg">
+            </p>
+            <p data-depth="0.6" class="sceneBG">
+                <img src="ONE-Page/images/O-VE.png" alt="bg" class="bgl">
+            </p>
+            <p data-depth="0.5" class="sceneBG">
+                <img src="ONE-Page/images/F-VE.png" alt="bg" class="bgl">
+            </p>
+            <p data-depth="0.6" class="sceneBG">
+                <img src="ONE-Page/images/N-VE.png" alt="bg" class="bgl">
+            </p>
+            <p data-depth="0.5" class="sceneBG">
+                <img src="ONE-Page/images/I-VE.png" alt="bg" class="bgl">
             </p>
         </div>
         
         <div>
-            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titre">Bonjour!</h1>
-            <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte" id="slogan">et Bienvenue !</p>
+            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titre">Bienvenue</h1>
+            <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte" id="slogan">Sur le site du département informatique des IUT</p>
             <p><image src="<?php echo File::build_path_css(array("ONE-Page","images", "fleche.png")) ?>" alt="fleche" id="fleche"></image></p>
         </div>
         
