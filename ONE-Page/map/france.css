@@ -5,6 +5,9 @@
 .point:hover + .bloc{
 	display: block;
 }
+.point:hover {
+  cursor: pointer;
+}
 
 
 svg {
@@ -16,17 +19,24 @@ svg {
 #map {
 }
 
-.popup{
+#map >.popup{
+  transition: all 2s;
+  width: 26%;
 	display: none;
 	border-style: solid;
   	border-width: 2px;
     border-color: #3C2D5E;
-  	position: absolute;
-  	top :25%;
-  	left:40%;
+  	position: fixed;
+    top:23%;
+    left:37%;
   	background-image:linear-gradient(#C5D527,#689514);
     padding: 1%;
     font-family: Verdana, sans-serif;
+    font-size: 1vw;
+    color: #3C2D5E;
+}
 
+a{
+  color: #3C2D5E;
 }
 

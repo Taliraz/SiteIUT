@@ -1,12 +1,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="france.css<?php //echo File::build_path_css(array("ONE-Page","map", "france.css")); ?>">
+        <link rel="stylesheet" href="<?php echo File::build_path_css(array("ONE-Page","map", "france.css")); ?>">
         <title>carte</title>
     </head>
 <?php 
 require_once(__DIR__. DIRECTORY_SEPARATOR . join(DIRECTORY_SEPARATOR, array("..","..","lib","File.php")));
-require_once (File::build_path(array("model","Model.php")));
 require_once (File::build_path(array("model","ModelIUT.php")));
 require_once (File::build_path(array("model","ModelVille.php")));?>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -1018,14 +1017,14 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
          $latitude=$ville->getLatitude();
          $cx=($longitude - -5.3) * 1041 / (10.2 - -5.3);
          $cy=997 - ($latitude - 41) * 997 / (51.6 - 41);
-         $x=$cx+10;
+         $x=$cx+15;
          $y=$cy+18;
       echo '<circle class="point" onclick="displayPopup('.$IUT->getIdIUT().')" stroke="#3C2D5E" fill="#C5D527" r="10" cy="'.$cy.'" cx="'.$cx.'"/>
 
       <text class="bloc" dominant-baseline="middle"
             font-size="20px" font-family="Arial"
             y="'.$cy.'" x="'.$x.'">
-      '.$IUT->getNomIUT().'</text>';
+      '.$ville->getNom().'</text>';
    }
    ?>
 </svg>
