@@ -91,7 +91,7 @@
         </div>
         
         <div id="slide1Middle" class="slides">
-            
+
             <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titreSlide1" >Trouvez VOTRE IUT !</h1>
     
             <?php require_once File::build_path(array("ONE-Page","map" ,"france.php")); ?>

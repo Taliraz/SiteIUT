@@ -192,7 +192,8 @@ h1
 
 #slide1Middle {
     z-index: 3;
-     background-image: linear-gradient(to bottom, #3c2d5e, #004e8a, #006d8f, #008564, #419514);
+    background-image: linear-gradient(to bottom, #3c2d5e, #004e8a, #006d8f, #008564, #419514);
+
 }
 
 #slide1End {
