@@ -1,15 +1,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="france.css">
+        <link rel="stylesheet" href="<?php echo File::build_path_css(array("ONE-Page","map", "france.css")); ?>">
         <title>carte</title>
     </head>
-<?php require_once(__DIR__. DIRECTORY_SEPARATOR . join(DIRECTORY_SEPARATOR, array("lib","File.php")));
+<?php 
 require_once (File::build_path(array("model","Model.php")));
 require_once (File::build_path(array("model","ModelIUT.php")));
 require_once (File::build_path(array("model","ModelVille.php")));?>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+<div id="map">
 <svg
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -1004,7 +1005,6 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
    style="fill:none;stroke:#646464;stroke-width:0.7087;stroke-linejoin:round;stroke-miterlimit:3.8636899"
    id="polygon491" />
 		</g>
- 
 
  
    <?php
@@ -1017,7 +1017,10 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
          $cy=997 - ($latitude - 41) * 997 / (51.6 - 41);
          $x=$cx+10;
          $y=$cy+18;
-      echo '<a class="point" href="'.$IUT->getSiteIUT().'" target="_blank"><circle fill="#FF8C00" r="10" cy="'.$cy.'" cx="'.$cx.'" href="'.$IUT->getSiteIUT().'"/></a>
+      echo '<a class="point" href="'.$IUT->getSiteIUT().'" target="_blank">
+      <circle class="cercle" fill="#FF8C00" r="10" cy="'.$cy.'" cx="'.$cx.'"/>
+      </a>
+       
        
       <text class="bloc" dominant-baseline="middle"
             font-size="20px" font-family="Arial"
@@ -1027,10 +1030,18 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
             font-size="20px" font-family="Arial"
             y="'.$y.'" x="'.$x.'">'.$IUT->getNomIUT().'
       </tspan>
-
-
-      </text>';
+      
+      </text> ';
    }
    ?>
  
 </svg>
+</div>  
+
+    
+<script>
+$('.point').on('click', function()
+{
+ $('.iut_info').dialog();
+}
+</script>

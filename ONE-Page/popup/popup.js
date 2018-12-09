@@ -38,7 +38,7 @@ $(function(){
      });
 
     
-    $('.carousel-next').on('click', function(){
+    $('.carousel-prev').on('click', function(){
         if(status == true){
             status = false;
             deselect($(this));  

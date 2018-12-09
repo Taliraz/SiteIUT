@@ -172,17 +172,32 @@ window.addEventListener('scroll', function(){
 //Troisième Slide - Première Partie
 
 window.addEventListener('load', function(){ 
-    var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight - 100
+    if(window.innerWidth>600){
+        var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight - 100
+    }
+    else {
+        var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + 200
+    }
 	requestAnimationFrame(parallaxScroll(slide3Begin, 1, h3)) 
 }, false)
 
 window.addEventListener('resize', function(){
-    var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight - 100
+    if(window.innerWidth>600){
+        var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight - 100
+    }
+    else {
+        var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + 200
+    }
 	requestAnimationFrame(parallaxScroll(slide3Begin, 1, h3)) 
 }, false)
 
 window.addEventListener('scroll', function(){ 
-    var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight - 100
+    if(window.innerWidth>600){
+        var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight - 100
+    }
+    else {
+        var h3 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + 200
+    }
 	requestAnimationFrame(parallaxScroll(slide3Begin, 1, h3))  
 }, false)
 
@@ -191,17 +206,32 @@ window.addEventListener('scroll', function(){
 //Troisème Slide - Deuxième Partie - Deuxième Couche
 
 window.addEventListener('load', function(){ 
-    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
+    if(window.innerWidth>600){
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight - 100
+    }
+    else {
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
+    }
 	requestAnimationFrame(parallaxScroll(slide3Sup, 1, h4)) 
 }, false)
 
 window.addEventListener('resize', function(){ 
-    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
+    if(window.innerWidth>600){
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight - 100
+    }
+    else {
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
+    }
 	requestAnimationFrame(parallaxScroll(slide3Sup, 1, h4)) 
 }, false)
 
 window.addEventListener('scroll', function(){ 
-    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
+    if(window.innerWidth>600){
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight - 100
+    }
+    else {
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
+    }
 	requestAnimationFrame(parallaxScroll(slide3Sup, 1, h4)) 
 }, false)
 
@@ -210,17 +240,32 @@ window.addEventListener('scroll', function(){
 //Troisème Slide - Deuxième Partie - Troisième Couche
 
 window.addEventListener('load', function(){
-    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
+    if(window.innerWidth>600){
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight - 100
+    }
+    else {
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
+    }
 	requestAnimationFrame(parallaxScroll(slide3Back, 1, h4)) 
 }, false)
 
 window.addEventListener('resize', function(){
-    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
+    if(window.innerWidth>600){
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight - 100
+    }
+    else {
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
+    }
 	requestAnimationFrame(parallaxScroll(slide3Back, 1, h4))  
 }, false)
 
 window.addEventListener('scroll', function(){ 
-    var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide2.clientHeight - 100
+    if(window.innerWidth>600){
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight - 100
+    }
+    else {
+        var h4 = slide1Intro.clientHeight + slide1Middle.clientHeight + slide2.clientHeight + slide3Begin.clientHeight + 200
+    }
 	requestAnimationFrame(parallaxScroll(slide3Back, 1, h4))  
 }, false)
 
@@ -231,17 +276,32 @@ window.addEventListener('scroll', function(){
 var v2 = 0.2
 
 window.addEventListener('load', function(){ 
-    var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
+    if(window.innerWidth>600){
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
+    }
+    else {
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight + 200)*v2
+    }
 	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
 }, false)
 
 window.addEventListener('resize', function(){ 
-    var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
+    if(window.innerWidth>600){
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
+    }
+    else {
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight + 200)*v2
+    }
 	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
 }, false)
 
 window.addEventListener('scroll', function(){ 
-    var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
+    if(window.innerWidth>600){
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight - 100)*v2
+    }
+    else {
+        var h5 = (slide1Intro.clientHeight + slide1Middle.clientHeight + slide3Begin.clientHeight + slide3Back.clientHeight + slide2.clientHeight + 200)*v2
+    }
 	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
 }, false)
 

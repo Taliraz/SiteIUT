@@ -19,12 +19,12 @@
                     <li class="tem_main">
                         <p class="tem_tit">'.$key->getTitreTemoignage().'</p>
                         
-                        <p class="tem_aut"><span>'.$key->getPrenomEtudiant() .'</span> <span>'. $key->getNomEtudiant().'</span></p>
-                        
-                        <p class="tem_date"><span>'.$key->getDatePublication() .'</span>  <span>'. $iut.'</span></p>
-                        
                         <div class="tem_pic" style="background-image: url('.$key->getPhotoTemoignage().')"></div>
                         
+                        <p class="tem_aut"><span>'.$key->getPrenomEtudiant() .'</span> <span>'. $key->getNomEtudiant().'</span></p>
+                        
+                        <p class="tem_date"><span>'.$key->getDatePublication() .'</span> <br> <span>'. $iut.'</span></p>
+                          
                     </li>
             
                     <image src="'.File::build_path_css(array("ONE-Page","images", "fleche_d.png")).'" alt="fleche" class="fleche_d"></image>

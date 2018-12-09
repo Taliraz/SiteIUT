@@ -88,10 +88,34 @@ h1
 }
 
 #video {
-    position:fixed;
+    position: fixed;
     top:0px;
     left:0px;
     z-index: -1;
+}
+
+#BG {
+    position: fixed;
+    top: -50px;
+    left:0;
+}
+
+.bg {
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    left:-5vw;
+    width: 110vw;
+    height:110vh;
+    
+}
+
+#titre {
+    color: white;
+}
+
+#slogan {
+   color: white; 
 }
 
 #fleche {
@@ -148,7 +172,6 @@ h1
     z-index: 1;
 }
 
-
 #slide4 {
     z-index: -1;
     background-color: white;
@@ -156,12 +179,10 @@ h1
     width: 100vw;
 }
 
-
 #imageSolo {
     height:400px;
     -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
-
 
 .scene-pic {
     object-fit: cover;
@@ -246,7 +267,7 @@ h1
     display: flex;
     flex-direction: row;
     list-style: none; 
-    background-image: url(images/circuit.png);
+    background-image: url(../images/circuit.png);
     background-size: 100%;
 }
 
@@ -266,7 +287,6 @@ h1
     font-size: 4vw;
     margin-left:0;
 }
-
 
 .tem_aut {
     position: absolute;
@@ -308,7 +328,7 @@ h1
     height: 90vh;
     z-index:50;
     overflow-y:auto;
-    transform: translate(0, -5vw);
+    transform: translate(0, -10vw);
 }
 
 .tem_cont::-webkit-scrollbar { width: 0 !important }
@@ -362,8 +382,8 @@ button {
 .fleche_l {
     position: absolute;
     transform: rotate(90deg);
-    width: 60px;
-    height:60px;
+    width: 4vw;
+    height:4vw;
     margin-top: 15%;
     animation: bounce_l 1s ease infinite;
 }
@@ -371,34 +391,12 @@ button {
 .fleche_d {
     position: absolute;
     transform: rotate(-90deg);
-    width: 60px;
-    height:60px;
+    width: 4vw;
+    height:4vw;
     margin-top: 15%;
     margin-left: 68%;
     animation: bounce_d 1s ease infinite;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -478,10 +476,49 @@ button {
         
     }
     
-    .tem_pack {
-        box-shadow: none;
+    .fleche_l {
+        display: none;
     }
     
+    .fleche_d {
+        display: none;
+    }
+    
+    .tem_pack {
+        width: 100vw;
+        margin:0;
+    }
+    
+    .tem_tit {
+        font-size: 30px;
+    }
+    
+    .tem_aut {
+        position: relative;
+        margin:0;
+        font-size: 25px;
+    }
+    
+    .tem_date {
+        margin:0;
+        position: relative;
+        font-size: 25px;
+    }
+    
+    .tem_pic {
+        position: relative;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .tem_cont {
+        position: fixed;
+        top: 5vh;
+        left:0;
+        width: 100vw;
+        height:105vh;
+        font-size: 3vw;
+    }
     
 }
 
