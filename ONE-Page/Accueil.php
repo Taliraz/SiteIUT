@@ -8,6 +8,11 @@
     </head>
     <body>
         
+        <div id="load">
+            <img src="<?php echo File::build_path_css(array("ONE-Page","images" ,"load-lune.png")) ?>" alt="" id="loading">
+        </div>
+        
+        
         <video id="video" class="media" muted autoplay loop>
               <source src="" type="video/mp4">
         </video> 
@@ -86,12 +91,11 @@
         </div>
         
         <div id="slide1Middle" class="slides">
-            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titreSlide1">Trouvez VOTRE IUT !</h1>
+            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titreSlide1" >Trouvez VOTRE IUT !</h1>
     
             <?php require_once File::build_path(array("ONE-Page","map" ,"france.php")); ?>
 
 
-            <img src="<?php echo File::build_path_css(array("ONE-Page","images", "info.png")) ?>" alt="bob" id="imageSolo" class="media">
         </div>
         <div id="slide1End" class="slides">
             <h1 data-scroll="toggle(.fromRightIn, .fromRightOut)" style="text-shadow:4px 4px black;"></h1>
@@ -145,9 +149,6 @@
        
         
         
-        
-        
-        
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","parallax", "parallax.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","ScrollTrigger", "ScrollTrigger.min.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","ScrollTrigger","Trigger.js")) ?>"></script>
@@ -157,5 +158,6 @@
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","carousel" ,"JCarousel.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "popup","popup.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "map","utile.js")) ?>"></script>
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "load.js")) ?>"></script>
     </body>
 </html>

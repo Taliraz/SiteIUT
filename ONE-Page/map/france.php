@@ -1033,34 +1033,16 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
    foreach($ModelIUT as $IUT){
          $ville=ModelVille::getVilleById($IUT->getIdVille());
          echo '<div class="popup" id="'.$IUT->getIdIUT().'" onclick="closePopup('.$IUT->getIdIUT().')">
-                <h1>'.$IUT->getNomIUT().'</h1>
-                <p>'.$ville->getNom().'('.$ville->getDepartement().')</p>
-                <p>'.$IUT->getAdresseIUT().'</p>
-                <p><a href="'.$IUT->getSiteIUT().'"" target="_blank">'.$IUT->getSiteIUT().'</a></p>
-                <p>'.$IUT->getTelephoneIUT().'</p>
+                    <div class="popup_content">
+                        <p class="titre">'.$IUT->getNomIUT().'</p>
+                        <p>'.$ville->getNom().'('.$ville->getDepartement().')</p>
+                        <p>'.$IUT->getAdresseIUT().'</p>
+                        <p><a href="'.$IUT->getSiteIUT().'"" target="_blank">'.$IUT->getSiteIUT().'</a></p>
+                        <p>'.$IUT->getTelephoneIUT().'</p>
+                    </div>
                 </div>';
         }
     ?>
 </div>  
-
- <script>
-
-    function closeAllPopup(){
-      var tabPopup=document.getElementsByClassName('popup');
-      for (var i=0;i<tabPopup.length;i++){
-        tabPopup[i].style.display="none";
-      }
-    }
-
-    function displayPopup(id){
-      closeAllPopup();
-      document.getElementById(id).style.display="block";
-    }
-
-    function closePopup(id){
-      document.getElementById(id).style.display="none";
-    }
-    
-  </script>
-
+<script src="<?php echo File::build_path_css(array("ONE-Page","map","utile.js")) ?>"></script>
     

@@ -1,4 +1,5 @@
 
+
 body{
     background: white top center no-repeat fixed;
     background-size: cover;
@@ -67,13 +68,43 @@ h1
     to  {transform: translate(60px, 0);}
 }
 
+@keyframes roll{
+    from {transform: rotate(0);}
+    10% {transform: rotate(36deg);}
+    20% {transform: rotate(72deg);}
+    30% {transform: rotate(108deg);} 
+    40% {transform: rotate(144deg);}
+    50% {transform: rotate(180deg);}
+    60% {transform: rotate(216deg);}
+    70% {transform: rotate(252deg);}
+    80% {transform: rotate(288deg);}
+    90% {transform: rotate(324deg);}
+    to  {transform: rotate(360deg);}
+}
 
 
 
 
+#load {
+    position:fixed;
+    top:-50vh;
+    left:-50vw;
+    width: 200vw;
+    height:400vh;
+    z-index:500;
+    background-color: #3C2D5E;
+    color: white;
+    font-size: 5vw;
+    text-align: center;
+    transition: all 1s;
+}
 
-
-
+#loading {
+    width: 10vw;
+    margin-top: 85vh;
+    animation: roll 0.5s infinite;
+    transition: all 1s;
+}
 
 .texte {
     font-size: 3vh;
@@ -156,7 +187,7 @@ h1
 }
 
 #slide1Middle {
-    z-index: 1;
+    z-index: 3;
     background-image: linear-gradient(to bottom, #ffffff, #cbfbff, #30ffff, #00ffb9, #a8eb12);
 }
 
