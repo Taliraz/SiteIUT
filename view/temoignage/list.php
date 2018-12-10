@@ -8,7 +8,7 @@
                 .rawurlencode($v->getIdTemoignage()).'">'. htmlspecialchars($v->getTitreTemoignage()).'</a> 
                 
                 <a title="supprimer" 
-                href="admin.php?controller=temoignage&action=delete&id='
+                href="admin.php?controller=temoignage&action=delete&idTemoignage='
                 .rawurlencode($v->getIdTemoignage()).'">supprimer</a> 
                 </p>';
             }  

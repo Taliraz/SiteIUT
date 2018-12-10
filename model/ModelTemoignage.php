@@ -5,7 +5,7 @@ class ModelTemoignage{
 	private $titreTemoignage;
     private $photoTemoignage;
 	private $contenuTemoignage;
-	private $datePublication;
+	private $anneeEtude;
 	private $theme;
 	private $nomEtudiant;
 	private $prenomEtudiant;
@@ -16,7 +16,7 @@ class ModelTemoignage{
 			$this->titreTemoignage=$t;
             $this->photoTemoignage=$p;
 			$this->contenuTemoignage=$c;
-			$this->datePublication=$d;
+			$this->anneeEtude=$d;
 			$this->theme=$th;
 			$this->nomEtudiant=$ne;
 			$this->prenomEtudiant=$pe;
@@ -40,8 +40,8 @@ class ModelTemoignage{
 		return $this->contenuTemoignage;
 	}
 
-	public function getDatePublication(){
-		return $this->datePublication;
+	public function getanneeEtude(){
+		return $this->anneeEtude;
 	}
 
 	public function getTheme(){
@@ -73,8 +73,8 @@ class ModelTemoignage{
 		$this->contenuTemoignage=$PcontenuTemoignage;
 	}
 
-	public function setDatePublication($PdatePublication){
-		$this->datePublication=$PdatePublication;
+	public function setanneeEtude($PanneeEtude){
+		$this->anneeEtude=$PanneeEtude;
 	}
 
 	public function setTheme($Ptheme){
@@ -133,12 +133,12 @@ class ModelTemoignage{
 	    return $tab_temoignage;
 	}
 
-	public static function getTemoignageByDatePublication($datePublication) {
-	    $sql = "SELECT * from `mon-Temoignages` WHERE datePublication=:datePublication";
+	public static function getTemoignageByanneeEtude($anneeEtude) {
+	    $sql = "SELECT * from `mon-Temoignages` WHERE anneeEtude=:anneeEtude";
 	    $req_prep = Model::$pdo->prepare($sql);
 
 	    $values = array(
-	        "datePublication" => $datePublication,
+	        "anneeEtude" => $anneeEtude,
 	    );  
 	    $req_prep->execute($values);
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelTemoignage');
@@ -168,14 +168,14 @@ class ModelTemoignage{
 
 	public function save(){
     try{
-      $req_prep=Model::$pdo->prepare("INSERT INTO `mon-Temoignages`(idTemoignage, titreTemoignage, photoTemoignage, contenuTemoignage, datePublication, theme, nomEtudiant, prenomEtudiant, idIUT) VALUES (:idTemoignage, :titreTemoignage, :photoTemoignage, :contenuTemoignage, :datePublication, :theme, :nomEtudiant, :prenomEtudiant, :idIUT)");
+      $req_prep=Model::$pdo->prepare("INSERT INTO `mon-Temoignages`(idTemoignage, titreTemoignage, photoTemoignage, contenuTemoignage, anneeEtude, theme, nomEtudiant, prenomEtudiant, idIUT) VALUES (:idTemoignage, :titreTemoignage, :photoTemoignage, :contenuTemoignage, :anneeEtude, :theme, :nomEtudiant, :prenomEtudiant, :idIUT)");
 
       $values=array(
         "idTemoignage" => $this->idTemoignage,
         "titreTemoignage" => $this->titreTemoignage,
         "photoTemoignage" => $this->photoTemoignage,
         "contenuTemoignage" => $this->contenuTemoignage,
-        "datePublication" => $this->datePublication,
+        "anneeEtude" => $this->anneeEtude,
         "theme" => $this->theme,
         "nomEtudiant" => $this->nomEtudiant,
         "prenomEtudiant" => $this->prenomEtudiant,

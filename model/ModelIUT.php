@@ -11,9 +11,8 @@ class ModelIUT {
     protected $telephoneIUT;
     protected $mailSecretariatIUT;
     
-    public function __construct($idIUT = NULL,$nomIUT = NULL,$idVille = NULL, $adresseIUT = NULL, $siteIUT = NULL, $telephoneIUT = NULL,$mailSecretariatIUT = NULL){
+    public function __construct($nomIUT = NULL,$idVille = NULL, $adresseIUT = NULL, $siteIUT = NULL, $telephoneIUT = NULL,$mailSecretariatIUT = NULL){
         if(!is_null($nomIUT) &&!is_null($idVille) && !is_null($adresseIUT) && !is_null($siteIUT) &&!is_null($telephoneIUT) && !is_null($mailSecretariatIUT)){
-            $this->idIUT=$idIUT;
             $this->nomIUT = $nomIUT;
             $this->idVille = $idVille;
             $this->adresseIUT = $adresseIUT;
@@ -97,31 +96,35 @@ class ModelIUT {
     
     
     public function save(){
-        $erreur = "IUT déjà présent dans la base de données";
-        $idIUT = htmlspecialchars($this->idIUT);
-        $nomIUT = htmlspecialchars($this->nomIUT);
-        $idVille = htmlspecialchars($this->idVille);
-        $adresseIUT = htmlspecialchars($this->adresseIUT);
-        $siteIUT = htmlspecialchars($this->siteIUT);
-        $telephoneIUT = htmlspecialchars($this->telephoneIUT);
-        $mailSecretariatIUT = htmlspecialchars($this->mailSecretariatIUT);
-        $data = array(':nomIUT'=>$nomIUT, ':idVille'=>$idVille, ':adresseIUT'=>$adresseIUT, ':siteIUT'=>$siteIUT, ':telephoneIUT'=>$telephoneIUT, ':mailSecretariatIUT'=>$mailSecretariatIUT);
-        $reqVerif = Model::$pdo->prepare("SELECT idIUT FROM `mon-IUTs` WHERE idIUT = :idIUT");
-        $reqVerif->execute(array(':idIUT'=>$idIUT));
-        $resVerif = $reqVerif->rowcount();
-        if($resVerif > 0){
-            return $erreur;
+        try{
+          $req_prep=Model::$pdo->prepare(
+            "INSERT INTO `mon-IUTs`(nomIUT,idVille,adresseIUT,SiteIUT,telephoneIUT,mailSecretariatIUT) VALUES(:nomIUT,:idVille,:adresseIUT,:siteIUT,:telephoneIUT,:mailSecretariatIUT)");
+
+          $values=array(
+            "nomIUT" => $this->nomIUT,
+            "idVille" => $this->idVille,
+            "adresseIUT" => $this->adresseIUT,
+            "siteIUT" => $this->siteIUT,
+            "telephoneIUT" => $this->telephoneIUT,
+            "mailSecretariatIUT" => $this->mailSecretariatIUT,
+            );
+          $req_prep->execute($values);
         }
-        else {
-            $insert = Model::$pdo->prepare("INSERT INTO `mon-IUTs`(nomIUT, idVille,adresseIUT,siteIUT,telephoneIUT,mailSecretariatIUT) VALUES(:nomIUT,:idVille,:adresseIUT,:siteIUT,:telephoneIUT,:mailSecretariatIUT)");
-            $insert->execute($data);
-            $getId = Model::$pdo->prepare("SELECT idIUT FROM `mon-IUTs` WHERE idIUT = :idIUT");
-            $getId->execute(array(':idIUT'=>$idIUT));
-            $arrayRetour = $getId->fetch();
-            $idRetour = $arrayRetour[0];
-            
-            return $idRetour;
+        catch(PDOException $e){
+          if ($e->getCode()==23000){
+            echo('<b>ERREUR: L\' IUT existe déjà</b>');
+            return false;
+          }
         }
+    }
+
+    public function delete(){
+         $req_prep=Model::$pdo->prepare("DELETE FROM `mon-IUTs` WHERE `mon-IUTs`.idIUT=:idIUT");
+
+        $values=array(
+          "idIUT" => $this->idIUT,
+          );
+        $req_prep->execute($values);
     }
 
     public function update(){

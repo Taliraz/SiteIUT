@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?action=created&controller=temoignage">
+      <form method="post" action="admin.php?action=created&controller=temoignage" enctype="multipart/form-data">
         <fieldset>
           <legend>Temoignages :</legend>
           <p>
@@ -14,8 +14,8 @@
           </p>
 
           <p>
-            <label for="datePublication_id">Date de Publication</label> :
-            <input type="date" placeholder="Ex : 20/10/2018" name="datePublication" id="datePublication_id" required/>
+            <label for="anneeEtude_id">Date de Publication</label> :
+            <input type="date" placeholder="Ex : 20/10/2018" name="anneeEtude" id="anneeEtude_id" required/>
           </p>
 
           <p>
@@ -37,8 +37,8 @@
           </p>
             
             <p>
-                <label for="photoTemoignage">Photo témoignage</label> :
-                <input type="file" id="photoTemoignage" name="photo" accept=".jpg, .jpeg, .png, .gif" required>
+                <label for="photo_id">Photo témoignage</label> :
+                <input type="file" name="photo"  required/>
             </p>
 
             <p>
