@@ -30,9 +30,9 @@
                 require_once File::build_path(array("model","ModelVille.php"));
                 $liste=ModelVille::getAllVilles();
                 foreach($liste as $valeur){
-                  echo '<option value="'.$valeur->getId().'">'.$valeur->getNom().' ('.$valeur->getDepartement().')</option>';
+                  echo '<option value="'.$valeur->getId().'">'.$valeur->getNom().' ('.$valeur->getDepartement().')</option>'."\n";
                 }
-                ?>
+                ?>x
               </select>
           </p>
 
