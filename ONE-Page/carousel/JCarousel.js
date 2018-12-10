@@ -30,8 +30,14 @@ $(document).ready(function() {
 			// Si le compteur est inférieur au nombre de diaposives moins 1
 			if(Cpt < (NbElement-1) ) {
 				// Ajout +1 au compteur (nous allons sur la diapositive suivante)
-				Cpt++;
+				++Cpt;
 				// Mouvement du carrousel en arrière-plan
+				$(".fleche_d").animate({
+					marginRight : - (Reference.width() * Cpt)
+				});
+				$(".fleche_l").animate({
+					marginRight : - (Reference.width() * Cpt)
+				});
 				$(".carousel").animate({
 					marginLeft : - (Reference.width() * Cpt)
 				});
@@ -48,8 +54,14 @@ $(document).ready(function() {
 			if(Cpt > 0) {
 
 				// Soustraction -1 au compteur (nous allons sur la diapositive précédente)
-				Cpt--;
+				--Cpt;
 				// Mouvement du carrousel en arrière-plan
+				$(".fleche_l").animate({
+					marginRight : - (Reference.width() * Cpt)
+				});
+				$(".fleche_d").animate({
+					marginRight : - (Reference.width() * Cpt)
+				});
 				$(".carousel").animate({
 					marginLeft : - (Reference.width() * Cpt)
 				});

@@ -4,7 +4,7 @@ function closeAllPopup(){
   var tabPopup=document.getElementsByClassName('popup')
   popupActive = false
   for (var i=0;i<tabPopup.length;i++){
-    tabPopup[i].style.left = "-50%"
+    tabPopup[i].style.left = "-80vh"
   }
 }
 
@@ -18,7 +18,7 @@ function displayPopup(id){
 
 function closePopup(id){
     popupActive = false
-    document.getElementById(id).style.left = "-50%"
+    document.getElementById(id).style.left = "-80vh"
 }
 
 window.addEventListener('scroll', function() {

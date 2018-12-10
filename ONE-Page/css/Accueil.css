@@ -154,7 +154,6 @@ h1
     height:110vh;
     object-fit: cover;
     filter: drop-shadow(5px 5px 2px #3C2D5E);
-    
 }
 
 #titre {
@@ -366,10 +365,9 @@ h1
     position:absolute;
     text-align:center;
     width:70vw;
-    height: 90vh;
+    height: 80vh;
     z-index:50;
     overflow-y:auto;
-    transform: translate(0, -10vw);
 }
 
 .tem_cont::-webkit-scrollbar { width: 0 !important }
