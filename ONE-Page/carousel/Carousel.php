@@ -23,8 +23,7 @@
                         
                         <p class="tem_aut"><span>'.$key->getPrenomEtudiant() .'</span> <span>'. $key->getNomEtudiant().'</span></p>
                         
-                        <p class="tem_date"><span>'.$key->getDatePublication() .'</span> <br> <span>'. $iut.'</span></p>
-                          
+                        <p class="tem_date"><span>'.$key->getAnneeEtude() .'</span> <br> <span>'. $iut.'</span></p>
                     </li>
             
                     <image src="'.File::build_path_css(array("ONE-Page","images", "fleche_d.png")).'" alt="fleche" class="fleche_d"></image>
