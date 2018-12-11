@@ -11,8 +11,9 @@ class ModelTemoignage{
 	private $prenomEtudiant;
 	private $idIUT;
 
-	public function __construct($t=NULL, $p=NULL, $c=NULL, $d=NULL, $th=NULL, $ne=NULL, $pe=NULL, $i=NULL){
+	public function __construct($id=NULL, $t=NULL, $p=NULL, $c=NULL, $d=NULL, $th=NULL, $ne=NULL, $pe=NULL, $i=NULL){
 		if (!is_null($t) && !is_null($p) && !is_null($c) && !is_null($d) && !is_null($th) && !is_null($ne) && !is_null($pe) && !is_null($i)){
+			$this->idTemoignage=$id;
 			$this->titreTemoignage=$t;
             $this->photoTemoignage=$p;
 			$this->contenuTemoignage=$c;
@@ -40,7 +41,7 @@ class ModelTemoignage{
 		return $this->contenuTemoignage;
 	}
 
-	public function getanneeEtude(){
+	public function getAnneeEtude(){
 		return $this->anneeEtude;
 	}
 
@@ -198,7 +199,27 @@ class ModelTemoignage{
       "id" => $this->idTemoignage,
       );
     $req_prep->execute($values);
-  }
+  	}
+
+  	public function update(){
+        $req_prep=Model::$pdo->prepare("UPDATE `mon-Temoignages` SET titreTemoignage=:titreTemoignage, photoTemoignage=:photoTemoignage,contenuTemoignage=:contenuTemoignage, anneeEtude=:anneeEtude, theme=:theme, nomEtudiant=:nomEtudiant, prenomEtudiant=:prenomEtudiant, idIUT=:idIUT WHERE idTemoignage=:idTemoignage");
+
+        $values=array(
+          "idTemoignage"=>$this->idTemoignage,
+          "titreTemoignage" => $this->titreTemoignage,
+          "photoTemoignage" => $this->photoTemoignage,
+          "contenuTemoignage" => $this->contenuTemoignage,
+          "anneeEtude" => $this->anneeEtude,
+          "theme" => $this->theme,
+          "nomEtudiant" => $this->nomEtudiant,
+          "prenomEtudiant" => $this->prenomEtudiant,
+          "idIUT" => $this->idIUT
+          );
+        $req_prep->execute($values);
+
+      }
+
+
 }
 
 ?>
