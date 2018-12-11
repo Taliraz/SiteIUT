@@ -3,7 +3,7 @@
 	$controller='temoignage';
 	$view='list';
 	$pagetitle='liste des Témoignages';
-	require (File::build_path(array("view","view.php"))); 
+	require (File::build_path(array("view",$controller,"list.php"))); 
 
 
 
