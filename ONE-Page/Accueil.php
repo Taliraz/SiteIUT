@@ -17,67 +17,102 @@
               <source src="" type="video/mp4">
         </video> 
         
-         <div id="BG" class="media" style="background-image: url(ONE-Page/images/BG-VC.jpg)">
-            <p data-depth="0.33" class="sceneBG">
-                <img src="ONE-Page/images/BG-R-VC.png" alt="bg" class="bg">
+         <div id="BG" class="media">
+             
+            <p data-depth="0" class="sceneBG">
+                <img src="ONE-Page/images/BG-VC.jpg" alt="bg" class="bg_back">
             </p>
-            <p data-depth="0.21" class="sceneBG">
-                <img src="ONE-Page/images/BG-I-VC.png" alt="bg" class="bg">
+             
+            <!-- intérieur -->
+             
+            <p data-depth="0.12" class="sceneBG">
+                <img src="ONE-Page/images/BG-I-VC.png" alt="bg" class="bg_int">
             </p>
             <p data-depth="0.15" class="sceneBG">
-                <img src="ONE-Page/images/BG-RII-VC.png" alt="bg" class="bg">
-            </p>
-            <p data-depth="0.24" class="sceneBG">
-                <img src="ONE-Page/images/BG-RI-VC.png" alt="bg" class="bg">
-            </p>
-            <p data-depth="0.32" class="sceneBG">
-                <img src="ONE-Page/images/BG-IL-VC.png" alt="bg" class="bg">
+                <img src="ONE-Page/images/BG-RII-VC.png" alt="bg" class="bg_int">
             </p>
             <p data-depth="0.2" class="sceneBG">
-                <img src="ONE-Page/images/BG-BR-VC.png" alt="bg" class="bg">
+                <img src="ONE-Page/images/BG-RI-VC.png" alt="bg" class="bg_int">
             </p>
-            <p data-depth="0.20" class="sceneBG">
-                <img src="ONE-Page/images/BG-RT-VC.png" alt="bg" class="bg">
+            <p data-depth="0.1" class="sceneBG">
+                <img src="ONE-Page/images/BG-IL-VC.png" alt="bg" class="bg_int">
+            </p>
+
+            
+            <!-- bordures --> 
+             
+             
+            <p data-depth="0.18" class="sceneBG">
+                <img src="ONE-Page/images/BG-MT-VC.png" alt="bg" class="bg_bord">
+            </p>
+            <p data-depth="0.30" class="sceneBG">
+                <img src="ONE-Page/images/BG-L-VC.png" alt="bg" class="bg_bord">
+            </p>
+            <p data-depth="0.2" class="sceneBG">
+                <img src="ONE-Page/images/BG-TM-VC.png" alt="bg" class="bg_bord">
+            </p>
+            <p data-depth="0.25" class="sceneBG">
+                <img src="ONE-Page/images/BG-BL-VC.png" alt="bg" class="bg_bord">
+            </p>
+            <p data-depth="0.3" class="sceneBG">
+                <img src="ONE-Page/images/BG-TRR-VC.png" alt="bg" class="bg_bord">
+            </p>
+            <p data-depth="0.25" class="sceneBG">
+                <img src="ONE-Page/images/BG-BR-VC.png" alt="bg" class="bg_bord">
             </p>
             <p data-depth="0.35" class="sceneBG">
-                <img src="ONE-Page/images/BG-RB-VC.png" alt="bg" class="bg">
+                <img src="ONE-Page/images/BG-TR-VC.png" alt="bg" class="bg_bord">
             </p>
-            <p data-depth="0.19" class="sceneBG">
-                <img src="ONE-Page/images/BG-TM-VC.png" alt="bg" class="bg">
+            
+             
+            <!-- Coins -->
+             
+            <p data-depth="0.45" class="sceneBG">
+                <img src="ONE-Page/images/BG-RB-VC.png" alt="bg" class="bg_coin">
             </p>
-            <p data-depth="0.27" class="sceneBG">
-                <img src="ONE-Page/images/BG-TR-VC.png" alt="bg" class="bg">
-            </p>
-             <p data-depth="0.2" class="sceneBG">
-                <img src="ONE-Page/images/BG-LT-VC.png" alt="bg" class="bg" >
-            </p>
-             <p data-depth="0.25" class="sceneBG">
-                <img src="ONE-Page/images/BG-TRR-VC.png" alt="bg" class="bg">
-            </p>
-            <p data-depth="0.24" class="sceneBG">
-                <img src="ONE-Page/images/BG-L-VC.png" alt="bg" class="bg">
-            </p>
-            <p data-depth="0.38" class="sceneBG">
-                <img src="ONE-Page/images/BG-MT-VC.png" alt="bg" class="bg">
-            </p>
-            <p data-depth="0.22" class="sceneBG">
-                <img src="ONE-Page/images/BG-BL-VC.png" alt="bg" class="bg">
-            </p>
-            <p data-depth="0.35" class="sceneBG">
-                <img src="ONE-Page/images/BG-LB-VC.png" alt="bg" class="bg">
-            </p>
-            <p data-depth="0.6" class="sceneBG">
-                <img src="ONE-Page/images/O-VE.png" alt="bg" class="bgl">
+            <p data-depth="0.4" class="sceneBG">
+                <img src="ONE-Page/images/BG-LT-VC.png" alt="bg" class="bg_coin">
             </p>
             <p data-depth="0.5" class="sceneBG">
-                <img src="ONE-Page/images/F-VE.png" alt="bg" class="bgl">
+                <img src="ONE-Page/images/BG-LB-VC.png" alt="bg" class="bg_coin">
+            </p>
+            <p data-depth="0.55" class="sceneBG">
+                <img src="ONE-Page/images/BG-RT-VC.png" alt="bg" class="bg_coin">
+            </p>
+             
+             <!-- Lettres -->
+             
+            <p data-depth="0.55" class="sceneBG">
+                <img src="ONE-Page/images/O-BL.png" alt="bg" class="bg_let">
             </p>
             <p data-depth="0.6" class="sceneBG">
-                <img src="ONE-Page/images/N-VE.png" alt="bg" class="bgl">
+                <img src="ONE-Page/images/O-VE.png" alt="bg" class="bg_let">
+            </p>
+             
+             
+            <p data-depth="0.45" class="sceneBG">
+                <img src="ONE-Page/images/F-BL.png" alt="bg" class="bg_let">
             </p>
             <p data-depth="0.5" class="sceneBG">
-                <img src="ONE-Page/images/I-VE.png" alt="bg" class="bgl">
+                <img src="ONE-Page/images/F-VE.png" alt="bg" class="bg_let">
             </p>
+             
+             
+            <p data-depth="0.55" class="sceneBG">
+                <img src="ONE-Page/images/N-BL.png" alt="bg" class="bg_let">
+            </p>
+            <p data-depth="0.6" class="sceneBG">
+                <img src="ONE-Page/images/N-VE.png" alt="bg" class="bg_let">
+            </p>
+             
+             
+            <p data-depth="0.45" class="sceneBG">
+                <img src="ONE-Page/images/I-BL.png" alt="bg" class="bg_let">
+            </p>
+            <p data-depth="0.5" class="sceneBG">
+                <img src="ONE-Page/images/I-VE.png" alt="bg" class="bg_let">
+            </p>
+             
         </div>
         
         <div>

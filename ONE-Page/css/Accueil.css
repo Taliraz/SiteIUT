@@ -13,7 +13,7 @@ h1
 {
     font-size: 7vh;
     font-weight: 200;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     line-height: normal;
     color: black;
@@ -81,7 +81,35 @@ h1
     to  {transform: rotate(360deg);}
 }
 
+@keyframes bubble_ext{
+    from {width: 8%; margin-left:0%; margin-top:0%;}
+    50% {width: 4%; margin-left:2%; margin-top:2%;}
+    to  {width: 8%; margin-left:0%; margin-top:0%;}
+}
 
+@keyframes bubble_in{
+    from {width: 8%; margin-left:0%; margin-top:0%;}
+    50% {width: 3%; margin-left:2.5%; margin-top:2.5%;}
+    to  {width: 8%; margin-left:0%; margin-top:0%;}
+}
+
+
+
+
+
+.cercle {
+    position: absolute;
+    top: 55%;
+    left: 15%;
+    animation: bubble_ext ease-out 2s infinite;
+}
+
+.cercle_small {
+    position: absolute;
+    top: 55%;
+    left: 15%;
+    animation: bubble_in 1s infinite;
+}
 
 
 #load {
@@ -132,7 +160,7 @@ h1
     height: 110vh;
 }
 
-.bg {
+.bg_back {
     overflow: hidden;
     position: fixed;
     top:0;
@@ -140,11 +168,10 @@ h1
     width: 110vw;
     height:110vh;
     object-fit: cover;
-    filter: drop-shadow(2px 2px 5px #689514);
-    
+    filter: brightness(10%);
 }
 
-.bgl {
+.bg_int {
     overflow: hidden;
     position: fixed;
     top:0;
@@ -152,7 +179,41 @@ h1
     width: 110vw;
     height:110vh;
     object-fit: cover;
-    filter: drop-shadow(5px 5px 2px #3C2D5E);
+    filter: drop-shadow(1px 1px 0px grey) drop-shadow(-1px -1px 0px grey) drop-shadow(-1px 1px 0px grey) drop-shadow(1px -1px 0px grey) brightness(30%);
+}
+
+.bg_bord {
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    left:-5vw;
+    width: 110vw;
+    height:110vh;
+    object-fit: cover;
+    filter: drop-shadow(1px 1px 0px  #dfdfdf ) drop-shadow(-1px -1px 0px  #dfdfdf ) drop-shadow(-1px 1px 0px  #dfdfdf ) drop-shadow(1px -1px 0px white) brightness(60%);
+}
+
+.bg_coin {
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    left:-5vw;
+    width: 110vw;
+    height:110vh;
+    object-fit: cover;
+    filter: drop-shadow(1px 1px 0px white) drop-shadow(-1px -1px 0px white) drop-shadow(-1px 1px 0px white) drop-shadow(1px -1px 0px white) brightness(1);
+}
+
+.bg_let {
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    left:-5vw;
+    width: 110vw;
+    height:110vh;
+    object-fit: cover;
+    filter: brightness(1.5);
+    
 }
 
 #titre {
@@ -164,7 +225,7 @@ h1
 }
 
 #titreSlide1 {
-    color: black;
+    color: white;
 }
 
 #fleche {
@@ -184,8 +245,6 @@ h1
 
 #slide1Intro {
     z-index: 2;
-    background-color: #3C2D5E;
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0)));
 }
 
 #slide1Middle {
@@ -197,7 +256,7 @@ h1
 #slide1End {
     height: 100px;
     z-index: 2;
-    background-image: linear-gradient(to bottom left, #3c2d5e, #685d85, rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+    
 }
 
 #slide2 {
@@ -320,11 +379,20 @@ h1
 }
 
 .tem_tit {
+    position: absolute;
     color: black;
     font-family: "Arial";
     text-shadow: 2px 2px 2px white;
     font-size: 4vw;
+    width: 100%;
     margin-left:0;
+}
+
+.tem_tit_slot {
+    font-family: "Arial";
+    font-size: 4vw;
+    margin-left:0;
+    opacity: 0;
 }
 
 .tem_aut {
