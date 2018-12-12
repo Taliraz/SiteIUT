@@ -11,8 +11,9 @@ class ModelIUT {
     protected $telephoneIUT;
     protected $mailSecretariatIUT;
     
-    public function __construct($nomIUT = NULL,$idVille = NULL, $adresseIUT = NULL, $siteIUT = NULL, $telephoneIUT = NULL,$mailSecretariatIUT = NULL){
+    public function __construct($idIUT=NULL, $nomIUT = NULL,$idVille = NULL, $adresseIUT = NULL, $siteIUT = NULL, $telephoneIUT = NULL,$mailSecretariatIUT = NULL){
         if(!is_null($nomIUT) &&!is_null($idVille) && !is_null($adresseIUT) && !is_null($siteIUT) &&!is_null($telephoneIUT) && !is_null($mailSecretariatIUT)){
+            $this->idIUT = $idIUT;
             $this->nomIUT = $nomIUT;
             $this->idVille = $idVille;
             $this->adresseIUT = $adresseIUT;

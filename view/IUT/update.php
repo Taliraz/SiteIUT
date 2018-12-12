@@ -6,7 +6,7 @@
         <fieldset>
           <legend>IUT :</legend>
           <p>
-            <input type="text" id="nomIUT_id" name="nomIUT">
+           <label for="nomIUT_id">Nom de l'IUT</label> :
 
             <?php echo '<input type="text" value="'.$v->getNomIUT().'" id="nomIUT_id" name="nomIUT">' ?>
           </p>
