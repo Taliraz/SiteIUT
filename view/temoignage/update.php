@@ -19,7 +19,7 @@
               <?php
                 $year=$v->getAnneeEtude();
                 for($i=1940; $i<=intval(date("Y")); $i++) {
-                  if($i=$year) echo '<option selected value="'.$i.'">'.$i.'</option>';
+                  if($i==$year)echo '<option selected value="'.$i.'">'.$i.'</option>';
                   else echo '<option value="'.$i.'">'.$i.'</option>';
                 }
               ?>
