@@ -44,7 +44,7 @@ class ControllerLicence{
 
     public static function created(){
         if (isset($_SESSION['login'])){
-          $ModelLicence=new ModelLicence($_POST['nomLicence'],$_POST['idIUT'],$_POST['nomResponsable'],$_POST['mailResponsable'],$_POST['siteLicence']);
+          $ModelLicence=new ModelLicence($_POST['nomLicence'],$_POST['idIUT'],$_POST['nomResponsable'],$_POST['prenomResponsable'],$_POST['mailResponsable'],$_POST['siteLicence']);
           $ModelLicence->save();
           $controller='Licence';
           $view='created';
@@ -92,8 +92,8 @@ class ControllerLicence{
 
     public static function updated(){
         if (isset($_SESSION['login'])){
-            $idLicence=$_GET['idLicence'];
-            $ModelLicence=new ModelLicence($idLicence,$_POST['nomLicence'],$_POST['idIUT'],$_POST['nomResponsable'],$_POST['mailResponsable'],$_POST['siteLicence']);
+            $ModelLicence=new ModelLicence($_POST['nomLicence'],$_POST['idIUT'],$_POST['nomResponsable'],$_POST['prenomResponsable'],$_POST['mailResponsable'],$_POST['siteLicence']);
+            $ModelLicence->setIdLicence($_GET['idLicence']);
             $ModelLicence->update();
             $controller='Licence';
             $view='updated';
