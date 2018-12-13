@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <p>
+            <a title="create" href="admin.php?action=create&controller=licence"> Ajouter une Licence </a>
+        </p> <br>
+
         <?php
         foreach ($tab_v as $v){
             echo '<p> Licence: <a title="Licence" 
@@ -13,8 +17,6 @@
             }  
 
         ?>
-        <p>
-            <a title="create" href="admin.php?action=create&controller=licence"> Ajouter une Licence </a>
-        </p>
+        
     </body>
 </html>
