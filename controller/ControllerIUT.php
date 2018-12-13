@@ -94,7 +94,6 @@ class ControllerIUT{
         if (isset($_SESSION['login'])){
             $idIUT=$_GET['idIUT'];
             $ModelIUT=new ModelIUT($idIUT,$_POST['nomIUT'],$_POST['idVille'],$_POST['adresseIUT'],$_POST['siteIUT'],$_POST['telephoneIUT'],$_POST['mailSecretariatIUT']);
-            var_dump($ModelIUT);
             $ModelIUT->update();
             $controller='IUT';
             $view='updated';
