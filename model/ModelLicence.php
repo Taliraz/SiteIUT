@@ -7,18 +7,18 @@ class ModelLicence {
     protected $nomLicence;
     protected $idIUT;
     protected $nomResponsable;
+    protected $prenomResponsable;
     protected $mailResponsable;
     protected $siteLicence;
     
-    public function __construct($idLicence=NULL, $nomLicence = NULL,$idIUT = NULL, $nomResponsable = NULL, $mailResponsable = NULL, $siteLicence = NULL,$mailSecretariatLicence = NULL){
-        if(!is_null($nomLicence) &&!is_null($idIUT) && !is_null($nomResponsable) && !is_null($mailResponsable) &&!is_null($siteLicence)){
-            $this->idLicence = $idLicence;
+    public function __construct($nomLicence = NULL,$idIUT = NULL, $nomResponsable = NULL,$prenomResponsable = NULL, $mailResponsable = NULL, $siteLicence = NULL){
+        if(!is_null($nomLicence) &&!is_null($idIUT) && !is_null($nomResponsable) && !is_null($prenomResponsable) && !is_null($mailResponsable) &&!is_null($siteLicence)){
             $this->nomLicence = $nomLicence;
             $this->idIUT = $idIUT;
             $this->nomResponsable = $nomResponsable;
+            $this->prenomResponsable = $prenomResponsable;
             $this->mailResponsable = $mailResponsable;
             $this->siteLicence = $siteLicence;
-            $this->mailSecretariatLicence=$mailSecretariatLicence; 
         }
     }
     
@@ -38,12 +38,20 @@ class ModelLicence {
         return $this->nomResponsable;
     }
 
+    public function getPrenomResponsable() {
+        return $this->prenomResponsable;
+    }
+
     public function getMailResponsable() {
         return $this->mailResponsable;
     }
 
     public function getSiteLicence() {
         return $this->siteLicence;
+    }
+
+    public function setIdLicence($idLicence){
+        $this->idLicence = $idLicence;
     }
 
     public function setNomLicence($nomLicence){
@@ -56,6 +64,10 @@ class ModelLicence {
     
     public function setNomResponsable($nomResponsable){
         $this->nomResponsable = $nomResponsable;
+    }
+
+    public function setPrenomResponsable($prenomResponsable){
+        $this->prenomResponsable = $prenomResponsable;
     }
 
     public function setMailResponsable($mailResponsable){
@@ -106,12 +118,13 @@ class ModelLicence {
     public function save(){
         try{
           $req_prep=Model::$pdo->prepare(
-            "INSERT INTO `mon-Licences`(nomLicence,idIUT,nomResponsable,mailResponsable,siteLicence,mailSecretariatLicence) VALUES(:nomLicence,:idIUT,:nomResponsable,:mailResponsable,:siteLicence)");
+            "INSERT INTO `mon-Licences`(nomLicence,idIUT,nomResponsable,prenomResponsable,mailResponsable,siteLicence) VALUES(:nomLicence,:idIUT,:nomResponsable,:prenomResponsable,:mailResponsable,:siteLicence)");
 
           $values=array(
             "nomLicence" => $this->nomLicence,
             "idIUT" => $this->idIUT,
             "nomResponsable" => $this->nomResponsable,
+            "prenomResponsable" => $this->prenomResponsable,
             "mailResponsable" => $this->mailResponsable,
             "siteLicence" => $this->siteLicence,
             );
@@ -137,7 +150,7 @@ class ModelLicence {
     public function update(){
     $req_prep=Model::$pdo->prepare(
         "UPDATE `mon-Licences` 
-        SET nomLicence=:nomLicence,idIUT=:idIUT,nomResponsable=:nomResponsable ,mailResponsable=:mailResponsable,siteLicence=:siteLicence
+        SET nomLicence=:nomLicence,idIUT=:idIUT,nomResponsable=:nomResponsable,prenomResponsable=:prenomResponsable ,mailResponsable=:mailResponsable,siteLicence=:siteLicence
         WHERE idLicence=:idLicence"
     );
 
@@ -146,6 +159,7 @@ class ModelLicence {
       "nomLicence" => $this->nomLicence,
       "idIUT" => $this->idIUT,
       "nomResponsable" => $this->nomResponsable,
+      "prenomResponsable" => $this->prenomResponsable,
       "mailResponsable" => $this->mailResponsable,
       "siteLicence" => $this->siteLicence
       );
