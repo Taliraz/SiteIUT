@@ -125,5 +125,26 @@ class ControllerStage{
         }
 
     }
+
+    public static function accept(){
+        if (isset($_SESSION['login'])){
+            $idStage=$_GET['idStage'];
+            $ModelStage=ModelStage::getStageByid($idStage);
+            $ModelStage->accept();
+            $controller='Stage';
+            $view='accepted';
+            $pagetitle='Stage accepté';
+            require(File::build_path(array("view","view.php")));
+        }
+        else{
+            $controller='temoignage';
+            $view='detail';
+            $pagetitle='Detail temoignage';
+            require(File::build_path(array("view","view.php")));
+        }
+
+    }
+
+
 }
 ?>

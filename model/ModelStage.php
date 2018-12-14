@@ -402,5 +402,22 @@ class ModelStage{
 	    }
 	}
 
+	public function accept(){
+	    try{
+	      $req_prep=Model::$pdo->prepare(
+	      	"UPDATE `mon-Stages` SET estAccepte=1 WHERE idStage=:idStage");
+
+	      $values=array(
+	      	"idStage" => $this->idStage);
+	      $req_prep->execute($values);
+	    }
+	    catch(PDOException $e){
+	      if ($e->getCode()==23000){
+	        echo('<b>ERREUR: Le Stage n\'a pas pu être accepté</b>');
+	        return false;
+	      }
+	    }
+	}
+
 }
 ?>
