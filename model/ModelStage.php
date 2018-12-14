@@ -22,8 +22,9 @@ class ModelStage{
 	private $emailContact;
 
 
-	public function __construct($i=NULL,$dd=NULL,$df=NULL,$g=NULL,$ds=NULL,$iv=NULL,$np=NULL,$ns=NULL,$ne=NULL,$se=NULL,$ae=NULL,$te=NULL,$ea=NULL,$nc=NULL,$pc=NULL,$fc=NULL,$tc=NULL,$ec=NULL){
+	public function __construct($id=NULL, $i=NULL,$dd=NULL,$df=NULL,$g=NULL,$ds=NULL,$iv=NULL,$np=NULL,$ns=NULL,$ne=NULL,$se=NULL,$ae=NULL,$te=NULL,$ea=NULL,$nc=NULL,$pc=NULL,$fc=NULL,$tc=NULL,$ec=NULL){
 		if (!is_null($i) && !is_null($dd) && !is_null($df) && !is_null($g) && !is_null($ds) && !is_null($iv) && !is_null($np)  && !is_null($ns) && !is_null($ne) && !is_null($se) && !is_null($ae) && !is_null($te) && !is_null($ea) && !is_null($nc) && !is_null($pc) && !is_null($fc) && !is_null($tc) && !is_null($ec)){
+			$this->idStage=$id;
 			$this->intituleStage=$i;
 			$this->dateDebStage=$dd;
 			$this->dateFinStage=$df;
@@ -347,7 +348,59 @@ class ModelStage{
 	    $req_prep->execute($values);
 	}
 
+	public function update(){
+	    try{
+	      $req_prep=Model::$pdo->prepare(
+	      	"UPDATE `mon-Stages` SET intituleStage=:intituleStage,
+	      							dateDebStage=:dateDebStage,
+	      							dateFinStage=:dateFinStage,
+	      							gratifie=:gratifie,
+	      							descriptionStage=:descriptionStage,
+	      							idVille=:idVille,
+	      							nbPlaces=:nbPlaces,
+	      							numSiret=:numSiret,
+	      							nomEntreprise=:nomEntreprise,
+	      							siteEntreprise=:siteEntreprise,
+	      							adresseEntreprise=:adresseEntreprise,
+	      							telephoneEntreprise=:telephoneEntreprise,
+	      							estAccepte=:estAccepte,
+	      							nomContact=:nomContact,
+	      							prenomContact=:prenomContact,
+	      							fonctionContact=:fonctionContact,
+	      							telephoneContact=:telephoneContact,
+	      							emailContact=:emailContact 
+	      						WHERE idStage=:idStage");
 
+	      $values=array(
+	      	"idStage" => $this->idStage,
+	        "intituleStage" => $this->intituleStage,
+	        "dateDebStage" => $this->dateDebStage,
+	        "dateFinStage" => $this->dateFinStage,
+	        "gratifie" => $this->gratifie,
+	        "descriptionStage" => $this->descriptionStage,
+	        "idVille" => $this->idVille,
+	        "nbPlaces" => $this->nbPlaces,
+	        "numSiret" => $this->numSiret,
+	       	"nomEntreprise" => $this->nomEntreprise,
+	       	"siteEntreprise" => $this->siteEntreprise,
+	       	"adresseEntreprise" => $this->adresseEntreprise,
+	       	"telephoneEntreprise" => $this->telephoneEntreprise,
+	       	"estAccepte" => $this->estAccepte,
+	       	 "nomContact" => $this->nomContact,
+	       	 "prenomContact" => $this->prenomContact,
+	       	 "fonctionContact" => $this->fonctionContact,
+	       	 "telephoneContact" => $this->telephoneContact,
+	       	 "emailContact" => $this->emailContact,
+	        );
+	      $req_prep->execute($values);
+	    }
+	    catch(PDOException $e){
+	      if ($e->getCode()==23000){
+	        echo('<b>ERREUR: Le Stage n\'a pas pu être modifié</b>');
+	        return false;
+	      }
+	    }
+	}
 
 }
 ?>

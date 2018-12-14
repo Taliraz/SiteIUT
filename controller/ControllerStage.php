@@ -60,7 +60,8 @@ class ControllerStage{
 
     public static function created(){
         if (isset($_SESSION['login'])){
-            $v=new ModelStage($_POST['intituleStage'],$_POST['dateDebStage'],$_POST['dateFinStage'],$_POST['gratifie'],$_POST['descriptionStage'],$_POST['idVille'],$_POST['nbPlaces'],$_POST['numSiret'],$_POST['nomEntreprise'],$_POST['siteEntreprise'],$_POST['adresseEntreprise'],$_POST['telephoneEntreprise'],false,$_POST['nomContact'],$_POST['prenomContact'],$_POST['fonctionContact'],$_POST['telephoneContact'],$_POST['emailContact']);
+            $idStage=NULL;
+            $v=new ModelStage($idStage,$_POST['intituleStage'],$_POST['dateDebStage'],$_POST['dateFinStage'],$_POST['gratifie'],$_POST['descriptionStage'],$_POST['idVille'],$_POST['nbPlaces'],$_POST['numSiret'],$_POST['nomEntreprise'],$_POST['siteEntreprise'],$_POST['adresseEntreprise'],$_POST['telephoneEntreprise'],false,$_POST['nomContact'],$_POST['prenomContact'],$_POST['fonctionContact'],$_POST['telephoneContact'],$_POST['emailContact']);
             $v->save();
             $controller='stage';
             $view='created';
@@ -87,6 +88,42 @@ class ControllerStage{
             $pagetitle='Connexion';
             require(File::build_path(array("view","view.php")));
         }
+    }
+
+    public static function update(){
+        if (isset($_SESSION['login'])){
+            $idStage=$_GET ['idStage'];
+            $v=ModelStage::getStageByid($idStage);
+            $controller='Stage';
+            $view='update';
+            $pagetitle='modification de Stage';
+            require(File::build_path(array("view","view.php")));
+        }
+        else{
+            $controller='temoignage';
+            $view='detail';
+            $pagetitle='Detail temoignage';
+            require(File::build_path(array("view","view.php")));
+        }
+    }
+
+    public static function updated(){
+        if (isset($_SESSION['login'])){
+            $idStage=$_GET['idStage'];
+            $ModelStage=new ModelStage($idStage,$_POST['intituleStage'],$_POST['dateDebStage'],$_POST['dateFinStage'],$_POST['gratifie'],$_POST['descriptionStage'],$_POST['idVille'],$_POST['nbPlaces'],$_POST['numSiret'],$_POST['nomEntreprise'],$_POST['siteEntreprise'],$_POST['adresseEntreprise'],$_POST['telephoneEntreprise'],$_POST['accepte'],$_POST['nomContact'],$_POST['prenomContact'],$_POST['fonctionContact'],$_POST['telephoneContact'],$_POST['emailContact']);
+            $ModelStage->update();
+            $controller='Stage';
+            $view='updated';
+            $pagetitle='Stage modifié';
+            require(File::build_path(array("view","view.php")));
+        }
+        else{
+            $controller='temoignage';
+            $view='detail';
+            $pagetitle='Detail temoignage';
+            require(File::build_path(array("view","view.php")));
+        }
+
     }
 }
 ?>

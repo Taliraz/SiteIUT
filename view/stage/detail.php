@@ -4,6 +4,8 @@ echo'<p> Intitule : ' . htmlspecialchars($v->getIntituleStage()) .
 	'</p><p>Date de Début : ' .htmlspecialchars($v->getDateDebStage()) .
 	'</p><p> Date de Fin : '.htmlspecialchars($v->getDateFinStage()).
 	'</p><p> Gratifié : '.htmlspecialchars($v->getGratifie()).
+	'</p><p> Description : '.htmlspecialchars($v->getDescriptionStage()).
+	'</p><p> Ville : '.htmlspecialchars(ModelVille::getVilleById($v->getIdVille())->getNom()).
 	'</p><p> Numéro de siret de l\'entreprise : '.htmlspecialchars($v->getNumSiret()).
 	'</p><p> Entreprise : '.htmlspecialchars($v->getNomEntreprise()).
 	'</p><p> Site de l\'entreprise : '.htmlspecialchars($v->getSiteEntreprise()).
