@@ -4,7 +4,7 @@ class ControllerLicence{
 
 	public static function readAll() {
         $tab_v = ModelLicence::getAllLicences();    
-        $controller='Licence';
+        $controller='licence';
         $view='list';
         $pagetitle='liste des Licences';
         require (File::build_path(array("view","view.php"))); 
@@ -13,13 +13,13 @@ class ControllerLicence{
     public static function read(){
     	$v=ModelLicence::getLicenceById($_GET ['idLicence']);
     	if ($v==false){
-            $controller='Licence';
+            $controller='licence';
             $view='erreur';
             $pagetitle='Erreur Licence';
     		require (File::build_path(array("view","view.php")));
     	}
     	else{
-            $controller='Licence';
+            $controller='licence';
             $view='detail';
             $pagetitle='Detail Licence';
     		require(File::build_path(array("view","view.php")));
@@ -29,7 +29,7 @@ class ControllerLicence{
 
     public static function create(){
         if(isset($_SESSION['login'])){
-            $controller='Licence';
+            $controller='licence';
             $view='create';
             $pagetitle='Creation de Licence';
             require(File::build_path(array("view","view.php")));
@@ -46,7 +46,7 @@ class ControllerLicence{
         if (isset($_SESSION['login'])){
           $ModelLicence=new ModelLicence($_POST['nomLicence'],$_POST['idIUT'],$_POST['nomResponsable'],$_POST['prenomResponsable'],$_POST['mailResponsable'],$_POST['siteLicence']);
           $ModelLicence->save();
-          $controller='Licence';
+          $controller='licence';
           $view='created';
           $pagetitle='Licence créé';
           require(File::build_path(array("view","view.php")));
@@ -77,7 +77,7 @@ class ControllerLicence{
         if (isset($_SESSION['login'])){
             $idLicence=$_GET ['idLicence'];
             $v=ModelLicence::getLicenceByid($idLicence);
-            $controller='Licence';
+            $controller='licence';
             $view='update';
             $pagetitle='modification de Licence';
             require(File::build_path(array("view","view.php")));
@@ -95,7 +95,7 @@ class ControllerLicence{
             $ModelLicence=new ModelLicence($_POST['nomLicence'],$_POST['idIUT'],$_POST['nomResponsable'],$_POST['prenomResponsable'],$_POST['mailResponsable'],$_POST['siteLicence']);
             $ModelLicence->setIdLicence($_GET['idLicence']);
             $ModelLicence->update();
-            $controller='Licence';
+            $controller='licence';
             $view='updated';
             $pagetitle='Licence modifié';
             require(File::build_path(array("view","view.php")));
