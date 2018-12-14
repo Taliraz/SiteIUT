@@ -103,6 +103,9 @@
           <p>
             <input type="submit" value="Envoyer" />
           </p>
+          <p>
+              <input id="bouton-retour" type="button" value="Retour" onclick="history.go(-1)">
+          </p>
 
         </fieldset> 
       </form>
