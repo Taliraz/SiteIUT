@@ -43,8 +43,9 @@ class ControllerTemoignage{
               echo "La copie a échoué";
             }
         }
+        $idTemoignage=NULL;
         $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
-        $ModelTemoignage=new ModelTemoignage($_POST['titreTemoignage'], $photoTemoignage, $_POST['contenuTemoignage'],$_POST['anneeEtude'],$_POST['theme'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT']);
+        $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['titreTemoignage'], $photoTemoignage, $_POST['contenuTemoignage'],$_POST['anneeEtude'],$_POST['theme'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT']);
         $ModelTemoignage->save();
         $controller='temoignage';
         $view='created';

@@ -44,14 +44,15 @@ class ControllerIUT{
 
     public static function created(){
         if (isset($_SESSION['login'])){
-          $ModelIUT=new ModelIUT($_POST['nomIUT'],$_POST['idVille'],$_POST['adresseIUT'],$_POST['siteIUT'],$_POST['telephoneIUT'],$_POST['mailSecretariatIUT']);
-          $ModelIUT->save();
-          $controller='IUT';
-          $view='created';
-          $pagetitle='IUT créé';
-          require(File::build_path(array("view","view.php")));
-      }
-      else{
+            $idIUT=NULL;
+            $ModelIUT=new ModelIUT($idIUT,$_POST['nomIUT'],$_POST['idVille'],$_POST['adresseIUT'],$_POST['siteIUT'],$_POST['telephoneIUT'],$_POST['mailSecretariatIUT']);
+            $ModelIUT->save();
+            $controller='IUT';
+            $view='created';
+            $pagetitle='IUT créé';
+            require(File::build_path(array("view","view.php")));
+        }
+        else{
             $controller='temoignage';
             $view='detail';
             $pagetitle='Detail temoignage';
