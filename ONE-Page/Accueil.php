@@ -115,6 +115,8 @@
              
         </div>
         
+        <p class="bubble" id="bub1"></p>
+        
         <div>
             <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titre">Bienvenue</h1>
             <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte" id="slogan">Sur le site du département informatique des IUT</p>
@@ -122,7 +124,6 @@
         </div>
         
         <div id="slide1Intro" class="slides">
-            
         </div>
         
         <div id="slide1Middle" class="slides">
@@ -176,5 +177,6 @@
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "popup","popup.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "map","utile.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "load.js")) ?>"></script>
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "css", "CSS-Utile.js")) ?>"></script>
     </body>
 </html>
