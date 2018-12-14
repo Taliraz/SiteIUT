@@ -5,6 +5,7 @@
 	require (File::build_path(array("controller","ControllerStage.php")));
 	require (File::build_path(array("controller","ControllerTemoignage.php")));
 	require (File::build_path(array("controller","ControllerVille.php")));
+	require (File::build_path(array("controller","ControllerLicence.php")));
 if(isset($_GET['action'])) {
     $action = $_GET['action'];  
 }

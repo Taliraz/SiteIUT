@@ -1,4 +1,5 @@
-<html> 
+<html>
+    <script src="<?php echo File::build_path_css(array("view","temoignage","ajax.js")) ?>"></script> 
     <body>
       <form method="post" action="admin.php?action=created&controller=temoignage" enctype="multipart/form-data">
         <fieldset>

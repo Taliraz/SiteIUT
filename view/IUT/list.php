@@ -3,7 +3,7 @@
     <body>
         <?php
         foreach ($tab_v as $v){
-            echo '<p> Ville: <a title="IUT" 
+            echo '<p> IUT: <a title="IUT" 
                 href="admin.php?controller=IUT&action=read&id='
                 .rawurlencode($v->getIdIUT()).'">'. htmlspecialchars($v->getNomIUT()).'</a> 
                 <a title="supprimer" 

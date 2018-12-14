@@ -4,6 +4,8 @@ echo'<p> Intitule : ' . htmlspecialchars($v->getIntituleStage()) .
 	'</p><p>Date de Début : ' .htmlspecialchars($v->getDateDebStage()) .
 	'</p><p> Date de Fin : '.htmlspecialchars($v->getDateFinStage()).
 	'</p><p> Gratifié : '.htmlspecialchars($v->getGratifie()).
+	'</p><p> Description : '.htmlspecialchars($v->getDescriptionStage()).
+	'</p><p> Ville : '.htmlspecialchars(ModelVille::getVilleById($v->getIdVille())->getNom()).
 	'</p><p> Numéro de siret de l\'entreprise : '.htmlspecialchars($v->getNumSiret()).
 	'</p><p> Entreprise : '.htmlspecialchars($v->getNomEntreprise()).
 	'</p><p> Site de l\'entreprise : '.htmlspecialchars($v->getSiteEntreprise()).
@@ -20,6 +22,7 @@ echo'<p> Intitule : ' . htmlspecialchars($v->getIntituleStage()) .
 <br>
 <?php
 if(isset($_SESSION['login'])){
+	if(!$v->getEstaccepte()) echo '<a class="modif" title="accept" href="admin.php?controller='.$controller.'&action=accept&idStage='.$v->getIdStage().'"> Accepter </a>';
 	echo '<a class="modif" title="update" href="admin.php?controller='.$controller.'&action=update&idStage='.$v->getIdStage().'"> Modifier </a>';
 	echo '<a class="modif" title="delete" href="admin.php?controller='.$controller.'&action=delete&idStage='.$v->getIdStage().'"> Supprimer </a>';
 }

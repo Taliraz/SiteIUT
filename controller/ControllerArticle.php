@@ -44,7 +44,7 @@ class ControllerArticle{
     }
 
     public static function created(){
-        if (isser($_SESSION['login'])){
+        if (isset($_SESSION['login'])){
           $ModelStage=new ModelArticle(NULL,$_POST['nom'],$_POST['contenu']);
           $ModelStage->save();
           $controller='article';

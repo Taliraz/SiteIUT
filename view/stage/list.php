@@ -10,6 +10,7 @@
                 href="admin.php?action=delete&controller=stage&id='
                 .rawurlencode($v->getIdStage()).'">supprimer</a> 
                 </p>';
+                if(!$v->getEstaccepte()) echo 'En attente d\'acceptation <br>';
             }  
 
         ?>

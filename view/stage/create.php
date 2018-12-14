@@ -21,8 +21,8 @@
           <p>
             <label for="gratifie_id">Stage Gratifie</label> :
             <select name="gratifie" id="gratifie_id" required>
-              <option value="true">Oui </option>
-              <option value="false">Non </option>
+              <option value="1">Oui </option>
+              <option value="0">Non </option>
             </select>
           </p>
 
@@ -102,6 +102,9 @@
 
           <p>
             <input type="submit" value="Envoyer" />
+          </p>
+          <p>
+              <input id="bouton-retour" type="button" value="Retour" onclick="history.go(-1)">
           </p>
 
         </fieldset> 

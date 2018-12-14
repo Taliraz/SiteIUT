@@ -1,27 +1,27 @@
 <?php
-require_once (File::build_path(array("model","ModelIUT.php")));
-class ControllerIUT{
+require_once (File::build_path(array("model","ModelLicence.php")));
+class ControllerLicence{
 
 	public static function readAll() {
-        $tab_v = ModelIUT::getAllIUTs();    
-        $controller='IUT';
+        $tab_v = ModelLicence::getAllLicences();    
+        $controller='licence';
         $view='list';
-        $pagetitle='liste des IUTs';
+        $pagetitle='liste des Licences';
         require (File::build_path(array("view","view.php"))); 
     }
 
     public static function read(){
-    	$v=ModelIUT::getIUTById($_GET ['id']);
+    	$v=ModelLicence::getLicenceById($_GET ['idLicence']);
     	if ($v==false){
-            $controller='IUT';
+            $controller='licence';
             $view='erreur';
-            $pagetitle='Erreur IUT';
+            $pagetitle='Erreur Licence';
     		require (File::build_path(array("view","view.php")));
     	}
     	else{
-            $controller='IUT';
+            $controller='licence';
             $view='detail';
-            $pagetitle='Detail IUT';
+            $pagetitle='Detail Licence';
     		require(File::build_path(array("view","view.php")));
     	}
     	
@@ -29,14 +29,14 @@ class ControllerIUT{
 
     public static function create(){
         if(isset($_SESSION['login'])){
-            $controller='IUT';
+            $controller='licence';
             $view='create';
-            $pagetitle='Creation de IUT';
+            $pagetitle='Creation de Licence';
             require(File::build_path(array("view","view.php")));
         }
         else{
-            $controller='temoignage';
-            $view='detail';
+            $controller='administrateur';
+            $view='connect';
             $pagetitle='Detail temoignage';
             require(File::build_path(array("view","view.php")));
         }
@@ -44,15 +44,14 @@ class ControllerIUT{
 
     public static function created(){
         if (isset($_SESSION['login'])){
-            $idIUT=NULL;
-            $ModelIUT=new ModelIUT($idIUT,$_POST['nomIUT'],$_POST['idVille'],$_POST['adresseIUT'],$_POST['siteIUT'],$_POST['telephoneIUT'],$_POST['mailSecretariatIUT']);
-            $ModelIUT->save();
-            $controller='IUT';
-            $view='created';
-            $pagetitle='IUT créé';
-            require(File::build_path(array("view","view.php")));
-        }
-        else{
+          $ModelLicence=new ModelLicence($_POST['nomLicence'],$_POST['idIUT'],$_POST['nomResponsable'],$_POST['prenomResponsable'],$_POST['mailResponsable'],$_POST['siteLicence']);
+          $ModelLicence->save();
+          $controller='licence';
+          $view='created';
+          $pagetitle='Licence créé';
+          require(File::build_path(array("view","view.php")));
+      }
+      else{
             $controller='temoignage';
             $view='detail';
             $pagetitle='Detail temoignage';
@@ -62,7 +61,7 @@ class ControllerIUT{
 
     public static function delete(){
         if(isset($_SESSION['login'])){
-            $v=ModelIUT::getIUTById($_GET ['idIUT']);
+            $v=ModelLicence::getLicenceById($_GET ['idLicence']);
             $v->delete();
             self::readAll();
         }
@@ -76,11 +75,11 @@ class ControllerIUT{
 
     public static function update(){
         if (isset($_SESSION['login'])){
-            $idIUT=$_GET ['idIUT'];
-            $v=ModelIUT::getIUTByid($idIUT);
-            $controller='IUT';
+            $idLicence=$_GET ['idLicence'];
+            $v=ModelLicence::getLicenceByid($idLicence);
+            $controller='licence';
             $view='update';
-            $pagetitle='modification de IUT';
+            $pagetitle='modification de Licence';
             require(File::build_path(array("view","view.php")));
         }
         else{
@@ -93,12 +92,12 @@ class ControllerIUT{
 
     public static function updated(){
         if (isset($_SESSION['login'])){
-            $idIUT=$_GET['idIUT'];
-            $ModelIUT=new ModelIUT($idIUT,$_POST['nomIUT'],$_POST['idVille'],$_POST['adresseIUT'],$_POST['siteIUT'],$_POST['telephoneIUT'],$_POST['mailSecretariatIUT']);
-            $ModelIUT->update();
-            $controller='IUT';
+            $ModelLicence=new ModelLicence($_POST['nomLicence'],$_POST['idIUT'],$_POST['nomResponsable'],$_POST['prenomResponsable'],$_POST['mailResponsable'],$_POST['siteLicence']);
+            $ModelLicence->setIdLicence($_GET['idLicence']);
+            $ModelLicence->update();
+            $controller='licence';
             $view='updated';
-            $pagetitle='IUT modifié';
+            $pagetitle='Licence modifié';
             require(File::build_path(array("view","view.php")));
         }
         else{
