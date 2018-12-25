@@ -8,14 +8,13 @@
     </head>
     <body>
         
+        <?php require (File::build_path(array("controller","ControllerLicence.php")));
+              
+        ?>
+        
         <div id="load">
             <img src="<?php echo File::build_path_css(array("ONE-Page","images" ,"load-lune.png")) ?>" alt="" id="loading">
         </div>
-        
-        
-        <video id="video" class="media" muted autoplay loop>
-              <source src="" type="video/mp4">
-        </video> 
         
          <div id="BG" class="media">
              
@@ -117,44 +116,39 @@
         
         <p class="bubble" id="bub1"></p>
         
-        <div>
-            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titre">Bienvenue</h1>
-            <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte" id="slogan">Sur le site du département informatique des IUT</p>
-            <p><image src="<?php echo File::build_path_css(array("ONE-Page","images", "fleche.png")) ?>" alt="fleche" id="fleche"></image></p>
-        </div>
-        
-        <div id="slide1Intro" class="slides">
-        </div>
-        
-        <div id="slide1Middle" class="slides">
 
-            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titreSlide1" >Trouvez VOTRE IUT !</h1>
+        
+        
+        <div id="slide0" class="slides">
+            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titre">Bienvenue</h1>
+        
+            <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte" id="slogan">
+                Sur le site du département informatique des IUT
+            </p>
+        
+            <p>
+                <image src="<?php echo File::build_path_css(array("ONE-Page","images", "fleche.png")) ?>" alt="fleche" id="fleche"></image>
+            </p>
+        </div>
+        
+        <div id="slide1" class="slides">
+
+            <h1 data-scroll="toggle(.fromLeftIn, .fromLeftOut)" id="titreSlide1" >Trouvez VOTRE IUT !</h1>
     
             <?php require_once File::build_path(array("ONE-Page","map" ,"france.php")); ?>
 
-
-        </div>
-        
-        <div id="slide1End" class="slides">
-            
         </div>
         
         <div id="slide2" class="slides">
             
-            <br><br><br><br><br><br><br>
 
-            <h1>Ce que vous pensez de nous !</h1>
+            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)">Ce que vous pensez de nous !</h1>
 
             <?php require_once File::build_path(array("ONE-Page","carousel" ,"Carousel.php")); ?>
 
-            <br><br><br><br><br><br><br><br>
             
         </div>
-        <div id="slide3Begin" class="slides">
-            
-        </div>
-        
-        
+    
         <div id="slide3" class="slides">
             
             <?php require_once File::build_path(array("ONE-Page","articles" ,"articles.php")); ?>
@@ -162,10 +156,23 @@
         </div>
         
         <div id="slide4" class="slides">
-            
+            <h1>Suivez-nous sur Twitter !</h1>
+            <div id="twitter">
+                <a class="twitter-timeline" data-theme="light" data-link-color="#3C2D5E" href="https://twitter.com/iutinfo?ref_src=twsrc%5Etfw">Tweets by iutinfo</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+            </div>
         </div>
-       
         
+        
+        <div id="menu">
+            <ul id="navigation">
+                <li id="getTop"><img src="ONE-Page/images/accueil.png" alt="logo_accueil"></li>
+                <li id="getSlide1"><img src="ONE-Page/images/mapFrance.png" alt="logo_map"></li>
+                <li id="getSlide2"><img src="ONE-Page/images/smile.png" alt="logo_smile"></li>
+                <li id="getSlide3"><img src="ONE-Page/images/infos.png" alt="logo_infos"></li>
+                <li id="getSlide4"><img src="ONE-Page/images/arobase.png" alt="logo_arobase"></li>
+            </ul>
+        </div>
+
         
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","parallax", "parallax.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","ScrollTrigger", "ScrollTrigger.min.js")) ?>"></script>
@@ -178,5 +185,6 @@
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "map","utile.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "load.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "css", "CSS-Utile.js")) ?>"></script>
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "articles", "articles.js")) ?>"></script>
     </body>
 </html>
