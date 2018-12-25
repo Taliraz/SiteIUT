@@ -5,6 +5,7 @@ $( document ).ready(function() {
     document.getElementById('load').style.background = "rgba(0,0,0,0)"
     document.getElementById('load').style.zIndex= "0"
     
+
     setTimeout("document.getElementById('loading').style.display = 'none'", 200)
     setTimeout("document.getElementById('loading').style.width = '10vw' ", 200)
     setTimeout("document.getElementById('loading').style.marginTop = '90vh' ", 200)

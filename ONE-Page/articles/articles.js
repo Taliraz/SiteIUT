@@ -33,6 +33,7 @@ $('.InfosPrev').click(function(){
     if(articleActuel > 0){
         switcher.style.backgroundColor = 'white' 
         switcher.style.top = "150vh"
+
         setTimeout("articles[articleActuel-1].style.display = 'block'", 450);
         setTimeout("articleActuel = articleActuel - 1", 460);
         setTimeout("switcher.style.top = '0vh' ", 500)
