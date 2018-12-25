@@ -155,16 +155,37 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
 <?php
     $ModelIUT=ModelIUT::getAllIUTs();
    foreach($ModelIUT as $IUT){
-         $ville=ModelVille::getVilleById($IUT->getIdVille());
-         echo '<div class="popup" id="'.$IUT->getIdIUT().'" onclick="closePopup('.$IUT->getIdIUT().')">
+        $ville=ModelVille::getVilleById($IUT->getIdVille());
+        $licences = ModelLicence::getLicenceByIdIUT($IUT->getIdIUT());
+        $popupLicence = $IUT->getIdIUT() + 1000; 
+       
+        echo '<div class="popup" id="'.$IUT->getIdIUT().'">
                     <div class="popup_content">
                         <p class="titre">'.$IUT->getNomIUT().'</p>
                         <p>Ville<br> '.$ville->getNom().'('.$ville->getDepartement().')</p>
                         <p>Adresse<br>'.$IUT->getAdresseIUT().'</p>
                         <p><a href="'.$IUT->getSiteIUT().'"" target="_blank">Lien vers le Site</a></p>
                         <p>Tel<br>'.$IUT->getTelephoneIUT().'</p>
+                        <p class="getLicences" onclick="displayPopup('.$popupLicence.')">Voir les licences</p>
+                        <p class="closePopup" onclick="closePopup('.$IUT->getIdIUT().')">Replier</p>
                     </div>
                 </div>';
+       
+        echo '<div class="popup" id="'.$popupLicence.'">
+                <div class="popup_licence">';
+        if ($licences != NULL){
+            echo '<p class="titre">Licences proposées au sein de cet établisemment : </p>';
+            foreach($licences as $key){
+                echo '<p class="licence_nom"><a href="'.$key->getSiteLicence().'" target="_blank">'. $key->getNomLicence() .'</a></p>';
+            }
+        }
+       else {
+           echo '<p class="titre">Il n\'y a aucune licence proposée dans cet établissement</p>';
+       }
+        echo '  <p class="closePopup" onclick="displayPopup('.$IUT->getIdIUT().')">Revenir</p>
+                <p class="closePopup" onclick="closePopup('.$popupLicence.')">Replier</p>
+                </div>
+            </div>';
         }
     ?>
 </div>  

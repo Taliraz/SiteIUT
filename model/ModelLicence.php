@@ -96,7 +96,7 @@ class ModelLicence {
         $req_prep = Model::$pdo->prepare($sql);
 
         $values = array(
-            "idIUT" => $idIUT,
+            ":idIUT" => $idIUT,
         );  
         $req_prep->execute($values);
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelLicence');
@@ -121,12 +121,12 @@ class ModelLicence {
             "INSERT INTO `mon-Licences`(nomLicence,idIUT,nomResponsable,prenomResponsable,mailResponsable,siteLicence) VALUES(:nomLicence,:idIUT,:nomResponsable,:prenomResponsable,:mailResponsable,:siteLicence)");
 
           $values=array(
-            "nomLicence" => $this->nomLicence,
-            "idIUT" => $this->idIUT,
-            "nomResponsable" => $this->nomResponsable,
-            "prenomResponsable" => $this->prenomResponsable,
-            "mailResponsable" => $this->mailResponsable,
-            "siteLicence" => $this->siteLicence,
+            ":nomLicence" => $this->nomLicence,
+            ":idIUT" => $this->idIUT,
+            ":nomResponsable" => $this->nomResponsable,
+            ":prenomResponsable" => $this->prenomResponsable,
+            ":mailResponsable" => $this->mailResponsable,
+            ":siteLicence" => $this->siteLicence,
             );
           $req_prep->execute($values);
         }
@@ -155,13 +155,13 @@ class ModelLicence {
     );
 
     $values=array(
-      "idLicence" => $this->idLicence,
-      "nomLicence" => $this->nomLicence,
-      "idIUT" => $this->idIUT,
-      "nomResponsable" => $this->nomResponsable,
-      "prenomResponsable" => $this->prenomResponsable,
-      "mailResponsable" => $this->mailResponsable,
-      "siteLicence" => $this->siteLicence
+      ":idLicence" => $this->idLicence,
+      ":nomLicence" => $this->nomLicence,
+      ":idIUT" => $this->idIUT,
+      ":nomResponsable" => $this->nomResponsable,
+      ":prenomResponsable" => $this->prenomResponsable,
+      ":mailResponsable" => $this->mailResponsable,
+      ":siteLicence" => $this->siteLicence
       );
     $req_prep->execute($values);
 

@@ -16,7 +16,7 @@ svg {
 }
 
 
-#map >.popup{
+#map .popup{
     position: fixed;
     top: 5%;
     left: -80vh;
@@ -39,31 +39,78 @@ svg {
     font-family: 'Courier New', sans-serif;
     color: black;
     text-decoration: none;
-    pointer-events: stroke;
 }
 
 .popup_content .titre {
     width: 60%;
     margin-top: 10vh;
     margin-left: 25%;
-    font-size: calc(1.5vh + 1.5vw);
+    font-size: calc(1.2vh + 1.2vw);
 }
-
 
 .popup_content p a {
     color: black;
     text-decoration: none;
     font-weight: bolder;
+    pointer-events: all;
 }
 
 .popup_content p {
     width: 60%;
     margin-top: 5vh;
     margin-left: 25%;
-font-size: calc(1vh + 1vw);
+    font-size: calc(0.7vh + 0.7vw);
+    pointer-events: all;
+}
+
+.popup_content .getLicences {
+    cursor: pointer;
+    font-weight: bolder;
+    pointer-events: all;
 }
 
 a{
   color: #3C2D5E;
 }
 
+.popup_licence {
+    overflow-y: hidden;
+    transform: translate(-14vh, 0);
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/note.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    filter: drop-shadow(5px 5px 4px black);
+    font-family: 'Courier New', sans-serif;
+    color: black;
+    text-decoration: none;
+}
+
+.popup_licence .titre {
+    width: 60%;
+    margin-top: 10vh;
+    margin-left: 25%;
+    font-size: calc(1vh + 1vw);
+}
+
+.popup_licence .licence_nom a {
+    color: black;
+    text-decoration: none;
+    pointer-events: all;
+}
+
+
+.popup_licence p {
+    width: 60%;
+    margin-top: 5vh;
+    margin-left: 25%;
+    font-size: calc(0.7vh + 0.7vw);
+    pointer-events: all;
+}
+
+.closePopup {
+    cursor: pointer;
+    font-weight: bolder;
+    pointer-events: all;
+}

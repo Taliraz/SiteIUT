@@ -1,6 +1,21 @@
 var body = document.querySelector('body')
 var bub1 = document.getElementById('bub1')
-var display = document.getElementById("slide1Intro")
+var display = document.getElementById("slide0")
+
+var getTop = document.getElementById('getTop')
+var getSlide1 = document.getElementById('getSlide1')
+var getSlide2 = document.getElementById('getSlide2')
+var getSlide3 = document.getElementById('getSlide3')
+var getSlide4 = document.getElementById('getSlide4')
+
+var artNext = document.getElementsByClassName('InfosNext')
+var artPrev = document.getElementsByClassName('InfosPrev')
+
+
+
+//Bubules
+
+
 var WW = window.innerWidth
 var screenHeight = window.innerHeight
 var timestamp = 0
@@ -145,7 +160,6 @@ function spawnBubble (spawnSpot, type) {
     $(idBubble).addClass('bubble')
 }
 
-
 $(document).mousemove(function(e) {
     totalBubble = document.getElementsByClassName("bubble").length 
     var now = Date.now()
@@ -167,18 +181,6 @@ $(document).mousemove(function(e) {
         if (mouseSpot > 98) {
             spawnBubble(mouseSpot, "right")
         }
-        
-        if (totalBubble > 100) {
-            display.style.backgroundColor = "white"
-            
-            display.style.backgroundImage = "url(https://i.imgflip.com/1gm4tn.jpg)"
-        
-            display.style.backgroundSize = "auto 100%"
-            display.style.backgroundPosition = "center"
-            display.style.backgroundRepeat = "no-repeat"
-            var fleche = document.getElementById("fleche")
-            fleche.style.filter = "invert(0.5)"
-        }
     }     
 
     mX = currentmX;
@@ -186,11 +188,8 @@ $(document).mousemove(function(e) {
     
 });
 
-
 window.addEventListener("scroll", function(){
     if (window.scrollY > screenHeight) {
-        display.style.backgroundColor = "transparent"
-        display.style.backgroundImage = "none"
         for (var i=2;i<=totalBubble+1;i++){
             var nom = "bub"+i
             var deadBubble = document.getElementById(nom)
@@ -201,7 +200,250 @@ window.addEventListener("scroll", function(){
 
 
 
+//Blocage du scroll
+
+var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;  
+}
+
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
+}
+
+function disableScroll() {
+  if (window.addEventListener) // older FF
+      window.addEventListener('DOMMouseScroll', preventDefault, false);
+  window.onwheel = preventDefault; // modern standard
+  window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+  window.ontouchmove  = preventDefault; // mobile
+  document.onkeydown  = preventDefaultForScrollKeys;
+}
+
+function enableScroll() {
+    if (window.removeEventListener)
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    window.onmousewheel = document.onmousewheel = null; 
+    window.onwheel = null; 
+    window.ontouchmove = null;  
+    document.onkeydown = null;  
+}
 
 
 
 
+//Scroll
+
+function forceSlide0(){
+    var cible = slide0
+    var speed = 500
+    $('html, body').animate( { scrollTop: $(cible).offset().top }, speed );
+}
+
+getTop.addEventListener("click", function(){
+    forceSlide0()
+}, false);
+
+function forceSlide1(){
+    var cible = slide1
+    var speed = 500
+    $('html, body').animate( { scrollTop: $(cible).offset().top + 1 }, speed );
+}
+
+getSlide1.addEventListener("click", function(){
+    forceSlide1()
+}, false);
+
+function forceSlide2(){
+    var cible = slide1
+    var speed = 500
+    var scroll = Math.floor($(cible).offset().top + cible.offsetHeight) + 1
+    $('html, body').animate( { scrollTop: scroll }, speed );
+}
+
+getSlide2.addEventListener("click", function(){
+    forceSlide2()
+}, false);
+
+function forceSlide3(){
+    var cible = slide3
+    var speed = 500
+    $('html, body').animate( { scrollTop: $(cible).offset().top + 1 }, speed );
+}
+
+getSlide3.addEventListener("click", function(){
+    forceSlide3()
+}, false);
+
+function forceSlide4(){
+    var cible = slide3
+    var speed = 500
+    var scroll = Math.floor($(cible).offset().top + cible.offsetHeight)
+    $('html, body').animate( { scrollTop: scroll }, speed );
+}
+
+getSlide4.addEventListener("click", function(){
+    forceSlide4()
+}, false);
+
+
+//Gestion de l'état de scroll
+
+var niveauScroll = 0
+var niveauScrollMax = (document.getElementsByClassName('slides').length) - 1
+
+window.addEventListener("scroll", function(){
+    var slide2Top = Math.floor(slide1.offsetTop + slide1.offsetHeight) 
+    var middleScreen = window.innerHeight/2
+    
+    if (slide0.offsetTop < middleScreen) {
+        getTop.style.backgroundColor = "white"
+        getSlide1.style.backgroundColor = "#3C2D5E"
+        getSlide2.style.backgroundColor = "#3C2D5E"
+        getSlide3.style.backgroundColor = "#3C2D5E"
+        getSlide4.style.backgroundColor = "#3C2D5E"
+        niveauScroll = 0
+    }
+    if (slide1.offsetTop < middleScreen){
+        getTop.style.backgroundColor = "#689514"
+        getSlide1.style.backgroundColor = "white"
+        getSlide2.style.backgroundColor = "#689514"
+        getSlide3.style.backgroundColor = "#689514"
+        getSlide4.style.backgroundColor = "#689514"
+        niveauScroll = 1
+    }
+    if (slide2Top < middleScreen) {
+        getTop.style.backgroundColor = "#3C2D5E"
+        getSlide1.style.backgroundColor = "#3C2D5E"
+        getSlide2.style.backgroundColor = "white"
+        getSlide3.style.backgroundColor = "#3C2D5E"
+        getSlide4.style.backgroundColor = "#3C2D5E"
+        niveauScroll = 2
+    }
+    if (slide3.offsetTop < middleScreen) {
+        getTop.style.backgroundColor = "#689514"
+        getSlide1.style.backgroundColor = "#689514"
+        getSlide2.style.backgroundColor = "#689514"
+        getSlide3.style.backgroundColor = "white"
+        getSlide4.style.backgroundColor = "#689514"
+        niveauScroll = 3
+    }  
+    if (slide4.offsetTop < middleScreen) {
+        getTop.style.backgroundColor = "#3C2D5E"
+        getSlide1.style.backgroundColor = "#3C2D5E"
+        getSlide2.style.backgroundColor = "#3C2D5E"
+        getSlide3.style.backgroundColor = "#3C2D5E"
+        getSlide4.style.backgroundColor = "white"
+        niveauScroll = 4
+    }
+    
+}, false);
+
+window.addEventListener("load", function(){
+    var slide2Top = Math.floor(slide1.offsetTop + slide1.offsetHeight) 
+    var middleScreen = window.innerHeight/2
+    
+    if (slide0.offsetTop < middleScreen) {
+        getTop.style.backgroundColor = "white"
+        getSlide1.style.backgroundColor = "#3C2D5E"
+        getSlide2.style.backgroundColor = "#3C2D5E"
+        getSlide3.style.backgroundColor = "#3C2D5E"
+        getSlide4.style.backgroundColor = "#3C2D5E"
+        niveauScroll = 0
+    }
+    if (slide1.offsetTop < middleScreen){
+        getTop.style.backgroundColor = "#689514"
+        getSlide1.style.backgroundColor = "white"
+        getSlide2.style.backgroundColor = "#689514"
+        getSlide3.style.backgroundColor = "#689514"
+        getSlide4.style.backgroundColor = "#689514"
+        niveauScroll = 1
+    }
+    if (slide2Top < middleScreen) {
+        getTop.style.backgroundColor = "#3C2D5E"
+        getSlide1.style.backgroundColor = "#3C2D5E"
+        getSlide2.style.backgroundColor = "white"
+        getSlide3.style.backgroundColor = "#3C2D5E"
+        getSlide4.style.backgroundColor = "#3C2D5E"
+        niveauScroll = 2
+    }
+    if (slide3.offsetTop < middleScreen) {
+        getTop.style.backgroundColor = "#689514"
+        getSlide1.style.backgroundColor = "#689514"
+        getSlide2.style.backgroundColor = "#689514"
+        getSlide3.style.backgroundColor = "white"
+        getSlide4.style.backgroundColor = "#689514"
+        niveauScroll = 3
+    }  
+    if (slide4.offsetTop < middleScreen) {
+        getTop.style.backgroundColor = "#3C2D5E"
+        getSlide1.style.backgroundColor = "#3C2D5E"
+        getSlide2.style.backgroundColor = "#3C2D5E"
+        getSlide3.style.backgroundColor = "#3C2D5E"
+        getSlide4.style.backgroundColor = "white"
+        niveauScroll = 4
+    }
+}, false);
+
+
+
+
+//Get scroll direction 
+
+var scrollPos = 0
+var goTop = 0
+var goDown = 0
+
+function throttle(fn, wait) {
+      var time = Date.now()   
+      return function() {
+        if ((time + wait - Date.now()) < 0 & goTop == 1) {
+            getTopScroll()
+            time = Date.now()
+        }
+        if ((time + wait - Date.now()) < 0 & goDown == 1) {
+            getDownScroll()
+            time = Date.now()
+        }
+    }
+}
+
+function blankFunc(){}
+
+window.addEventListener('wheel', throttle(blankFunc, 300))
+
+window.addEventListener("scroll", function(){
+    if ((document.body.getBoundingClientRect()).top > scrollPos){
+        goTop = 1
+        goDown = 0
+    }
+    else {
+        goTop = 0
+        goDown = 1
+    }
+    setTimeout('goDown = 0', 1)
+    setTimeout('goTop = 0', 1)
+    scrollPos = (document.body.getBoundingClientRect()).top;
+}, false)
+
+
+function getTopScroll(){
+     if (niveauScroll != 0) {
+        var nomFunc = "forceSlide" + (niveauScroll-1)
+        window[nomFunc]()
+    }
+}
+
+function getDownScroll(){
+    if (niveauScroll != niveauScrollMax){
+        var nomFunc = "forceSlide" + (niveauScroll+1)
+        window[nomFunc]()
+    }
+}
