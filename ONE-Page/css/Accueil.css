@@ -519,7 +519,6 @@ h1
 
 
 
-
 .cercle {
     position: absolute;
     top: 55%;
@@ -533,7 +532,6 @@ h1
     left: 15%;
     animation: bubble_in 1s infinite;
 }
-
 
 .bubble {
     width: 10px;
@@ -558,6 +556,8 @@ h1
 
 
 
+
+
 #load {
     position:fixed;
     top:-50vh;
@@ -565,7 +565,7 @@ h1
     width: 200vw;
     height:400vh;
     z-index:500;
-    background-color: #3C2D5E;
+    background-color: white;
     color: white;
     font-size: 5vw;
     text-align: center;
@@ -579,6 +579,47 @@ h1
     transition: all 1s;
 }
 
+
+
+
+
+#menu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 50vh;
+    width: 3.5vw;
+    z-index: 1000;
+    padding: 0;
+}
+
+#navigation {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navigation > li {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all ease-out 0.5s;
+}
+
+#navigation li img {
+    width: 100%;
+    float: left;
+    transition: all 0.1s;
+}
+
+#navigation li img:hover {
+    filter: brightness(2) invert(1);
+}
+
+
+
+
+
 .texte {
     font-size: 3vh;
     margin: 20px;
@@ -589,13 +630,6 @@ h1
     object-fit: cover;
     width: 100%;
     height:100%;
-}
-
-#video {
-    position: fixed;
-    top:0px;
-    left:0px;
-    z-index: -1;
 }
 
 #BG {
@@ -662,6 +696,10 @@ h1
     
 }
 
+
+
+
+
 #titre {
     color: white;
 }
@@ -671,7 +709,8 @@ h1
 }
 
 #titreSlide1 {
-    color: white;
+    color: black;
+    position: absolute;
 }
 
 #fleche {
@@ -685,28 +724,20 @@ h1
 
 .slides {
     overflow: hidden;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     position: fixed;
     background-size: 100%;
 }
 
-#slide1Intro {
+#slide0 {
     z-index: 2;
-    width: 100%;
-    height: 100%;
     transition: background 1s;
 }
 
-
-#slide1Middle {
+#slide1 {
     z-index: 3;
     background-image: linear-gradient(to right, #ffffff, #c9c6d6, #9790ad, #685d85, #3c2d5e);
-}
-
-#slide1End {
-    height: 100px;
-    z-index: 2;
-    
 }
 
 #slide2 {
@@ -714,22 +745,15 @@ h1
     background-color: white;
 }
 
-#slide3Begin {
-    height: 100px;
-    z-index: 2;
-    background: linear-gradient(to top right, #3C2D5E 0%, #3C2D5E 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
-}
-
 #slide3 {
     z-index: 3;
-    background-color: #3C2D5E;
+    background-image: linear-gradient(to right bottom, #689514, #2eb98c, #61d2de, #c5e4fd, #ffffff);
 }
 
 #slide4 {
     z-index: 1;
-    background-color: red;
-    height: 100vh;
-    width: 100vw;
+    background-color: white;
+    overflow-y: scroll;
 }
 
 .scene-pic {
@@ -815,8 +839,6 @@ h1
     display: flex;
     flex-direction: row;
     list-style: none; 
-    background-image: url(../images/circuit.png);
-    background-size: 100%;
 }
 
 .tem_main {
@@ -964,43 +986,96 @@ button {
 .liste_articles {
     list-style: none;
     margin:none;
-    width: 80%;
 }
 
 .article {
+    width: 90vw;
+    height: 100vh;
     padding: 2vh;
     text-align: left;
-    border: 2px 2px 2px black;
-    transition: all 0.2s; 
 }
 
-.article .nom_article {
-    font-size: 2vw;   
+.article .artHeader {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+    height: 10vh;
+    width: 100%;
 }
+
+.article .nomArticle {
+    font-size: 2vw;
+    position:absolute;
+    color: white;
+}
+
 
 .article .contenu_article {
     padding: 20px;
     margin-left: 5vw;
     margin-right: 5vw;
     margin-bottom: 2vh;
-    box-shadow: 0px 0px 5px 3px #689514;
-    background-color: black;
+    background-color: white;
+    color: black;
+    max-height: 75%;
+    overflow-y: scroll;
 }
 
-.article .ligne_article {
+.InfosNext {
+    display: block;
+    cursor: pointer;
+    margin-left: 70%;
+    width: 20%;
+    font-size: 1vw;
+    transition: all 0.2s;
+}
+
+.InfosNext:hover {
+    text-shadow: 1px 1px 0px white;
+}
+
+.InfosPrev {
+    display: block;
+    cursor: pointer;
+    width: 20%;
+    font-size: 1vw;
+    transition: all 0.2s;
+}
+
+.InfosPrev:hover {
+    text-shadow: 1px 1px 0px white;
+}
+
+#switcher {
+    width: 100vw;
+    height: 150vh;
+    position: fixed;
+    top: -160vh;
+    left:0;
+    z-index: 10000;
+    transition: top 1s, background 0.5s;
+}
+
+#selectArt {
+    float:left;
+    width: 20vw;
+    height: 4vh;
+    background-color: white;
+    font-weight: bold;
+}
+
+
+
+
+
+
+/* Twitter */ 
+
+#twitter {
     width: 100%;
-    height: 1px;
-    background-color: black;
-    
-    
+    height: 100%;
+    margin-left: 10%;
 }
-
-
-
-
-
-
-
 
 
 
@@ -1189,7 +1264,7 @@ button {
     {
         transition: transform 1.0s ease, opacity 1.0s ease;
 
-        transform: translate(0,0);
+        transform: translate(5%,0);
         opacity: 1.0;
     }
 
@@ -1197,7 +1272,7 @@ button {
     {
         transition: transform 1.0s ease, opacity 1.0s ease;
 
-        transform: translate(-10px,0);
+        transform: translate(0,0);
         opacity: 0.0;
     }
 

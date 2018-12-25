@@ -16,54 +16,98 @@ svg {
 }
 
 
-#map >.popup{
+#map .popup{
     position: fixed;
     top: 5%;
     left: -80vh;
     width: 80vh;
     height: 80%;    
     transition: all ease-out 0.4s;
-    background-color: white;
     pointer-events: none;
 }
 
 .popup > .popup_content {
     overflow-y: hidden;
     transform: translate(-14vh, 0);
-    width: 100%;
+    width: 90%;
     height: 100%;
-    background-image: url(../images/note.png);
+    background-image: url(../images/consol.png);
     background-size: 100%;
     background-repeat: no-repeat;
     filter: drop-shadow(5px 5px 4px black);
     font-family: 'Courier New', sans-serif;
-    color: black;
-    text-decoration: none;
-    pointer-events: stroke;
+    color: white;
 }
 
 .popup_content .titre {
     width: 60%;
     margin-top: 10vh;
-    margin-left: 25%;
-    font-size: calc(1.5vh + 1.5vw);
+    margin-left: 30%;
+    font-size: calc(1.2vh + 1.2vw);
 }
 
-
 .popup_content p a {
-    color: black;
+    color: white;
     text-decoration: none;
     font-weight: bolder;
+    pointer-events: all;
 }
 
 .popup_content p {
     width: 60%;
     margin-top: 5vh;
-    margin-left: 25%;
-font-size: calc(1vh + 1vw);
+    margin-left: 30%;
+    font-size: calc(0.7vh + 0.7vw);
+    pointer-events: all;
+}
+
+.popup_content .getLicences {
+    cursor: pointer;
+    font-weight: bolder;
+    pointer-events: all;
 }
 
 a{
   color: #3C2D5E;
 }
 
+.popup_licence {
+    overflow-y: hidden;
+    transform: translate(-14vh, 0);
+    height: 100%;
+    width: 90%;
+    background-image: url(../images/consol.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    filter: drop-shadow(5px 5px 4px black);
+    font-family: 'Courier New', sans-serif;
+    color: white;
+}
+
+.popup_licence .titre {
+    width: 60%;
+    margin-top: 10vh;
+    margin-left: 30%;
+    font-size: calc(1vh + 1vw);
+}
+
+.popup_licence .licence_nom a {
+    text-decoration: none;
+    pointer-events: all;
+    color: white;
+}
+
+
+.popup_licence p {
+    width: 60%;
+    margin-top: 5vh;
+    margin-left: 30%;
+    font-size: calc(0.7vh + 0.7vw);
+    pointer-events: all;
+}
+
+.closePopup {
+    cursor: pointer;
+    font-weight: bolder;
+    pointer-events: all;
+}
