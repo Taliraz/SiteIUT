@@ -648,7 +648,6 @@ h1
     width: 110vw;
     height:110vh;
     object-fit: cover;
-    filter: brightness(10%);
 }
 
 .bg_int {
@@ -659,7 +658,7 @@ h1
     width: 110vw;
     height:110vh;
     object-fit: cover;
-    filter: drop-shadow(1px 1px 0px grey) drop-shadow(-1px -1px 0px grey) drop-shadow(-1px 1px 0px grey) drop-shadow(1px -1px 0px grey) brightness(30%);
+    filter: drop-shadow(1px 1px 0px grey) drop-shadow(-1px -1px 0px grey) drop-shadow(-1px 1px 0px grey) drop-shadow(1px -1px 0px grey) brightness(100%);
 }
 
 .bg_bord {
@@ -670,7 +669,7 @@ h1
     width: 110vw;
     height:110vh;
     object-fit: cover;
-    filter: drop-shadow(1px 1px 0px  #dfdfdf ) drop-shadow(-1px -1px 0px  #dfdfdf ) drop-shadow(-1px 1px 0px  #dfdfdf ) drop-shadow(1px -1px 0px white) brightness(60%);
+    filter: drop-shadow(1px 1px 0px  #dfdfdf ) drop-shadow(-1px -1px 0px  #dfdfdf ) drop-shadow(-1px 1px 0px  #dfdfdf ) drop-shadow(1px -1px 0px white) brightness(100%);
 }
 
 .bg_coin {
@@ -681,7 +680,7 @@ h1
     width: 110vw;
     height:110vh;
     object-fit: cover;
-    filter: drop-shadow(1px 1px 0px white) drop-shadow(-1px -1px 0px white) drop-shadow(-1px 1px 0px white) drop-shadow(1px -1px 0px white) brightness(1);
+    filter: drop-shadow(1px 1px 0px white) drop-shadow(-1px -1px 0px white) drop-shadow(-1px 1px 0px white) drop-shadow(1px -1px 0px white) brightness(100%);
 }
 
 .bg_let {
