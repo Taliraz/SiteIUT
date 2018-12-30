@@ -155,6 +155,10 @@
            
         </div>
         
+        <!--<div id="slide4" class="slides">
+            <a href="http://127.0.0.1/SiteIUT/img/PPN_INFORMATIQUE_256097.pdf" download="PPN_INFORMATIQUE">Télécharger le PPN</a>
+        </div>-->
+
         <div id="slide4" class="slides">
             <h1>Suivez-nous sur Twitter !</h1>
             <div id="twitter">
@@ -186,5 +190,6 @@
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "load.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "css", "CSS-Utile.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "articles", "articles.js")) ?>"></script>
+
     </body>
 </html>
