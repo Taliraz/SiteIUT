@@ -143,11 +143,13 @@
             
 
             <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)">Ce que vous pensez de nous !</h1>
+            <h3> Vous avez étudié dans un IUT informatique? <a href="google.com"> Publiez votre témoignage </a></h3>
 
             <?php require_once File::build_path(array("ONE-Page","carousel" ,"Carousel.php")); ?>
 
             
         </div>
+
     
         <div id="slide3" class="slides">
             

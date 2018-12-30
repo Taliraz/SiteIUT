@@ -1,5 +1,4 @@
    
-
 <ul class="carousel">
     <?php 
     require_once (File::build_path(array("model","ModelTemoignage.php")));
