@@ -155,16 +155,16 @@
            
         </div>
         
-        <div id="slide4" class="slides">
-            <a href="http://127.0.0.1/SiteIUT/img/PPN_INFORMATIQUE_256097.pdf" download="PPN_INFORMATIQUE">Télécharger le PPN</a>
-        </div>
-
         <!--<div id="slide4" class="slides">
+            <a href="http://127.0.0.1/SiteIUT/img/PPN_INFORMATIQUE_256097.pdf" download="PPN_INFORMATIQUE">Télécharger le PPN</a>
+        </div>-->
+
+        <div id="slide4" class="slides">
             <h1>Suivez-nous sur Twitter !</h1>
             <div id="twitter">
                 <a class="twitter-timeline" data-theme="light" data-link-color="#3C2D5E" href="https://twitter.com/iutinfo?ref_src=twsrc%5Etfw">Tweets by iutinfo</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
             </div>
-        </div>-->
+        </div>
         
         
         <div id="menu">
