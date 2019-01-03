@@ -8,9 +8,7 @@
     </head>
     <body>
         
-        <?php require (File::build_path(array("controller","ControllerLicence.php")));
-              
-        ?>
+        <?php require (File::build_path(array("controller","ControllerLicence.php"))); ?> 
         
         <div id="load">
             <img src="<?php echo File::build_path_css(array("ONE-Page","images" ,"load-lune.png")) ?>" alt="" id="loading">
@@ -135,7 +133,7 @@
 
             <h1 data-scroll="toggle(.fromLeftIn, .fromLeftOut)" id="titreSlide1" >Trouvez VOTRE IUT !</h1>
     
-            <?php require_once File::build_path(array("ONE-Page","map" ,"france.php")); ?>
+            <?php //require_once File::build_path(array("ONE-Page","map" ,"france.php")); ?>
 
         </div>
         
@@ -143,8 +141,10 @@
             
 
             <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)">Ce que vous pensez de nous !</h1>
-            <h3> Vous avez étudié dans un IUT informatique? <a href="google.com"> Publiez votre témoignage </a></h3>
-
+            <h3 data-scroll="toggle(.scaleDownIn, .scaleDownOut)"id="poster_temoignage"><a onclick="displayPopupPost()"> Publiez votre témoignage </a></h3>
+            <div id="assombrissement"></div>
+            
+            <?php require File::build_path(array("ONE-Page","popup" ,"poster_temoignage.php"));?>
             <?php require_once File::build_path(array("ONE-Page","carousel" ,"Carousel.php")); ?>
 
             
@@ -179,6 +179,8 @@
             </ul>
         </div>
 
+        
+       
         
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","parallax", "parallax.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","ScrollTrigger", "ScrollTrigger.min.js")) ?>"></script>

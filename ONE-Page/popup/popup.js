@@ -64,3 +64,30 @@ $.fn.slideFadeToggle = function(easing, callback)
 {
  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
 };
+
+
+
+
+//Témoignages
+
+function displayPopupPost(){
+    disableScroll()
+    var popup_post_tem = document.getElementById('poster_tem')
+    var assombre = document.getElementById('assombrissement')
+    assombre.style.opacity = '1'
+    popup_post_tem.style.opacity = "1"
+    popup_post_tem.style.pointerEvents = "all"
+}
+
+function closePopupPost(){
+    enableScroll()
+    var popup_post_tem = document.getElementById('poster_tem')
+     var assombre = document.getElementById('assombrissement')
+    assombre.style.opacity = '0'
+    popup_post_tem.style.opacity = "0"
+    popup_post_tem.style.pointerEvents = "none"
+}
+
+
+
+
