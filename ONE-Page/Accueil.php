@@ -134,15 +134,17 @@
 
             <h1 data-scroll="toggle(.fromLeftIn, .fromLeftOut)" id="titreSlide1" >Trouvez VOTRE IUT !</h1>
     
-            <?php //require_once File::build_path(array("ONE-Page","map" ,"france.php")); ?>
+            <?php require_once File::build_path(array("ONE-Page","map" ,"france.php")); ?>
 
         </div>
         
         <div id="slide2" class="slides">
             
 
-            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)">Ce que vous pensez de nous !</h1>
-            <h3 data-scroll="toggle(.scaleDownIn, .scaleDownOut)"id="poster_temoignage"><a onclick="displayPopupPost()"> Publiez votre témoignage </a></h3>
+            <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titreSlide2">Ce que vous pensez de nous !</h1>
+            <h3 data-scroll="toggle(.scaleDownIn, .scaleDownOut)"id="poster_temoignage">
+                <a onclick="displayPopupPost()"> Publiez votre témoignage </a>
+            </h3>
             <div id="assombrissement"></div>
             
             <?php require File::build_path(array("ONE-Page","popup" ,"poster_temoignage.php"));?>
