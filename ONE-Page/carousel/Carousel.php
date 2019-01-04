@@ -18,10 +18,10 @@
                     <li class="tem_main">
                         <p class="tem_tit">'.$key->getTitreTemoignage().'</p>
                         <p class="tem_tit_slot">ESPACE</p>
-                        
+                        <!--
                         <img src="'.File::build_path_css(array("ONE-Page","images", "cercle.png")).'" alt="cercle" class="cercle">
                         <img src="'.File::build_path_css(array("ONE-Page","images", "cercle_small.png")).'" alt="cercle" class="cercle_small">
-                     
+                        -->
                          
                         <div class="tem_pic" style="background-image: url('.$key->getPhotoTemoignage().')"></div>
                         

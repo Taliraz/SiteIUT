@@ -18,7 +18,7 @@ svg {
 
 #map .popup{
     position: fixed;
-    top: 5%;
+    top: 10%;
     left: -80vh;
     width: 80vh;
     height: 80%;    
@@ -31,11 +31,10 @@ svg {
     transform: translate(-14vh, 0);
     width: 90%;
     height: 100%;
-    background-image: url(../images/consol.png);
+    background-image: linear-gradient(to right, #c9c6d6, #bcb8cc, #b0abc1, #a39db7, #9790ad);
     background-size: 100%;
     background-repeat: no-repeat;
-    filter: drop-shadow(5px 5px 4px black);
-    font-family: 'Courier New', sans-serif;
+    filter: drop-shadow(4px 4px 3px black);
     color: white;
 }
 
@@ -76,11 +75,10 @@ a{
     transform: translate(-14vh, 0);
     height: 100%;
     width: 90%;
-    background-image: url(../images/consol.png);
+    background-image: linear-gradient(to right, #c9c6d6, #bcb8cc, #b0abc1, #a39db7, #9790ad);
     background-size: 100%;
     background-repeat: no-repeat;
-    filter: drop-shadow(5px 5px 4px black);
-    font-family: 'Courier New', sans-serif;
+    filter: drop-shadow(5px 5px 3px black);
     color: white;
 }
 
@@ -94,9 +92,13 @@ a{
 .popup_licence .licence_nom a {
     text-decoration: none;
     pointer-events: all;
+    transition: all 0.2s;
     color: white;
 }
 
+.popup_licence .licence_nom a:hover {
+    color: black;
+}
 
 .popup_licence p {
     width: 60%;
@@ -111,3 +113,75 @@ a{
     font-weight: bolder;
     pointer-events: all;
 }
+
+#selectIUT {
+    display: none;
+    width: 100vw;
+    height: 7vh;
+    background-color: #9790AD;
+    font-weight: bolder;
+    color: white;
+    border-bottom: 5px solid white;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    svg {
+        width: 100%;
+    }
+    
+    #map .popup {
+        width: 100vw;
+        height: 92vh;
+        top:8vh;
+        left: -100vw;
+        transform: translate(14vh, 0);
+    }
+    
+    .popup > .popup_content {
+        width: 100%;
+    }
+    
+    .popup_content .titre {
+        width: 100%;
+        margin-top: 5vh;
+        margin-left: 0;
+        margin-top: 1vh;
+        font-size: calc(4vh + 4vw);
+    }
+    
+    .popup_content p {
+        width: 100%;
+        margin-top: 2vh;
+        margin-left: 0;
+        margin-top: 0;
+        font-size: calc(2vh + 2vw);
+    }
+    
+    .popup_licence {
+        width: 100%;
+        left: -100vw;
+    }
+    
+    .popup_licence .titre {
+        width: 100%;
+        margin-top: 5vh;
+        margin-left: 0;
+        margin-top: 1vh;
+        font-size: calc(3vh + 3vw);
+    }
+    
+    .popup_licence p {
+        width: 100%;
+        margin-top: 2vh;
+        margin-left: 0;
+        margin-top: 0;
+        font-size: calc(2vh + 2vw);
+    }
+    
+    #selectIUT {
+        display:block;
+    }
+}
+
