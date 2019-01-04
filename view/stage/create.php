@@ -111,3 +111,21 @@
       </form>
     </body>
 </html>
+<style>
+  html {
+    background-image: linear-gradient(#689514,#C5D527);
+    color: #3C2D5E;
+  }
+  input{
+    background-color: #3C2D5E;
+    color: white;
+  }
+  textarea{
+    background-color: #3C2D5E;
+    color: white;
+  }
+  select{
+    background-color: #3C2D5E;
+    color: white;
+  }
+</style>;
