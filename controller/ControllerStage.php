@@ -44,22 +44,13 @@ class ControllerStage{
     }
 
     public static function create(){
-        if (isset($_SESSION['login'])){
             $controller='stage';
             $view='create';
             $pagetitle='Creation de stage';
             require(File::build_path(array("view","view.php")));
-        }
-        else{
-            $controller='administrateur';
-            $view='connect';
-            $pagetitle='Connexion';
-            require(File::build_path(array("view","view.php")));
-        }
     }
 
     public static function created(){
-        if (isset($_SESSION['login'])){
             $idStage=NULL;
             $v=new ModelStage($idStage,$_POST['intituleStage'],$_POST['dateDebStage'],$_POST['dateFinStage'],$_POST['gratifie'],$_POST['descriptionStage'],$_POST['idVille'],$_POST['nbPlaces'],$_POST['numSiret'],$_POST['nomEntreprise'],$_POST['siteEntreprise'],$_POST['adresseEntreprise'],$_POST['telephoneEntreprise'],false,$_POST['nomContact'],$_POST['prenomContact'],$_POST['fonctionContact'],$_POST['telephoneContact'],$_POST['emailContact']);
             $v->save();
@@ -67,13 +58,6 @@ class ControllerStage{
             $view='created';
             $pagetitle='Stage créé';
             require(File::build_path(array("view","view.php")));
-        }
-        else{
-            $controller='administrateur';
-            $view='connect';
-            $pagetitle='Connexion';
-            require(File::build_path(array("view","view.php")));
-        }
     }
 
     public static function delete(){

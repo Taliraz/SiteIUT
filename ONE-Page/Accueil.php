@@ -8,7 +8,8 @@
     </head>
     <body>
         
-        <?php require (File::build_path(array("controller","ControllerLicence.php"))); ?> 
+        <?php require (File::build_path(array("controller","ControllerLicence.php"))); 
+        require(File::build_path(array("init.php")));?> 
         
         <div id="load">
             <img src="<?php echo File::build_path_css(array("ONE-Page","images" ,"load-lune.png")) ?>" alt="" id="loading">
@@ -158,7 +159,7 @@
         </div>
         
         <!--<div id="slide4" class="slides">
-            <a href="http://127.0.0.1/SiteIUT/img/PPN_INFORMATIQUE_256097.pdf" download="PPN_INFORMATIQUE">Télécharger le PPN</a>
+            <a href=$domain."/img/PPN_INFORMATIQUE_256097.pdf" download="PPN_INFORMATIQUE">Télécharger le PPN</a>
         </div>-->
 
         <div id="slide4" class="slides">
