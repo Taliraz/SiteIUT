@@ -305,41 +305,41 @@ window.addEventListener("scroll", function(){
     
     if (slide0.offsetTop < middleScreen) {
         getTop.style.backgroundColor = "white"
-        getSlide1.style.backgroundColor = "#3C2D5E"
-        getSlide2.style.backgroundColor = "#3C2D5E"
-        getSlide3.style.backgroundColor = "#3C2D5E"
-        getSlide4.style.backgroundColor = "#3C2D5E"
+        getSlide1.style.backgroundColor = "white"
+        getSlide2.style.backgroundColor = "white"
+        getSlide3.style.backgroundColor = "white"
+        getSlide4.style.backgroundColor = "white"
         niveauScroll = 0
     }
     if (slide1.offsetTop < middleScreen){
-        getTop.style.backgroundColor = "#689514"
+        getTop.style.backgroundColor = "#779f2b"
         getSlide1.style.backgroundColor = "white"
-        getSlide2.style.backgroundColor = "#689514"
-        getSlide3.style.backgroundColor = "#689514"
-        getSlide4.style.backgroundColor = "#689514"
+        getSlide2.style.backgroundColor = "#779f2b"
+        getSlide3.style.backgroundColor = "#779f2b"
+        getSlide4.style.backgroundColor = "#779f2b"
         niveauScroll = 1
     }
     if (slide2Top < middleScreen) {
-        getTop.style.backgroundColor = "#3C2D5E"
-        getSlide1.style.backgroundColor = "#3C2D5E"
+        getTop.style.backgroundColor = "#766c8e"
+        getSlide1.style.backgroundColor = "#766c8e"
         getSlide2.style.backgroundColor = "white"
-        getSlide3.style.backgroundColor = "#3C2D5E"
-        getSlide4.style.backgroundColor = "#3C2D5E"
+        getSlide3.style.backgroundColor = "#766c8e"
+        getSlide4.style.backgroundColor = "#766c8e"
         niveauScroll = 2
     }
     if (slide3.offsetTop < middleScreen) {
-        getTop.style.backgroundColor = "#689514"
-        getSlide1.style.backgroundColor = "#689514"
-        getSlide2.style.backgroundColor = "#689514"
+        getTop.style.backgroundColor = "#779f2b"
+        getSlide1.style.backgroundColor = "#779f2b"
+        getSlide2.style.backgroundColor = "#779f2b"
         getSlide3.style.backgroundColor = "white"
-        getSlide4.style.backgroundColor = "#689514"
+        getSlide4.style.backgroundColor = "#779f2b"
         niveauScroll = 3
     }  
     if (slide4.offsetTop < middleScreen) {
-        getTop.style.backgroundColor = "#3C2D5E"
-        getSlide1.style.backgroundColor = "#3C2D5E"
-        getSlide2.style.backgroundColor = "#3C2D5E"
-        getSlide3.style.backgroundColor = "#3C2D5E"
+        getTop.style.backgroundColor = "#766c8e"
+        getSlide1.style.backgroundColor = "#766c8e"
+        getSlide2.style.backgroundColor = "#766c8e"
+        getSlide3.style.backgroundColor = "#766c8e"
         getSlide4.style.backgroundColor = "white"
         niveauScroll = 4
     }
@@ -352,41 +352,41 @@ window.addEventListener("load", function(){
     
     if (slide0.offsetTop < middleScreen) {
         getTop.style.backgroundColor = "white"
-        getSlide1.style.backgroundColor = "#3C2D5E"
-        getSlide2.style.backgroundColor = "#3C2D5E"
-        getSlide3.style.backgroundColor = "#3C2D5E"
-        getSlide4.style.backgroundColor = "#3C2D5E"
+        getSlide1.style.backgroundColor = "#766c8e"
+        getSlide2.style.backgroundColor = "#766c8e"
+        getSlide3.style.backgroundColor = "#766c8e"
+        getSlide4.style.backgroundColor = "#766c8e"
         niveauScroll = 0
     }
     if (slide1.offsetTop < middleScreen){
-        getTop.style.backgroundColor = "#689514"
+        getTop.style.backgroundColor = "#779f2b"
         getSlide1.style.backgroundColor = "white"
-        getSlide2.style.backgroundColor = "#689514"
-        getSlide3.style.backgroundColor = "#689514"
-        getSlide4.style.backgroundColor = "#689514"
+        getSlide2.style.backgroundColor = "#779f2b"
+        getSlide3.style.backgroundColor = "#779f2b"
+        getSlide4.style.backgroundColor = "#779f2b"
         niveauScroll = 1
     }
     if (slide2Top < middleScreen) {
-        getTop.style.backgroundColor = "#3C2D5E"
-        getSlide1.style.backgroundColor = "#3C2D5E"
+        getTop.style.backgroundColor = "#766c8e"
+        getSlide1.style.backgroundColor = "#766c8e"
         getSlide2.style.backgroundColor = "white"
-        getSlide3.style.backgroundColor = "#3C2D5E"
-        getSlide4.style.backgroundColor = "#3C2D5E"
+        getSlide3.style.backgroundColor = "#766c8e"
+        getSlide4.style.backgroundColor = "#766c8e"
         niveauScroll = 2
     }
     if (slide3.offsetTop < middleScreen) {
-        getTop.style.backgroundColor = "#689514"
-        getSlide1.style.backgroundColor = "#689514"
-        getSlide2.style.backgroundColor = "#689514"
+        getTop.style.backgroundColor = "#779f2b"
+        getSlide1.style.backgroundColor = "#779f2b"
+        getSlide2.style.backgroundColor = "#779f2b"
         getSlide3.style.backgroundColor = "white"
-        getSlide4.style.backgroundColor = "#689514"
+        getSlide4.style.backgroundColor = "#779f2b"
         niveauScroll = 3
     }  
     if (slide4.offsetTop < middleScreen) {
-        getTop.style.backgroundColor = "#3C2D5E"
-        getSlide1.style.backgroundColor = "#3C2D5E"
-        getSlide2.style.backgroundColor = "#3C2D5E"
-        getSlide3.style.backgroundColor = "#3C2D5E"
+        getTop.style.backgroundColor = "#766c8e"
+        getSlide1.style.backgroundColor = "#766c8e"
+        getSlide2.style.backgroundColor = "#766c8e"
+        getSlide3.style.backgroundColor = "#766c8e"
         getSlide4.style.backgroundColor = "white"
         niveauScroll = 4
     }
@@ -396,7 +396,7 @@ window.addEventListener("load", function(){
 
 
 //Get scroll direction 
-
+/*
 var scrollPos = 0
 var goTop = 0
 var goDown = 0
@@ -447,3 +447,4 @@ function getDownScroll(){
         window[nomFunc]()
     }
 }
+*/

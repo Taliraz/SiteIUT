@@ -691,7 +691,7 @@ h1
     width: 110vw;
     height:110vh;
     object-fit: cover;
-    filter: brightness(1.5);
+    filter: brightness(2.5);
     
 }
 
@@ -736,7 +736,7 @@ h1
 
 #slide1 {
     z-index: 3;
-    background-image: linear-gradient(to right, #ffffff, #c9c6d6, #9790ad, #685d85, #3c2d5e);
+    background-image: linear-gradient(to right, #ffffff, #e4e2ea, #c9c6d6, #b0abc1, #9790ad);
 }
 
 #slide2 {
@@ -746,7 +746,7 @@ h1
 
 #slide3 {
     z-index: 3;
-    background-image: linear-gradient(to right bottom, #689514, #2eb98c, #61d2de, #c5e4fd, #ffffff);
+    background-image: radial-gradient(circle, #ffffff, #e4e2ea, #c9c6d6, #b0abc1, #9790ad);
 }
 
 #slide4 {
@@ -888,11 +888,12 @@ h1
 
 .tem_pic {
     float: right;
-    width: 60%;
+    width: 50%;
     height: 60%;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100%;
     background-position: center;
+    border-radius: 20% / 50%;
 }
 
 .tem_cont {
@@ -904,7 +905,7 @@ h1
     text-align:center;
     width:70vw;
     height: 80vh;
-    z-index:50;
+    z-index:5;
     overflow-y:auto;
 }
 
@@ -990,9 +991,9 @@ button {
     top: 15%;
     transition: all 1s;
     color: black;
-    z-index: 6;
+    z-index: 30;
     opacity: 0;
-    background-color: white;
+    background-color: #e5defa;
     pointer-events: none;
     padding-left: 5vw;
     padding-right: 5vw;
@@ -1001,7 +1002,7 @@ button {
 }
 
 #poster_tem #p_titreTemoignage_id {
-    width: 30%;
+    width: 30%; 
 }
 
 #poster_tem legend {
@@ -1012,6 +1013,7 @@ button {
 #poster_tem textarea {
     width: 50vw;
     height: 20vh;
+    resize: none;
 }
 
 #closePopupPost {
@@ -1033,7 +1035,7 @@ button {
     left: 0;
     background-color: rgba(0,0,0,0.7);
     pointer-events: none;
-    z-index: 5;
+    z-index: 6;
     opacity: 0;
     transition: all 1s;
 }

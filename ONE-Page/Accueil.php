@@ -134,7 +134,7 @@
 
             <h1 data-scroll="toggle(.fromLeftIn, .fromLeftOut)" id="titreSlide1" >Trouvez VOTRE IUT !</h1>
     
-            <?php //require_once File::build_path(array("ONE-Page","map" ,"france.php")); ?>
+            <?php require_once File::build_path(array("ONE-Page","map" ,"france.php")); ?>
 
         </div>
         

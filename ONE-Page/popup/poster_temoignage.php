@@ -45,7 +45,7 @@
             </p>
 
             <p>
-              <label for="p_IUT_id">IUT</label> 
+              <label for="p_IUT_id">IUT : </label> 
               <select name="p_idIUT" size="1" id="p_IUT_id">
                 <?php 
                 require_once File::build_path(array("model","ModelIUT.php"));
