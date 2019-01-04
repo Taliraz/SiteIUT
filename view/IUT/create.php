@@ -32,7 +32,7 @@
                 foreach($liste as $valeur){
                   echo '<option value="'.$valeur->getId().'">'.$valeur->getNom().' ('.$valeur->getDepartement().')</option>'."\n";
                 }
-                ?>x
+                ?>
               </select>
           </p>
 
