@@ -27,3 +27,7 @@ window.addEventListener('scroll', function() {
 }, false)
 
 
+function goToVille(){
+    var idPopup = document.getElementById("selectIUT").value
+    displayPopup(idPopup)
+}

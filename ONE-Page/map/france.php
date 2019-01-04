@@ -10,6 +10,17 @@ require_once (File::build_path(array("model","ModelIUT.php")));
 require_once (File::build_path(array("model","ModelVille.php")));?>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+    
+<select id="selectIUT" onchange="goToVille()">
+<?php
+    $ModelIUT=ModelIUT::getAllIUTs();
+    foreach($ModelIUT as $IUT) {
+        $ville=ModelVille::getVilleById($IUT->getIdVille());
+        echo '<option value="'.$IUT->getIdIUT().'" >'.$ville->getNom().'</option>';
+    } 
+?>
+</select>
+    
 <div id="map">
 <svg
    xmlns:svg="http://www.w3.org/2000/svg"

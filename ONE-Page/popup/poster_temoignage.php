@@ -13,7 +13,7 @@
           </p>
 
           <p>
-            <label for="p_anneeEtude_id">Année d'étude : </label> :
+            <label for="p_anneeEtude_id">Année d'étude : </label>
             <select name="p_anneeEtude" required>
               <?php for($i=1940; $i<=intval(date("Y")); $i++) {
                 echo '<option value="'.$i.'">'.$i.'</option>';
@@ -22,7 +22,7 @@
           </p>
 
           <p>
-            <label for="p_theme_id">Theme : </label> :
+            <label for="p_theme_id">Theme : </label>
             <select name="p_theme" id="p_theme_id" required>
               <option value="theme1">Theme 1 </option>
               <option value="theme2">Theme 2 </option>
@@ -45,7 +45,7 @@
             </p>
 
             <p>
-              <label for="p_IUT_id">IUT</label> 
+              <label for="p_IUT_id">IUT : </label> 
               <select name="p_idIUT" size="1" id="p_IUT_id">
                 <?php 
                 require_once File::build_path(array("model","ModelIUT.php"));
