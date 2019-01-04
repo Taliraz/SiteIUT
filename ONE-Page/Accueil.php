@@ -8,7 +8,7 @@
     </head>
     <body>
         
-        <?php require (File::build_path(array("controller","ControllerLicence.php"))); 
+        <?php require_once (File::build_path(array("controller","ControllerLicence.php"))); 
         require(File::build_path(array("init.php")));?> 
         
         <div id="load">
