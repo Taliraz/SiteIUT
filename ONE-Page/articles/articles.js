@@ -19,7 +19,7 @@ $('.InfosNext').click(function(){
         var margin = ((window.innerWidth*9/10) - titreTaille)/2
         nomArticle[articleActuel+1].style.marginLeft = margin
         
-        switcher.style.backgroundColor = 'white' 
+        switcher.style.backgroundColor = '#e4e2ea' 
         switcher.style.top = "150vh"
         setTimeout("articles[articleActuel].style.display = 'none' ", 450)
         setTimeout("articleActuel = articleActuel + 1", 460)
@@ -31,7 +31,7 @@ $('.InfosNext').click(function(){
 
 $('.InfosPrev').click(function(){
     if(articleActuel > 0){
-        switcher.style.backgroundColor = 'white' 
+        switcher.style.backgroundColor = '#e4e2ea' 
         switcher.style.top = "150vh"
 
         setTimeout("articles[articleActuel-1].style.display = 'block'", 450);
@@ -63,7 +63,7 @@ function artGoToPrev(){
 
 function artGoTo(){
     var val = document.getElementById("selectArt").value
-    switcher.style.backgroundColor = 'white' 
+    switcher.style.backgroundColor = '#e4e2ea' 
     switcher.style.top = "150vh"
     setTimeout("switcher.style.background = 'none' ", 500)
     setTimeout("switcher.style.top = '0vh' ", 500)
