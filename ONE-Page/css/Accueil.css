@@ -1053,12 +1053,10 @@ button {
     }
     
     .tem_cont {
-        position: fixed;
-        top: 5vh;
-        left:0;
         width: 100vw;
         height:105vh;
         font-size: 3vw;
+        overflow: scroll;
     }
     
 }

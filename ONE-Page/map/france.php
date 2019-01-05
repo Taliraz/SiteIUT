@@ -13,10 +13,10 @@ require_once (File::build_path(array("model","ModelVille.php")));?>
     
 <select id="selectIUT" onchange="goToVille()">
 <?php
-    $ModelIUT=ModelIUT::getAllIUTs();
-    foreach($ModelIUT as $IUT) {
-        $ville=ModelVille::getVilleById($IUT->getIdVille());
-        echo '<option value="'.$IUT->getIdIUT().'" >'.$ville->getNom().'</option>';
+    $req = Model::$pdo->query("SELECT nomVille, idIUT FROM `mon-IUTs` I JOIN `mon-Villes` V ON I.idVille = V.idVille ORDER BY nomVille");
+    $listeVilles = $req->fetchAll();
+    foreach($listeVilles as $key) {
+        echo '<option value="'.$key["idIUT"].'" >'.$key["nomVille"].'</option>';
     } 
 ?>
 </select>

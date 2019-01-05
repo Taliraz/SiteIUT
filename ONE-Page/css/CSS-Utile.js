@@ -256,7 +256,7 @@ function getMarginTop(){
 function forceSlide0(){
     var cible = slide0
     var speed = 500
-    $('html, body').animate( { scrollTop: $(cible).offset().top - getMarginTop() +1 }, speed );
+    $('html, body').animate( { scrollTop: $(cible).offset().top - getMarginTop() }, speed );
 }
 
 getTop.addEventListener("click", function(){
@@ -266,7 +266,7 @@ getTop.addEventListener("click", function(){
 function forceSlide1(){
     var cible = slide1
     var speed = 500
-    $('html, body').animate( { scrollTop: $(cible).offset().top - getMarginTop() +1 }, speed );
+    $('html, body').animate( { scrollTop: $(cible).offset().top - getMarginTop() }, speed );
 }
 
 getSlide1.addEventListener("click", function(){
@@ -277,7 +277,7 @@ function forceSlide2(){
     var cible = slide1
     var speed = 500
     var scroll = Math.floor($(cible).offset().top + cible.offsetHeight) + 1
-    $('html, body').animate( { scrollTop: scroll - getMarginTop() +1 }, speed );
+    $('html, body').animate( { scrollTop: scroll - getMarginTop() }, speed );
 }
 
 getSlide2.addEventListener("click", function(){
@@ -287,7 +287,7 @@ getSlide2.addEventListener("click", function(){
 function forceSlide3(){
     var cible = slide3
     var speed = 500
-    $('html, body').animate( { scrollTop: $(cible).offset().top - getMarginTop() +1 }, speed );
+    $('html, body').animate( { scrollTop: $(cible).offset().top - getMarginTop() }, speed );
 }
 
 getSlide3.addEventListener("click", function(){
