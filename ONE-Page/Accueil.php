@@ -124,7 +124,7 @@
             <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte" id="slogan">
                 Sur le site du département informatique des IUT
             </p>
-        
+            
             <p>
                 <image src="<?php echo File::build_path_css(array("ONE-Page","images", "fleche.png")) ?>" alt="fleche" id="fleche"></image>
             </p>
@@ -159,10 +159,6 @@
             <?php require_once File::build_path(array("ONE-Page","articles" ,"articles.php")); ?>
            
         </div>
-        
-        <!--<div id="slide4" class="slides">
-            <a href=$domain."/img/PPN_INFORMATIQUE_256097.pdf" download="PPN_INFORMATIQUE">Télécharger le PPN</a>
-        </div>-->
 
         <div id="slide4" class="slides">
             <h1>Suivez-nous sur Twitter !</h1>

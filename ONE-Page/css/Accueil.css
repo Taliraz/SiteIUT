@@ -1172,7 +1172,7 @@ button {
 }
 
 .article {
-    width: 90vw;
+    width: 100vw;
     height: 100vh;
     padding: 2vh;
     text-align: left;
@@ -1199,6 +1199,7 @@ button {
     margin-bottom: 2vh;
     background-color: white;
     color: black;
+    width: 80%;
     max-height: 75%;
     overflow-y: scroll;
 }
@@ -1206,7 +1207,7 @@ button {
 .InfosNext {
     display: block;
     cursor: pointer;
-    margin-left: 70%;
+    margin-left: 60%;
     width: 20%;
     font-size: 1vw;
     transition: all 0.2s;
@@ -1247,6 +1248,25 @@ button {
     font-weight: bold;
 }
 
+#PPN {
+    font-weight: bolder;
+    font-size: 1vw;
+    color: black;
+    text-decoration: none;
+    margin-left: 5vw;
+    padding-bottom: 2vh;
+}
+
+#optionPPN {
+    background-color: #779f2b;
+}
+
+#pdfPPN {
+    margin: 0;
+    width: 95%;
+    height: 80%;
+}
+
 @media screen and (max-width: 600px){
     .liste_articles {
         margin-top: 0;
@@ -1255,7 +1275,7 @@ button {
     .article {
         width: 100%;
         padding: 0;
-        text-align: right;
+        text-align: center;
     }
     
     .InfosNext {
@@ -1292,6 +1312,11 @@ button {
         float: none;
         width: 100vw;
         height: 7vh;
+    }
+    
+    #pdfPPN {
+        width: 100%;
+        height: 75%;
     }
 }
 
