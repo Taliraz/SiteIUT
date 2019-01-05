@@ -2,6 +2,8 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="<?php echo File::build_path_css(array("ONE-Page","css" ,"Accueil.css")) ?>">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="<?php echo File::build_path_css(array("ONE-Page","imgCliper" ,"css", "imgareaselect-default.css")) ?>" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
         <title>One-page</title>
@@ -124,7 +126,7 @@
             <p data-scroll="toggle(.scaleDownIn, .scaleDownOut)" class="texte" id="slogan">
                 Sur le site du département informatique des IUT
             </p>
-        
+            
             <p>
                 <image src="<?php echo File::build_path_css(array("ONE-Page","images", "fleche.png")) ?>" alt="fleche" id="fleche"></image>
             </p>
@@ -159,10 +161,6 @@
             <?php require_once File::build_path(array("ONE-Page","articles" ,"articles.php")); ?>
            
         </div>
-        
-        <!--<div id="slide4" class="slides">
-            <a href=$domain."/img/PPN_INFORMATIQUE_256097.pdf" download="PPN_INFORMATIQUE">Télécharger le PPN</a>
-        </div>-->
 
         <div id="slide4" class="slides">
             <h1>Suivez-nous sur Twitter !</h1>
@@ -174,17 +172,51 @@
         
         <div id="menu">
             <ul id="navigation">
-                <li id="getTop"><img src="ONE-Page/images/accueil.png" alt="logo_accueil"></li>
-                <li id="getSlide1"><img src="ONE-Page/images/mapFrance.png" alt="logo_map"></li>
-                <li id="getSlide2"><img src="ONE-Page/images/smile.png" alt="logo_smile"></li>
-                <li id="getSlide3"><img src="ONE-Page/images/infos.png" alt="logo_infos"></li>
-                <li id="getSlide4"><img src="ONE-Page/images/arobase.png" alt="logo_arobase"></li>
+                <li id="getTop">
+                    <span class="tooltip">
+                        <span class="tooltiptext">Haut de Page</span>
+                        <img id="testCrop" src="ONE-Page/images/accueil.png" alt="logo_accueil">
+                    </span>
+                </li>
+                <li id="getSlide1">
+                    <span class="tooltip">
+                        <span class="tooltiptext">Carte des IUT</span>
+                        <img src="ONE-Page/images/mapFrance.png" alt="logo_map">
+                    </span>
+                </li>
+                <li id="getSlide2">
+                    <span class="tooltip">
+                        <span class="tooltiptext">Témoignages</span>
+                        <img src="ONE-Page/images/smile.png" alt="logo_smile">
+                    </span>
+                </li>
+                <li id="getSlide3">
+                    <span class="tooltip">
+                        <span class="tooltiptext">Informations</span>
+                        <img src="ONE-Page/images/infos.png" alt="logo_infos">
+                    </span>
+                </li>
+                <li id="getSlide4">
+                    <span class="tooltip">
+                        <span class="tooltiptext">Twitter</span>
+                        <img src="ONE-Page/images/arobase.png" alt="logo_arobase">
+                    </span>
+                </li>
+                <li id="getFormEntreprise">
+                    <span class="tooltip">
+                        <span class="tooltiptext">Formulaires de stages pour les Entreprises</span>
+                        <a href="admin.php?action=create&controller=stage">
+                            <img src="ONE-Page/images/form.png" alt="logo_arobase">
+                        </a>
+                    </span>
+                </li>
             </ul>
         </div>
 
         
        
-        
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","imgCliper", "scripts", "jquery.imgareaselect.min.js")) ?>"></script>
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","imgCliper", "scripts", "jquery.imgareaselect.pack.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","parallax", "parallax.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","ScrollTrigger", "ScrollTrigger.min.js")) ?>"></script>
         <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","ScrollTrigger","Trigger.js")) ?>"></script>

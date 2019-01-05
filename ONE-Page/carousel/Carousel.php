@@ -1,5 +1,5 @@
    
-<ul class="carousel">
+<ul id="carousel">
     <?php 
     require_once (File::build_path(array("model","ModelTemoignage.php")));
     $tem = ModelTemoignage::getAllTemoignages();
@@ -18,10 +18,7 @@
                     <li class="tem_main">
                         <p class="tem_tit">'.$key->getTitreTemoignage().'</p>
                         <p class="tem_tit_slot">ESPACE</p>
-                        <!--
-                        <img src="'.File::build_path_css(array("ONE-Page","images", "cercle.png")).'" alt="cercle" class="cercle">
-                        <img src="'.File::build_path_css(array("ONE-Page","images", "cercle_small.png")).'" alt="cercle" class="cercle_small">
-                        -->
+                        
                          
                         <div class="tem_pic" style="background-image: url('.$key->getPhotoTemoignage().')"></div>
                         
@@ -36,11 +33,24 @@
                         <p>'.$key->getContenuTemoignage().'</p>
                     </div>
                     
-                    
-                    
-                    <a class="carousel-prev"><button type="button"></button></a>
-                    <a class="carousel-next"><button type="button"></button></a>
-                    <a class="popup_trigger" href="tem_cont"><button class="popup-button"></button></a>
+                    <div class="tooltipPrec">
+                        <span class="tooltip">
+                            <span class="tooltiptext">Précédent</span>
+                            <a class="carousel-prev"><button type="button"></button></a>
+                        </span>
+                    </div>
+                    <div class="tooltipNext">
+                        <span class="tooltip">
+                            <span class="tooltiptext">Suivant</span>
+                            <a class="carousel-next"><button type="button"></button></a>
+                        </span>
+                    </div>
+                    <span class="tooltip">
+                        <span class="tooltiptext">Afficher les détails</span>
+                        <a class="popup_trigger" href="tem_cont">
+                            <button class="popup-button"></button>
+                        </a>
+                    </span>
                 </ul>
             </li>
             ';

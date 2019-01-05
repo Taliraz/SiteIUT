@@ -7,6 +7,9 @@ var getSlide1 = document.getElementById('getSlide1')
 var getSlide2 = document.getElementById('getSlide2')
 var getSlide3 = document.getElementById('getSlide3')
 var getSlide4 = document.getElementById('getSlide4')
+var getFormEntreprise = document.getElementById('getFormEntreprise')
+var tooltiptext = document.getElementById('carousel').getElementsByClassName('tooltiptext')
+
 
 var artNext = document.getElementsByClassName('InfosNext')
 var artPrev = document.getElementsByClassName('InfosPrev')
@@ -317,10 +320,11 @@ window.addEventListener("scroll", function(){
     
     if (slide0.offsetTop < middleScreen) {
         getTop.style.backgroundColor = "white"
-        getSlide1.style.backgroundColor ="#779f2b"
-        getSlide2.style.backgroundColor ="#779f2b"
-        getSlide3.style.backgroundColor ="#779f2b"
-        getSlide4.style.backgroundColor ="#779f2b"
+        getSlide1.style.backgroundColor = "#779f2b"
+        getSlide2.style.backgroundColor = "#779f2b"
+        getSlide3.style.backgroundColor = "#779f2b"
+        getSlide4.style.backgroundColor = "#779f2b"
+        getFormEntreprise.style.backgroundColor = "#779f2b"
         niveauScroll = 0
     }
     if (slide1.offsetTop < middleScreen){
@@ -329,6 +333,7 @@ window.addEventListener("scroll", function(){
         getSlide2.style.backgroundColor = "#779f2b"
         getSlide3.style.backgroundColor = "#779f2b"
         getSlide4.style.backgroundColor = "#779f2b"
+        getFormEntreprise.style.backgroundColor = "#779f2b"
         niveauScroll = 1
     }
     if (slide2Top < middleScreen) {
@@ -337,6 +342,7 @@ window.addEventListener("scroll", function(){
         getSlide2.style.backgroundColor = "white"
         getSlide3.style.backgroundColor = "#766c8e"
         getSlide4.style.backgroundColor = "#766c8e"
+        getFormEntreprise.style.backgroundColor = "#766c8e"
         niveauScroll = 2
     }
     if (slide3.offsetTop < middleScreen) {
@@ -345,6 +351,7 @@ window.addEventListener("scroll", function(){
         getSlide2.style.backgroundColor = "#779f2b"
         getSlide3.style.backgroundColor = "white"
         getSlide4.style.backgroundColor = "#779f2b"
+        getFormEntreprise.style.backgroundColor = "#779f2b"
         niveauScroll = 3
     }  
     if (slide4.offsetTop < middleScreen) {
@@ -353,6 +360,7 @@ window.addEventListener("scroll", function(){
         getSlide2.style.backgroundColor = "#766c8e"
         getSlide3.style.backgroundColor = "#766c8e"
         getSlide4.style.backgroundColor = "white"
+        getFormEntreprise.style.backgroundColor = "#766c8e"
         niveauScroll = 4
     }
     
@@ -368,6 +376,7 @@ window.addEventListener("load", function(){
         getSlide2.style.backgroundColor = "#779f2b"
         getSlide3.style.backgroundColor = "#779f2b"
         getSlide4.style.backgroundColor = "#779f2b"
+        getFormEntreprise.style.backgroundColor = "#779f2b"
         niveauScroll = 0
     }
     if (slide1.offsetTop < middleScreen){
@@ -376,6 +385,7 @@ window.addEventListener("load", function(){
         getSlide2.style.backgroundColor = "#779f2b"
         getSlide3.style.backgroundColor = "#779f2b"
         getSlide4.style.backgroundColor = "#779f2b"
+        getFormEntreprise.style.backgroundColor = "#779f2b"
         niveauScroll = 1
     }
     if (slide2Top < middleScreen) {
@@ -384,6 +394,7 @@ window.addEventListener("load", function(){
         getSlide2.style.backgroundColor = "white"
         getSlide3.style.backgroundColor = "#766c8e"
         getSlide4.style.backgroundColor = "#766c8e"
+        getFormEntreprise.style.backgroundColor = "#766c8e"
         niveauScroll = 2
     }
     if (slide3.offsetTop < middleScreen) {
@@ -392,6 +403,7 @@ window.addEventListener("load", function(){
         getSlide2.style.backgroundColor = "#779f2b"
         getSlide3.style.backgroundColor = "white"
         getSlide4.style.backgroundColor = "#779f2b"
+        getFormEntreprise.style.backgroundColor = "#779f2b"
         niveauScroll = 3
     }  
     if (slide4.offsetTop < middleScreen) {
@@ -400,6 +412,7 @@ window.addEventListener("load", function(){
         getSlide2.style.backgroundColor = "#766c8e"
         getSlide3.style.backgroundColor = "#766c8e"
         getSlide4.style.backgroundColor = "white"
+        getFormEntreprise.style.backgroundColor = "#766c8e"
         niveauScroll = 4
     }
 }, false);
@@ -460,3 +473,34 @@ function getDownScroll(){
     }
 }
 */
+
+
+
+
+/* ToolTip */
+var currentmX = 0
+var currentmY = 0
+
+$(document).mousemove(function(e) {
+    currentmX = e.screenX
+    currentmY = e.screenY
+    var now = Date.now()
+    var mouseSpot = Math.floor((e.screenX/WW)*100) 
+    var dt = now - timestamp
+    var distance = Math.abs(currentmX - mX)
+    var speed = Math.round(distance / dt * 1000)
+    for (var i = 0; i < tooltiptext.length; i++) {
+        tooltiptext[i].style.top =  3000 +  "px"
+        tooltiptext[i].style.left = 3000 + "px" 
+    }
+})
+
+setInterval(onStop, 100)
+
+function onStop(){
+    for (var i = 0; i < tooltiptext.length; i++) {
+        tooltiptext[i].style.top =  currentmY -130 +  "px"
+        tooltiptext[i].style.left = currentmX + 20 + "px" 
+    }
+}
+
