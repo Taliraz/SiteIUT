@@ -14,7 +14,7 @@ $(function(){
      if($(this).hasClass('selected'))
      {
          status = true;
-        deselect($(this)); 
+         deselect($(this)); 
     }
      else
      {
@@ -77,6 +77,7 @@ function displayPopupPost(){
     assombre.style.opacity = '1'
     popup_post_tem.style.opacity = "1"
     popup_post_tem.style.pointerEvents = "all"
+    popup_post_tem.style.animation = "splat 1s ease-out"
 }
 
 function closePopupPost(){
@@ -84,8 +85,14 @@ function closePopupPost(){
     var popup_post_tem = document.getElementById('poster_tem')
     var assombre = document.getElementById('assombrissement')
     assombre.style.opacity = '0'
-    popup_post_tem.style.opacity = "0"
+    setTimeout(opacDown, 300)
     popup_post_tem.style.pointerEvents = "none"
+    popup_post_tem.style.animation = "close 1s ease-in"
+}
+
+function opacDown(){
+    var popup_post_tem = document.getElementById('poster_tem')
+    popup_post_tem.style.opacity = '0'
 }
 
 window.addEventListener("scroll", function(){
