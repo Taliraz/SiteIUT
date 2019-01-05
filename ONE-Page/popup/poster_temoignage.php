@@ -33,7 +33,6 @@
             <label for="p_nomEtudiant_id"> Nom : </label>
             <input type="text" id="p_nomEtudiant_id" name="p_nomEtudiant">
           </p>
-
           <p>
             <label for="p_prenomEtudiant_id"> Prénom : </label>
             <input type="text" id="p_prenomEtudiant_id" name="p_prenomEtudiant">
