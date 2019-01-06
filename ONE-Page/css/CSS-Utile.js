@@ -497,6 +497,7 @@ $(document).mousemove(function(e) {
 
 setInterval(onStop, 1000)
 
+
 function onStop(){
     for (var i = 0; i < tooltiptext.length; i++) {
         tooltiptext[i].style.top =  currentmY -130 +  "px"

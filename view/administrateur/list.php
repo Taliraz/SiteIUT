@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <p>
+            <a title="create" href="admin.php?controller=administrateur&action=create"> Ajouter un administrateur </a>
+        </p>
         <?php
         foreach ($tab_v as $v){
             echo '<p> login Administrateur: <a title="Administrateur" 
@@ -13,8 +16,5 @@
             }  
 
         ?>
-        <p>
-            <a title="create" href="admin.php?controller=administrateur&action=create"> Ajouter une administrateur </a>
-        </p>
     </body>
 </html>

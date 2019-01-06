@@ -14,8 +14,5 @@
             }  
 
         ?>
-        <p>
-            <a title="create" href="admin.php?action=create&controller=stage"> Ajouter un Stage </a>
-        </p>
     </body>
 </html>

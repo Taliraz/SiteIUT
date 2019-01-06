@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <p>
+            <a title="create" href="admin.php?controller=ville&action=create"> Ajouter une ville </a>
+        </p>
         <?php
         foreach ($tab_v as $v){
             echo '<p> Ville: <a title="Stage" 
@@ -13,8 +16,6 @@
             }  
 
         ?>
-        <p>
-            <a title="create" href="admin.php?action=create"> Ajouter une ville </a>
-        </p>
+        
     </body>
 </html>
