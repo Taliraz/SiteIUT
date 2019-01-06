@@ -1,8 +1,8 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?controller=IUT&action=created">
+      <form class="createFormulaire" method="post" action="admin.php?controller=IUT&action=created">
         <fieldset>
-          <legend>IUT :</legend>
+          <legend>Ajouter un IUT :</legend>
           <p>
             <label for="nomIUT_id"> Nom </label>
             <input type="text" id="nomIUT_id" name="nomIUT">

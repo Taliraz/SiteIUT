@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?controller=Licence&action=updated&idLicence=<?php echo $v->getIdLicence();?>">
+      <form class="updateFormulaire" method="post" action="admin.php?controller=Licence&action=updated&idLicence=<?php echo $v->getIdLicence();?>">
         <fieldset>
           <legend>Licence :</legend>
           <p>
@@ -44,7 +44,7 @@
             <?php echo '<textarea name="siteLicence" id="siteLicence_id" required>'.$v->getSiteLicence().'</textarea>'; ?>
           </p>
           <p>
-            <input type="submit" value="Envoyer" />
+            <input id="bouton-envoyer" type="submit" value="Envoyer" />
           </p>
 
           <p>

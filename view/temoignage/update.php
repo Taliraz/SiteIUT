@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?action=updated&controller=temoignage&idTemoignage=<?php echo $v->getIdTemoignage() ?>" enctype="multipart/form-data">
+      <form class="updateFormulaire" method="post" action="admin.php?action=updated&controller=temoignage&idTemoignage=<?php echo $v->getIdTemoignage() ?>" enctype="multipart/form-data">
         <fieldset>
           <legend>Temoignages :</legend>
           <p>
@@ -67,7 +67,7 @@
           </p>
 
           <p>
-            <input type="submit" value="Envoyer">
+            <input id="bouton-envoyer" type="submit" value="Envoyer">
           </p>
 
           <p>

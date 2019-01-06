@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?controller=utilisateur&action=updated&login=<?php echo $v->getLogin(); ?>">
+      <form class="updateFormulaire" method="post" action="admin.php?controller=utilisateur&action=updated&login=<?php echo $v->getLogin(); ?>">
         <fieldset>
           <legend>Mon formulaire :</legend>
           <p> 
@@ -12,7 +12,7 @@
             <input type="password" name="mdp" id="mdp_id" required/>
           <p>
           <p>
-            <input type="submit" value="Envoyer" />
+            <input id="bouton-envoyer" type="submit" value="Envoyer" />
           </p>
           <input id="bouton-retour" type="button" value="Retour" onclick="history.go(-1)">
         </fieldset> 

@@ -6,7 +6,8 @@ echo("Nom:" . htmlspecialchars($v->getNom()) ."\n Code Postal:" .htmlspecialchar
 <br>
 <?php
 if(isset($_SESSION['login'])){
-	echo '<a class="modif" title="update" href="admin.php?controller='.$controller.'&action=update&idVille='.$v->getId().'"> Modifier </a>';
-	echo '<a class="modif" title="delete" href="admin.php?controller='.$controller.'&action=delete&idVille='.$v->getId().'"> Supprimer </a>';
+	echo '<a class="detailModifier" title="update" href="admin.php?controller='.$controller.'&action=update&idVille='.$v->getId().'">Modifier</a>';
+	echo '<a class="detailSupprimer" title="delete" href="admin.php?controller='.$controller.'&action=delete&idVille='.$v->getId().'">Supprimer</a>';
 }
 ?>
+<br><br><br><span></span>

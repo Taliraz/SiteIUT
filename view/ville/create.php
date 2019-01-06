@@ -1,8 +1,8 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?action=created">
+      <form class="createFormulaire" method="post" action="admin.php?action=created">
         <fieldset>
-          <legend>Ville :</legend>
+          <legend>Ajouter une Ville :</legend>
           <p>
             <label for="nom_id">Nom</label> :
             <input type="text" placeholder="Ex : Montpellier" name="nom" id="nom_id" required/>

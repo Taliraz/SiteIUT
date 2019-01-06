@@ -1,8 +1,8 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?controller=Licence&action=created">
+      <form class="createFormulaire" method="post" action="admin.php?controller=Licence&action=created">
         <fieldset>
-          <legend>Licence :</legend>
+          <legend>Ajouter une Licence :</legend>
           <p>
             <label for="nomLicence_id"> Nom </label>
             <input type="text" id="nomLicence_id" name="nomLicence">

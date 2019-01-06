@@ -1,59 +1,365 @@
-p.menu{
-      background: #808080;
-      border: 0px;
-      padding: 15px;
-      margin:0px;
+html {
+    font-family: 'Oswald', 'Work Sans', sans-serif;
+    overflow-x: hidden;
+}
+   
+body {
+    margin:0;
+}
 
+/* Connexion */
+
+#connexion {
+    width: 95vw;
+    height: 100vh;
+    color: white;
+    background-color: #887fbc;
+    font-size: calc(1vh + 1vw);
+    padding: calc(1vh + 1vw);
+}
+
+#connexion legend {
+    font-size: calc(1.5vh + 1.5vw);
+}
+
+#connexion input {
+    height: calc(1.2vh + 1.2vw);
+    font-size: calc(1vh + 1vw);
+    font-family: 'Oswald', 'Work Sans', sans-serif;
+}
+
+#connexion #connexionButton {
+    height: 6vh;
+    width: 7vw;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        margin-top: 10vh;
+    }
+
+    #connexion {
+        font-size: calc(2vh + 2vw);
+    }
+    
+    #connexion legend {
+        font-size: calc(2.5vh + 2.5vw);
+    }
+    
+    #connexion input {
+        width: 90%;
+        height: calc(2.4vh + 2.4vw);
+        font-size: calc(2vh + 2vw);
+    }
+    
+    #connexion #connexionButton {
+        width: 20vw;
+        height: 5vh;
+    }
 }
 
 
 
-a.modif{
-      display:flex;
-      text-decoration:none;
+
+
+/* Panneau d'administration */
+
+
+#menu {
+    margin: 0;
+    padding: calc(0.5vh + 0.5vw);
+    background-color:  #887fbc;
+    font-size: calc(1.5vh + 1.5vw);
+}
+
+#menu a {
+    margin-left: calc(0.7vh + 0.7vw);
+    text-decoration: none;
+    color: white;
+}
+
+#menu a:hover {
+    color: black;
+}
+
+#menu #nomConnexion {
+    border-right: 2px solid white;
+}
+
+#menuOrdi {
+    display: block;
+}
+
+#menuBurger {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: -100vw;
+    transition: all 0.3s;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.5);
+    width: 70vw;
+    height: 100vh;
+}
+
+@media screen and (max-width: 600px){
+    #menu {
+        cursor: pointer;
+        position:fixed;
+        top: -100vh;
+        left: -100vw;
+        height: 8vh;
+        font-size: calc(2.5vh + 2.5vw);
+    }
+    
+    #menuOrdi {
+        display: none;
+    }
+    
+    #menu a {
+        margin: 0;
+        padding: 2vh;
+    }
+    
+    #menu a:hover {
+        background-color: white;
+    }
+    
+    #menu #nomConnexion {
+        border-right: none;
+        color: white;
+        padding: 2vh;
+    }
+    
+    #burger {
+        transition: all 0.4s;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 10vh;
+        height: 10vh;
+    }
+    
 }
 
 
 
-a.buttons {
-      text-decoration: none;
-      padding: 15px;
-      margin:0px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 100%;
-      color: #fff;
-      background: #808080;
-      border: 0px;
-      transition:0.5s;
-      
-}
-a.buttons:hover {
-      background: #A9A9A9;
-      transition: 0.5s;
-      border: 0px;
-      text-shadow: 1px 1px 1px #fff;
+
+
+
+
+
+
+/* Listes */
+
+.listeAddNouveau {
+    margin-left: 3vw;
 }
 
-a.connection {
-      text-decoration: none;
-      padding: 15px;
-      margin:0px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 100%;
-      color: #fff;
-      background: #808080;
-      border: 0px;
-      transition:0.5s;
-      position:fixed;
-      right:0;
-      top:8px;
-      
+.listeAddNouveau a {
+    font-size: calc(1.4vh + 1.4vw);
+    color: black;
+    text-decoration: underline;
 }
-a.connection:hover {
-      background: #A9A9A9;
-      transition: 0.5s;
-      border: 0px;
-      text-shadow: 1px 1px 1px #fff;
+
+.listeAddNouveau a:hover {
+    color:  #887fbc;
 }
+
+.listeElements {
+    font-size: calc(1.2vh + 1.2vw);
+    font-weight: bolder;
+    margin-left: 3vw;
+    background-color: #acb1d8;
+    padding-top: calc(1vh + 1vw);
+    padding-bottom: calc(1vh + 1vw);
+    padding-left: calc(2vh + 2vw);
+    padding-right: calc(2vh + 2vw);
+    border-bottom-left-radius: 90px;
+    border-top-left-radius: 10%;
+}
+
+.listeElements:hover {
+    background-color: #887fbc;
+}
+
+.listeElements a {
+    color: black; 
+    text-decoration: none;
+}
+
+.listeElements a:hover {
+    color: white;
+}
+
+.listeElement1 {
+    font-weight: normal;
+    font-style: italic;
+    font-size: calc(1.5vh + 1.5vw);
+    margin-left: 1vw;
+    margin-right: 1.5vw;
+}
+
+.listeStageAcceptation {
+    color: #e05151;
+    margin-left: 0.5vw
+}
+
+.listeElementSupprimer {
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 600px){
+    .listeAddNouveau a {
+        font-size: calc(2vh + 2vw);
+    }
+    
+     .listeElements {
+        font-size: calc(1.5vh + 1.5vw);
+        border-bottom-left-radius: 40px;
+        border-top-left-radius: 10%;
+    }
+    
+    .listeElement1 {
+        font-size: calc(1.8vh + 1.8vw); 
+        margin-left: 3vw;
+        margin-right: 3vw;
+    }
+    
+    .listeElementSupprimer {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Create et Update */
+
+.createFormulaire, .updateFormulaire {
+    width: 100vw;
+    padding: calc(1vh + 1vw);
+    background-color: #acb1d8;
+    font-size: calc(1vh + 1vw);
+}
+
+.createFormulaire legend, .updateFormulaire legend {
+    font-size: calc(1.2vh + 1.2vw);
+}
+
+.createFormulaire input, .updateFormulaire input {
+    width: 40%;
+    font-size: calc(1vh + 1vw);
+    font-family: 'Oswald', 'Work Sans', sans-serif;
+}
+
+.createFormulaire textarea, .updateFormulaire textarea {
+    resize: none;
+    width: 80%;
+    height: 30vh;
+    font-size: calc(1vh + 1vw);
+    font-family: 'Oswald', 'Work Sans', sans-serif;
+}
+
+.createFormulaire select, .updateFormulaire select {
+    width: 30%;
+    font-size: calc(1vh + 1vw);
+    font-family: 'Oswald', 'Work Sans', sans-serif;
+}
+
+#bouton-envoyer, #bouton-retour {
+    width: 10%;
+}
+
+@media screen and (max-width: 600px){
+    .createFormulaire, .updateFormulaire {
+        padding: 0;
+        width: 100vw;
+        background-color: #acb1d8;
+        font-size: calc(2vh + 2vw);
+    }
+
+    .createFormulaire legend, .updateFormulaire legend {
+        font-size: calc(2.4vh + 2.4vw);
+    }
+    
+    .createFormulaire input, .updateFormulaire input {
+        width: 90%;
+        font-size: calc(2vh + 2vw);
+    }   
+    
+    .createFormulaire textarea, .updateFormulaire textarea {
+        resize: none;
+        width: 90%;
+        font-size: calc(2vh + 2vw);
+    }
+    
+    .createFormulaire select, .updateFormulaire select {
+        font-size: calc(2vh + 2vw);
+        width: 90%;
+    }  
+    
+    #bouton-envoyer, #bouton-retour {
+        width: 30%;
+    }
+}
+
+
+
+
+
+
+/* Detail */
+
+.detailDonnees {
+    margin-left: 5vw;
+    font-size: calc(1.5vh + 1.5vw);
+}
+
+.detailAccepter, .detailSupprimer, .detailModifier {
+    margin-left: 5vw;
+    font-size: calc(1.5vh + 1.5vw);
+    margin-right: 3vw;
+    text-decoration: underline;
+    color: black;
+    background-color: #acb1d8;
+    padding-top: calc(1vh + 1vw);
+    padding-bottom: calc(1vh + 1vw);
+    padding-left: calc(2vh + 2vw);
+    padding-right: calc(2vh + 2vw);
+    transition: all 0.2s;
+    border-radius: 50% 20% / 10% 40%;
+}
+
+.detailAccepter:hover, .detailSupprimer:hover, .detailModifier:hover {
+    background-color:  #786ec4 ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

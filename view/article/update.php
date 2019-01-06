@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?controller=article&action=updated&idArticle=<?php echo $v->getIdArticle(); ?>">
+      <form class="updateFormulaire" method="post" action="admin.php?controller=article&action=updated&idArticle=<?php echo $v->getIdArticle(); ?>">
         <fieldset>
           <legend>Mon formulaire :</legend>
           <p> 
@@ -12,7 +12,7 @@
              <?php echo '<textarea name="contenu" id="contenu_id">'.$v->getContenuArticle().'</textarea>'?>
           </p>
           <p>
-            <input type="submit" value="Envoyer" />
+            <input id="bouton-envoyer" type="submit" value="Envoyer" />
           </p>
           <input id="bouton-retour" type="button" value="Retour" onclick="history.go(-1)">
         </fieldset> 

@@ -1,8 +1,8 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?controller=article&action=created">
+      <form class="createFormulaire" method="post" action="admin.php?controller=article&action=created">
         <fieldset>
-          <legend>Article :</legend>
+          <legend>Ajouter un Article :</legend>
           <p>
             <label for="nom_id">Nom</label> :
             <input type="text" placeholder="Ex : Description" name="nom" id="nom_id" required/>

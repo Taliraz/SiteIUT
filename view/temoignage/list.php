@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <p>
+        <p class="listeAddNouveau">
             <a title="create" href="admin.php?action=create&controller=temoignage"> Ajouter un Temoignage </a>
         </p>
         <?php
         foreach ($tab_t as $v){
-            echo '<p> Temoignage: 
-                <a title="Temoignage" 
+            echo '<p class="listeElements"> TEMOIGNAGE : 
+                <a class="listeElement1" title="Temoignage" 
                 href="admin.php?controller=temoignage&action=read&id='
                 .rawurlencode($v->getIdTemoignage()).'">'. htmlspecialchars($v->getTitreTemoignage()).'</a> 
 
-                <a title="supprimer" href="admin.php?controller=temoignage&action=delete&idTemoignage='
-                .rawurlencode($v->getIdTemoignage()).'">supprimer</a> 
+                <a class="listeElementSupprimer" title="supprimer" href="admin.php?controller=temoignage&action=delete&idTemoignage='
+                .rawurlencode($v->getIdTemoignage()).'">SUPPRIMER</a> 
                 </p>';
             }  
         ?>

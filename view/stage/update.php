@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?action=updated&controller=stage&idStage=<?php echo $v->getIdStage(); ?>">
+      <form class="updateFormulaire" method="post" action="admin.php?action=updated&controller=stage&idStage=<?php echo $v->getIdStage(); ?>">
         <fieldset>
           <legend>Stage :</legend>
           <p>
@@ -111,7 +111,7 @@
 
 
           <p>
-            <input type="submit" value="Envoyer" />
+            <input id="bouton-envoyer" type="submit" value="Envoyer" />
           </p>
           <p>
               <input id="bouton-retour" type="button" value="Retour" onclick="history.go(-1)">

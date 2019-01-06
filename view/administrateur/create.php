@@ -1,8 +1,8 @@
 <html> 
     <body>
-      <form method="post" action="admin.php?controller=administrateur&action=created">
+      <form class="createFormulaire" method="post" action="admin.php?controller=administrateur&action=created">
         <fieldset>
-          <legend>Mon formulaire :</legend>
+          <legend>Ajouter un Administrateur :</legend>
           <p>
             <label for="login_id">Login</label> :
             <input type="text" placeholder="Ex : 256AB34" name="login" id="login_id" required/>

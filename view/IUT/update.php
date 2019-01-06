@@ -1,7 +1,7 @@
 <html> 
     <body>
 
-      <form method="post" action="admin.php?controller=IUT&action=updated&idIUT=<?php echo $v->getIdIUT(); ?>">
+      <form class="updateFormulaire" method="post" action="admin.php?controller=IUT&action=updated&idIUT=<?php echo $v->getIdIUT(); ?>">
 
         <fieldset>
           <legend>IUT :</legend>
@@ -50,7 +50,7 @@
           </p>
 
           <p>
-            <input type="submit" value="Envoyer" />
+            <input id="bouton-envoyer" type="submit" value="Envoyer" />
           </p>
 
           <p>

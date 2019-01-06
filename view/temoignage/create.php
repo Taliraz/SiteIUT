@@ -1,9 +1,9 @@
 <html>
     <script src="<?php echo File::build_path_css(array("view","temoignage","ajax.js")) ?>"></script> 
     <body>
-      <form method="post" action="admin.php?action=created&controller=temoignage" enctype="multipart/form-data">
+      <form  class="createFormulaire" method="post" action="admin.php?action=created&controller=temoignage" enctype="multipart/form-data">
         <fieldset>
-          <legend>Temoignages :</legend>
+          <legend>Ajouter un Temoignage :</legend>
           <p>
             <label for="titreTemoignage_id"> Titre </label>
             <input type="text" id="titreTemoignage_id" name="titreTemoignage">
