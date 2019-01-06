@@ -40,7 +40,7 @@ svg {
 
 .popup_content .titre {
     width: 60%;
-    margin-top: 10vh;
+    margin-top: 5vh;
     margin-left: 30%;
     font-size: calc(1.2vh + 1.2vw);
 }
@@ -54,7 +54,7 @@ svg {
 
 .popup_content p {
     width: 60%;
-    margin-top: 5vh;
+    margin-top: 3vh;
     margin-left: 30%;
     font-size: calc(0.7vh + 0.7vw);
     pointer-events: all;
@@ -84,7 +84,7 @@ a{
 
 .popup_licence .titre {
     width: 60%;
-    margin-top: 10vh;
+    margin-top: 5vh;
     margin-left: 30%;
     font-size: calc(1vh + 1vw);
 }
@@ -93,6 +93,7 @@ a{
     text-decoration: none;
     pointer-events: all;
     transition: all 0.2s;
+    font-size: calc(1vh + 1vw);
     color: white;
 }
 
@@ -102,9 +103,8 @@ a{
 
 .popup_licence p {
     width: 60%;
-    margin-top: 5vh;
+    margin-top: 3vh;
     margin-left: 30%;
-    font-size: calc(0.7vh + 0.7vw);
     pointer-events: all;
 }
 
@@ -169,7 +169,12 @@ a{
         margin-top: 5vh;
         margin-left: 0;
         margin-top: 1vh;
-        font-size: calc(3vh + 3vw);
+        font-size: calc(2.5vh + 2.5vw);
+    }
+    
+    .popup_licence .licence_nom a {
+        font-size: calc(2.5vh + 2.5vw);
+        margin: 0;
     }
     
     .popup_licence p {

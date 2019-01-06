@@ -39,7 +39,7 @@
           </p>
             
             <p>
-                <label for="p_photo_id">Photo témoignage : </label>
+                <label for="p_photo_id">Photo : </label>
                 <input type="file" id="p_photo_id" name="p_photo"  required/>
             </p>
 
@@ -61,3 +61,4 @@
           </p>
       </form>
 </div>
+

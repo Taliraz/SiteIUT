@@ -13,9 +13,20 @@
     <select id="selectArt" onchange="artGoTo()">';
         foreach($art as $key) {
             echo '<option value="'.$key->getIdArticle().'">'.$key->getNomArticle().'</option>';
-        }
-        
-    echo '</select> '; 
+        }  
+    echo '
+        <option value="0" id="optionPPN">Le PPN</option>
+    </select> '; 
+    
+    echo '
+        <li class="article">
+            <h1 class="nomArticle">Le PPN</h1>
+            <span id="0" class="getArtId"></span>
+            <div class="artHeader">
+            </div>
+            <!-- <a id="PPN" href=$domain."/img/PPN_INFORMATIQUE_256097.pdf" download="PPN_INFORMATIQUE">Télécharger le PPN</a> -->
+            <embed id="pdfPPN" src="http://webinfo.iutmontp.univ-montp2.fr/~acdi/wordpress/wp-content/uploads/2018/11/PPN_INFORMATIQUE_256097.pdf"  type="application/pdf"/>
+        </li>';
     
     foreach($art as $key){ 
         $id = $key->getIdArticle();
