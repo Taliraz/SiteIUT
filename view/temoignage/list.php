@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <p>
+            <a title="create" href="admin.php?action=create&controller=temoignage"> Ajouter un Temoignage </a>
+        </p>
         <?php
         foreach ($tab_t as $v){
             echo '<p> Temoignage: 
@@ -12,10 +15,7 @@
                 .rawurlencode($v->getIdTemoignage()).'">supprimer</a> 
                 </p>';
             }  
-
         ?>
-        <p>
-            <a title="create" href="admin.php?action=create&controller=temoignage"> Ajouter un Temoignage </a>
-        </p>
+        
     </body>
 </html>

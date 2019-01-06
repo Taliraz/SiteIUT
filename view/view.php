@@ -18,7 +18,6 @@
                     <a class=\'buttons\' href="admin.php?action=readAll&controller=IUT">IUT </a>
                     <a class=\'buttons\' href="admin.php?action=readAll&controller=stage">Stage </a>
                     <a class=\'buttons\' href="admin.php?action=readAll&controller=temoignage">Temoignage </a>
-                    <a class=\'buttons\' href="admin.php?action=readAll&controller=ville">Ville </a>
                     <a class=\'buttons\' href="admin.php?action=readAll&controller=licence">Licence </a>
                     </p><br>';
             }
