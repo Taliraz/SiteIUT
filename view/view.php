@@ -12,7 +12,7 @@
             if(isset($_SESSION['login'])){
                 echo '<div id=\'menu\'>
                         <div id="menuOrdi">
-                            <span id=\'nomConnexion\'>Bievenue '.$_SESSION['login'].' </span>
+                            <span id=\'nomConnexion\'>Bienvenue '.$_SESSION['login'].' </span>
                             <a class=\'buttons\' href="admin.php?action=readAll&controller=administrateur"> Administrateurs </a>
                             <a class=\'buttons\' href="admin.php?action=readAll&controller=article"> Articles </a>
                             <a class=\'buttons\' href="admin.php?action=readAll&controller=IUT">IUT </a>
