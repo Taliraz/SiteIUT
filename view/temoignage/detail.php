@@ -1,11 +1,12 @@
 <?php
 require_once File::build_path(array("model","ModelTemoignage.php"));
+$IUT=ModelIUT::getIUTById($v->getIdIUT());
 echo'<p class="detailDonnees"> Titre : ' . htmlspecialchars($v->getTitreTemoignage()).'</p>
 	<p class="detailDonnees"> Contenu : ' . htmlspecialchars($v->getContenuTemoignage()) .'</p>
 	<p class="detailDonnees"> Année de publication : ' .htmlspecialchars($v->getanneeEtude()) .'</p>
 	<p class="detailDonnees"> Theme : '.htmlspecialchars($v->getTheme()).'</p>
 	<p class="detailDonnees"> Etudiant : '.htmlspecialchars($v->getNomEtudiant()).' '.htmlspecialchars($v->getPrenomEtudiant()).'</p>
-	<p class="detailDonnees"> IUT : '.htmlspecialchars((ModelIUT::getIUTById($v->getIdIUT()))->getNomIUT()).'</p>';
+	<p class="detailDonnees"> IUT : '.htmlspecialchars($IUT->getNomIUT()).'</p>';
 ?>
 
 <?php
