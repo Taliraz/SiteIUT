@@ -17,7 +17,8 @@
             <img src="<?php echo File::build_path_css(array("ONE-Page","images" ,"load-lune.png")) ?>" alt="" id="loading">
         </div>
         
-         <div id="BG" class="media">
+        <div id="BGMobile" class="media"></div>
+        <div id="BG" class="media">
              
             <p data-depth="0" class="sceneBG">
                 <img src="ONE-Page/images/BG-VC.jpg" alt="bg" class="bg_back">

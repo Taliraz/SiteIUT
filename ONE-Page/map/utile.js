@@ -4,7 +4,7 @@ function closeAllPopup(){
   var tabPopup=document.getElementsByClassName('popup')
   popupActive = false
   for (var i=0;i<tabPopup.length;i++){
-    tabPopup[i].style.left = "-80vh"
+    tabPopup[i].style.left = "-100vh"
     if (window.innerWidth > 600) {
         tabPopup[i].style.animation = "speedBack 1s ease-in"
     }
@@ -23,7 +23,7 @@ function displayPopup(id){
 
 function closePopup(id){
     popupActive = false
-    document.getElementById(id).style.left = "-80vh"
+    document.getElementById(id).style.left = "-100vh"
     if (window.innerWidth > 600) {
         document.getElementById(id).style.animation = "speedBack 0.5s ease-in"
     }

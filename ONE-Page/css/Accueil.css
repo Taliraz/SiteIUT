@@ -847,10 +847,10 @@ h1
 
 #load {
     position:fixed;
-    top:-50vh;
-    left:-50vw;
-    width: 200vw;
-    height:400vh;
+    top:0vh;
+    left:0vw;
+    width: 100vw;
+    height:100vh;
     z-index:500;
     background-image: linear-gradient(to left bottom, #ffffff, #e4e2ea, #c9c6d6, #b0abc1, #9790ad);
     color: white;
@@ -860,8 +860,8 @@ h1
 }
 
 #loading {
-    width: 10vw;
-    margin-top: 85vh;
+    width: calc(6vw + 6vh);
+    margin-top: 40vh;
     animation: roll 0.5s infinite;
     transition: all 1s;
 }
@@ -876,7 +876,7 @@ h1
     top: 0;
     height: 50vh;
     width: 3.5vw;
-    z-index: 1000;
+    z-index: 10;
     padding: 0;
 }
 
@@ -992,6 +992,15 @@ h1
     height: 110vh;
 }
 
+#BGMobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left:0;
+    background-size: 100%;
+    background-image: url(../images/baieVitree.jpg);
+}
+
 .bg_back {
     overflow: hidden;
     position: fixed;
@@ -1052,6 +1061,14 @@ h1
         display: none;
         object-fit: fill;
     }
+    
+    #BG {
+        display: none;
+    }
+    
+    #BGMobile {
+        display: block;
+    }
 }
     
     
@@ -1067,6 +1084,7 @@ h1
 
 #slogan {
     color: white;
+    text-shadow: black 1px 2px;;
 }
 
 #titreSlide1 {

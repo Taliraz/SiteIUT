@@ -19,7 +19,7 @@ svg {
 #map .popup{
     position: fixed;
     top: 10%;
-    left: -80vh;
+    left: -100vh;
     width: 80vh;
     height: 80%;    
     transition: all ease-out 0.4s;
@@ -141,6 +141,7 @@ a{
     
     .popup > .popup_content {
         width: 100%;
+        filter: drop-shadow(0px 0px 0px rgba(0,0,0,0));
     }
     
     .popup_content .titre {
@@ -162,6 +163,7 @@ a{
     .popup_licence {
         width: 100%;
         left: -100vw;
+        filter: drop-shadow(0px 0px 0px rgba(0,0,0,0));
     }
     
     .popup_licence .titre {
