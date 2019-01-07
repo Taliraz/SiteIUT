@@ -347,11 +347,42 @@ body {
 
 
 
+/*  LOAD  */
 
+#load {
+    position:fixed;
+    top:0vh;
+    left:0vw;
+    width: 100vw;
+    height:100vh;
+    z-index:500;
+    background-image: linear-gradient(to left bottom, #ffffff, #e4e2ea, #c9c6d6, #b0abc1, #9790ad);
+    color: white;
+    font-size: 5vw;
+    text-align: center;
+    transition: all 1s;
+}
 
+#loading {
+    width: calc(6vw + 6vh);
+    margin-top: 40vh;
+    animation: roll 0.5s infinite;
+    transition: all 1s;
+}
 
-
-
+@keyframes roll{
+    from {transform: rotate(0);}
+    10% {transform: rotate(36deg);}
+    20% {transform: rotate(72deg);}
+    30% {transform: rotate(108deg);} 
+    40% {transform: rotate(144deg);}
+    50% {transform: rotate(180deg);}
+    60% {transform: rotate(216deg);}
+    70% {transform: rotate(252deg);}
+    80% {transform: rotate(288deg);}
+    90% {transform: rotate(324deg);}
+    to  {transform: rotate(360deg);}
+}
 
 
 
