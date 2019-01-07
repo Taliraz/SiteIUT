@@ -5,7 +5,7 @@
           <legend>Connexion :</legend>
           <p>
             <label for="login_id">Login</label> :
-            <input type="text" placeholder="Ex : 256AB34" name="login" id="login_id" required/>
+            <input type="text" name="login" id="login_id" required/>
           </p>
           <p> 
             <label for="mdp_id">Mot de passe</label> :
