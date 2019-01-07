@@ -1,6 +1,23 @@
+<?php
+  require_once (File::build_path(array("model","ModelTemoignage.php")));
+  if(isset($_POST['submit'])){
+      if (!empty($_FILES['p_photo']) && is_uploaded_file($_FILES['p_photo']['tmp_name'])) {
+          $name = $_FILES['p_photo']['name'];
+          $pic_path = File::build_path(array("img","$name"));
+          if (!move_uploaded_file($_FILES['p_photo']['tmp_name'], $pic_path)) {
+            echo "La copie a échoué";
+          }
+      }
+      $idTemoignage=NULL;
+      $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
+      $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['p_titreTemoignage'], $photoTemoignage, $_POST['p_contenuTemoignage'],$_POST['p_anneeEtude'],$_POST['p_theme'],$_POST['p_nomEtudiant'],$_POST['p_prenomEtudiant'],$_POST['p_idIUT']);
+      $ModelTemoignage->save();
+  } 
+?>
+
 <div id="poster_tem">
     <p id="closePopupPost" onclick="closePopupPost()"><img src="ONE-Page/images/croix.png" alt="fermer"></p>
-    <form id="poster_tem_form" method="post" action="admin.php?action=created&controller=temoignage" enctype="multipart/form-data">
+    <form id="poster_tem_form" method="post" enctype="multipart/form-data">
           <legend>Poster un témoignage</legend>
           <p>
             <label for="p_titreTemoignage_id"> Titre : </label>
@@ -57,9 +74,11 @@
           </p>
 
           <p>
-            <input type="submit" value="Envoyer">
+            <input type="submit" name="submit" value="Envoyer">
           </p>
       </form>
 </div>
+
+
 
 
