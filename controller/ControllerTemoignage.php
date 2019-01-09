@@ -45,7 +45,7 @@ class ControllerTemoignage{
         }
         $idTemoignage=NULL;
         $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
-        $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['titreTemoignage'], $photoTemoignage, $_POST['contenuTemoignage'],$_POST['anneeEtude'],$_POST['theme'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT']);
+        $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['titreTemoignage'], $photoTemoignage, $_POST['contenuTemoignage'],$_POST['anneeEtude'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT']);
         $ModelTemoignage->save();
         $controller='temoignage';
         $view='created';
@@ -71,7 +71,7 @@ class ControllerTemoignage{
         }
         $idTemoignage=$_GET["idTemoignage"];
         $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
-        $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['titreTemoignage'], $photoTemoignage, $_POST['contenuTemoignage'],$_POST['anneeEtude'],$_POST['theme'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT']);
+        $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['titreTemoignage'], $photoTemoignage, $_POST['contenuTemoignage'],$_POST['anneeEtude'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT'],$_POST['accepte']);
         $ModelTemoignage->update();
         $controller='temoignage';
         $view='updated';
@@ -83,6 +83,21 @@ class ControllerTemoignage{
         if(isset($_SESSION['login'])){
             $v=ModelTemoignage::getTemoignageById($_GET ['idTemoignage']);
             $v->delete();
+            self::readAll();
+        }
+        else{
+            $controller='administrateur';
+            $view='connect';
+            $pagetitle='Connexion';
+            require(File::build_path(array("view","view.php")));
+        }
+    }
+
+    public static function accept(){
+        if(isset($_SESSION['login'])){
+            $v=ModelTemoignage::getTemoignageById($_GET ['idTemoignage']);
+            $v->accepter();
+            $v->update();
             self::readAll();
         }
         else{

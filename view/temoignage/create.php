@@ -24,14 +24,6 @@
           </p>
 
           <p>
-            <label for="theme_id">Theme</label> :
-            <select name="theme" id="theme_id" required>
-              <option value="theme1">Theme 1 </option>
-              <option value="theme2">Theme 2 </option>
-            </select>
-          </p>
-
-          <p>
             <label for="nomEtudiant_id"> Nom </label>
             <input type="text" id="nomEtudiant_id" name="nomEtudiant">
           </p>

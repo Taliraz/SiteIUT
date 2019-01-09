@@ -76,15 +76,6 @@
         </p>
 
         <p>
-            <label for="gratifie_id">Est Accepté</label> :
-            <select name="accepte" id="accepte_id" required>
-              <?php if($v->getEstAccepte()) echo '<option selected value="1">Oui </option> <option value="0">Non </option>';
-              else echo '<option value="1">Oui </option> <option selected value="0">Non </option>';
-              ?>
-            </select>
-          </p>
-
-        <p>
             <label for="nomContact_id">Nom du contact</label> :
             <input type="text" value ="<?php echo $v->getNomContact(); ?>" name="nomContact" id="nomContact_id" required/>
         </p>

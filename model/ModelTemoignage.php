@@ -6,22 +6,22 @@ class ModelTemoignage{
     private $photoTemoignage;
 	private $contenuTemoignage;
 	private $anneeEtude;
-	private $theme;
 	private $nomEtudiant;
 	private $prenomEtudiant;
 	private $idIUT;
+	private $accepte;
 
-	public function __construct($id=NULL, $t=NULL, $p=NULL, $c=NULL, $d=NULL, $th=NULL, $ne=NULL, $pe=NULL, $i=NULL){
-		if (!is_null($t) && !is_null($p) && !is_null($c) && !is_null($d) && !is_null($th) && !is_null($ne) && !is_null($pe) && !is_null($i)){
+	public function __construct($id=NULL, $t=NULL, $p=NULL, $c=NULL, $ae=NULL, $ne=NULL, $pe=NULL, $i=NULL, $a=NULL){
+		if (!is_null($t) && !is_null($p) && !is_null($c) && !is_null($ae) && !is_null($ne) && !is_null($pe) && !is_null($i)){
 			$this->idTemoignage=$id;
 			$this->titreTemoignage=$t;
             $this->photoTemoignage=$p;
 			$this->contenuTemoignage=$c;
-			$this->anneeEtude=$d;
-			$this->theme=$th;
+			$this->anneeEtude=$ae;
 			$this->nomEtudiant=$ne;
 			$this->prenomEtudiant=$pe;
 			$this->idIUT=$i;
+			$this->accepte=0;
 		}
 	}
 
@@ -45,10 +45,6 @@ class ModelTemoignage{
 		return $this->anneeEtude;
 	}
 
-	public function getTheme(){
-		return $this->theme;
-	}
-
 	public function getNomEtudiant(){
 		return $this->nomEtudiant;
 	}
@@ -61,6 +57,9 @@ class ModelTemoignage{
 		return $this->idIUT;
 	}
 
+	public function estAccepte(){
+		return $this->accepte;
+	}
     
 	public function setTitreTemoignage($PtitreTemoignage){
 		$this->titreTemoignage=$PtitreTemoignage;
@@ -78,10 +77,6 @@ class ModelTemoignage{
 		$this->anneeEtude=$PanneeEtude;
 	}
 
-	public function setTheme($Ptheme){
-		$this->theme=$Ptheme;
-	}
-
 	public function setNomEtudiant($PnomEtudiant){
 		$this->nomEtudiant=$PnomEtudiant;
 	}
@@ -92,6 +87,14 @@ class ModelTemoignage{
 
 	public function setIdIUT($PidIUT){
 		$this->idIUT=$PidIUT;
+	}
+
+	public function setAccepte($Paccepte){
+		$this->accepte=$Paccepte;
+	}
+
+	public function accepter(){
+		$this->accepte=1;
 	}
 
 	public static function getAllTemoignages(){
@@ -150,26 +153,27 @@ class ModelTemoignage{
 	    return $tab_temoignage;
 	}
 
-	public static function getTemoignageByTheme($theme) {
-	    $sql = "SELECT * from `mon-Temoignages` WHERE theme=:theme";
-	    $req_prep = Model::$pdo->prepare($sql);
-
-	    $values = array(
-	        "theme" => $theme,
-	    );  
-	    $req_prep->execute($values);
-	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelTemoignage');
-	    $tab_temoignage = $req_prep->fetchAll();
-	    if (empty($tab_stage)){
-	        return false;
-	    }
-	    return $tab_temoignage;
-	}
-
 
 	public function save(){
     try{
-      $req_prep=Model::$pdo->prepare("INSERT INTO `mon-Temoignages`(idTemoignage, titreTemoignage, photoTemoignage, contenuTemoignage, anneeEtude, theme, nomEtudiant, prenomEtudiant, idIUT) VALUES (:idTemoignage, :titreTemoignage, :photoTemoignage, :contenuTemoignage, :anneeEtude, :theme, :nomEtudiant, :prenomEtudiant, :idIUT)");
+      $req_prep=Model::$pdo->prepare("INSERT INTO `mon-Temoignages`(idTemoignage, 
+      																titreTemoignage,
+      																photoTemoignage,
+      																contenuTemoignage,
+      																anneeEtude,
+      																nomEtudiant,
+      																prenomEtudiant,
+      																idIUT,
+      																accepte) 
+      								VALUES (:idTemoignage,
+      										:titreTemoignage,
+      										:photoTemoignage,
+      										:contenuTemoignage,
+      										:anneeEtude,
+      										:nomEtudiant,
+      										:prenomEtudiant,
+      										:idIUT,
+      										:accepte)");
 
       $values=array(
         "idTemoignage" => $this->idTemoignage,
@@ -177,10 +181,10 @@ class ModelTemoignage{
         "photoTemoignage" => $this->photoTemoignage,
         "contenuTemoignage" => $this->contenuTemoignage,
         "anneeEtude" => $this->anneeEtude,
-        "theme" => $this->theme,
         "nomEtudiant" => $this->nomEtudiant,
         "prenomEtudiant" => $this->prenomEtudiant,
-        "idIUT" => $this->idIUT
+        "idIUT" => $this->idIUT,
+        "accepte" => $this->accepte
         );
       $req_prep->execute($values);
     }
@@ -202,7 +206,15 @@ class ModelTemoignage{
   	}
 
   	public function update(){
-        $req_prep=Model::$pdo->prepare("UPDATE `mon-Temoignages` SET titreTemoignage=:titreTemoignage, photoTemoignage=:photoTemoignage,contenuTemoignage=:contenuTemoignage, anneeEtude=:anneeEtude, theme=:theme, nomEtudiant=:nomEtudiant, prenomEtudiant=:prenomEtudiant, idIUT=:idIUT WHERE idTemoignage=:idTemoignage");
+        $req_prep=Model::$pdo->prepare("UPDATE `mon-Temoignages` SET 	titreTemoignage=:titreTemoignage,
+        																photoTemoignage=:photoTemoignage,
+        																contenuTemoignage=:contenuTemoignage, 
+        																anneeEtude=:anneeEtude,
+        																nomEtudiant=:nomEtudiant,
+        																prenomEtudiant=:prenomEtudiant,
+        																idIUT=:idIUT,
+        																accepte=:accepte
+        														WHERE idTemoignage=:idTemoignage");
 
         $values=array(
           "idTemoignage"=>$this->idTemoignage,
@@ -210,10 +222,10 @@ class ModelTemoignage{
           "photoTemoignage" => $this->photoTemoignage,
           "contenuTemoignage" => $this->contenuTemoignage,
           "anneeEtude" => $this->anneeEtude,
-          "theme" => $this->theme,
           "nomEtudiant" => $this->nomEtudiant,
           "prenomEtudiant" => $this->prenomEtudiant,
-          "idIUT" => $this->idIUT
+          "idIUT" => $this->idIUT,
+          "accepte" => $this->accepte
           );
         $req_prep->execute($values);
 

@@ -94,7 +94,7 @@ class ControllerStage{
     public static function updated(){
         if (isset($_SESSION['login'])){
             $idStage=$_GET['idStage'];
-            $ModelStage=new ModelStage($idStage,$_POST['intituleStage'],$_POST['dateDebStage'],$_POST['dateFinStage'],$_POST['gratifie'],$_POST['descriptionStage'],$_POST['idVille'],$_POST['nbPlaces'],$_POST['numSiret'],$_POST['nomEntreprise'],$_POST['siteEntreprise'],$_POST['adresseEntreprise'],$_POST['telephoneEntreprise'],$_POST['accepte'],$_POST['nomContact'],$_POST['prenomContact'],$_POST['fonctionContact'],$_POST['telephoneContact'],$_POST['emailContact']);
+            $ModelStage=new ModelStage($idStage,$_POST['intituleStage'],$_POST['dateDebStage'],$_POST['dateFinStage'],$_POST['gratifie'],$_POST['descriptionStage'],$_POST['idVille'],$_POST['nbPlaces'],$_POST['numSiret'],$_POST['nomEntreprise'],$_POST['siteEntreprise'],$_POST['adresseEntreprise'],$_POST['telephoneEntreprise'],$_POST['nomContact'],$_POST['prenomContact'],$_POST['fonctionContact'],$_POST['telephoneContact'],$_POST['emailContact']);
             $ModelStage->update();
             $controller='Stage';
             $view='updated';
@@ -109,26 +109,5 @@ class ControllerStage{
         }
 
     }
-
-    public static function accept(){
-        if (isset($_SESSION['login'])){
-            $idStage=$_GET['idStage'];
-            $ModelStage=ModelStage::getStageByid($idStage);
-            $ModelStage->accept();
-            $controller='Stage';
-            $view='accepted';
-            $pagetitle='Stage accepté';
-            require(File::build_path(array("view","view.php")));
-        }
-        else{
-            $controller='temoignage';
-            $view='detail';
-            $pagetitle='Detail temoignage';
-            require(File::build_path(array("view","view.php")));
-        }
-
-    }
-
-
 }
 ?>

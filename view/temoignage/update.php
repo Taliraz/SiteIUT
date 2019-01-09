@@ -27,16 +27,6 @@
           </p>
 
           <p>
-            <label for="theme_id">Theme</label> :
-            <select name="theme" id="theme_id" required>
-              <?php
-                if($v->getTheme()=="theme1") echo '<option value="theme1">Theme 1 </option>';
-                else echo '<option value="theme2">Theme 2 </option>';
-              ?>
-            </select>
-          </p>
-
-          <p>
             <label for="nomEtudiant_id"> Nom </label>
             <?php echo '<input type="text" value="'.$v->getNomEtudiant().'" id="nomEtudiant_id" name="nomEtudiant">'?>
           </p>
@@ -64,6 +54,18 @@
                 }
                 ?>
               </select>
+          </p>
+
+          <p>
+            <label for="accepte_id">Accepté</label> :
+            <select name="accepte" id="accepte_id" required>
+              <?php
+                if($v->estAccepte()) echo '<option value="1">Accepte </option>
+                                          <option value="0">En attente de validation </option>';
+                else echo '<option value="0">En attente de validation </option>
+                          <option value="1">Accepte </option>';
+              ?>
+            </select>
           </p>
 
           <p>
