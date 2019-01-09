@@ -25,7 +25,7 @@
             <div class="artHeader">
             </div>
             <!-- <a id="PPN" href=$domain."/img/PPN_INFORMATIQUE_256097.pdf" download="PPN_INFORMATIQUE">Télécharger le PPN</a> -->
-            <embed id="pdfPPN" src="http://webinfo.iutmontp.univ-montp2.fr/~acdi/wordpress/wp-content/uploads/2018/11/PPN_INFORMATIQUE_256097.pdf"  type="application/pdf"/>
+            <embed id="pdfPPN" src="ONE-Page/images/PPN_INFORMATIQUE.pdf"  type="application/pdf"/>
         </li>';
     
     foreach($art as $key){ 
