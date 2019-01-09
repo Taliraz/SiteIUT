@@ -1,6 +1,31 @@
+<?php
+  $tooHeavy="";
+  if(isset($_POST['submit'])){
+    $tailleFichier=$_FILES['photo']['size'];
+    if($tailleFichier>0){
+      if (!empty($_FILES['photo']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
+            $name = $_FILES['photo']['name'];
+            $pic_path = File::build_path(array("img","$name"));
+            if (!move_uploaded_file($_FILES['photo']['tmp_name'], $pic_path)) {
+              echo "La copie a échoué";
+            }
+      }
+      else {
+        $name="";
+      }
+        $idTemoignage=$_GET["idTemoignage"];
+        $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
+        $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['titreTemoignage'], $photoTemoignage, $_POST['contenuTemoignage'],$_POST['anneeEtude'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT'],$_POST['accepte']);
+        $ModelTemoignage->update();
+        header('Location: admin.php?action=readAll&controller=temoignage');
+        exit();
+    }
+    else $tooHeavy="Fichier trop lourd";
+  } 
+?>
 <html> 
     <body>
-      <form class="updateFormulaire" method="post" action="admin.php?action=updated&controller=temoignage&idTemoignage=<?php echo $v->getIdTemoignage() ?>" enctype="multipart/form-data">
+      <form class="updateFormulaire" method="post" enctype="multipart/form-data">
         <fieldset>
           <legend>Temoignages :</legend>
           <p>
@@ -37,9 +62,10 @@
           </p>
             
             <p>
-                <label for="photo_id">Photo témoignage</label> :
-                <input type="file" name="photo"  required/>
+              <label for="photo_id">Photo témoignage</label> :
+              <input type="file" name="photo"  required/>
             </p>
+            <?php echo '<span style="color:red">'.$tooHeavy.'</span>'; ?>
 
             <p>
               <label for="IUT_id">IUT</label> 
@@ -69,7 +95,7 @@
           </p>
 
           <p>
-            <input id="bouton-envoyer" type="submit" value="Envoyer">
+            <input id="bouton-envoyer" type="submit" name="submit" value="Envoyer">
           </p>
 
           <p>
