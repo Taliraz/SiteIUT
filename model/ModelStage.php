@@ -14,7 +14,6 @@ class ModelStage{
 	private $siteEntreprise;
 	private $adresseEntreprise;
 	private $telephoneEntreprise;
-	private $estAccepte;
 	private $nomContact;
 	private $prenomContact;
 	private $fonctionContact;
@@ -22,8 +21,8 @@ class ModelStage{
 	private $emailContact;
 
 
-	public function __construct($id=NULL, $i=NULL,$dd=NULL,$df=NULL,$g=NULL,$ds=NULL,$iv=NULL,$np=NULL,$ns=NULL,$ne=NULL,$se=NULL,$ae=NULL,$te=NULL,$ea=NULL,$nc=NULL,$pc=NULL,$fc=NULL,$tc=NULL,$ec=NULL){
-		if (!is_null($i) && !is_null($dd) && !is_null($df) && !is_null($g) && !is_null($ds) && !is_null($iv) && !is_null($np)  && !is_null($ns) && !is_null($ne) && !is_null($se) && !is_null($ae) && !is_null($te) && !is_null($ea) && !is_null($nc) && !is_null($pc) && !is_null($fc) && !is_null($tc) && !is_null($ec)){
+	public function __construct($id=NULL, $i=NULL,$dd=NULL,$df=NULL,$g=NULL,$ds=NULL,$iv=NULL,$np=NULL,$ns=NULL,$ne=NULL,$se=NULL,$ae=NULL,$te=NULL,$nc=NULL,$pc=NULL,$fc=NULL,$tc=NULL,$ec=NULL){
+		if (!is_null($i) && !is_null($dd) && !is_null($df) && !is_null($g) && !is_null($ds) && !is_null($iv) && !is_null($np)  && !is_null($ns) && !is_null($ne) && !is_null($se) && !is_null($ae) && !is_null($te) && !is_null($nc) && !is_null($pc) && !is_null($fc) && !is_null($tc) && !is_null($ec)){
 			$this->idStage=$id;
 			$this->intituleStage=$i;
 			$this->dateDebStage=$dd;
@@ -37,7 +36,6 @@ class ModelStage{
 			$this->siteEntreprise=$se;
 			$this->adresseEntreprise=$ae;
 			$this->telephoneEntreprise=$te;
-			$this->estAccepte=false;
 			$this->nomContact=$nc;
 			$this->prenomContact=$pc;
 			$this->fonctionContact=$fc;
@@ -98,10 +96,6 @@ class ModelStage{
 
 	public function getTelephoneEntreprise(){
 		return $this->telephoneEntreprise;
-	}
-
-	public function getEstAccepte(){
-		return $this->estAccepte;
 	}
 
 	public function getNomContact(){
@@ -173,10 +167,6 @@ class ModelStage{
 
 	public function setTelephoneEntreprise($PtelephoneEntreprise){
 		$this->telephoneEntreprise=$PtelephoneEntreprise;
-	}
-
-	public function setEstAccepte($PestAccepte){
-		$this->estAccepte=$PestAccepte;
 	}
 
 	public function setNomContact($PnomContact){
@@ -306,8 +296,40 @@ class ModelStage{
 	public function save(){
 	    try{
 	      $req_prep=Model::$pdo->prepare(
-	      	"INSERT INTO `mon-Stages`(intituleStage,dateDebStage,dateFinStage,gratifie,descriptionStage,idVille,nbPlaces,numSiret,nomEntreprise,siteEntreprise,adresseEntreprise,telephoneEntreprise,estAccepte,nomContact,prenomContact,fonctionContact,telephoneContact,emailContact)
-	      	VALUES(:intituleStage,:dateDebStage,:dateFinStage,:gratifie,:descriptionStage,:idVille,:nbPlaces,:numSiret,:nomEntreprise,:siteEntreprise,:adresseEntreprise,:telephoneEntreprise,:estAccepte,:nomContact,:prenomContact,:fonctionContact,:telephoneContact,:emailContact)");
+	      	"INSERT INTO `mon-Stages`(	intituleStage,
+	      								dateDebStage,
+	      								dateFinStage,
+	      								gratifie,
+	      								descriptionStage,
+	      								idVille,
+	      								nbPlaces,
+	      								numSiret,
+	      								nomEntreprise,
+	      								siteEntreprise,
+	      								adresseEntreprise,
+	      								telephoneEntreprise,
+	      								nomContact,
+	      								prenomContact,
+	      								fonctionContact,
+	      								telephoneContact,
+	      								emailContact)
+	      	VALUES(	:intituleStage,
+	      			:dateDebStage,
+	      			:dateFinStage,
+	      			:gratifie,
+	      			:descriptionStage,
+	      			:idVille,
+	      			:nbPlaces,
+	      			:numSiret,
+	      			:nomEntreprise,
+	      			:siteEntreprise,
+	      			:adresseEntreprise,
+	      			:telephoneEntreprise,
+	      			:nomContact,
+	      			:prenomContact,
+	      			:fonctionContact,
+	      			:telephoneContact,
+	      			:emailContact)");
 
 	      $values=array(
 	        "intituleStage" => $this->intituleStage,
@@ -322,7 +344,6 @@ class ModelStage{
 	       	"siteEntreprise" => $this->siteEntreprise,
 	       	"adresseEntreprise" => $this->adresseEntreprise,
 	       	"telephoneEntreprise" => $this->telephoneEntreprise,
-	       	"estAccepte" => $this->estAccepte,
 	       	 "nomContact" => $this->nomContact,
 	       	 "prenomContact" => $this->prenomContact,
 	       	 "fonctionContact" => $this->fonctionContact,
@@ -363,7 +384,6 @@ class ModelStage{
 	      							siteEntreprise=:siteEntreprise,
 	      							adresseEntreprise=:adresseEntreprise,
 	      							telephoneEntreprise=:telephoneEntreprise,
-	      							estAccepte=:estAccepte,
 	      							nomContact=:nomContact,
 	      							prenomContact=:prenomContact,
 	      							fonctionContact=:fonctionContact,
@@ -385,7 +405,6 @@ class ModelStage{
 	       	"siteEntreprise" => $this->siteEntreprise,
 	       	"adresseEntreprise" => $this->adresseEntreprise,
 	       	"telephoneEntreprise" => $this->telephoneEntreprise,
-	       	"estAccepte" => $this->estAccepte,
 	       	 "nomContact" => $this->nomContact,
 	       	 "prenomContact" => $this->prenomContact,
 	       	 "fonctionContact" => $this->fonctionContact,

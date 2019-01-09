@@ -11,7 +11,6 @@ echo'<p class="detailDonnees"> Intitule : ' . htmlspecialchars($v->getIntituleSt
     <p class="detailDonnees"> Site de l\'entreprise : '.htmlspecialchars($v->getSiteEntreprise()).'</p>
     <p class="detailDonnees"> Adresse de l\'entreprise : '.htmlspecialchars($v->getAdresseEntreprise()).'</p>
     <p class="detailDonnees"> Téléphone de l\'entreprise : '.htmlspecialchars($v->getTelephoneEntreprise()).'</p>
-    <p class="detailDonnees"> Accepté : '.htmlspecialchars($v->getEstAccepte()).'</p>
     <p class="detailDonnees"> Nom du contact : '.htmlspecialchars($v->getNomContact()).'</p>
     <p class="detailDonnees"> Prénom du contact : '.htmlspecialchars($v->getPrenomContact()).'</p>
     <p class="detailDonnees"> Fonction du contact : '.htmlspecialchars($v->getFonctionContact()).'</p>
@@ -21,7 +20,6 @@ echo'<p class="detailDonnees"> Intitule : ' . htmlspecialchars($v->getIntituleSt
 
 <?php
 if(isset($_SESSION['login'])){
-	if(!$v->getEstaccepte()) echo '<a class="detailAccepter" title="accept" href="admin.php?controller='.$controller.'&action=accept&idStage='.$v->getIdStage().'">Accepter</a>';
 	echo '<a class="detailModifier" title="update" href="admin.php?controller='.$controller.'&action=update&idStage='.$v->getIdStage().'">Modifier</a>';
 	echo '<a class="detailSupprimer" title="delete" href="admin.php?controller='.$controller.'&action=delete&idStage='.$v->getIdStage().'">Supprimer</a>';
 }

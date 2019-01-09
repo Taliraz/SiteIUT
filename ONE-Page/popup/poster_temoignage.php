@@ -8,9 +8,10 @@
             echo "La copie a échoué";
           }
       }
+      else $name="";
       $idTemoignage=NULL;
       $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
-      $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['p_titreTemoignage'], $photoTemoignage, $_POST['p_contenuTemoignage'],$_POST['p_anneeEtude'],$_POST['p_theme'],$_POST['p_nomEtudiant'],$_POST['p_prenomEtudiant'],$_POST['p_idIUT']);
+      $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['p_titreTemoignage'], $photoTemoignage, $_POST['p_contenuTemoignage'],$_POST['p_anneeEtude'],$_POST['p_nomEtudiant'],$_POST['p_prenomEtudiant'],$_POST['p_idIUT']);
       $ModelTemoignage->save();
   } 
 ?>
@@ -35,14 +36,6 @@
               <?php for($i=1940; $i<=intval(date("Y")); $i++) {
                 echo '<option value="'.$i.'">'.$i.'</option>';
               } ?>
-            </select>
-          </p>
-
-          <p>
-            <label for="p_theme_id">Theme : </label>
-            <select name="p_theme" id="p_theme_id" required>
-              <option value="theme1">Theme 1 </option>
-              <option value="theme2">Theme 2 </option>
             </select>
           </p>
 
