@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo File::build_path_css(array("view","CSS" ,"PanelAdmin.css")); ?>">
         <title><?php echo $pagetitle; ?></title>
     </head>
-
+    
      <header>
         
             
@@ -27,7 +27,6 @@
     </header>
 
     <body>
-
     <?php
     $filepath = File::build_path(array("view", $controller, $view.".php"));
     require $filepath;

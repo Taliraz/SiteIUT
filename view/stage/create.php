@@ -3,6 +3,9 @@
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
     </head>
     <body>
+        <div id="load">
+            <img src="<?php echo File::build_path_css(array("ONE-Page","images" ,"load-lune.png")) ?>" alt="" id="loading">
+        </div>
         <div id="advert">
             <span>Section Réservée aux Entreprises</span>
             <br><br>
@@ -116,8 +119,33 @@
           </p>
         </fieldset> 
       </form>
+
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","JQuery.js")) ?>"></script>
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "load.js")) ?>"></script>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <style>
     html {

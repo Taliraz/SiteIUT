@@ -1094,7 +1094,7 @@ h1
 
 #fleche {
     width: 60px;
-    margin-top: calc(100vh - 300px);
+    margin-top: 60vh;
     animation: bounce_arrow 1s ease infinite;
     filter: invert(1);
     transition: all 1s;
@@ -1148,6 +1148,10 @@ h1
     
     #titreSlide2 {
         display: none;
+    }
+    
+    #fleche {
+        margin-top: 50vh;
     }
 }
 
@@ -1352,6 +1356,7 @@ button {
     .tem_tit {
         font-size: 4vh;
         position: relative;
+        margin-bottom: -8vh;
     }
     
     .tem_aut {
