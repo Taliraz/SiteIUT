@@ -38,11 +38,10 @@
 
           <p>
             <label for="siteLicence_id">Site web </label> :
-            <br>
-            <textarea name="siteLicence" id="siteLicence_id" required></textarea>
+            <input type="text" name="siteLicence" id="siteLicence_id" required>
           </p>
           <p>
-            <input type="submit" value="Envoyer" />
+            <input id="bouton-envoyer" type="submit" value="Envoyer" />
           </p>
 
           <p>

@@ -115,13 +115,11 @@
             <br>
 
           <p>
-                <input type="submit" value="Envoyer" class="bouton" />
+                <input  id="bouton-envoyer" type="submit" value="Envoyer" class="bouton" />
           </p>
         </fieldset> 
       </form>
 
-        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","JQuery.js")) ?>"></script>
-        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "load.js")) ?>"></script>
     </body>
 </html>
 
@@ -226,6 +224,10 @@
     }
     
     @media screen and (max-width: 600px) {
+        html {
+            margin: 0;
+            background: none;
+        }
         
         #formStage {
             width: 95vw;
@@ -237,12 +239,7 @@
             position: fixed;
             overflow-y: scroll;
         }
-        
-        html {
-            margin: 0;
-            background: none;
-        }
-        
+            
         legend {
             font-size: 4vh;
         }

@@ -9,7 +9,7 @@
             <input type="text" id="titreTemoignage_id" name="titreTemoignage">
           </p>
           <p>
-            <label for="contenuTemoignage_id">contenu</label> :
+            <label for="contenuTemoignage_id">Contenu</label> :
             <br>
             <textarea name="contenuTemoignage" id="contenuTemoignage" required></textarea>
           </p>
@@ -52,7 +52,7 @@
           </p>
 
           <p>
-            <input type="submit" value="Envoyer">
+            <input id="bouton-envoyer" type="submit" value="Envoyer">
           </p>
 
           <p>
@@ -61,5 +61,15 @@
 
         </fieldset> 
       </form>
+        
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","JQuery.js")) ?>"></script>
+        <script>
+        $(function() {
+            var optionWbb = {
+                buttons: "bold,|,italic,|,underline,|,img,|,link,|,video"
+            }
+            $("#contenuTemoignage").wysibb(optionWbb);
+        })
+        </script>
     </body>
 </html>

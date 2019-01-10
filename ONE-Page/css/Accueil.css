@@ -872,12 +872,13 @@ h1
 
 #menu {
     position: fixed;
-    right: 0;
+    left: 95vw;
     top: 0;
     height: 50vh;
     width: 3.5vw;
     z-index: 10;
     padding: 0;
+    transition: all 0.7s;
 }
 
 #navigation {
@@ -929,6 +930,20 @@ h1
     z-index: 1;
 }
 
+#liste_articles .tooltip {
+    display: inherit;
+}
+
+#liste_articles .tooltiptext {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: calc(1vh + 1vw);
+    height: auto;
+    border-radius: 0 0 / 0 0 ;
+}
+
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
@@ -962,6 +977,9 @@ h1
         display: none;
     }
     
+    #navigation li img:hover {
+        filter: brightness(1) invert(0);
+    }
 }
 
 
@@ -1099,6 +1117,7 @@ h1
     filter: invert(1);
     transition: all 1s;
     z-index: 5;
+    cursor: pointer;
 }
 
 .slides {
@@ -1384,6 +1403,23 @@ button {
         overflow: scroll;
     }
     
+    .carousel-prev {
+        left: 0;
+        width: 25%; 
+        height: 100%;
+    }
+
+    .carousel-next {
+        right: 0;
+        width: 25%; 
+        height: 100%; 
+    }
+
+    .popup_trigger {
+        left: 25%;
+        width: 50%;
+        height: 60%;
+    }
 }
 
 
@@ -1499,7 +1535,7 @@ button {
 
 /* Articles */
 
-.liste_articles {
+#liste_articles {
     list-style: none;
     padding: 0;
     margin: none;
@@ -1528,14 +1564,19 @@ button {
 
 .article .contenu_article {
     padding: 20px;
-    margin-left: 5vw;
-    margin-right: 5vw;
     margin-bottom: 2vh;
     background-color: white;
     color: black;
-    width: 80%;
-    max-height: 75%;
+    height: 75%;
+    width: 90%;
     overflow-y: scroll;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.article .contenu_article img {
+    max-width: 80%;
+    margin-left: 10%;
 }
 
 .InfosNext {
@@ -1602,7 +1643,7 @@ button {
 }
 
 @media screen and (max-width: 600px){
-    .liste_articles {
+    #liste_articles {
         margin-top: 0;
     }
     

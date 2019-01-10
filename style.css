@@ -70,6 +70,7 @@ body {
     padding: calc(0.5vh + 0.5vw);
     background-color:  #887fbc;
     font-size: calc(1.5vh + 1.5vw);
+    z-index: 10;
 }
 
 #menu a {
@@ -167,14 +168,14 @@ body {
 }
 
 .listeElements {
-    font-size: calc(1.2vh + 1.2vw);
+    font-size: calc(0.8vh + 0.8vw);
     font-weight: bolder;
     margin-left: 3vw;
     background-color: #acb1d8;
-    padding-top: calc(1vh + 1vw);
-    padding-bottom: calc(1vh + 1vw);
-    padding-left: calc(2vh + 2vw);
-    padding-right: calc(2vh + 2vw);
+    padding-top: calc(0.5vh + 0.5vw);
+    padding-bottom: calc(0.5vh + 0.5vw);
+    padding-left: calc(1vh + 1vw);
+    padding-right: calc(1vh + 1vw);
     border-bottom-left-radius: 90px;
     border-top-left-radius: 10%;
 }
@@ -195,7 +196,7 @@ body {
 .listeElement1 {
     font-weight: normal;
     font-style: italic;
-    font-size: calc(1.5vh + 1.5vw);
+    font-size: calc(1.2vh + 1.2vw);
     margin-left: 1vw;
     margin-right: 1.5vw;
 }
@@ -280,6 +281,11 @@ body {
     width: 10%;
 }
 
+#contenu_id {
+    z-index: 0;
+    width: 90%;
+}
+
 @media screen and (max-width: 600px){
     .createFormulaire, .updateFormulaire {
         padding: 0;
@@ -311,6 +317,10 @@ body {
     #bouton-envoyer, #bouton-retour {
         width: 30%;
     }
+    
+    #contenu_id {
+        width: 10%;
+    }
 }
 
 
@@ -322,20 +332,20 @@ body {
 
 .detailDonnees {
     margin-left: 5vw;
-    font-size: calc(1.5vh + 1.5vw);
+    font-size: calc(1.2vh + 1.2vw);
 }
 
 .detailAccepter, .detailSupprimer, .detailModifier {
     margin-left: 5vw;
-    font-size: calc(1.5vh + 1.5vw);
+    font-size: calc(1.2vh + 1.2vw);
     margin-right: 3vw;
     text-decoration: underline;
     color: black;
     background-color: #acb1d8;
-    padding-top: calc(1vh + 1vw);
-    padding-bottom: calc(1vh + 1vw);
-    padding-left: calc(2vh + 2vw);
-    padding-right: calc(2vh + 2vw);
+    padding-top: calc(0.5vh + 0.5vw);
+    padding-bottom: calc(0.5vh + 0.5vw);
+    padding-left: calc(1vh + 1vw);
+    padding-right: calc(1vh + 1vw);
     transition: all 0.2s;
     border-radius: 50% 20% / 10% 40%;
 }

@@ -1,7 +1,12 @@
 <?php
 require_once File::build_path(array("model","ModelArticle.php"));
+require_once (File::build_path(array("ONE-Page","jbbcode", "JBBCode", "Parser.php")));
+
+require (File::build_path(array("ONE-Page", "jbbcode", "getParsed.php")));
+$parser->parse($v->getContenuArticle());
+
 echo("<p class='detailDonnees'>Nom : " . htmlspecialchars($v->getNomArticle()) ."</p>
-	<p class='detailDonnees'> Contenu : " .htmlspecialchars($v->getContenuArticle()) ."</p>");
+	<p class='detailDonnees'> Contenu : " .$parser->getAsHtml() ."</p>");
 
 ?>
 <?php

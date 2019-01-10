@@ -12,7 +12,7 @@
             <label for="mdp_id">Mot de passe</label> :
             <input type="password" name="mdp" id="mdp_id" required/>
           <p>
-            <input type="submit" value="Envoyer" />
+            <input id="bouton-envoyer" type="submit" value="Envoyer" />
           </p>
           <p>
               <input id="bouton-retour" type="button" value="Retour" onclick="history.go(-1)">

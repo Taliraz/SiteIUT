@@ -231,6 +231,7 @@
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "load.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "css", "CSS-Utile.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "articles", "articles.js")) ?>"></script>
-
+        
+        
     </body>
 </html>

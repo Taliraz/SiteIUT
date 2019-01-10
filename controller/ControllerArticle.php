@@ -45,12 +45,13 @@ class ControllerArticle{
 
     public static function created(){
         if (isset($_SESSION['login'])){
-          $ModelStage=new ModelArticle(NULL,$_POST['nom'],$_POST['contenu']);
-          $ModelStage->save();
-          $controller='article';
-          $view='created';
-          $pagetitle='Article créée';
-          require(File::build_path(array("view","view.php")));
+            $contenu = nl2br($_POST['contenu']);
+            $ModelStage=new ModelArticle(NULL,$_POST['nom'],$contenu);
+            $ModelStage->save();
+            $controller='article';
+            $view='created';
+            $pagetitle='Article créée';
+            require(File::build_path(array("view","view.php")));
       }
       else{
             $controller='administrateur';

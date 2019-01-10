@@ -2,6 +2,7 @@ var body = document.querySelector('body')
 var bub1 = document.getElementById('bub1')
 var display = document.getElementById("slide0")
 
+var fleche = document.getElementById('fleche')
 var getTop = document.getElementById('getTop')
 var getSlide1 = document.getElementById('getSlide1')
 var getSlide2 = document.getElementById('getSlide2')
@@ -191,16 +192,17 @@ $(document).mousemove(function(e) {
     
 });
 
-window.addEventListener("scroll", function(){
-    if (window.scrollY > screenHeight) {
-        for (var i=2;i<=totalBubble+1;i++){
-            var nom = "bub"+i
-            var deadBubble = document.getElementById(nom)
-            body.removeChild(deadBubble)
+if(window.innerWidth > 600){
+    window.addEventListener("scroll", function(){
+        if (window.scrollY > screenHeight) {
+            for (var i=2;i<=totalBubble+1;i++){
+                var nom = "bub"+i
+                var deadBubble = document.getElementById(nom)
+                body.removeChild(deadBubble)
+            }
         }
-    }
-}, false);
-
+    }, false);
+}
 
 
 //Blocage du scroll
@@ -273,6 +275,10 @@ function forceSlide1(){
 }
 
 getSlide1.addEventListener("click", function(){
+    forceSlide1()
+}, false);
+
+fleche.addEventListener("click", function(){
     forceSlide1()
 }, false);
 
@@ -422,62 +428,64 @@ window.addEventListener("load", function(){
 
 //Get scroll direction 
 /*
-var scrollPos = 0
-var goTop = 0
-var goDown = 0
+if (window.innerWidth < 600){
+    
+    var scrollPos = 0
+    var goTop = 0
+    var goDown = 0
 
-function throttle(fn, wait) {
-      var time = Date.now()   
-      return function() {
-        if ((time + wait - Date.now()) < 0 & goTop == 1) {
-            getTopScroll()
-            time = Date.now()
+    function throttle(fn, wait) {
+          var time = Date.now()   
+          return function() {
+            if ((time + wait - Date.now()) < 0 & goTop == 1) {
+                getTopScroll()
+                time = Date.now()
+            }
+            if ((time + wait - Date.now()) < 0 & goDown == 1) {
+                getDownScroll()
+                time = Date.now()
+            }
         }
-        if ((time + wait - Date.now()) < 0 & goDown == 1) {
-            getDownScroll()
-            time = Date.now()
+    }
+
+    function blankFunc(){}
+
+    window.addEventListener('scroll', throttle(blankFunc, 300))
+
+    window.addEventListener("scroll", function(){
+        if ((document.body.getBoundingClientRect()).top > scrollPos){
+            goTop = 1
+            goDown = 0
+        }
+        else {
+            goTop = 0
+            goDown = 1
+        }
+        setTimeout('goDown = 0', 1)
+        setTimeout('goTop = 0', 1)
+        scrollPos = (document.body.getBoundingClientRect()).top;
+    }, false)
+
+
+    function getTopScroll(){
+         if (niveauScroll != 0) {
+            var nomFunc = "forceSlide" + (niveauScroll-1)
+            window[nomFunc]()
         }
     }
-}
 
-function blankFunc(){}
-
-window.addEventListener('wheel', throttle(blankFunc, 300))
-
-window.addEventListener("scroll", function(){
-    if ((document.body.getBoundingClientRect()).top > scrollPos){
-        goTop = 1
-        goDown = 0
-    }
-    else {
-        goTop = 0
-        goDown = 1
-    }
-    setTimeout('goDown = 0', 1)
-    setTimeout('goTop = 0', 1)
-    scrollPos = (document.body.getBoundingClientRect()).top;
-}, false)
-
-
-function getTopScroll(){
-     if (niveauScroll != 0) {
-        var nomFunc = "forceSlide" + (niveauScroll-1)
-        window[nomFunc]()
-    }
-}
-
-function getDownScroll(){
-    if (niveauScroll != niveauScrollMax){
-        var nomFunc = "forceSlide" + (niveauScroll+1)
-        window[nomFunc]()
+    function getDownScroll(){
+        if (niveauScroll != niveauScrollMax){
+            var nomFunc = "forceSlide" + (niveauScroll+1)
+            window[nomFunc]()
+        }
     }
 }
 */
 
 
-
-
 /* ToolTip */
+/* VERSION AU STOP
 var currentmX = 0
 var currentmY = 0
 
@@ -504,4 +512,22 @@ function onStop(){
         tooltiptext[i].style.left = currentmX + 20 + "px" 
     }
 }
+*/
 
+/* VERSION CONTINUE */
+var currentmX = 0
+var currentmY = 0
+
+$(document).mousemove(function(e) {
+    currentmX = e.screenX
+    currentmY = e.screenY
+    var now = Date.now()
+    var mouseSpot = Math.floor((e.screenX/WW)*100) 
+    var dt = now - timestamp
+    var distance = Math.abs(currentmX - mX)
+    var speed = Math.round(distance / dt * 1000)
+    for (var i = 0; i < tooltiptext.length; i++) {
+        tooltiptext[i].style.top =  currentmY -130 +  "px"
+        tooltiptext[i].style.left = currentmX + 20 + "px"
+    }
+})

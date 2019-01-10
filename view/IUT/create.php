@@ -4,19 +4,17 @@
         <fieldset>
           <legend>Ajouter un IUT :</legend>
           <p>
-            <label for="nomIUT_id"> Nom </label>
+            <label for="nomIUT_id"> Nom : </label>
             <input type="text" id="nomIUT_id" name="nomIUT">
           </p>
           <p>
             <label for="adresseIUT_id">Adresse </label> :
-            <br>
-            <textarea name="adresseIUT" id="adresseIUT_id" required></textarea>
+            <input type="text" name="adresseIUT" id="adresseIUT_id" required>
           </p>
 
           <p>
             <label for="siteIUT_id">Site </label> :
-            <br>
-            <textarea name="siteIUT" id="siteIUT_id" required></textarea>
+            <input type="text" name="siteIUT" id="siteIUT_id" required>
           </p>
 
           <p>
@@ -38,12 +36,11 @@
 
           <p>
             <label for="mailSecretariatIUT_id">email secrétariat </label> :
-            <br>
-            <textarea name="mailSecretariatIUT" id="mailSecretariatIUT_id" required></textarea>
+            <input type="text" name="mailSecretariatIUT" id="mailSecretariatIUT_id" required>
           </p>
 
           <p>
-            <input type="submit" value="Envoyer" />
+            <input id="bouton-envoyer" type="submit" value="Envoyer" />
           </p>
 
           <p>
@@ -52,5 +49,6 @@
 
         </fieldset> 
       </form>
+        
     </body>
 </html>

@@ -12,12 +12,22 @@
              <textarea name="contenu" id="contenu_id"></textarea>
           </p>
           <p>
-            <input type="submit" value="Envoyer" />
+            <input id="bouton-envoyer" type="submit" value="Envoyer" />
           </p>
           <p>
               <input id="bouton-retour" type="button" value="Retour" onclick="history.go(-1)">
           </p>
         </fieldset> 
       </form>
+        
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","JQuery.js")) ?>"></script>
+        <script>
+        $(function() {
+            var optionWbb = {
+                buttons: "bold,|,italic,|,underline,|,img,|,link,|,video"
+            }
+            $("#contenu_id").wysibb(optionWbb);
+        })
+        </script>
     </body>
 </html>

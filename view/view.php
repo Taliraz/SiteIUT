@@ -2,11 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo File::build_path_css(array("style")); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo File::build_path_css(array("ONE-Page", "css", "wbbtheme.css")); ?>">
         <title><?php echo $pagetitle; ?></title>
     </head>
-
+    <body>
         <header>
             <?php
             if(isset($_SESSION['login'])){
@@ -36,12 +38,15 @@
             }?>
         </header>
 
-    <body>
-
-    <?php
-    $filepath = File::build_path(array("view", $controller, $view.".php"));
-    require $filepath;
-    ?>
+        <?php
+        $filepath = File::build_path(array("view", $controller, $view.".php"));
+        require $filepath;
+        ?>
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","JQuery.js")) ?>"></script>
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "load.js")) ?>"></script>
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "js_jbbcode", "wysibb.local")) ?>"></script>
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "js_jbbcode", "wysibb.local2")) ?>"></script>
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "js_jbbcode", "jquery.wysibb.min.js")) ?>"></script>
     </body>
 
 
@@ -68,7 +73,7 @@
             setTimeout("actif = 0", 1)
         } 
     })
-    
+
 </script>
 
 
