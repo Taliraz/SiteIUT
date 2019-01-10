@@ -226,6 +226,10 @@
     }
     
     @media screen and (max-width: 600px) {
+        html {
+            margin: 0;
+            background: none;
+        }
         
         #formStage {
             width: 95vw;
@@ -237,12 +241,7 @@
             position: fixed;
             overflow-y: scroll;
         }
-        
-        html {
-            margin: 0;
-            background: none;
-        }
-        
+            
         legend {
             font-size: 4vh;
         }

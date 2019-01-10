@@ -1,9 +1,4 @@
 
-window.requestAnimationFrame = window.requestAnimationFrame
-                               || window.mozRequestAnimationFrame
-                               || window.webkitRequestAnimationFrame
-                               || window.msRequestAnimationFrame
-                               || function(f){setTimeout(f, 1000/60)}
 
 var pageTop = 0
 var slide0 = document.getElementById('slide0')
@@ -62,17 +57,17 @@ function parallaxScroll(objet, vitesse, yOrigin){
 
 window.addEventListener('load', function(){
      slide0.style.height = slide0.clientHeight + "px";
-	requestAnimationFrame(parallaxScroll(slide0, 1, pageTop)) 
+	parallaxScroll(slide0, 1, pageTop)
 }, false)
 
 window.addEventListener('resize', function(){ 
      slide0.style.height = slide0.clientHeight + "px";
-	requestAnimationFrame(parallaxScroll(slide0, 1,  pageTop)) 
+	parallaxScroll(slide0, 1,  pageTop)
 }, false)
 
 window.addEventListener('scroll', function(){ 
     slide0.style.height = slide0.clientHeight + "px";
-	requestAnimationFrame(parallaxScroll(slide0, 1,  pageTop)) 
+	parallaxScroll(slide0, 1,  pageTop)
 }, false)
 
 
@@ -81,15 +76,15 @@ window.addEventListener('scroll', function(){
 //Premier Slide
 
 window.addEventListener('load', function(){ 
-	requestAnimationFrame(parallaxScroll(slide1, 1, slide0.clientHeight + pageTop)) 
+	parallaxScroll(slide1, 1, slide0.clientHeight + pageTop)
 }, false)
 
 window.addEventListener('resize', function(){ 
-	requestAnimationFrame(parallaxScroll(slide1, 1, slide0.clientHeight + pageTop)) 
+	parallaxScroll(slide1, 1, slide0.clientHeight + pageTop)
 }, false)
 
 window.addEventListener('scroll', function(){ 
-	requestAnimationFrame(parallaxScroll(slide1, 1, slide0.clientHeight + pageTop))
+	parallaxScroll(slide1, 1, slide0.clientHeight + pageTop)
 }, false)
 
 
@@ -102,17 +97,17 @@ var v = 0.5
 
 window.addEventListener('load', function(){ 
     var h2 = (slide0.clientHeight + slide1.clientHeight)*v + pageTop
-	requestAnimationFrame(parallaxScroll(slide2, v, h2)) 
+	parallaxScroll(slide2, v, h2)
 }, false)
 
 window.addEventListener('resize', function(){ 
     var h2 = (slide0.clientHeight + slide1.clientHeight)*v + pageTop
-	requestAnimationFrame(parallaxScroll(slide2, v, h2)) 
+	parallaxScroll(slide2, v, h2)
 }, false)
 
 window.addEventListener('scroll', function(){ 
     var h2 = (slide0.clientHeight + slide1.clientHeight)*v + pageTop
-	requestAnimationFrame(parallaxScroll(slide2, v, h2)) 
+	parallaxScroll(slide2, v, h2)
 }, false)
 
 
@@ -129,7 +124,7 @@ window.addEventListener('load', function(){
     else {
         var h4 = slide0.clientHeight + slide1.clientHeight + slide2.clientHeight + pageTop
     }
-	requestAnimationFrame(parallaxScroll(slide3, 1, h4)) 
+	parallaxScroll(slide3, 1, h4)
 }, false)
 
 window.addEventListener('resize', function(){ 
@@ -139,7 +134,7 @@ window.addEventListener('resize', function(){
     else {
         var h4 = slide0.clientHeight + slide1.clientHeight + slide2.clientHeight + pageTop
     }
-	requestAnimationFrame(parallaxScroll(slide3, 1, h4)) 
+	parallaxScroll(slide3, 1, h4)
 }, false)
 
 window.addEventListener('scroll', function(){ 
@@ -149,7 +144,7 @@ window.addEventListener('scroll', function(){
     else {
         var h4 = slide0.clientHeight + slide1.clientHeight + slide2.clientHeight + pageTop
     }
-	requestAnimationFrame(parallaxScroll(slide3, 1, h4)) 
+	parallaxScroll(slide3, 1, h4)
 }, false)
 
 
@@ -168,7 +163,7 @@ window.addEventListener('load', function(){
     else {
         var h5 = (slide0.clientHeight + slide1.clientHeight + slide3.clientHeight + slide2.clientHeight)*v2 + pageTop
     }
-	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
+	parallaxScroll(slide4, v2, h5)
 }, false)
 
 window.addEventListener('resize', function(){ 
@@ -178,7 +173,7 @@ window.addEventListener('resize', function(){
     else {
         var h5 = (slide0.clientHeight + slide1.clientHeight +  slide3.clientHeight + slide2.clientHeight)*v2 + pageTop
     }
-	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
+	parallaxScroll(slide4, v2, h5)
 }, false)
 
 window.addEventListener('scroll', function(){ 
@@ -188,7 +183,7 @@ window.addEventListener('scroll', function(){
     else {
         var h5 = (slide0.clientHeight + slide1.clientHeight + slide3.clientHeight + slide2.clientHeight)*v2 + pageTop
     }
-	requestAnimationFrame(parallaxScroll(slide4, v2, h5)) 
+	parallaxScroll(slide4, v2, h5)
 }, false)
 
 

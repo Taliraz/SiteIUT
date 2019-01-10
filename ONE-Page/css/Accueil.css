@@ -962,6 +962,9 @@ h1
         display: none;
     }
     
+    #navigation li img:hover {
+        filter: brightness(1) invert(0);
+    }
 }
 
 
@@ -1099,6 +1102,7 @@ h1
     filter: invert(1);
     transition: all 1s;
     z-index: 5;
+    cursor: pointer;
 }
 
 .slides {
@@ -1384,6 +1388,23 @@ button {
         overflow: scroll;
     }
     
+    .carousel-prev {
+        left: 0;
+        width: 25%; 
+        height: 100%;
+    }
+
+    .carousel-next {
+        right: 0;
+        width: 25%; 
+        height: 100%; 
+    }
+
+    .popup_trigger {
+        left: 25%;
+        width: 50%;
+        height: 60%;
+    }
 }
 
 
