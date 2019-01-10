@@ -1110,6 +1110,10 @@ h1
     position: absolute;
 }
 
+#titreSlide2 {
+    margin: 0;
+}
+
 #fleche {
     width: 60px;
     margin-top: 60vh;
@@ -1296,6 +1300,14 @@ h1
     font-size: 200%;
 }
 
+.tem_cont iframe{
+    width: 100vw;
+}
+
+.tem_cont img {
+    width: 100%;
+}
+
 #carousel_arrow {
     list-style: none; 
 }
@@ -1433,12 +1445,14 @@ button {
     color: black;
     cursor: pointer;
     padding: 0;
+    margin: 0;
 }
 
 #poster_tem {
     position: fixed;
     left: 20%;
-    top: 15%;
+    top: 10%;
+    width: 50%;
     margin: 0;
     padding: 0;
     transition: all 0.5s;
@@ -1463,9 +1477,7 @@ button {
     padding: 0.5vh;
 }
 
-#poster_tem textarea {
-    width: 50vw;
-    height: 20vh;
+#poster_tem #p_contenuTemoignage {
     resize: none;
     font-family: 'Oswald', 'Work Sans', sans-serif;
 }
@@ -1509,7 +1521,7 @@ button {
         width: 90vw;
         height: 92vh;
         border-radius: 0;
-        margin: 0;
+        margin: auto;
     }
     
     #poster_tem_form {
@@ -1517,9 +1529,8 @@ button {
         padding: 0;
     }
     
-    #poster_tem textarea {
-        width: 90vw;
-        height: auto;
+    #poster_tem #p_contenuTemoignage {
+        width: 100%;
     }
     
     #assombrissement {

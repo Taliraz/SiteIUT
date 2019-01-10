@@ -104,5 +104,15 @@
 
         </fieldset> 
       </form>
+        
+        <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","JQuery.js")) ?>"></script>
+        <script>
+        $(function() {
+            var optionWbb = {
+                buttons: "bold,|,italic,|,underline,|,img,|,link,|,video"
+            }
+            $("#contenuTemoignage").wysibb(optionWbb);
+        })
+        </script>
     </body>
 </html>

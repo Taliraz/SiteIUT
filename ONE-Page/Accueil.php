@@ -4,6 +4,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo File::build_path_css(array("ONE-Page","css" ,"Accueil.css")) ?>">
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="<?php echo File::build_path_css(array("ONE-Page","imgCliper" ,"css", "imgareaselect-default.css")) ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo File::build_path_css(array("ONE-Page", "css", "wbbtheme.css")); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
         <title>One-page</title>
@@ -145,7 +146,7 @@
             
 
             <h1 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="titreSlide2">Ce que vous pensez de nous !</h1>
-            <h3 data-scroll="toggle(.scaleDownIn, .scaleDownOut)"id="poster_temoignage">
+            <h3 data-scroll="toggle(.scaleDownIn, .scaleDownOut)" id="poster_temoignage">
                 <a onclick="displayPopupPost()"> Publiez votre témoignage </a>
             </h3>
             <div id="assombrissement"></div>
@@ -216,22 +217,23 @@
 
         
        
-        
-    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","imgCliper", "scripts", "jquery.imgareaselect.min.js")) ?>"></script>
-    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","imgCliper", "scripts", "jquery.imgareaselect.pack.js")) ?>"></script>
+    
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","parallax", "parallax.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","ScrollTrigger", "ScrollTrigger.min.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","ScrollTrigger","Trigger.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","parallax" ,"Parallax-scroll.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","parallax" ,"Parallax-souris.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","JQuery.js")) ?>"></script>
-    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","carousel" ,"JCarousel.js")) ?>"></script>
-    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "popup","popup.js")) ?>"></script>
+    
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "map","utile.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "load.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "css", "CSS-Utile.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "articles", "articles.js")) ?>"></script>
-        
+    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "js_jbbcode", "wysibb.local")) ?>"></script>
+    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "js_jbbcode", "wysibb.local2")) ?>"></script>
+    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "js_jbbcode", "jquery.wysibb.min.js")) ?>"></script>   
+    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","carousel" ,"JCarousel.js")) ?>"></script>  
+    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "popup","popup.js")) ?>"></script>
         
     </body>
 </html>

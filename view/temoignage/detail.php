@@ -1,8 +1,11 @@
 <?php
 require_once File::build_path(array("model","ModelTemoignage.php"));
+require_once (File::build_path(array("ONE-Page","jbbcode", "JBBCode", "Parser.php")));
+require (File::build_path(array("ONE-Page", "jbbcode", "getParsed.php")));
+$parser->parse($v->getContenuTemoignage());
 $IUT=ModelIUT::getIUTById($v->getIdIUT());
 echo'<p class="detailDonnees"> Titre : ' . htmlspecialchars($v->getTitreTemoignage()).'</p>
-	<p class="detailDonnees"> Contenu : ' . htmlspecialchars($v->getContenuTemoignage()) .'</p>
+	<p class="detailDonnees"> Contenu : <br>' . $parser->getAsHtml() .'</p>
 	<p class="detailDonnees"> Année de publication : ' .htmlspecialchars($v->getanneeEtude()) .'</p>
 	<p class="detailDonnees"> Etudiant : '.htmlspecialchars($v->getNomEtudiant()).' '.htmlspecialchars($v->getPrenomEtudiant()).'</p>
 	<p class="detailDonnees"> IUT : '.htmlspecialchars($IUT->getNomIUT()).'</p>

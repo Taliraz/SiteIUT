@@ -2,6 +2,7 @@
 <ul id="carousel">
     <?php 
     require_once (File::build_path(array("model","ModelTemoignage.php")));
+    require_once (File::build_path(array("ONE-Page","jbbcode", "JBBCode", "Parser.php")));
     $tem = ModelTemoignage::getAllTemoignages();
     foreach($tem as $key){
         if($key->estAccepte()){
@@ -9,6 +10,9 @@
             $req_iut = Model::$pdo->query("SELECT nomIUT FROM `mon-IUTs` WHERE idIUT = $idIUT");
             $iutArray = $req_iut->fetch();
             $iut = $iutArray[0];  
+            
+            require (File::build_path(array("ONE-Page", "jbbcode", "getParsed.php")));
+            $parser->parse($key->getContenuTemoignage());
             
             echo '
                 <li class="car_ele">
@@ -31,7 +35,7 @@
                         <image src="'.File::build_path_css(array("ONE-Page","images", "fleche_d.png")).'" alt="fleche" class="fleche_d"></image>
                         
                         <div class="tem_cont">
-                            <p>'.$key->getContenuTemoignage().'</p>
+                            <p>'.$parser->getAsHtml().'</p>
                         </div>
                         
                         
