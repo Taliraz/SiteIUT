@@ -63,16 +63,19 @@ class ControllerTemoignage{
     }
 
     public static function updated(){
+        $idTemoignage=$_GET["idTemoignage"];
         if (!empty($_FILES['photo']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
             $name = $_FILES['photo']['name'];
             $pic_path = File::build_path(array("img","$name"));
             if (!move_uploaded_file($_FILES['photo']['tmp_name'], $pic_path)) {
               echo "La copie a échoué";
             }
+            $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
         }
-        else $name="";
-        $idTemoignage=$_GET["idTemoignage"];
-        $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
+        else {
+            $temoignage=ModelTemoignage::getTemoignageById($idTemoignage);
+            $photoTemoignage=$temoignage->getPhotoTemoignage();
+        }
         $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['titreTemoignage'], $photoTemoignage, $_POST['contenuTemoignage'],$_POST['anneeEtude'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT'],$_POST['accepte']);
         $ModelTemoignage->update();
         $controller='temoignage';
