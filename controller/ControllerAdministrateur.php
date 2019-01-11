@@ -132,7 +132,7 @@ class ControllerAdministrateur {
     public static function updated(){
         $login=$_GET['login'];
         if (isset($_SESSION['login'])){
-            $ModelAdministrateur=new ModelAdministrateur($_POST['login'],$_POST['nom'],$_POST['prenom'],Security::chiffrer($_POST['mdp']),false);
+            $ModelAdministrateur=new ModelAdministrateur($login,Security::chiffrer($_POST['mdp']));
             $ModelAdministrateur->update(ModelAdministrateur::getadministrateurbylogin($login));
             $controller='administrateur';
             $view='updated';
