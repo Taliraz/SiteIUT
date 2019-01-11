@@ -938,7 +938,7 @@ h1
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 30%;
     font-size: calc(1vh + 1vw);
     height: auto;
     border-radius: 0 0 / 0 0 ;
@@ -1451,7 +1451,7 @@ button {
 #poster_tem {
     position: fixed;
     left: 20%;
-    top: 10%;
+    top: 5%;
     width: 50%;
     margin: 0;
     padding: 0;
@@ -1480,6 +1480,9 @@ button {
 #poster_tem #p_contenuTemoignage {
     resize: none;
     font-family: 'Oswald', 'Work Sans', sans-serif;
+    overflow-y: scroll;
+    width: 100%;
+    height: 30vh;
 }
 
 #poster_tem input {
@@ -1587,7 +1590,6 @@ button {
 
 .article .contenu_article img {
     max-width: 80%;
-
 }
 
 .InfosNext {

@@ -66,7 +66,7 @@
         <script>
         $(function() {
             var optionWbb = {
-                buttons: "bold,|,italic,|,underline,|,img,|,link,|,video"
+                buttons: "bold,italic,underline,strike,|,img,video,link,|,fontcolor,fontsize,|,quote"
             }
             $("#contenuTemoignage").wysibb(optionWbb);
         })
