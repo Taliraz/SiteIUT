@@ -21,7 +21,7 @@ class ModelTemoignage{
 			$this->nomEtudiant=$ne;
 			$this->prenomEtudiant=$pe;
 			$this->idIUT=$i;
-			$this->accepte=0;
+			$this->accepte=$a;
 		}
 	}
 

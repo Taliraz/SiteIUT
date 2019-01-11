@@ -2,19 +2,21 @@
   $tooHeavy="";
   if(isset($_POST['submit'])){
     $tailleFichier=$_FILES['photo']['size'];
-    if($tailleFichier>0){
-      if (!empty($_FILES['photo']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
+    $nomFichier=$_FILES['photo']['name'];
+    if($tailleFichier>0 | $nomFichier==''){
+      $idTemoignage=$_GET["idTemoignage"];
+        if (!empty($_FILES['photo']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
             $name = $_FILES['photo']['name'];
             $pic_path = File::build_path(array("img","$name"));
             if (!move_uploaded_file($_FILES['photo']['tmp_name'], $pic_path)) {
               echo "La copie a échoué";
             }
-      }
-      else {
-        $name="";
-      }
-        $idTemoignage=$_GET["idTemoignage"];
-        $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
+            $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
+        }
+        else {
+            $temoignage=ModelTemoignage::getTemoignageById($idTemoignage);
+            $photoTemoignage=$temoignage->getPhotoTemoignage();
+        }
         $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['titreTemoignage'], $photoTemoignage, $_POST['contenuTemoignage'],$_POST['anneeEtude'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT'],$_POST['accepte']);
         $ModelTemoignage->update();
         header('Location: admin.php?action=readAll&controller=temoignage');
