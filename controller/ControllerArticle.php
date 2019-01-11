@@ -95,7 +95,8 @@ class ControllerArticle{
     public static function updated(){
         $idArticle=$_GET['idArticle'];
         if (isset($_SESSION['login'])){
-            $ModelArticle=new ModelArticle($idArticle,$_POST['nom'],$_POST['contenu']);
+            $contenu = nl2br($_POST['contenu']);
+            $ModelArticle=new ModelArticle($idArticle,$_POST['nom'],$contenu);
             $ModelArticle->update();
             $controller='article';
             $view='updated';

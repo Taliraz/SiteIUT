@@ -66,7 +66,7 @@
         echo '</div>
             <span class="tooltip">
                 <span class="tooltiptext">Cliquez pour une lecture plein écran !</span>
-                <p class="contenu_article">'.$parser->getAsHtml() .'<br></p>
+                <p class="contenu_article">'.$parser->getAsHtml() .'<br><br></p>
             </span>
             
             </li>';
