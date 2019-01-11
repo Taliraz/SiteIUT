@@ -63,7 +63,7 @@
             
             <p>
               <label for="photo_id">Photo témoignage</label> :
-              <input type="file" name="photo"  required/>
+              <input type="file" name="photo"  />
             </p>
             <?php echo '<span style="color:red">'.$tooHeavy.'</span>'; ?>
 
