@@ -2,7 +2,9 @@
   $tooHeavy="";
   if(isset($_POST['submit'])){
     $tailleFichier=$_FILES['photo']['size'];
-    if($tailleFichier>0){
+    $nomFichier=$_FILES['photo']['name'];
+    var_dump($nomFichier);
+    if($tailleFichier>0 & $nomFichier==''){
       if (!empty($_FILES['photo']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
             $name = $_FILES['photo']['name'];
             $pic_path = File::build_path(array("img","$name"));
