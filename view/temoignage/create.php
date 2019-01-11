@@ -1,7 +1,31 @@
+<?php
+  $tooHeavy="";
+  if(isset($_POST['submit'])){
+    $tailleFichier=$_FILES['photo']['size'];
+    if($tailleFichier>0){
+      if (!empty($_FILES['photo']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
+            $name = $_FILES['photo']['name'];
+            $pic_path = File::build_path(array("img","$name"));
+            if (!move_uploaded_file($_FILES['photo']['tmp_name'], $pic_path)) {
+              echo "La copie a échoué";
+            }
+        }
+        else $name="";
+        $idTemoignage=NULL;
+        $photoTemoignage=NULL;
+        $photoTemoignage="http://webinfo.iutmontp.univ-montp2.fr/~armangaus/SiteIUT/img/".$name;
+        $ModelTemoignage=new ModelTemoignage($idTemoignage,$_POST['titreTemoignage'], $photoTemoignage, $_POST['contenuTemoignage'],$_POST['anneeEtude'],$_POST['nomEtudiant'],$_POST['prenomEtudiant'],$_POST['idIUT'],$photoTemoignage);
+        $ModelTemoignage->save();
+        header('Location: admin.php?action=readAll&controller=temoignage');
+        exit();
+    }
+    else $tooHeavy="Fichier trop lourd";
+  } 
+?>
+
 <html>
-    <script src="<?php echo File::build_path_css(array("view","temoignage","ajax.js")) ?>"></script> 
     <body>
-      <form  class="createFormulaire" method="post" action="admin.php?action=created&controller=temoignage" enctype="multipart/form-data">
+      <form  class="createFormulaire" method="post" enctype="multipart/form-data">
         <fieldset>
           <legend>Ajouter un Temoignage :</legend>
           <p>
@@ -35,7 +59,7 @@
             
             <p>
                 <label for="photo_id">Photo témoignage</label> :
-                <input type="file" name="photo"  required/>
+                <input type="file" name="photo" accept=".png,.jpg,.jpeg,.JPG" required/>
             </p>
 
             <p>
@@ -52,7 +76,7 @@
           </p>
 
           <p>
-            <input id="bouton-envoyer" type="submit" value="Envoyer">
+            <input id="bouton-envoyer" name="submit" type="submit" value="Envoyer">
           </p>
 
           <p>

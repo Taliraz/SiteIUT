@@ -65,7 +65,7 @@
             
             <p>
               <label for="photo_id">Photo témoignage</label> :
-              <input type="file" name="photo"  />
+              <input type="file" name="photo" accept=".png,.jpg,.jpeg,.JPG" />
             </p>
             <?php echo '<span style="color:red">'.$tooHeavy.'</span>'; ?>
 

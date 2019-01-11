@@ -50,7 +50,21 @@
             
             <p>
                 <label for="p_photo_id">Photo : </label>
-                <input type="file" id="p_photo_id" name="p_photo"  required/>
+                <input type="file" id="p_photo_id" name="p_photo" accept=".png,.jpg,.jpeg,.JPG" required/>
+                <script>
+                  var uploadField = document.getElementById("p_photo_id");
+                  uploadField.onchange = function() {
+                      if(this.files[0].size > 2200000){
+                         alert("Fichier trop lourd (taille maximale : 2MB)");
+                         this.value = "";
+                      };
+                      var fileType=this.files[0].type;
+                      if(fileType!="image/jpeg" && fileType!="image/png"){
+                         alert("Type de fichier invalide, veuillez choisir un fichier de type jpeg ou png");
+                         this.value = "";
+                      };
+                  };
+                </script>
             </p>
 
             <p>
@@ -71,7 +85,16 @@
           </p>
       </form>
 </div>
+
+<script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","JQuery.js")) ?>"></script>
+
 <script>
+$(function() {
+    var optionWbb = {
+        buttons: "bold,|,italic,|,underline,|,img"
+    }
+    $("#p_contenuTemoignage").wysibb(optionWbb);
+})
 </script>
 
 
