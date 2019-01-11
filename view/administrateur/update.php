@@ -1,6 +1,6 @@
 <html> 
     <body>
-      <form class="updateFormulaire" method="post" action="admin.php?controller=utilisateur&action=updated&login=<?php echo $v->getLogin(); ?>">
+      <form class="updateFormulaire" method="post" action="admin.php?controller=administrateur&action=updated&login=<?php echo $v->getLogin(); ?>">
         <fieldset>
           <legend>Mon formulaire :</legend>
           <p> 
