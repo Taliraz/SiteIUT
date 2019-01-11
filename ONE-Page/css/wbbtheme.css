@@ -22,8 +22,34 @@ html{height:100% !important;}
 	position:relative;
 	background:#fff;
 	font-size:12px;
-    
+    width: 95%;
+    max-height: 60vh;
+    overflow-y: scroll; 
 }
+
+@media screen and (max-width: 600px) {
+    .wysibb {
+        width: 90vw;
+    }
+    
+    .wysibb img {
+        max-width: 65vw
+    }
+    
+    .wysibb iframe {
+        max-width: 65vw
+    }
+}
+
+#poster_tem .wysibb {
+    height: 35vh;
+}
+
+#poster_tem .wysibb img {
+    height: 10vh;
+}
+
+
 
 .wysibb button:focus,.wysibb button:active,#wbbmodal button:focus, #wbbmodal button:active{
     outline: 0;

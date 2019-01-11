@@ -228,10 +228,7 @@
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "map","utile.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "load.js")) ?>"></script>
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "css", "CSS-Utile.js")) ?>"></script>
-    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "articles", "articles.js")) ?>"></script>
-    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "js_jbbcode", "wysibb.local")) ?>"></script>
-    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "js_jbbcode", "wysibb.local2")) ?>"></script>
-    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "js_jbbcode", "jquery.wysibb.min.js")) ?>"></script>   
+    <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "articles", "articles.js")) ?>"></script> 
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page","carousel" ,"JCarousel.js")) ?>"></script>  
     <script type="text/javascript" src="<?php echo File::build_path_css(array("ONE-Page", "popup","popup.js")) ?>"></script>
         

@@ -22,7 +22,7 @@
 <script>
 $(function() {
     var optionWbb = {
-        buttons: "bold,|,italic,|,underline,|,img,|,link,|,video"
+        buttons: "bold,italic,underline,strike,|,img,video,link,|,fontcolor,fontsize,|,justifyleft,justifycenter,justifyright,|,quote"
     }
     $("#contenu_id").wysibb(optionWbb);
 })
