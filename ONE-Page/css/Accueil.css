@@ -938,7 +938,7 @@ h1
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 30%;
     font-size: calc(1vh + 1vw);
     height: auto;
     border-radius: 0 0 / 0 0 ;
@@ -1590,7 +1590,6 @@ button {
 
 .article .contenu_article img {
     max-width: 80%;
-
 }
 
 .InfosNext {
