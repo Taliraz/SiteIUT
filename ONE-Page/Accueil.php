@@ -7,7 +7,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo File::build_path_css(array("ONE-Page", "css", "wbbtheme.css")); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
-        <title>One-page</title>
+        <title>Portail National IUT Informatique</title>
+        <link rel="shortcut icon" href="<?php echo File::build_path_css(array("img","icon.jpg")); ?>"
     </head>
     <body>
         
