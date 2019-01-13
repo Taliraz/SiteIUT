@@ -33,10 +33,10 @@
               <select name="idVille" size="1" id="idVille_id">
                 <?php
                 require_once File::build_path(array("model","ModelVille.php"));
-                echo '<option value="'.$v->getId().'">'.$v->getNom().' ('.$v->getCodePostal().') selected</option>';
                 $liste=ModelVille::getAllVilles();
                 foreach($liste as $valeur){
-                  echo '<option value="'.$valeur->getId().'">'.$valeur->getNom().' ('.$valeur->getCodePostal().')</option>';
+                  if ($valeur==$v) echo '<option selected value="'.$v->getId().'">'.$v->getNom().' ('.$v->getCodePostal().')</option>';
+                  else echo '<option value="'.$valeur->getId().'">'.$valeur->getNom().' ('.$valeur->getCodePostal().')</option>';
                 }
                 ?>
               </select>
