@@ -24,7 +24,7 @@
         <script>
         $(function() {
             var optionWbb = {
-                buttons: "bold,italic,underline,strike,|,img,video,link,|,fontcolor,|,quote,code"
+                buttons: "bold,italic,underline,|,img,video,link,|,fontcolor,|,quote,code"
             }
             $("#contenu_id").wysibb(optionWbb);
         })
