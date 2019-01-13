@@ -335,6 +335,10 @@ body {
     font-size: calc(1.2vh + 1.2vw);
 }
 
+.detailDonnees img {
+    max-width: 60%;
+}
+
 .detailAccepter, .detailSupprimer, .detailModifier {
     margin-left: 5vw;
     font-size: calc(1.2vh + 1.2vw);
