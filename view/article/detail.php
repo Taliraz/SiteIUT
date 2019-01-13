@@ -6,7 +6,7 @@ require (File::build_path(array("ONE-Page", "jbbcode", "getParsed.php")));
 $parser->parse($v->getContenuArticle());
 
 echo("<p class='detailDonnees'>Nom : " . htmlspecialchars($v->getNomArticle()) ."</p>
-	<p class='detailDonnees'> Contenu : " .$parser->getAsHtml() ."</p>");
+	<p class='detailDonnees'> Contenu : <br>" .$parser->getAsHtml() ."</p>");
 
 ?>
 <?php
