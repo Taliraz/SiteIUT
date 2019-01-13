@@ -9,7 +9,8 @@ echo'<p class="detailDonnees"> Titre : ' . htmlspecialchars($v->getTitreTemoigna
 	<p class="detailDonnees"> Année de publication : ' .htmlspecialchars($v->getanneeEtude()) .'</p>
 	<p class="detailDonnees"> Etudiant : '.htmlspecialchars($v->getNomEtudiant()).' '.htmlspecialchars($v->getPrenomEtudiant()).'</p>
 	<p class="detailDonnees"> IUT : '.htmlspecialchars($IUT->getNomIUT()).'</p>
-	<p class="detailDonnees"> Accepté : '.htmlspecialchars($v->estAccepte()).'</p>';
+	<p class="detailDonnees"> Accepté : '.htmlspecialchars($v->estAccepte()).'</p>
+	<p class="detailDonnees"> <img src="'.$v->getPhotoTemoignage().'" width="25%"></p>';
 ?>
 
 <?php
