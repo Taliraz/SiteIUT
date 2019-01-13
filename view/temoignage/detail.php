@@ -10,7 +10,7 @@ echo'<p class="detailDonnees"> Titre : ' . htmlspecialchars($v->getTitreTemoigna
 	<p class="detailDonnees"> Etudiant : '.htmlspecialchars($v->getNomEtudiant()).' '.htmlspecialchars($v->getPrenomEtudiant()).'</p>
 	<p class="detailDonnees"> IUT : '.htmlspecialchars($IUT->getNomIUT()).'</p>
 	<p class="detailDonnees"> Accepté : '.htmlspecialchars($v->estAccepte()).'</p>
-	<p class="detailDonnees"> <img src="'.$v->getPhotoTemoignage().'" width="25%"></p>';
+	<p class="detailDonnees"> <img src="'.$v->getPhotoTemoignage().'" width="25%" alt="L\'image n\'a pas été transférée"></p>';
 ?>
 
 <?php
