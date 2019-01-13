@@ -98,7 +98,6 @@ for(var i = 0; i <= contenu.length; i++){
             contenu[articleActuel-1].style.position = "fixed"
             contenu[articleActuel-1].style.width = "100vw"
             contenu[articleActuel-1].style.height = "94vh"
-            contenu[articleActuel-1].style.maxHeight = "none"
             contenu[articleActuel-1].style.top = "0"
             contenu[articleActuel-1].style.left = "0"
             contenu[articleActuel-1].style.zIndex = "100"
@@ -112,12 +111,12 @@ for(var i = 0; i <= contenu.length; i++){
             open = true
         }
         else {
-            contenu[articleActuel-1].style.position = "block"
+            contenu[articleActuel-1].style.position = "inherit"
             contenu[articleActuel-1].style.height = "auto"
             contenu[articleActuel-1].style.top = "auto"
             contenu[articleActuel-1].style.left = "auto"
             contenu[articleActuel-1].style.zIndex = "1"
-            contenu[articleActuel-1].style.maxHeight = "75%"
+            contenu[articleActuel-1].style.height = "75%"
             contenu[articleActuel-1].style.textAlign = "left"
             contenu[articleActuel-1].style.border = "none"
             if (window.innerWidth >= 600) {
