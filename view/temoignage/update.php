@@ -111,7 +111,7 @@
         <script>
         $(function() {
             var optionWbb = {
-                buttons: "bold,italic,underline,strike,|,img,video,link,|,fontcolor,fontsize,|,quote"
+                buttons: "bold,italic,underline,strike,|,img,video,link,|,fontcolor,|,quote"
             }
             $("#contenuTemoignage").wysibb(optionWbb);
         })

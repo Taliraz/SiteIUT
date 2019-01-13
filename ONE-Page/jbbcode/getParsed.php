@@ -11,5 +11,7 @@ $parser->addBBCode("code", '<pre class="code">{param}</pre>', false, false, 1);
 $parser->addBBCode("list", '<ul>{param}</ul>');
 $parser->addBBCode("*", '<li>{param}</li>');
 $parser->addBBCode("font", "<span style='font-family: {option};'>{param}</span>", true);
+$parser->addBBCode("color", "<span style='color: {option};'>{param}</span>", true);
+
 
 ?>
