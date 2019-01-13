@@ -3,6 +3,7 @@
 $parser = new JBBCode\Parser();
 $parser->addCodeDefinitionSet(new JBBCode\DefaultCodeDefinitionSet());
 $parser->addBBCode("quote", '<blockquote>{param}</blockquote>');
+$parser->addBBCode("strike", '<strike>{param}</strike>');
 $parser->addBBCode("center", '<div align="center">{param}</div>');
 $parser->addBBCode("right", '<div align="right">{param}</div>');
 $parser->addBBCode("left", '<div align="left">{param}</div>');
