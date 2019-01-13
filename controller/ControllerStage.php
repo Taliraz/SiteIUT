@@ -74,7 +74,7 @@ class ControllerStage{
             $IUT=ModelIUT::getAllIUTs();
             foreach ($IUT as $value) {
                 if($value->getMailSecretariatIUT()!=NULL){
-                    mail($value->getMailSecretariatIUT(),"Nouveau Stage ".$v->getIntituleStage,$mail);
+                    mail($value->getMailSecretariatIUT(),"Nouveau Stage ".$v->getIntituleStage(),$mail);
                 }            }
             $controller='stage';
             $view='created';
