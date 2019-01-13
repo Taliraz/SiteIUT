@@ -34,8 +34,9 @@
                 <?php
                 require_once File::build_path(array("model","ModelVille.php"));
                 $liste=ModelVille::getAllVilles();
+                $ville=ModelVille::getVilleById($v->getIdVille());
                 foreach($liste as $valeur){
-                  if ($valeur==$v) echo '<option selected value="'.$v->getId().'">'.$v->getNom().' ('.$v->getCodePostal().')</option>';
+                  if ($valeur==$ville) echo '<option selected value="'.$ville->getId().'">'.$ville->getNom().' ('.$ville->getCodePostal().')</option>';
                   else echo '<option value="'.$valeur->getId().'">'.$valeur->getNom().' ('.$valeur->getCodePostal().')</option>';
                 }
                 ?>
