@@ -2,7 +2,7 @@
   require_once (File::build_path(array("model","ModelTemoignage.php")));
   if(isset($_POST['submit'])){
       if (!empty($_FILES['p_photo']) && is_uploaded_file($_FILES['p_photo']['tmp_name'])) {
-          $name = $_FILES['p_photo']['name'];
+          $name = strtr($_FILES['p_photo']['name']," ","_" );
           $pic_path = File::build_path(array("img","$name"));
           if (!move_uploaded_file($_FILES['p_photo']['tmp_name'], $pic_path)) {
             echo "La copie a échoué";

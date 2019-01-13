@@ -4,7 +4,7 @@
     $tailleFichier=$_FILES['photo']['size'];
     if($tailleFichier>0){
       if (!empty($_FILES['photo']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
-            $name = $_FILES['photo']['name'];
+            $name = strtr($_FILES['photo']['name']," ","_" );
             $pic_path = File::build_path(array("img","$name"));
             if (!move_uploaded_file($_FILES['photo']['tmp_name'], $pic_path)) {
               echo "La copie a échoué";
