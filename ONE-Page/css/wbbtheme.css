@@ -23,8 +23,6 @@ html{height:100% !important;}
 	background:#fff;
 	font-size:12px;
     width: 95%;
-    max-height: 60vh;
-    overflow-y: scroll; 
 }
 
 @media screen and (max-width: 600px) {
