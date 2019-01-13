@@ -4,12 +4,14 @@ require_once (File::build_path(array("ONE-Page","jbbcode", "JBBCode", "Parser.ph
 require (File::build_path(array("ONE-Page", "jbbcode", "getParsed.php")));
 $parser->parse($v->getContenuTemoignage());
 $IUT=ModelIUT::getIUTById($v->getIdIUT());
+if($v->estAccepte()) $accepte="Oui";
+else $accepte="Non";
 echo'<p class="detailDonnees"> Titre : ' . htmlspecialchars($v->getTitreTemoignage()).'</p>
 	<p class="detailDonnees"> Contenu : <br>' . $parser->getAsHtml() .'</p>
 	<p class="detailDonnees"> Année de publication : ' .htmlspecialchars($v->getanneeEtude()) .'</p>
 	<p class="detailDonnees"> Etudiant : '.htmlspecialchars($v->getNomEtudiant()).' '.htmlspecialchars($v->getPrenomEtudiant()).'</p>
 	<p class="detailDonnees"> IUT : '.htmlspecialchars($IUT->getNomIUT()).'</p>
-	<p class="detailDonnees"> Accepté : '.htmlspecialchars($v->estAccepte()).'</p>
+	<p class="detailDonnees"> Accepté : '.$accepte.'</p>
 	<p class="detailDonnees"> <img src="'.$v->getPhotoTemoignage().'" width="25%" alt="L\'image n\'a pas été transférée"></p>';
 ?>
 

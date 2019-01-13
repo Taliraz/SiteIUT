@@ -71,10 +71,11 @@ class ControllerStage{
                     <p> Fonction du contact : '.htmlspecialchars($v->getFonctionContact()).'</p>
                     <p> Téléphone du contact : '.htmlspecialchars($v->getTelephoneContact()).'</p>
                     <p> Email du contact : '.htmlspecialchars($v->getEmailContact()).'</p>';
+            strip_tags($mail, '<p><a>'); 
             $IUT=ModelIUT::getAllIUTs();
             foreach ($IUT as $value) {
                 if($value->getMailSecretariatIUT()!=NULL){
-                    mail($value->getMailSecretariatIUT(),"Nouveau Stage ".$v->getIntituleStage(),$mail);
+                    mail($value->getMailSecretariatIUT(),"Nouveau Stage de ".$v->getIntituleStage()." chez ".$v->getNomEntreprise(),$mail);
                 }            }
             $controller='stage';
             $view='created';
